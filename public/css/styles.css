@@ -1,0 +1,157 @@
+/* line 3, ../../compass/sass/_bgmain.scss */
+.main-wrapper {
+  background: url("/assets/gifs/main-bg.gif");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  min-height: 900px;
+  margin-top: -9em;
+  z-index: 0;
+}
+/* line 12, ../../compass/sass/_bgmain.scss */
+.main-wrapper .btn {
+  margin-top: 16em !important;
+}
+/* line 16, ../../compass/sass/_bgmain.scss */
+.main-wrapper .btn-dark {
+  background: url("/assets/images/sci_fi_texture.png");
+  color: #ddd;
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  letter-spacing: 10px;
+  border: 6px solid black;
+}
+
+/* line 1, ../../compass/sass/_play.scss */
+* {
+  color: white;
+  font-family: 'Ek Mukta', sans-serif;
+}
+
+/* line 8, ../../compass/sass/_play.scss */
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*preserve aspect ration */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+/* line 19, ../../compass/sass/_play.scss */
+audio {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 27, ../../compass/sass/_play.scss */
+.header {
+  color: white;
+  margin-left: 10px;
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* line 47, ../../compass/sass/_play.scss */
+#health {
+  float: right;
+  margin-right: 394px;
+  font-size: 20px;
+}
+
+/* line 53, ../../compass/sass/_play.scss */
+#userHealth, #alienHealth {
+  color: black;
+}
+
+/* line 57, ../../compass/sass/_play.scss */
+#message {
+  font-size: 20px;
+  background: black;
+  color: white;
+}
+
+/* line 63, ../../compass/sass/_play.scss */
+#bars {
+  background: green;
+  display: flex;
+  font-size: 17px;
+  padding: 10px;
+}
+
+/* line 71, ../../compass/sass/_play.scss */
+#dice {
+  margin-top: 10px;
+}
+
+/* line 76, ../../compass/sass/_play.scss */
+.btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* line 83, ../../compass/sass/_play.scss */
+.btn a {
+  text-decoration: none;
+  color: black !important;
+}
+
+/* line 90, ../../compass/sass/_play.scss */
+.progress {
+  padding-right: 45px;
+}
+
+/* line 94, ../../compass/sass/_play.scss */
+p {
+  font-size: 15px;
+}
+
+/*MEDIA QUERIES*/
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+  /* line 106, ../../compass/sass/_play.scss */
+  h1 {
+    margin-left: 0em;
+    text-align: center;
+  }
+
+  /* line 111, ../../compass/sass/_play.scss */
+  #alien img {
+    width: 75%;
+  }
+}
+@media only screen and (max-device-width: 375px) {
+  /* line 123, ../../compass/sass/_play.scss */
+  h1 {
+    margin-left: 0em;
+    text-align: center;
+  }
+
+  /* line 128, ../../compass/sass/_play.scss */
+  #alien img {
+    width: 75%;
+  }
+}
+@media only screen and (min-device-width: 1024px) {
+  /* line 139, ../../compass/sass/_play.scss */
+  h1 {
+    margin-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  /* line 144, ../../compass/sass/_play.scss */
+  #alien img {
+    width: auto;
+    margin: auto;
+  }
+}
+/* line 3, ../../compass/sass/_footer.scss */
+.main-footer {
+  background: #111111;
+  font-family: 'Anton', sans-serif;
+  line-height: -1em;
+  padding: 1em;
+}
