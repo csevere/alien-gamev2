@@ -2,8 +2,9 @@ import { combineReducers } from 'redux';
 import StoryTextReducer from './StoryTextReducer';
 import SelectionStoryReducer from './SelectionStoryReducer'; 
  
-
-export default combineReducers({
+const rootReducer =  combineReducers({
     storytextlibrary: StoryTextReducer,
     selectedStoryId: SelectionStoryReducer
 }); 
+
+export default rootReducer; 
