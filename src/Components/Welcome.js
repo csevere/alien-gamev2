@@ -8,7 +8,7 @@ const Welcome = () => (
             <Container>
                 <Row className = "no-gutters">
                     <Col md="5"  className="align-middle mx-auto my-5">
-                        <Link to = "/play"><Button color="dark" size="lg" block>ENTER</Button></Link>
+                        <Link to = "/scene"><Button color="dark" size="lg" block>ENTER</Button></Link>
                     </Col>
                 </Row>
             </Container> 

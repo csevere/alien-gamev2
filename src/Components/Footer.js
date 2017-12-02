@@ -3,7 +3,7 @@ import { Row, Col } from 'reactstrap';
 
 const Footer = () => { 
 	return(
-		<footer className = "main-footer">
+		<footer className = "main-footer pl-3">
             <Row className="no-gutters">
                 <div>
                     <p>Copyright &copy; 2017 Carla Severe | Alien BattleCraft</p>
