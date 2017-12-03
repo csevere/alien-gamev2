@@ -17,18 +17,36 @@ const Fade = ({ children, ...props }) => (
 );
 
 class SceneCard1 extends Component{
+    constructor(props){
+        super(props);
+            this.state = {showBackButton:'hidden'}
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { count } = this.props.selected; 
+        console.log(this.state.showBackButton)
+        console.log(count); 
+        if(count >= 0){
+            this.setState({ showBackButton: 'visible'});
+        }else if(count === null){
+            this.setState({ showBackButton: 'hidden'}); 
+        }
+      }
     
     renderScene(){
-        return this.props.storytext.map((storytext) => {
-            if(this.props.selected.count <= storytext.id && storytext.id <= 4 ){
+        const { count } = this.props.selected; 
+        const{ storyscene } = this.props;  
+
+        return storyscene.map((storyscene) => {
+            if(count <= storyscene.id && storyscene.id <= 4 ){
                 return(
-                    <Fade key = {storytext.id}>
+                    <Fade key = {storyscene.id}>
                         <Row>
                             <Card className = "scene-card position-absolute" inverse>
-                                <CardImg className = "img-fluid" top width="100%" src={storytext.image} alt="Card image cap" />
+                                <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                                 <CardImgOverlay className = "scene-bottom">
                                     <CardText className = "scene-text">
-                                        {storytext.text}
+                                        {storyscene.text}
                                     </CardText>
                                 </CardImgOverlay>
                             </Card> 
@@ -40,7 +58,11 @@ class SceneCard1 extends Component{
     }
 
     render(){
-        console.log(this.props.selected.count)
+        
+        var BackStyle = {
+            visibility: this.state.showBackButton
+        }
+        
         return(
             <div>
                 <div className = "scene-wrapper no-gutters">
@@ -49,8 +71,9 @@ class SceneCard1 extends Component{
                             {this.renderScene()}
                         </TransitionGroup> 
                         <Row className = "scene-button float-right">
-                            <Button className = "btn btn-dark" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
-                        </Row>  
+                            <Button style = {BackStyle} className = "btn btn-dark float-left" onClick ={ ()=> this.props.backCount()}>BACK</Button>
+                            <Button className = "btn btn-dark float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
+                        </Row> 
                     </Container> 
                 </div>
             </div>  
@@ -60,7 +83,7 @@ class SceneCard1 extends Component{
 
 const mapStateToProps = (state)=>{
     return{
-        storytext: state.storyTextLibrary,
+        storyscene: state.storySceneLibrary,
         selected: state.selectedStoryId
     }
 }
