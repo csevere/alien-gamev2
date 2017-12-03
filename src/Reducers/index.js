@@ -3,7 +3,7 @@ import StoryTextReducer from './StoryTextReducer';
 import SelectionStoryReducer from './SelectionStoryReducer'; 
  
 const rootReducer =  combineReducers({
-    storytextlibrary: StoryTextReducer,
+    storyTextLibrary: StoryTextReducer,
     selectedStoryId: SelectionStoryReducer
 }); 
 
