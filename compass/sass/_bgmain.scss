@@ -19,6 +19,7 @@
         font-family: 'Anton', sans-serif;
         font-size: 3em;
         letter-spacing: 10px;
-        border: 6px solid black;
+        border: 5px solid $button-border;
+        border-style: ridge;
     }   
 }

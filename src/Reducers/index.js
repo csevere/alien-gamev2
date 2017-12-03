@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'; 
-import StoryTextReducer from './StoryTextReducer';
+import StorySceneReducer from './StorySceneReducer';
 import SelectionStoryReducer from './SelectionStoryReducer'; 
  
 const rootReducer =  combineReducers({
-    storytextlibrary: StoryTextReducer,
+    storySceneLibrary: StorySceneReducer,
     selectedStoryId: SelectionStoryReducer
 }); 
 

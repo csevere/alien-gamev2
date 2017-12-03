@@ -1,7 +1,7 @@
 @import 'variables';
 
 .scene-wrapper{
-    background: $black;
+    background: url('/assets/images/scene_texture.jpg'); 
     background-size: cover; 
     background-position: center;  
     height:100%;
@@ -41,12 +41,12 @@
         }
     } 
     .scene-button{
-        margin-top: 4em; 
+        margin-top: 64em; 
         @media(max-width:1199px){
-            margin-top: 11em;    
+            margin-top: 71em;    
         }
         @media(max-width:736px){
-            margin-top: 19em;    
+            margin-top: 89em;    
         }
     }
 }
