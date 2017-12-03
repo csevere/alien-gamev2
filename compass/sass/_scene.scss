@@ -1,7 +1,7 @@
 @import 'variables';
 
 .scene-wrapper{
-    background: $black;
+    background: url('/assets/images/scene_texture.jpg'); 
     background-size: cover; 
     background-position: center;  
     height:100%;

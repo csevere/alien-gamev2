@@ -19,7 +19,8 @@
   font-family: 'Anton', sans-serif;
   font-size: 3em;
   letter-spacing: 10px;
-  border: 6px solid black;
+  border: 5px solid rgba(119, 75, 12, 0.8);
+  border-style: ridge;
 }
 
 /* line 1, ../../compass/sass/_play.scss */
@@ -165,7 +166,7 @@ p {
 
 /* line 3, ../../compass/sass/_scene.scss */
 .scene-wrapper {
-  background: #111111;
+  background: url("/assets/images/scene_texture.jpg");
   background-size: cover;
   background-position: center;
   height: 100%;
