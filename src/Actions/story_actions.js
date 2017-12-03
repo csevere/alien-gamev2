@@ -1,6 +1,20 @@
-export const selectStory = (storyId) =>{
+// import default from "react-router-dom/BrowserRouter";
+
+// export const selectStory = (storyId) =>{
+//     return{
+//         type: 'select_story',
+//         payload: storyId
+//     };
+// };
+
+export const nextCount = () =>{
     return{
-        type: 'select_story',
-        payload: storyId
+        type: 'next'
     };
-};
+}
+
+export const backCount = () =>{
+    return{
+        type: 'back'
+    };
+}
