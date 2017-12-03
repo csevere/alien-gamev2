@@ -17,7 +17,7 @@ export default (state = INITIAL_STATE, action) => {
         return Object.assign({}, state, {count})
     }
     else if(action.type === "back"){
-        let count = state.count - 1
+        let count = state.count >= 0 ? state.count - 1 : 0
          return Object.assign({}, state, {count})
     }
     else return state
