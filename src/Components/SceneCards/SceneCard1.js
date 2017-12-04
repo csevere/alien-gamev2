@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardIm
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 
 class SceneCard1 extends Component{
