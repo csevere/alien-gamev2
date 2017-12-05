@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardIm
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
+import Typing from 'react-typing-animation'; 
 
 class SceneCard1 extends Component{
     constructor(props){
@@ -55,7 +56,9 @@ class SceneCard1 extends Component{
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <CardText className = "scene-text">
-                                    {storyscene.text}
+                                    <Typing>
+                                        {storyscene.text}
+                                    </Typing> 
                                 </CardText>
                             </CardImgOverlay>
                         </Card> 
