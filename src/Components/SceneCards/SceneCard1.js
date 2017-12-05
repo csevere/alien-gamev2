@@ -3,19 +3,21 @@ import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardIm
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
-
 
 class SceneCard1 extends Component{
     constructor(props){
         super(props);
             this.state = {
-                showBackButton:'hidden'
+                showBackButton:'hidden',
+                scale: 'scale(1)',
+                transition:'transition',
+                opacity: 1, 
             }
     }
 
     componentWillReceiveProps(nextProps) {
         const { count } = this.props.selected; 
+    
         if(count >= 0){
             setTimeout(() => {
                 this.setState({
@@ -23,20 +25,33 @@ class SceneCard1 extends Component{
                 })
               }, 500)
 
-        }else if(count === null){
-            this.setState({ showBackButton: 'hidden'}); 
+            this.setState({
+                scale: 'scale(1.1)',
+                transition: 'all 1s',
+                opacity: 0
+            }) 
+
         }
-      }
+    }
     
     renderScene(){
         const { count } = this.props.selected; 
-        const{ storyscene } = this.props;  
+        const{ storyscene } = this.props; 
+
+        var TransitionEffects = {
+            transform: this.state.scale,
+            transition: this.state.transition ,
+            opacity: this.state.opacity 
+        }
+         
 
         return storyscene.map((storyscene) => {
-            if(count <= storyscene.id && storyscene.id <= 4 ){
+            var counter = count;
+            var idcounter = storyscene.id;
+            if(counter <= idcounter && idcounter <= 4){
                 return(
                     <Row key = {storyscene.id}>
-                        <Card className = "scene-card position-absolute" inverse>
+                        <Card style = {idcounter == counter ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <CardText className = "scene-text">
@@ -44,7 +59,8 @@ class SceneCard1 extends Component{
                                 </CardText>
                             </CardImgOverlay>
                         </Card> 
-                    </Row> 
+                    </Row>
+                
                 )
             }
         }).reverse();
@@ -55,7 +71,7 @@ class SceneCard1 extends Component{
         var BackStyle = {
             visibility: this.state.showBackButton
         }
-        
+
         return(
             <div>
                 <div className = "scene-wrapper no-gutters">
