@@ -27,6 +27,10 @@
             @media(max-width:736px){
                 margin-top:1em !important;   
             }
+            .place{
+                font-size: $sml;
+                margin-top:-19em;  
+            }
         } 
         .scene-text{
             color: $scene-text !important;
