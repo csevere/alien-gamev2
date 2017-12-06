@@ -63,7 +63,6 @@ class SceneCard1 extends Component{
                             </CardImgOverlay>
                         </Card> 
                     </Row>
-                
                 )
             }
         }).reverse();
