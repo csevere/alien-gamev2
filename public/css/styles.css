@@ -202,37 +202,47 @@ p {
     margin-top: 1em !important;
   }
 }
-/* line 31, ../../compass/sass/_scene.scss */
+/* line 30, ../../compass/sass/_scene.scss */
+.scene-wrapper .scene-card .scene-bottom .place {
+  font-size: 18px;
+  margin-top: -19em;
+}
+/* line 35, ../../compass/sass/_scene.scss */
 .scene-wrapper .scene-card .scene-text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
 @media (max-width: 1199px) {
-  /* line 31, ../../compass/sass/_scene.scss */
+  /* line 35, ../../compass/sass/_scene.scss */
   .scene-wrapper .scene-card .scene-text {
     font-size: 18px;
   }
 }
 @media (max-width: 736px) {
-  /* line 31, ../../compass/sass/_scene.scss */
+  /* line 35, ../../compass/sass/_scene.scss */
   .scene-wrapper .scene-card .scene-text {
     font-size: 1.4em;
   }
 }
-/* line 43, ../../compass/sass/_scene.scss */
+/* line 47, ../../compass/sass/_scene.scss */
 .scene-wrapper .scene-button {
   margin-top: 64em;
 }
 @media (max-width: 1199px) {
-  /* line 43, ../../compass/sass/_scene.scss */
+  /* line 47, ../../compass/sass/_scene.scss */
   .scene-wrapper .scene-button {
     margin-top: 71em;
   }
 }
 @media (max-width: 736px) {
-  /* line 43, ../../compass/sass/_scene.scss */
+  /* line 47, ../../compass/sass/_scene.scss */
   .scene-wrapper .scene-button {
     margin-top: 89em;
   }
+}
+
+/* line 7, ../../compass/sass/styles.scss */
+.efaGep {
+  color: #39CCCC !important;
 }

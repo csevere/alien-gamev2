@@ -13,11 +13,13 @@ class SceneCard1 extends Component{
                 scale: 'scale(1)',
                 transition:'transition',
                 opacity: 1, 
+                typing: true 
             }
     }
 
     componentWillReceiveProps(nextProps) {
         const { count } = this.props.selected; 
+        const { storyscene } = this.props; 
     
         if(count >= 0){
             setTimeout(() => {
@@ -33,11 +35,13 @@ class SceneCard1 extends Component{
             }) 
 
         }
+
     }
-    
+
+       
     renderScene(){
         const { count } = this.props.selected; 
-        const{ storyscene } = this.props; 
+        const { storyscene } = this.props; 
 
         var TransitionEffects = {
             transform: this.state.scale,
@@ -47,25 +51,24 @@ class SceneCard1 extends Component{
          
 
         return storyscene.map((storyscene) => {
-            var counter = count;
-            var idcounter = storyscene.id;
-            if(counter <= idcounter && idcounter <= 4){
+            if(count <= storyscene.id && storyscene.id <= 4){
                 return(
                     <Row key = {storyscene.id}>
-                        <Card style = {idcounter == counter ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
+                        <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
-                                <CardText className = "scene-text">
-                                    <Typing>
+                                <div className = "float-right place">{storyscene.place}</div> 
+                                <Typing speed = {100} loop = {true} delay={500}>    
+                                    <CardText className = "scene-text"> 
                                         {storyscene.text}
-                                    </Typing> 
-                                </CardText>
+                                    </CardText> 
+                                </Typing> 
                             </CardImgOverlay>
                         </Card> 
                     </Row>
-                
                 )
             }
+
         }).reverse();
     }
 
