@@ -8,13 +8,19 @@ import Typing from 'react-typing-animation';
 class Conversation1 extends Component{
     constructor(props){
         super(props);
-            this.state = {
-                showBackButton:'hidden',
-                scale: 'scale(1)',
-                transition:'transition',
-                opacity: 1, 
-            }
+
+    }
+
+    render(){
+
+        return(
+            <div>
+                <h1 className = "text-dark">hello</h1>
+            </div>  
+        )
     }
 }
+
+
 
 export default Conversation1; 

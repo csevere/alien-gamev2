@@ -241,6 +241,19 @@ p {
     margin-top: 89em;
   }
 }
+/* line 58, ../../compass/sass/_scene.scss */
+.scene-wrapper .continue {
+  background: url("/assets/images/sci_fi_texture.png");
+  color: #ddd;
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  letter-spacing: 10px;
+  border: 5px solid rgba(119, 75, 12, 0.8);
+  border-style: ridge;
+  position: relative;
+  top: 12em;
+  left: 12em;
+}
 
 /* line 7, ../../compass/sass/styles.scss */
 .efaGep {
