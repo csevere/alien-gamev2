@@ -16,7 +16,8 @@
     "react-transition-group": "^2.2.1",
     "react-typing-animation": "^1.1.5",
     "reactstrap": "^4.8.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "watchman": "^1.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7",
