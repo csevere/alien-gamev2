@@ -8,11 +8,17 @@
   margin-top: -9em;
   z-index: 0;
 }
-/* line 12, ../../compass/sass/_bgmain.scss */
+@media (max-width: 1500px) {
+  /* line 3, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    min-height: 847px;
+  }
+}
+/* line 15, ../../compass/sass/_bgmain.scss */
 .main-wrapper .btn {
   margin-top: 16em !important;
 }
-/* line 16, ../../compass/sass/_bgmain.scss */
+/* line 19, ../../compass/sass/_bgmain.scss */
 .main-wrapper .btn-dark {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -241,7 +247,6 @@ p {
     margin-top: 89em;
   }
 }
-<<<<<<< HEAD
 /* line 58, ../../compass/sass/_scene.scss */
 .scene-wrapper .continue {
   background: url("/assets/images/sci_fi_texture.png");
@@ -317,11 +322,28 @@ p {
   background-color: #464a4e;
 }
 
-/* line 8, ../../compass/sass/styles.scss */
-=======
+/* line 1, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper {
+  background: url("/assets/images/scene_texture.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  min-height: 772px;
+  margin-top: -2em;
+  z-index: 0;
+}
+@media (max-width: 1100px) {
+  /* line 1, ../../compass/sass/_loginnav.scss */
+  .lognav-wrapper {
+    min-height: 847px;
+  }
+}
+/* line 13, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .lognav-content {
+  margin-top: 16em;
+}
 
-/* line 7, ../../compass/sass/styles.scss */
->>>>>>> master
+/* line 9, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }

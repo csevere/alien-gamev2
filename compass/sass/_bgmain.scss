@@ -8,6 +8,9 @@
     min-height: 772px; 
     margin-top: -9em; 
     z-index: 0;
+    @media(max-width:1500px){
+        min-height: 847px;    
+    }
 
     .btn {
         margin-top: 16em !important;
