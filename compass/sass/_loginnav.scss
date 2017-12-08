@@ -1,0 +1,16 @@
+.lognav-wrapper{
+    background: url('/assets/images/scene_texture.jpg');
+    background-size: cover; 
+    background-position: center;  
+    height:100%;
+    min-height: 772px; 
+    margin-top: -2em; 
+    z-index: 0;
+    @media(max-width:1100px){
+        min-height: 847px;    
+    }
+
+    .lognav-content{
+        margin-top: 16em;
+    }
+}
