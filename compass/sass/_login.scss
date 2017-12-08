@@ -1,0 +1,14 @@
+@import 'variables'; 
+
+.login-wrapper{
+
+    .login-card{
+        height: 18em; 
+        background: transparent !important;
+        .login-content{
+            color: $scene-text !important;
+            font-size: $med;
+            font-family: $scene-font;
+        }
+    }
+}

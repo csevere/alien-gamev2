@@ -5,11 +5,19 @@
     background-size: cover; 
     background-position: center;  
     height:100%;
-    min-height: 772px; 
+    min-height: 78em; 
     margin-top: -9em; 
     z-index: 0;
-    @media(max-width:1500px){
-        min-height: 847px;    
+    @media(min-width:1600px){
+        min-height: 82em;    
+    }
+
+    @media(min-width:1700px){
+        min-height: 87em;    
+    }
+
+    @media(min-width:1800px){
+        min-height: 91em;    
     }
 
     .btn {
