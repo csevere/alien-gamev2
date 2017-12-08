@@ -1,2 +1,69 @@
 @import 'variables';
 
+.convo-wrapper{
+    background: url('/assets/images/scene_texture.jpg'); 
+    background-size: cover; 
+    background-position: center;  
+    height:100%;
+    min-height: 772px; 
+    margin-top: -9em; 
+    z-index: 0;
+    
+
+    .img-fluid{
+        height: 20em;
+        width: 20em; 
+        margin-top:2em; 
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px $scene-text, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
+
+
+    }
+    .speaker1, .speaker2, .side-text{
+        margin-top: 10em; 
+        background: transparent; 
+        // .header{
+        //     margin-left: -0.5em;
+        // }
+    }
+
+   
+
+    .header{
+        font-family: 'Orbitron', sans-serif !important;
+        letter-spacing: 1px;
+        text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-2{
+        margin-left:38.8em ;   
+    }
+    
+    .convo-side{
+        height: 17em;
+        margin-top: 0em;
+        top: 23em !important; 
+        background: $scene-bg;
+        background-size: cover;
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px $scene-text, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
+    }
+
+    .convo-text{
+        color: $scene-text !important;
+        font-size: $med;
+        font-family: $scene-font;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        border-color: #868e96;
+        &:hover {
+            background-color: $dark-gray;
+        }
+    }
+
+}
+
