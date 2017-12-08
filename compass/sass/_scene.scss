@@ -53,4 +53,21 @@
             margin-top: 89em;    
         }
     }
+
+
+    .continue {
+        background: url('/assets/images/sci_fi_texture.png');
+        color: $light-gray;
+        font-family: 'Anton', sans-serif;
+        font-size: 3em;
+        letter-spacing: 10px;
+        border: 5px solid $button-border;
+        border-style: ridge;
+        position: relative;
+        top: 12em;
+        left: 12em;
+    } 
+ 
 }
+
+
