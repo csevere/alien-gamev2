@@ -9,7 +9,10 @@ class SceneCard1 extends Component{
     constructor(props){
         super(props);
             this.state = {
-                showBackButton:'hidden',
+                showBackButton:'none',
+                showNextButton: 'block',
+                showContinueButton: 'none',
+                showCard: 'block',
                 scale: 'scale(1)',
                 transition:'transition',
                 opacity: 1, 
@@ -20,11 +23,12 @@ class SceneCard1 extends Component{
     componentWillReceiveProps(nextProps) {
         const { count } = this.props.selected; 
         const { storyscene } = this.props; 
-    
-        if(count >= 0){
+        console.log(count)
+
+        if(count < 3){
             setTimeout(() => {
                 this.setState({
-                    showBackButton: 'visible'
+                    showBackButton: 'block'
                 })
               }, 500)
 
@@ -36,6 +40,15 @@ class SceneCard1 extends Component{
 
         }
 
+
+        if (count >= 3){
+            this.setState({
+                showBackButton:'none', 
+                showNextButton: 'none',
+                showContinueButton: 'block',
+                showCard: 'none'
+            })
+        }
     }
 
        
@@ -43,22 +56,25 @@ class SceneCard1 extends Component{
         const { count } = this.props.selected; 
         const { storyscene } = this.props; 
 
-        var TransitionEffects = {
+        const TransitionEffects = {
             transform: this.state.scale,
             transition: this.state.transition ,
             opacity: this.state.opacity 
         }
-         
+
+        const CardStyle = {
+            display: this.state.showCard
+        }
 
         return storyscene.map((storyscene) => {
             if(count <= storyscene.id && storyscene.id <= 4){
                 return(
-                    <Row key = {storyscene.id}>
+                    <Row style = {CardStyle} key = {storyscene.id}>
                         <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place">{storyscene.place}</div> 
-                                <Typing speed = {100} loop = {true} delay={500}>    
+                                <Typing speed = {100} loop = {true}>    
                                     <CardText className = "scene-text"> 
                                         {storyscene.text}
                                     </CardText> 
@@ -67,15 +83,23 @@ class SceneCard1 extends Component{
                         </Card> 
                     </Row>
                 )
-            }
+            };
 
         }).reverse();
     }
 
     render(){
         
-        var BackStyle = {
-            visibility: this.state.showBackButton
+        const BackStyle = {
+            display: this.state.showBackButton
+        }
+
+        const NextStyle = {
+            display: this.state.showNextButton
+        }
+
+        const ContinueStyle ={
+            display: this.state.showContinueButton
         }
 
         return(
@@ -83,9 +107,14 @@ class SceneCard1 extends Component{
                 <div className = "scene-wrapper no-gutters">
                     <Container className = "position-relative">
                         {this.renderScene()}
+                        <Row style = {ContinueStyle} className = "no-gutters">
+                            <Col md="5"  className="align-middle">
+                                <Link to = "/convo"><Button className = "continue" color="dark" size="lg" block>CONTINUE</Button></Link>
+                            </Col>
+                        </Row>
                         <Row className = "scene-button float-right">
                             <Button style = {BackStyle} className = "btn btn-dark float-left" onClick ={ ()=> this.props.backCount()}>BACK</Button>
-                            <Button className = "btn btn-dark float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
+                            <Button style = {NextStyle} className = "btn btn-dark float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
                         </Row> 
                     </Container> 
                 </div>
