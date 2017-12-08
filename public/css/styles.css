@@ -241,6 +241,7 @@ p {
     margin-top: 89em;
   }
 }
+<<<<<<< HEAD
 /* line 58, ../../compass/sass/_scene.scss */
 .scene-wrapper .continue {
   background: url("/assets/images/sci_fi_texture.png");
@@ -317,6 +318,10 @@ p {
 }
 
 /* line 8, ../../compass/sass/styles.scss */
+=======
+
+/* line 7, ../../compass/sass/styles.scss */
+>>>>>>> master
 .efaGep {
   color: #39CCCC !important;
 }

@@ -24,7 +24,7 @@ class SceneCard1 extends Component{
         const { count } = this.props.selected; 
         const { storyscene } = this.props; 
         console.log(count)
-    
+
         if(count < 3){
             setTimeout(() => {
                 this.setState({
@@ -40,6 +40,7 @@ class SceneCard1 extends Component{
 
         }
 
+
         if (count >= 3){
             this.setState({
                 showBackButton:'none', 
@@ -48,7 +49,6 @@ class SceneCard1 extends Component{
                 showCard: 'none'
             })
         }
-
     }
 
        
@@ -84,6 +84,7 @@ class SceneCard1 extends Component{
                     </Row>
                 )
             };
+
         }).reverse();
     }
 
