@@ -5,7 +5,7 @@
 Alien Battlecraft is a visual story game that takes place in a massive alien ship. Players team up with a crew to explore the battlecraft, fight off its hostile inhabitants, and uncover its multitude of secrets. 
 
 <p align='center'>
-  <img src="public/Images/mainscreen.png">
+  <img src="frontend/public/Images/mainscreen.png">
 </p>
 
 ## Languages and Technologies
