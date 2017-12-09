@@ -6,7 +6,6 @@
 #ignore doc files
 .sass-cache
 
-
 # testing
 /coverage
 
