@@ -28,11 +28,13 @@ class Conversation1 extends Component{
                                     <Card className ="side-text">
                                         <CardHeader className = "text-dark convo-text header header-1">Meliz</CardHeader>
                                         <CardBlock className = "convo-side">
-                                            <CardText className = "convo-text p-3">
-                                                With supporting text below as a natural lead-in to additional content.
-                                                With supporting text below as a natural lead-in to additional content.
-                                                With supporting text below as a natural lead-in to additional content.
-                                            </CardText>
+                                            <Typing speed = {100}> 
+                                                <CardText className = "convo-text p-3">
+                                                    With supporting text below as a natural lead-in to additional content.
+                                                    With supporting text below as a natural lead-in to additional content.
+                                                    With supporting text below as a natural lead-in to additional content.
+                                                </CardText>
+                                            </Typing> 
                                         </CardBlock>
                                     </Card>
                                 </CardGroup>
@@ -45,11 +47,13 @@ class Conversation1 extends Component{
                                     <Card className = "side-text">
                                         <CardHeader className = "convo-text header header-2">Zackaria</CardHeader>
                                         <CardBlock className = "convo-side">
-                                            <CardText className = "convo-text p-3 d-flex flex-column">
-                                                <Button><div className = "convo-text">1. "We should check out the north wing."</div></Button>
-                                                <Button><div className = "convo-text">2. "... I don't really care what we do."</div></Button> 
-                                                <Button><div className = "convo-text">3. "This is such a dumb idea. You're an idiot, you know that?"</div></Button> 
-                                            </CardText>
+                                            <Typing speed = {100}> 
+                                                <CardText className = "convo-text p-3 d-flex flex-column">
+                                                    <Button><div className = "convo-text">1. "We should check out the north wing."</div></Button>
+                                                    <Button><div className = "convo-text">2. "... I don't really care what we do."</div></Button> 
+                                                    <Button><div className = "convo-text">3. "This is such a dumb idea. You're an idiot, you know that?"</div></Button> 
+                                                </CardText>
+                                            </Typing> 
                                         </CardBlock>
                                     </Card>
                                     <Col md = "2">
@@ -61,6 +65,15 @@ class Conversation1 extends Component{
                             </Col>
                         </Row>
                     </Container> 
+                </div>
+                <div className = "p-2 audio">
+                    <embed 
+                        src="assets/music/poddreams.mp3" 
+                        preload = "auto" 
+                        width="10"
+                        height="10"
+                        loop="true"
+                    controls/>	
                 </div>
             </div>  
         )
