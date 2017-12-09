@@ -37,7 +37,7 @@ export class LogNav extends Component{
 		return(
             <div  className = "py-3 mb-3 lognav-wrapper">
                 <Row className = "row-nav"> 
-                    <Col className = "logtabs align-middle mx-auto my-5" sm = "8" md = "8">
+                    <Col className = "logtabs align-middle mx-auto my-5" sm = "9" md = "9">
                         <Nav tabs>
                             <NavItem>
                                 <NavLink
@@ -59,7 +59,7 @@ export class LogNav extends Component{
                         </Nav>
                     </Col>
 
-                    <Col sm = "8" md = "8" className = "lognav-content align-middle mx-auto"> 
+                    <Col sm = "9" md = "9" className = "lognav-content align-middle mx-auto"> 
                         <TabContent activeTab={this.state.activeTab}>
                             <TabPane className = "login-tab" style={{ backgroundColor: 'transparent'}} tabId="1">
                                 <Login />

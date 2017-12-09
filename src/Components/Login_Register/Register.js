@@ -39,27 +39,32 @@ export class Register extends Component{
 
 		return(
             <div>
-                <Container className = "register-wrapper">
-                    <Card className = "p-5">
+                <Container className = "login-wrapper">
+                    <Card className = "p-3 login-card">
                         <CardBlock>
-                            <Form>
-                                <FormGroup>
-                                    <Label className = "text-dark"  for="email">Email</Label>
-                                    <Input type="email" name="email" id="email" placeholder="enter your email" />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label className = "text-dark" for="username">Username</Label>
-                                    <Input type="username" name="username" id="username" placeholder="create a username" />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label className = "text-dark" for="password">Password</Label>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="create a password" />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Label className = "text-dark" for="character">Character's Name</Label>
-                                    <Input type="character" name="character" id="character" placeholder="create a name for your character" />
-                                </FormGroup>
-                                <Button>Join</Button>
+                            <Form className = "login-content">
+                                <div className = "d-flex flex-row">
+                                    <FormGroup className = "p-2">
+                                        <Label for="email">Email</Label>
+                                        <Input type="email" name="email" id="email" placeholder="enter your email" />
+                                    </FormGroup>
+                                    <FormGroup className = "p-2">
+                                        <Label for="username">Username</Label>
+                                        <Input type="username" name="username" id="username" placeholder="create a username" />
+                                    </FormGroup>
+                                </div>
+
+                                <div className = "d-flex flex-row">
+                                    <FormGroup className = "p-2">
+                                        <Label for="password">Password</Label>
+                                        <Input type="password" name="password" id="examplePassword" placeholder="create a password" />
+                                    </FormGroup>
+                                    <FormGroup className = "p-2">
+                                        <Label for="character">Character's Name</Label>
+                                        <Input type="character" name="character" id="character" placeholder="name your character" />
+                                    </FormGroup>
+                                </div>
+                                <Link to = "/scene"><Button size= "lg" block>JOIN</Button></Link> 
                             </Form>
                         </CardBlock>
                     </Card>

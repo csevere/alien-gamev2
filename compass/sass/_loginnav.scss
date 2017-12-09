@@ -4,11 +4,10 @@
     margin-top: 30em;
     margin-left: 24em;
     margin-right: -8em;
-   
+ 
     .row-nav{
         height: 41em; 
-        border: 3px solid green; 
-        background: url('/assets/images/sci_fi_texture.png'); 
+        background: transparent; 
     }
 
     .logtabs, .lognav-content{
@@ -26,11 +25,22 @@
     }
 
     .logtabs{
-        border: 3px solid cyan;
-        height: 7em;
+        height: 6.2em;
        
         .nav-tabs{
             border: none !important; 
+            .nav-link.active{
+                color: #fff;
+                background-color: #040404;
+                
+            }
+            .nav-link.active, .nav-link{
+                border-color: transparent; 
+                &:hover{
+                    color: $gray;
+                    background-color: transparent;
+                }
+            }      
         }
 
         .nav-item{
@@ -38,14 +48,13 @@
             font-size: $med;
             font-family: $scene-font;
         }
-  
     } 
 
     .lognav-content{
-        border: 3px solid pink; 
-        height: 20em; 
-        margin-top: -11em;
-    }
-
-    
+        height: 27em; 
+        margin-top: -5em;
+        .register-tab{
+            height: 25em; 
+        }
+    }  
 }

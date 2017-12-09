@@ -6,9 +6,28 @@
         height: 18em; 
         background: transparent !important;
         .login-content{
-            color: $scene-text !important;
-            font-size: $med;
-            font-family: $scene-font;
+            label, input {
+                color: $scene-text;
+                font-size: $med;
+                font-family: $scene-font; 
+            }
+
+            input{
+                background: black;
+                border: 1px solid white;
+                color: white; 
+
+            }
         }
+        a{
+            text-decoration: none;   
+            button{
+                &:hover {
+                    background-color: $dark-gray;
+                    text-decoration: none !important; 
+                }
+            }
+        
+        }       
     }
 }
