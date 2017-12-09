@@ -4,21 +4,29 @@
   background-size: cover;
   background-position: center;
   height: 100%;
-  min-height: 772px;
+  min-height: 78em;
   margin-top: -9em;
   z-index: 0;
 }
-@media (max-width: 1500px) {
+@media (min-width: 1600px) {
   /* line 3, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
-    min-height: 847px;
+    min-height: 82em;
   }
 }
-/* line 15, ../../compass/sass/_bgmain.scss */
-.main-wrapper .btn {
-  margin-top: 16em !important;
+@media (min-width: 1700px) {
+  /* line 3, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    min-height: 87em;
+  }
 }
-/* line 19, ../../compass/sass/_bgmain.scss */
+@media (min-width: 1800px) {
+  /* line 3, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    min-height: 91em;
+  }
+}
+/* line 23, ../../compass/sass/_bgmain.scss */
 .main-wrapper .btn-dark {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -322,28 +330,91 @@ p {
   background-color: #464a4e;
 }
 
-/* line 1, ../../compass/sass/_loginnav.scss */
+/* line 3, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper {
-  background: url("/assets/images/scene_texture.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  min-height: 772px;
-  margin-top: -2em;
-  z-index: 0;
+  margin-top: 30em;
+  margin-left: 24em;
+  margin-right: -8em;
 }
-@media (max-width: 1100px) {
-  /* line 1, ../../compass/sass/_loginnav.scss */
-  .lognav-wrapper {
-    min-height: 847px;
-  }
+/* line 8, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .row-nav {
+  height: 41em;
+  background: transparent;
 }
 /* line 13, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs, .lognav-wrapper .lognav-content {
+  background: rgba(9, 12, 39, 0.7);
+  background-size: cover;
+  border: 4px solid #d9edf7;
+  border-style: ridge;
+  box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
+}
+/* line 27, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs {
+  height: 6.2em;
+}
+/* line 30, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs .nav-tabs {
+  border: none !important;
+}
+/* line 32, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #040404;
+}
+/* line 37, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs .nav-tabs .nav-link.active, .lognav-wrapper .logtabs .nav-tabs .nav-link {
+  border-color: transparent;
+}
+/* line 39, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs .nav-tabs .nav-link.active:hover, .lognav-wrapper .logtabs .nav-tabs .nav-link:hover {
+  color: #969494;
+  background-color: transparent;
+}
+/* line 46, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .logtabs .nav-item {
+  color: #74f9fc !important;
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+}
+/* line 53, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .lognav-content {
-  margin-top: 16em;
+  height: 27em;
+  margin-top: -5em;
+}
+/* line 56, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .lognav-content .register-tab {
+  height: 25em;
 }
 
-/* line 9, ../../compass/sass/styles.scss */
+/* line 5, ../../compass/sass/_login.scss */
+.login-wrapper .login-card {
+  height: 18em;
+  background: transparent !important;
+}
+/* line 9, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .login-content label, .login-wrapper .login-card .login-content input {
+  color: #74f9fc;
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+}
+/* line 15, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .login-content input {
+  background: black;
+  border: 1px solid white;
+  color: white;
+}
+/* line 22, ../../compass/sass/_login.scss */
+.login-wrapper .login-card a {
+  text-decoration: none;
+}
+/* line 25, ../../compass/sass/_login.scss */
+.login-wrapper .login-card a button:hover {
+  background-color: #464a4e;
+  text-decoration: none !important;
+}
+
+/* line 10, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }

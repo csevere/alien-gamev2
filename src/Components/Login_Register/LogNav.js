@@ -36,30 +36,32 @@ export class LogNav extends Component{
 
 		return(
             <div  className = "py-3 mb-3 lognav-wrapper">
-                <Nav tabs>
-                    <NavItem>
-                        <NavLink
-                            className={classnames({ active: this.state.activeTab === '1' })}
-                            onClick={() => { this.toggle('1'); }}
-                        >
-                            LOGIN
-                        </NavLink>
-                    </NavItem>
+                <Row className = "row-nav"> 
+                    <Col className = "logtabs align-middle mx-auto my-5" sm = "9" md = "9">
+                        <Nav tabs>
+                            <NavItem>
+                                <NavLink
+                                    className={classnames({ active: this.state.activeTab === '1' })}
+                                    onClick={() => { this.toggle('1'); }}
+                                >
+                                    LOGIN
+                                </NavLink>
+                            </NavItem>
 
-                    <NavItem>
-                        <NavLink
-                            className={classnames({ active: this.state.activeTab === '2' })}
-                            onClick={() => { this.toggle('2'); }}
-                        >
-                            JOIN
-                        </NavLink>
-                    </NavItem>
-                </Nav>
+                            <NavItem>
+                                <NavLink
+                                    className={classnames({ active: this.state.activeTab === '2' })}
+                                    onClick={() => { this.toggle('2'); }}
+                                >
+                                    JOIN
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Col>
 
-                <Container>
-                    <Col sm = "8" md = "8" className = "lognav-content align-middle mx-auto my-5" > 
+                    <Col sm = "9" md = "9" className = "lognav-content align-middle mx-auto"> 
                         <TabContent activeTab={this.state.activeTab}>
-                            <TabPane className = "login-tab" style={{ backgroundColor: '#e6ecf0'}} tabId="1">
+                            <TabPane className = "login-tab" style={{ backgroundColor: 'transparent'}} tabId="1">
                                 <Login />
                             </TabPane>
 
@@ -68,7 +70,7 @@ export class LogNav extends Component{
                             </TabPane>
                         </TabContent>
                     </Col>
-                </Container>
+                </Row> 
 			</div>
 		)
 	}

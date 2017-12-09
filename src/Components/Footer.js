@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer className = "main-footer pl-3">
             <Row className="no-gutters">
                 <div>
-                    <p>Copyright &copy; 2017 Carla Severe | Alien BattleCraft</p>
+                    <p>Copyright &copy; 2017 Severe | Alien BattleCraft</p>
                 </div>
             </Row>
 		</footer>

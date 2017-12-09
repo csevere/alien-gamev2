@@ -40,18 +40,18 @@ export class Login extends Component{
 		return(
             <div>
                 <Container className = "login-wrapper">
-                    <Card className = "p-5">
+                    <Card className = "p-3 login-card">
                         <CardBlock>
-                            <Form>
+                            <Form className = "login-content">
                                 <FormGroup>
-                                    <Label className = "text-dark" for="username">Username</Label>
+                                    <Label for="username">Username</Label>
                                     <Input type="username" name="username" id="username" placeholder="enter username" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label className = "text-dark" for="password">Password</Label>
+                                    <Label for="password">Password</Label>
                                     <Input type="password" name="password" id="examplePassword" placeholder="enter password" />
                                 </FormGroup>
-                                <Button>Play</Button>
+                                <Link to = "/scene"><Button size= "lg" block>PLAY</Button></Link>
                             </Form>
                         </CardBlock>
                     </Card>

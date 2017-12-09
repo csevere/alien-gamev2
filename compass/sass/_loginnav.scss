@@ -1,16 +1,60 @@
+@import 'variables'; 
+
 .lognav-wrapper{
-    background: url('/assets/images/scene_texture.jpg');
-    background-size: cover; 
-    background-position: center;  
-    height:100%;
-    min-height: 772px; 
-    margin-top: -2em; 
-    z-index: 0;
-    @media(max-width:1100px){
-        min-height: 847px;    
+    margin-top: 30em;
+    margin-left: 24em;
+    margin-right: -8em;
+ 
+    .row-nav{
+        height: 41em; 
+        background: transparent; 
     }
 
-    .lognav-content{
-        margin-top: 16em;
+    .logtabs, .lognav-content{
+        background: $scene-bg;
+        background-size: cover;
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        box-shadow: 0px 1px 0px #ededed, 
+        0 0 4px white, 
+        0 0 0px $scene-text, 
+        0px 0px 0px #00ffff, 
+        0 0 20px #f7eaf5, 
+        0 0 20px #2753c4, 
+        0 0 0px #ededf7;
     }
+
+    .logtabs{
+        height: 6.2em;
+       
+        .nav-tabs{
+            border: none !important; 
+            .nav-link.active{
+                color: #fff;
+                background-color: #040404;
+                
+            }
+            .nav-link.active, .nav-link{
+                border-color: transparent; 
+                &:hover{
+                    color: $gray;
+                    background-color: transparent;
+                }
+            }      
+        }
+
+        .nav-item{
+            color: $scene-text !important;
+            font-size: $med;
+            font-family: $scene-font;
+        }
+    } 
+
+    .lognav-content{
+        height: 27em; 
+        margin-top: -5em;
+        .register-tab{
+            height: 25em; 
+        }
+    }  
 }
