@@ -139,3 +139,5 @@ const mapStateToProps = (state)=>{
 
 export default connect(mapStateToProps, actions)(SceneCard1); 
 
+//create a reread button that refreshes the page and lets readers read from beginning 
+
