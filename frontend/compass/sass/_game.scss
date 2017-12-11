@@ -41,6 +41,10 @@
         border: 3px solid red; 
         background-color: green; 
         height: 20em; 
+        .enemyProgress{
+            margin-top: -7em;
+            margin-left: 12em;
+        }
         .enemy-card{
             background-color:black;
             border: 2px solid red;
@@ -51,6 +55,10 @@
             background-color:black;
             border: 2px solid red;
             height: 7em; 
+        }
+        .playerProgress{
+            margin-top: -7em;
+            margin-left: 12em;
         }
         .player-card{
             background-color:black;
@@ -105,6 +113,7 @@
             border: 2px solid red;
             height: 30em; 
             width: 10em; 
+            margin-top: 1em; 
             .p-2{
                 background: yellow; 
                 height: 10em; 

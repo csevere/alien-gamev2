@@ -40,6 +40,12 @@ class Game extends Component{
                         <Row className = "row2 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-card mx-auto">Enemy card</div>
+                                <div className = "enemyProgress d-flex flex-column">
+                                    Health
+                                    <progress id = "enemyHealth" value = "500" max = "500"></progress>
+                                    AP
+                                    <progress id = "e_AP" value = "50" max = "50"></progress>
+                                </div>
                             </Col>
 
                             <Col md = "4">
@@ -48,6 +54,12 @@ class Game extends Component{
 
                             <Col md = "4">
                                 <div className = "player-card mx-auto">playercard</div>
+                                <div className = "playerProgress d-flex flex-column">
+                                    Health
+                                    <progress id = "userHealth" value = "500" max = "500"></progress>
+                                    AP
+                                    <progress id = "p_AP" value = "50" max = "50"></progress>
+                                </div> 
                             </Col>
                         </Row>
 
