@@ -9,6 +9,15 @@ const Welcome = () => (
             <Col md = "9">
                 <LogNav/> 
             </Col>
+            <div className = "p-2 audio">
+                <embed 
+                    src="assets/music/Speck.mp3" 
+                    preload = "auto" 
+                    width="10"
+                    height="10"
+                    loop="true"
+                controls/>	
+            </div>
         </div> 
     </div>
    

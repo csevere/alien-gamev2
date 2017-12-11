@@ -74,11 +74,9 @@ class SceneCard1 extends Component{
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place">{storyscene.place}</div> 
-                                <Typing speed = {100} loop = {true}>    
                                     <CardText className = "scene-text"> 
                                         {storyscene.text}
                                     </CardText> 
-                                </Typing> 
                             </CardImgOverlay>
                         </Card> 
                     </Row>
@@ -104,7 +102,7 @@ class SceneCard1 extends Component{
 
         return(
             <div>
-                <div className = "scene-wrapper no-gutters">
+                <div className = "scene-wrapper1 no-gutters">
                     <Container className = "position-relative">
                         {this.renderScene()}
                         <Row style = {ContinueStyle} className = "no-gutters">
@@ -117,6 +115,15 @@ class SceneCard1 extends Component{
                             <Button style = {NextStyle} className = "btn btn-dark float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
                         </Row> 
                     </Container> 
+                </div>
+                <div className = "p-2 audio">
+                    <embed 
+                        src="assets/music/betweenworlds.mp3" 
+                        preload = "auto" 
+                        width="10"
+                        height="10"
+                        loop="true"
+                    controls/>	
                 </div>
             </div>  
         )
@@ -131,4 +138,6 @@ const mapStateToProps = (state)=>{
 }
 
 export default connect(mapStateToProps, actions)(SceneCard1); 
+
+//create a reread button that refreshes the page and lets readers read from beginning 
 

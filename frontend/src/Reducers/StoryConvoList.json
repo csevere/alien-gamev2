@@ -1,52 +1,72 @@
 [
     {
       "id": 0,
-      "image": "assets/images/",
-      "text": "I am saying something different 1 This Is my story. omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 0 This Is my story. omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     {
       "id": 1,
-      "image": "assets/images/",
-      "text": "I am saying something different 2 this is 1Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
     },
     {
       "id": 2,
-      "image": "assets/images/",
-      "text": "I am saying something different 3 this is 2Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 2 this is 2Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     {
       "id": 3,
-      "image": "assets/images/",
-      "text": "I am saying something different 4 this is 3 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
     },
     {
       "id": 4,
-      "image": "assets/images/",
-      "text": "I am saying something different 5 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 4 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     {
       "id": 5,
-      "image": "assets/images",
-      "text": "I am saying something different 6 this is 4Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicab.,"
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
     },
     {
       "id": 6,
-      "image": "assets/images/",
-      "text": "I am saying something different 7 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo,"
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 6 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo,"
     },
     {
       "id": 7,
-      "image": "assets/images/",
-      "text": "I am saying something different 8 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo,"
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
     },
     {
       "id": 8,
-      "image": "assets/images/",
-      "text": "I am saying something different 9 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 8 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"
     },
     {
-        "id": 9,
-        "image": "assets/images/",
-        "text": "I am saying something different 9 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"
+      "id": 9,
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
       }
 ]  
