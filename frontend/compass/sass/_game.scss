@@ -1,0 +1,139 @@
+.game-wrapper{
+    background-size: cover; 
+    background-position: center;  
+    height:100%;
+    min-height: 78em; 
+    margin-top: -9em; 
+    z-index: 0;
+    @media(min-width:1600px){
+        min-height: 82em;    
+    }
+
+    @media(min-width:1700px){
+        min-height: 87em;    
+    }
+
+    @media(min-width:1800px){
+        min-height: 91em;    
+    }
+
+    .row1{
+        border: 3px solid green; 
+        background-color: cyan; 
+        height: 6em; 
+        margin-top:9em; 
+        .instructions{
+            background-color:black;
+            border: 2px solid red;
+            height: 5em;   
+        }
+
+        .timer{
+            background-color:black;
+            border: 2px solid red;
+            height: 5em; 
+            margin-left:11em; 
+        }
+
+    }
+
+    .row2{
+        border: 3px solid red; 
+        background-color: green; 
+        height: 20em; 
+        .enemy-card{
+            background-color:black;
+            border: 2px solid red;
+            height: 19em; 
+            width: 20em; 
+        }
+        .dice{
+            background-color:black;
+            border: 2px solid red;
+            height: 7em; 
+        }
+        .player-card{
+            background-color:black;
+            border: 2px solid red;
+            height: 19em; 
+            width: 20em; 
+        }
+    }
+
+    .row3{
+        border: 3px solid orange; 
+        background-color: hotpink; 
+        height: 20em; 
+        .enemy-deck{
+            background-color:black;
+            border: 2px solid red;
+            height: 9em; 
+            margin-left: -1.7em;
+        }
+
+        .attack-screen{
+            margin-top: -12em;
+            margin-left: -2em;
+            width: 39em; 
+
+            .attack-detail{
+                background-color:black;
+                border: 2px solid red;
+                height: 5em; 
+            }
+            .attack-image{
+                background-color:black;
+                border: 2px solid red;
+                height: 27em; 
+            }
+            .message{
+                background-color:black;
+                border: 2px solid red;
+                height: 5em; 
+            }
+
+        }
+       
+        .player-deck{
+            background-color:black;
+            border: 2px solid red;
+            height: 9em; 
+            margin-left: -1em;
+        }
+        .companions{
+            background-color:black;
+            border: 2px solid red;
+            height: 30em; 
+            width: 10em; 
+            .p-2{
+                background: yellow; 
+                height: 10em; 
+                border: 2px solid black; 
+                color: black; 
+            }
+        }
+
+    }
+
+    .row4{
+        border: 3px solid yellow; 
+        background-color: blue; 
+        height: 20em; 
+        .p-2{
+            background-color: red; 
+            height: 8em; 
+            margin-top: 8em;
+            margin-left: 12em;
+            width: 10em;
+        }
+      
+        
+    }
+
+    .row5{
+        border: 3px solid pink; 
+        background-color: purple; 
+        height: 20em; 
+        
+    }
+}
