@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
+import EnemyCard from './EnemyCard'; 
+import PlayerCard from './PlayerCard'; 
 import Typing from 'react-typing-animation'; 
 import { Container, 
     Row, 
@@ -13,6 +15,8 @@ import { Container,
     CardImg, 
     CardImgOverlay 
 } from 'reactstrap';
+
+
 
 
 class Game extends Component{
@@ -39,12 +43,8 @@ class Game extends Component{
 
                         <Row className = "row2 d-flex flex-row">
                             <Col md = "4">
-                                <div className = "enemy-card mx-auto">Enemy card</div>
-                                <div className = "enemyProgress d-flex flex-column">
-                                    Health
-                                    <progress id = "enemyHealth" value = "500" max = "500"></progress>
-                                    AP
-                                    <progress id = "e_AP" value = "50" max = "50"></progress>
+                                <div className = "enemy-card mx-auto">
+                                    <EnemyCard /> 
                                 </div>
                             </Col>
 
@@ -53,7 +53,9 @@ class Game extends Component{
                             </Col>
 
                             <Col md = "4">
-                                <div className = "player-card mx-auto">playercard</div>
+                                <div className = "player-card mx-auto">
+                                    <PlayerCard />
+                                </div>
                                 <div className = "playerProgress d-flex flex-column">
                                     Health
                                     <progress id = "userHealth" value = "500" max = "500"></progress>

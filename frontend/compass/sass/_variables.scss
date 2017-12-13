@@ -36,3 +36,28 @@ $scene-button: #7cc2fb;
 $scene-font: 'Exo 2', sans-serif;
 
 
+//CARD
+$inner:  -webkit-radial-gradient(
+    center, 
+    ellipse cover, 
+    rgba(49, 113, 202, 1) 0%, 
+    rgba(8, 6, 24, 1) 91%, 
+    rgba(8, 6, 24, 1) 100%);
+
+$border: #0c4fab; 
+$box-shadow: 0px 1px 0px #ededed, 
+0 0 4px white, 
+0 0 0px $scene-text,
+0px 0px 0px #00ffff, 
+0 0 20px #f7eaf5, 
+0 0 20px #2753c4, 
+0 0 0px #ededf7;
+
+$box-shadow2:0px 1px 0px #ededed, 
+0 0 4px white, 
+0 0 0px $scene-text,
+0px 0px 0px $border, 
+0 0 20px $border, 
+0 0 0px #ededf7; 
+
+
