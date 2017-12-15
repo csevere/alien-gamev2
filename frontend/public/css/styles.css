@@ -192,9 +192,10 @@ p {
 /* line 15, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card {
   margin-top: 13em;
-  border: white !important;
+  border: 5px solid rgba(119, 75, 12, 0.8);
+  border-style: ridge;
 }
-/* line 18, ../../compass/sass/_scene.scss */
+/* line 19, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-bottom {
   height: 16em;
   margin-top: 10em;
@@ -206,59 +207,59 @@ p {
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
 @media (max-width: 736px) {
-  /* line 18, ../../compass/sass/_scene.scss */
+  /* line 19, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-bottom {
     margin-top: 1em !important;
   }
 }
-/* line 30, ../../compass/sass/_scene.scss */
+/* line 31, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-bottom .place {
   font-size: 18px;
   margin-top: -19em;
 }
-/* line 35, ../../compass/sass/_scene.scss */
+/* line 36, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
 @media (max-width: 1199px) {
-  /* line 35, ../../compass/sass/_scene.scss */
+  /* line 36, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-text {
     font-size: 18px;
   }
 }
 @media (max-width: 736px) {
-  /* line 35, ../../compass/sass/_scene.scss */
+  /* line 36, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-text {
     font-size: 1.4em;
   }
 }
-/* line 47, ../../compass/sass/_scene.scss */
+/* line 48, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button {
   margin-top: 64em;
 }
 @media (max-width: 1199px) {
-  /* line 47, ../../compass/sass/_scene.scss */
+  /* line 48, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 71em;
   }
 }
 @media (max-width: 736px) {
-  /* line 47, ../../compass/sass/_scene.scss */
+  /* line 48, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 89em;
   }
 }
-/* line 55, ../../compass/sass/_scene.scss */
+/* line 56, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button .btn:focus {
   color: lightgray !important;
 }
-/* line 60, ../../compass/sass/_scene.scss */
+/* line 61, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a {
   text-decoration: none;
 }
-/* line 62, ../../compass/sass/_scene.scss */
+/* line 63, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -271,7 +272,7 @@ p {
   top: 12em;
   left: 12em;
 }
-/* line 73, ../../compass/sass/_scene.scss */
+/* line 74, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue:hover {
   color: #969494;
 }

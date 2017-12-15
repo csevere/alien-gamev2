@@ -14,7 +14,8 @@
 
     .scene-card{
         margin-top: 13em;
-        border: white !important;
+        border: 5px solid $button-border;
+        border-style: ridge;
         .scene-bottom{
             height: 16em;
             margin-top: 10em;
