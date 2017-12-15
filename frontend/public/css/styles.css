@@ -250,11 +250,15 @@ p {
     margin-top: 89em;
   }
 }
-/* line 57, ../../compass/sass/_scene.scss */
+/* line 55, ../../compass/sass/_scene.scss */
+.scene-wrapper1 .scene-button .btn:focus {
+  color: lightgray !important;
+}
+/* line 60, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a {
   text-decoration: none;
 }
-/* line 59, ../../compass/sass/_scene.scss */
+/* line 62, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -267,7 +271,7 @@ p {
   top: 12em;
   left: 12em;
 }
-/* line 70, ../../compass/sass/_scene.scss */
+/* line 73, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue:hover {
   color: #969494;
 }
