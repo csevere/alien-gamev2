@@ -25,7 +25,7 @@ class SceneCard1 extends Component{
         const { storyscene } = this.props; 
         console.log(count)
 
-        if(count < 3){
+        if(count < 5){
             setTimeout(() => {
                 this.setState({
                     showBackButton: 'block'
@@ -41,7 +41,7 @@ class SceneCard1 extends Component{
         }
 
 
-        if (count >= 3){
+        if (count >= 5){
             this.setState({
                 showBackButton:'none', 
                 showNextButton: 'none',
@@ -67,16 +67,16 @@ class SceneCard1 extends Component{
         }
 
         return storyscene.map((storyscene) => {
-            if(count <= storyscene.id && storyscene.id <= 4){
+            if(count <= storyscene.id && storyscene.id <= 6){
                 return(
                     <Row style = {CardStyle} key = {storyscene.id}>
                         <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place">{storyscene.place}</div> 
-                                    <CardText className = "scene-text"> 
-                                        {storyscene.text}
-                                    </CardText> 
+                                <CardText className = "scene-text"> 
+                                    {storyscene.text}
+                                </CardText> 
                             </CardImgOverlay>
                         </Card> 
                     </Row>

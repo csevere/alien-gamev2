@@ -1,43 +1,39 @@
 [
     {
-      "id": 0,
-      "image": "Images/spaceship_interior.jpg",
-      "place": "1/5", 
-      "text": "This Is my story. omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
-    },
-    {
       "id": 1,
-      "image": "assets/images/outer-space.jpg",
-      "place": "2/5",
-      "text": "this is 1Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/scenes/moon_city.png",
+      "place": "1/6", 
+      "text": "It was 2 AM when the commotion outside lured me out of my bed and onto my apartment's balcony. The chatter of my neighbors turned into quiet murmurs peppering the cool air until silence gripped everyone. We stared up at a massive black smudge at the center of the Moon, turning it into an ominous eye. Chills prickled my back. What had landed on the Moon?"
     },
     {
       "id": 2,
-      "image": "assets/images/spaceship-hangar-2.png",
-      "place": "3/5",
-      "text": "this is 2Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/images/outer-space.jpg",
+      "place": "2/6",
+      "text": "A week passed and the black circle remained on the Moon. News reports confirmed that it was an alien battlecraft, decked with cannons and blasters. Talking heads in the media stoked fears; endless nutjobs on social networks touted our incoming doom. Others like me simply continued our business under the eye of the Moon, always watching, always infusing fear into our daily lives." 
     },
     {
       "id": 3,
-      "image": "assets/images/science-fiction.jpg",
-      "place": "4/5",
-      "text": "this is 3 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/images/spaceship-hangar-2.png",
+      "place": "3/6",
+      "text": "An international call rang for volunteer soldiers to participate in a training program dedicated to the exploration of the alien craft on the Moon. As a Petty Officer in the US Navy, I hungered for real action and thrills. I signed up for the training program without a second’s thought, going against the wishes of my family and friends. How could I ignore an opportunity to become an astronaut solider?"
     },
     {
       "id": 4,
-      "image": "assets/images/invasion.jpg",
-      "place": "5/5",
-      "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/images/science-fiction.jpg",
+      "place": "4/6",
+      "text": "The training was more brutal than I had anticipated—I lost my stomach hundreds of times and slept very little. I couldn’t count the times I wanted to give up and go home, but my heart kept pushing for space and the Moon. Three months later, I was selected along with 1000 other international astronaut soldiers for OPERATION ALIEN BATTLECRAFT. The night before the launch, I stayed up at the window, waiting for dawn, my eyes stuck on the Moon and its new, inescapable neighbor."
     },
     {
       "id": 5,
-      "image": "http://lorempixel.com/1140/474/",
-      "text": "this is 4Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/images/invasion.jpg",
+      "place": "5/6",
+      "text": "The day of the launch had arrived. I and three other soldiers boarded combat ship X2Y-325 with a course set for the southeastern location of the alien craft. Our ascent went as smoothly as expected—even if I was overcome with nausea. But the sight of the Earth and the glory of the stars dissipated whatever stomach troubles I had. Once we approached the Moon, the rear of our ship exploded! We braced ourselves for a crash landing. "
     },
     {
       "id": 6,
-      "image": "http://lorempixel.com/1140/474/",
-      "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+      "image": "assets/images/science-fiction.jpg",
+      "place": "6/6",
+      "text": "Our team leader, Captain Nora Cross, suffered a fatal blow to the head. We radioed for help, updating home base on our situation. Our orders: proceed to the alien craft and find the team from combat ship X2Y-325. We received their location on our maps. It was time to go. Time to enter the eye on the Moon."
     },
     {
       "id": 7,
@@ -46,6 +42,11 @@
     },
     {
       "id": 8,
+      "image": "http://lorempixel.com/1140/474/",
+      "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
+    },
+    {
+      "id": 9,
       "image": "http://lorempixel.com/1140/474/",
       "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,"
     }
