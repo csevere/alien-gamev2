@@ -1,9 +1,9 @@
 [
     {
       "id": 1,
-      "image": "Images/spaceship_interior.jpg",
+      "image": "assets/scenes/moon_city.png",
       "place": "1/6", 
-      "text": "It was 2 AM when the commotion outside lured me out of my bed and onto my apartment's balcony. The chatter of my neighbors turned into quiet murmurs peppering the cool air until silence gripped everyone. We stared up at a massive black circle at the center of the Moon, turning it into an ominous eye. Chills prickled my back. What had landed on the Moon?"
+      "text": "It was 2 AM when the commotion outside lured me out of my bed and onto my apartment's balcony. The chatter of my neighbors turned into quiet murmurs peppering the cool air until silence gripped everyone. We stared up at a massive black smudge at the center of the Moon, turning it into an ominous eye. Chills prickled my back. What had landed on the Moon?"
     },
     {
       "id": 2,
