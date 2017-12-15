@@ -7,33 +7,33 @@
     },
     {
       "id": 2,
-      "image": "assets/images/outer-space.jpg",
+      "image": "assets/scenes/moon_apartment.png",
       "place": "2/6",
       "text": "A week passed and the black circle remained on the Moon. News reports confirmed that it was an alien battlecraft, decked with cannons and blasters. Talking heads in the media stoked fears; endless nutjobs on social networks touted our incoming doom. Others like me simply continued our business under the eye of the Moon, always watching, always infusing fear into our daily lives." 
     },
     {
       "id": 3,
-      "image": "assets/images/spaceship-hangar-2.png",
+      "image": "assets/scenes/scifi_soldier.png",
       "place": "3/6",
-      "text": "An international call rang for volunteer soldiers to participate in a training program dedicated to the exploration of the alien craft on the Moon. As a Petty Officer in the US Navy, I hungered for real action and thrills. I signed up for the training program without a second’s thought, going against the wishes of my family and friends. How could I ignore an opportunity to become an astronaut solider?"
+      "text": "An international call rang for volunteer soldiers to participate in a training program dedicated to the exploration of the alien craft on the Moon. As a Petty Officer in the US Navy, I hungered for real action and thrills. I signed up without a second’s thought, going against the wishes of my family and friends. How could I ignore an opportunity to become an astronaut solider?"
     },
     {
       "id": 4,
-      "image": "assets/images/science-fiction.jpg",
+      "image": "assets/scenes/scifi_soldier2.png",
       "place": "4/6",
       "text": "The training was more brutal than I had anticipated—I lost my stomach hundreds of times and slept very little. I couldn’t count the times I wanted to give up and go home, but my heart kept pushing for space and the Moon. Three months later, I was selected along with 1000 other international astronaut soldiers for OPERATION ALIEN BATTLECRAFT. The night before the launch, I stayed up at the window, waiting for dawn, my eyes stuck on the Moon and its new, inescapable neighbor."
     },
     {
       "id": 5,
-      "image": "assets/images/invasion.jpg",
+      "image": "assets/scenes/spacecraft1.png",
       "place": "5/6",
-      "text": "The day of the launch had arrived. I and three other soldiers boarded combat ship X2Y-325 with a course set for the southeastern location of the alien craft. Our ascent went as smoothly as expected—even if I was overcome with nausea. But the sight of the Earth and the glory of the stars dissipated whatever stomach troubles I had. Once we approached the Moon, the rear of our ship exploded! We braced ourselves for a crash landing. "
+      "text": "The day of the launch had arrived. I and three other soldiers boarded combat ship X2Y-325 with a course set for the southeastern location of the alien craft. Our ascent went as smoothly as expected—even if I was overcome with nausea. But the sight of the Earth and the glory of the stars dissipated whatever stomach troubles I had. Once we approached the Moon, the rear of our ship exploded! We braced ourselves for a crash landing."
     },
     {
       "id": 6,
-      "image": "assets/images/science-fiction.jpg",
+      "image": "assets/scenes/moon_surface2.png",
       "place": "6/6",
-      "text": "Our team leader, Captain Nora Cross, suffered a fatal blow to the head. We radioed for help, updating home base on our situation. Our orders: proceed to the alien craft and find the team from combat ship X2Y-325. We received their location on our maps. It was time to go. Time to enter the eye on the Moon."
+      "text": "Our team leader, Captain Nora Cross, suffered a blow to the head,killing her instantly. We radioed headquarters, updating them on our situation. Our orders were curt and simple: proceed to the alien battlecraft and join the team from combat ship X2Y-326. We received their location on our maps. It was time to enter the eye on the Moon."
     },
     {
       "id": 7,
