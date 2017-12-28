@@ -1,12 +1,19 @@
 /* line 3, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   height: 100%;
   min-height: 78em;
   margin-top: -9em;
   z-index: 0;
+}
+@media (min-width: 1440px) {
+  /* line 3, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    min-height: 82em;
+    margin-top: 0em;
+  }
 }
 @media (min-width: 1600px) {
   /* line 3, ../../compass/sass/_bgmain.scss */
@@ -26,7 +33,7 @@
     min-height: 91em;
   }
 }
-/* line 23, ../../compass/sass/_bgmain.scss */
+/* line 30, ../../compass/sass/_bgmain.scss */
 .main-wrapper .btn-dark {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -176,12 +183,37 @@ p {
 /* line 3, ../../compass/sass/_scene.scss */
 .scene-wrapper1 {
   background: url("/assets/images/scene_texture.jpg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 100%;
   min-height: 772px;
   margin-top: -9em;
   z-index: 0;
+}
+@media (min-width: 1440px) {
+  /* line 3, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 {
+    min-height: 82em;
+    margin-top: 0em;
+  }
+}
+@media (min-width: 1600px) {
+  /* line 3, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 {
+    min-height: 82em;
+  }
+}
+@media (min-width: 1700px) {
+  /* line 3, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 {
+    min-height: 87em;
+  }
+}
+@media (min-width: 1800px) {
+  /* line 3, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 {
+    min-height: 91em;
+  }
 }
 @media (max-width: 736px) {
   /* line 3, ../../compass/sass/_scene.scss */
@@ -189,13 +221,13 @@ p {
     min-height: 600px;
   }
 }
-/* line 15, ../../compass/sass/_scene.scss */
+/* line 33, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card {
   margin-top: 13em;
   border: 5px solid rgba(119, 75, 12, 0.8);
   border-style: ridge;
 }
-/* line 19, ../../compass/sass/_scene.scss */
+/* line 37, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-bottom {
   height: 16em;
   margin-top: 10em;
@@ -207,59 +239,59 @@ p {
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
 @media (max-width: 736px) {
-  /* line 19, ../../compass/sass/_scene.scss */
+  /* line 37, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-bottom {
     margin-top: 1em !important;
   }
 }
-/* line 31, ../../compass/sass/_scene.scss */
+/* line 49, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-bottom .place {
   font-size: 18px;
   margin-top: -19em;
 }
-/* line 36, ../../compass/sass/_scene.scss */
+/* line 54, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-card .scene-text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
 @media (max-width: 1199px) {
-  /* line 36, ../../compass/sass/_scene.scss */
+  /* line 54, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-text {
     font-size: 18px;
   }
 }
 @media (max-width: 736px) {
-  /* line 36, ../../compass/sass/_scene.scss */
+  /* line 54, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-card .scene-text {
     font-size: 1.4em;
   }
 }
-/* line 48, ../../compass/sass/_scene.scss */
+/* line 66, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button {
   margin-top: 64em;
 }
 @media (max-width: 1199px) {
-  /* line 48, ../../compass/sass/_scene.scss */
+  /* line 66, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 71em;
   }
 }
 @media (max-width: 736px) {
-  /* line 48, ../../compass/sass/_scene.scss */
+  /* line 66, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 89em;
   }
 }
-/* line 56, ../../compass/sass/_scene.scss */
+/* line 74, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button .btn:focus {
   color: lightgray !important;
 }
-/* line 61, ../../compass/sass/_scene.scss */
+/* line 79, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a {
   text-decoration: none;
 }
-/* line 63, ../../compass/sass/_scene.scss */
+/* line 81, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -272,7 +304,7 @@ p {
   top: 12em;
   left: 12em;
 }
-/* line 74, ../../compass/sass/_scene.scss */
+/* line 92, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue:hover {
   color: #969494;
 }
@@ -287,7 +319,14 @@ p {
   margin-top: -9em;
   z-index: 0;
 }
-/* line 13, ../../compass/sass/_convo.scss */
+@media (min-width: 1440px) {
+  /* line 3, ../../compass/sass/_convo.scss */
+  .convo-wrapper {
+    min-height: 82em;
+    margin-top: 0em;
+  }
+}
+/* line 19, ../../compass/sass/_convo.scss */
 .convo-wrapper .img-fluid {
   height: 20em;
   width: 20em;
@@ -296,22 +335,22 @@ p {
   border-style: ridge;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
-/* line 23, ../../compass/sass/_convo.scss */
+/* line 29, ../../compass/sass/_convo.scss */
 .convo-wrapper .speaker1, .convo-wrapper .speaker2, .convo-wrapper .side-text {
   margin-top: 10em;
   background: transparent;
 }
-/* line 33, ../../compass/sass/_convo.scss */
+/* line 39, ../../compass/sass/_convo.scss */
 .convo-wrapper .header {
   font-family: 'Orbitron', sans-serif !important;
   letter-spacing: 1px;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
 }
-/* line 39, ../../compass/sass/_convo.scss */
+/* line 45, ../../compass/sass/_convo.scss */
 .convo-wrapper .header-2 {
   margin-left: 38.8em;
 }
-/* line 43, ../../compass/sass/_convo.scss */
+/* line 49, ../../compass/sass/_convo.scss */
 .convo-wrapper .convo-side {
   height: 17em;
   margin-top: 0em;
@@ -322,18 +361,18 @@ p {
   border-style: ridge;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
-/* line 54, ../../compass/sass/_convo.scss */
+/* line 60, ../../compass/sass/_convo.scss */
 .convo-wrapper .convo-text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
-/* line 60, ../../compass/sass/_convo.scss */
+/* line 66, ../../compass/sass/_convo.scss */
 .convo-wrapper .btn-secondary {
   background-color: transparent;
   border-color: #868e96;
 }
-/* line 63, ../../compass/sass/_convo.scss */
+/* line 69, ../../compass/sass/_convo.scss */
 .convo-wrapper .btn-secondary:hover {
   background-color: #464a4e;
 }
@@ -449,6 +488,13 @@ p {
   margin-top: -9em;
   z-index: 0;
 }
+@media (min-width: 1440px) {
+  /* line 3, ../../compass/sass/_game.scss */
+  .game-wrapper {
+    min-height: 82em;
+    margin-top: 0em;
+  }
+}
 @media (min-width: 1600px) {
   /* line 3, ../../compass/sass/_game.scss */
   .game-wrapper {
@@ -467,41 +513,41 @@ p {
     min-height: 91em;
   }
 }
-/* line 24, ../../compass/sass/_game.scss */
+/* line 30, ../../compass/sass/_game.scss */
 .game-wrapper .row1 {
   border: 3px solid green;
   height: 6em;
   margin-top: 9em;
 }
-/* line 28, ../../compass/sass/_game.scss */
+/* line 34, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .instructions {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 34, ../../compass/sass/_game.scss */
+/* line 40, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .timer {
   background-color: black;
   border: 2px solid red;
   height: 5em;
   margin-left: 11em;
 }
-/* line 43, ../../compass/sass/_game.scss */
+/* line 49, ../../compass/sass/_game.scss */
 .game-wrapper .row2 {
   border: 3px solid red;
   height: 24em;
 }
-/* line 46, ../../compass/sass/_game.scss */
+/* line 52, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemyProgress {
   margin-top: -7em;
   margin-left: 12em;
 }
-/* line 53, ../../compass/sass/_game.scss */
+/* line 59, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card, .game-wrapper .row2 .player-card {
   height: 23em;
   width: 20em;
 }
-/* line 56, ../../compass/sass/_game.scss */
+/* line 62, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card, .game-wrapper .row2 .player-card .card {
   border: 4px solid #0c4fab !important;
   border-style: ridge;
@@ -509,70 +555,70 @@ p {
   font-size: 10px;
   text-transform: uppercase;
 }
-/* line 62, ../../compass/sass/_game.scss */
+/* line 68, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .enemy-card .card .card-footer, .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 68, ../../compass/sass/_game.scss */
+/* line 74, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card img, .game-wrapper .row2 .player-card img {
   height: 15em;
   margin-top: -0.4em;
 }
-/* line 76, ../../compass/sass/_game.scss */
+/* line 82, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .dice {
   background-color: black;
   border: 2px solid red;
   height: 7em;
 }
-/* line 81, ../../compass/sass/_game.scss */
+/* line 87, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress {
   margin-top: -7em;
   margin-left: 12em;
 }
-/* line 87, ../../compass/sass/_game.scss */
+/* line 93, ../../compass/sass/_game.scss */
 .game-wrapper .row3 {
   border: 3px solid orange;
   height: 20em;
 }
-/* line 90, ../../compass/sass/_game.scss */
+/* line 96, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck {
   background-color: black;
   border: 2px solid red;
   height: 9em;
   margin-left: -1.7em;
 }
-/* line 97, ../../compass/sass/_game.scss */
+/* line 103, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {
   margin-top: -12em;
   margin-left: -2em;
   width: 39em;
 }
-/* line 102, ../../compass/sass/_game.scss */
+/* line 108, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 107, ../../compass/sass/_game.scss */
+/* line 113, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image {
   background-color: black;
   border: 2px solid red;
   height: 27em;
 }
-/* line 112, ../../compass/sass/_game.scss */
+/* line 118, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .message {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 120, ../../compass/sass/_game.scss */
+/* line 126, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .player-deck {
   background-color: black;
   border: 2px solid red;
   height: 9em;
   margin-left: -1em;
 }
-/* line 126, ../../compass/sass/_game.scss */
+/* line 132, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions {
   background-color: black;
   border: 2px solid red;
@@ -580,19 +626,19 @@ p {
   width: 10em;
   margin-top: 1em;
 }
-/* line 132, ../../compass/sass/_game.scss */
+/* line 138, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions .p-2 {
   background: yellow;
   height: 10em;
   border: 2px solid black;
   color: black;
 }
-/* line 142, ../../compass/sass/_game.scss */
+/* line 148, ../../compass/sass/_game.scss */
 .game-wrapper .row4 {
   border: 3px solid yellow;
   height: 20em;
 }
-/* line 145, ../../compass/sass/_game.scss */
+/* line 151, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .p-2 {
   background-color: red;
   height: 8em;
@@ -600,7 +646,7 @@ p {
   margin-left: 12em;
   width: 10em;
 }
-/* line 156, ../../compass/sass/_game.scss */
+/* line 162, ../../compass/sass/_game.scss */
 .game-wrapper .row5 {
   border: 3px solid pink;
   height: 20em;
@@ -837,12 +883,71 @@ p {
   animation-direction: normal, alternate;
 }
 
-/* line 13, ../../compass/sass/styles.scss */
+/* line 4, ../../compass/sass/_map.scss */
+.map-wrapper {
+  background: url("https://img00.deviantart.net/7b80/i/2010/146/3/8/forerunner_texture_by_invaderveex.jpg");
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  min-height: 772px;
+  margin-top: -9em;
+  z-index: 0;
+}
+@media (min-width: 1440px) {
+  /* line 4, ../../compass/sass/_map.scss */
+  .map-wrapper {
+    min-height: 82em;
+    margin-top: 0em;
+  }
+}
+/* line 19, ../../compass/sass/_map.scss */
+.map-wrapper .button {
+  margin-top: 6em;
+}
+/* line 21, ../../compass/sass/_map.scss */
+.map-wrapper .button .text {
+  letter-spacing: 5px;
+}
+@media (min-width: 1360px) {
+  /* line 19, ../../compass/sass/_map.scss */
+  .map-wrapper .button {
+    margin-top: 13em;
+  }
+}
+/* line 31, ../../compass/sass/_map.scss */
+.map-wrapper .grid {
+  margin-top: 6em;
+  border: 5px solid rgba(119, 75, 12, 0.8);
+  border-style: ridge;
+  background: rgba(9, 12, 39, 0.7);
+  background-size: cover;
+  border: 4px solid #d9edf7;
+  border-style: ridge;
+  box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
+}
+/* line 40, ../../compass/sass/_map.scss */
+.map-wrapper .grid .row {
+  border: white;
+}
+/* line 42, ../../compass/sass/_map.scss */
+.map-wrapper .grid .row .cell {
+  border: 1px dotted white;
+  background: transparent;
+  height: 8em;
+}
+@media (min-width: 1360px) {
+  /* line 42, ../../compass/sass/_map.scss */
+  .map-wrapper .grid .row .cell {
+    height: 7em;
+  }
+}
+
+/* line 15, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 19, ../../compass/sass/styles.scss */
+/* line 21, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }

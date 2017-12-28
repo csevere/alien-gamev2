@@ -53,9 +53,9 @@ class Conversation1 extends Component{
                             <CardBlock className = "convo-side">
                                 <Typing speed = {100}> 
                                     <CardText className = "convo-text p-3 d-flex flex-column">
-                                        <Button><div className = "convo-text">{storyconvo.choice1}</div></Button>
-                                        <Button><div className = "convo-text">{storyconvo.choice2}</div></Button> 
-                                        <Button><div className = "convo-text">3. This is such a dumb idea. You're an idiot, you know that?</div></Button> 
+                                        <Link to = "/map"><Button><div className = "convo-text">{storyconvo.choice1}</div></Button></Link>
+                                        <Link to = "/map"><Button><div className = "convo-text">{storyconvo.choice2}</div></Button></Link> 
+                                        <Link to = "/map"><Button><div className = "convo-text">3. This is such a dumb idea. You're an idiot, you know that?</div></Button></Link> 
                                     </CardText>
                                 </Typing> 
                             </CardBlock>

@@ -9,15 +9,21 @@
     min-height: 78em; 
     margin-top: -9em; 
     z-index: 0;
-    @media(min-width:1600px){
+
+    @media(min-width:$xlg){
+        min-height: $min-height;
+        margin-top: 0em;     
+    }
+
+    @media(min-width:$xxlg){
         min-height: 82em;    
     }
 
-    @media(min-width:1700px){
+    @media(min-width:$xxxlg){
         min-height: 87em;    
     }
 
-    @media(min-width:1800px){
+    @media(min-width:$x4lg){
         min-height: 91em;    
     }
 
