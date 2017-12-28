@@ -64,7 +64,19 @@ export class Register extends Component{
                                         <Input type="character" name="character" id="character" placeholder="name your character" />
                                     </FormGroup>
                                 </div>
-                                <Link to = "/scene"><Button size= "lg" block>JOIN</Button></Link> 
+                                <Link className = "register" to = "/scene">
+                                    <div className = "button hvr-bob">
+                                        <div className = "line-container">
+                                            <span className = "text">JOIN</span>
+                                            <div className="line line--top-left line--thick thick-line--short"></div>
+                                            <div className="line line--top-right line--thick thick-line--short"></div>
+                                            <div className="line line--bottom-left line--thick thick-line--long"></div>
+                                            <div className="line line--bottom-right line--thick thick-line--long"></div>
+                                            <div className="line line--top line--thin"></div>
+                                            <div className="line line--bottom line--thin"></div>
+                                        </div>
+                                    </div>
+                                </Link> 
                             </Form>
                         </CardBlock>
                     </Card>

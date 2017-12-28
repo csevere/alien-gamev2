@@ -20,14 +20,38 @@
             }
         }
         a{
-            text-decoration: none;   
-            button{
-                &:hover {
-                    background-color: $dark-gray;
-                    text-decoration: none !important; 
-                }
+            text-decoration: none; 
+
+            .button {
+                margin-top: 3em; 
+                margin-left: 0em;
+                display: block;
+                text-align: center;
+                border-width: 1px 0px 1px 0;
+                border-style: solid;
+                border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
+                border-image-slice: 1;
+                cursor: pointer;
+            }
+
+            .text {
+                letter-spacing: 10px; 
+            } 
+
+        } 
+        
+        .register{
+            .button {
+                margin-top: 2em; 
             }
         
-        }       
+        }
     }
 }
+
+// button{
+//     &:hover {
+//         background-color: $dark-gray;
+//         text-decoration: none !important; 
+//     }
+// }

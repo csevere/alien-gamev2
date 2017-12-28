@@ -1,7 +1,7 @@
 /* line 3, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 100%;
   min-height: 78em;
@@ -418,9 +418,24 @@ p {
   text-decoration: none;
 }
 /* line 25, ../../compass/sass/_login.scss */
-.login-wrapper .login-card a button:hover {
-  background-color: #464a4e;
-  text-decoration: none !important;
+.login-wrapper .login-card a .button {
+  margin-top: 3em;
+  margin-left: 0em;
+  display: block;
+  text-align: center;
+  border-width: 1px 0px 1px 0;
+  border-style: solid;
+  border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
+  border-image-slice: 1;
+  cursor: pointer;
+}
+/* line 37, ../../compass/sass/_login.scss */
+.login-wrapper .login-card a .text {
+  letter-spacing: 10px;
+}
+/* line 44, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .register .button {
+  margin-top: 2em;
 }
 
 /* line 3, ../../compass/sass/_game.scss */
@@ -591,12 +606,243 @@ p {
   height: 20em;
 }
 
-/* line 11, ../../compass/sass/styles.scss */
+/* line 3, ../../compass/sass/_button.scss */
+.button {
+  display: block;
+  text-align: center;
+  border-width: 1px 0px 1px 0;
+  border-style: solid;
+  border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
+  border-image-slice: 1;
+  cursor: pointer;
+}
+
+/* line 14, ../../compass/sass/_button.scss */
+.text {
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.6em;
+  color: #74f9fc;
+  text-shadow: 0 0 13px #17a2b88a, 0 0 32px #17a2b89e;
+  display: block;
+  margin-bottom: -4px;
+  margin-top: 1px;
+}
+
+/* line 26, ../../compass/sass/_button.scss */
+.line-container {
+  width: 230px;
+  margin: auto;
+  position: relative;
+}
+
+/* line 33, ../../compass/sass/_button.scss */
+.line {
+  position: absolute;
+}
+
+/* line 38, ../../compass/sass/_button.scss */
+.line--thick {
+  width: 6px;
+  background-color: #74f9fc;
+}
+
+/* line 44, ../../compass/sass/_button.scss */
+.line--thin {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to left, rgba(199, 255, 247, 0.8), rgba(0, 224, 203, 0.4), rgba(0, 193, 224, 0.4), rgba(0, 193, 224, 0.4), rgba(199, 239, 255, 0.8));
+}
+
+/* line 53, ../../compass/sass/_button.scss */
+.thick-line--short {
+  height: 15px;
+  top: -16px;
+}
+
+/* line 59, ../../compass/sass/_button.scss */
+.thick-line--long {
+  height: 40px;
+  top: -1px;
+}
+
+/* line 65, ../../compass/sass/_button.scss */
+.line--top-right {
+  right: 0;
+  transform: skew(45deg);
+  box-shadow: 0px 0px 13px #17a2b87a, -12px -8px 25px 3px #17a2b87a;
+}
+
+/* line 72, ../../compass/sass/_button.scss */
+.line--top-left {
+  left: 0px;
+  transform: skew(-45deg);
+  box-shadow: 12px -8px 25px 3px #17a2b8b8, 0px 0px 13px #17a2b8a6;
+}
+
+/* line 79, ../../compass/sass/_button.scss */
+.line--bottom-right {
+  right: 12px;
+  transform: skew(-45deg);
+  box-shadow: -12px 3px 22px 3px #17a2b8b5, 0px 0px 13px #17a2b8b5;
+}
+
+/* line 86, ../../compass/sass/_button.scss */
+.line--bottom-left {
+  left: 12px;
+  transform: skew(45deg);
+  box-shadow: 12px 3px 22px 3px #17a2b8c2, 0px 0px 13px #17a2b8b3;
+}
+
+/* line 93, ../../compass/sass/_button.scss */
+.line--top {
+  width: 214px;
+  top: -17px;
+  left: 8px;
+  box-shadow: 0px 5px 34px 5px #17a2b857;
+}
+
+/* line 101, ../../compass/sass/_button.scss */
+.line--bottom {
+  width: 160px;
+  top: 38px;
+  left: 35px;
+  box-shadow: 0px -5px 34px 5px #17a2b84f;
+}
+
+/* line 108, ../../compass/sass/_button.scss */
+.pseudo-class-shadow, .line-container::before, .line-container::after, .line--top-left::before, .line--top-left::after, .line--top-right::before, .line--top-right::after, .line--bottom-right::before, .line--bottom-right::after, .line--bottom-left::before, .line--bottom-left::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+}
+
+/* line 116, ../../compass/sass/_button.scss */
+.line-container::before {
+  width: 40px;
+  box-shadow: -20px 10px 45px 4px #74f9fc;
+}
+
+/* line 121, ../../compass/sass/_button.scss */
+.line-container::after {
+  width: 40px;
+  box-shadow: 207px -12px 45px 4px #17a2b8bf;
+}
+
+/* line 127, ../../compass/sass/_button.scss */
+.line--top-left::before {
+  box-shadow: 28px 20px 34px 3px #17a2b87a;
+}
+
+/* line 131, ../../compass/sass/_button.scss */
+.line--top-left::after {
+  box-shadow: 48px 20px 34px 3px #17a2b87a;
+}
+
+/* line 136, ../../compass/sass/_button.scss */
+.line--top-right::before {
+  box-shadow: -48px 20px 34px 3px #17a2b8bd;
+}
+
+/* line 141, ../../compass/sass/_button.scss */
+.line--top-right::after {
+  box-shadow: -58px 20px 34px 3px #17a2b8ba;
+}
+
+/* line 146, ../../compass/sass/_button.scss */
+.line--bottom-right::before {
+  box-shadow: -42px 9px 44px 5px #17a2b89e;
+}
+
+/* line 151, ../../compass/sass/_button.scss */
+.line--bottom-right::after {
+  box-shadow: -52px 10px 44px 5px #17a2b88f;
+}
+
+/* line 156, ../../compass/sass/_button.scss */
+.line--bottom-left::before {
+  box-shadow: 32px 10px 44px 5px #17a2b88a;
+}
+
+/* line 161, ../../compass/sass/_button.scss */
+.line--bottom-left::after {
+  box-shadow: 42px 10px 44px 5px #17a2b88a;
+}
+
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+/* line 44, ../../compass/sass/_hover.scss */
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+/* line 51, ../../compass/sass/_hover.scss */
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+/* line 13, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 17, ../../compass/sass/styles.scss */
+/* line 19, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }

@@ -51,7 +51,19 @@ export class Login extends Component{
                                     <Label for="password">Password</Label>
                                     <Input type="password" name="password" id="examplePassword" placeholder="enter password" />
                                 </FormGroup>
-                                <Link to = "/scene"><Button size= "lg" block>PLAY</Button></Link>
+                                <Link to = "/scene">
+                                    <div className = "button hvr-bob">
+                                        <div className = "line-container">
+                                            <span className = "text">PLAY</span>
+                                            <div className="line line--top-left line--thick thick-line--short"></div>
+                                            <div className="line line--top-right line--thick thick-line--short"></div>
+                                            <div className="line line--bottom-left line--thick thick-line--long"></div>
+                                            <div className="line line--bottom-right line--thick thick-line--long"></div>
+                                            <div className="line line--top line--thin"></div>
+                                            <div className="line line--bottom line--thin"></div>
+                                        </div>
+                                    </div>
+                                </Link>
                             </Form>
                         </CardBlock>
                     </Card>
