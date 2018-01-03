@@ -1,0 +1,167 @@
+@import 'variables'; 
+
+.game-wrapper{
+    background: url('/assets/gifs/game-gifs/sp-bridge-3.gif'); 
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+    height:100%;
+    min-height: 78em; 
+    margin-top: -9em; 
+    z-index: 0;
+
+    @media(min-width:$xlg){
+        min-height: $min-height;
+        margin-top: 0em;     
+    }
+
+    @media(min-width:$xxlg){
+        min-height: 82em;    
+    }
+
+    @media(min-width:$xxxlg){
+        min-height: 87em;    
+    }
+
+    @media(min-width:$x4lg){
+        min-height: 91em;    
+    }
+
+    .row1{
+        border: 3px solid green; 
+        height: 6em; 
+        margin-top:9em; 
+        .instructions{
+            background-color:black;
+            border: 2px solid red;
+            height: 5em;   
+        }
+
+        .timer{
+            background-color:black;
+            border: 2px solid red;
+            height: 5em; 
+            margin-left:11em; 
+        }
+
+    }
+
+    .row2{
+        border: 3px solid red; 
+        height: 24em; 
+        .enemyProgress{
+            margin-top: -7em;
+            margin-left: 12em;
+        }
+
+
+        //ENEMY CARDS 
+        .enemy-card, .player-card{
+            height: 23em; 
+            width: 20em; 
+            .card{
+                border: 4px solid $border !important;
+                border-style: ridge; 
+                box-shadow: $box-shadow2;
+                font-size: 10px;
+                text-transform: uppercase;
+                .card-header, .card-footer{
+                    background: $inner !important;
+                }
+
+            }
+           
+            img{
+                height: 15em;
+                margin-top: -0.4em; 
+            }
+        }
+
+
+        //DICE
+        .dice{
+            background-color:black;
+            border: 2px solid red;
+            height: 7em; 
+        }
+        .playerProgress{
+            margin-top: -7em;
+            margin-left: 12em;
+        }
+    }
+
+    .row3{
+        border: 3px solid orange; 
+        height: 20em; 
+        .enemy-deck{
+            background-color:black;
+            border: 2px solid red;
+            height: 9em; 
+            margin-left: -1.7em;
+        }
+
+        .attack-screen{
+            margin-top: -12em;
+            margin-left: -2em;
+            width: 39em; 
+
+            .attack-detail{
+                background-color:black;
+                border: 2px solid red;
+                height: 5em; 
+            }
+            .attack-image{
+                background-color:black;
+                border: 2px solid red;
+                height: 27em; 
+            }
+            .message{
+                background-color:black;
+                border: 2px solid red;
+                height: 5em; 
+            }
+
+        }
+       
+        .player-deck{
+            background-color:black;
+            border: 2px solid red;
+            height: 9em; 
+            margin-left: -1em;
+        }
+        .companions{
+            background-color:black;
+            border: 2px solid red;
+            height: 30em; 
+            width: 10em; 
+            margin-top: 1em; 
+            .p-2{
+                background: yellow; 
+                height: 10em; 
+                border: 2px solid black; 
+                color: black; 
+            }
+        }
+
+    }
+
+    .row4{
+        border: 3px solid yellow; 
+        height: 20em; 
+        .p-2{
+            background-color: red; 
+            height: 8em; 
+            margin-top: 8em;
+            margin-left: 12em;
+            width: 10em;
+        }
+      
+        
+    }
+
+    .row5{
+        border: 3px solid pink; 
+        height: 20em; 
+        
+    }
+}

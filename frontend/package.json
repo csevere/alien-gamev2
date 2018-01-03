@@ -1,0 +1,37 @@
+{
+  "name": "alien-game",
+  "homepage": "/alien-game",
+  "version": "0.1.0",
+  "engines": {
+    "node": "8.1.4"
+  },
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "findup": "^0.1.5",
+    "ghooks": "^2.0.2",
+    "hover.css": "^2.2.1",
+    "jquery": "^3.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-reveal-text": "^0.1.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
+    "react-typing-animation": "^1.1.5",
+    "reactstrap": "^4.8.0",
+    "redux": "^3.7.2",
+    "watchman": "^1.0.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7",
+    "browser-sync": "^2.18.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

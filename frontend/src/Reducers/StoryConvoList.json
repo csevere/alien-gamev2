@@ -1,0 +1,71 @@
+[
+    {
+      "id": 1,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "'I am saying something different 0 This Is my story. omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventorexs'"
+    },
+    {
+      "id": 2,
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": "3. 'And who the hell made you the leader?'"
+    },
+    {
+      "id": 3,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "Good. Then let's proceed. Be careful out there."
+    },
+    {
+      "id": 4,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "Way to take the iniative. Just don't die or get any of us killed."
+      
+    },
+    {
+      "id": 5,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "Hey, chill! We're all in this together."
+    },
+    {
+      "id": 6,
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
+    },
+    {
+      "id": 7,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 6 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo,"
+    },
+    {
+      "id": 8,
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
+    },
+    {
+      "id": 9,
+      "name":"Meliz",
+      "image": "assets/images/convo_character_1_ex.jpg",
+      "text": "I am saying something different 8 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"
+    },
+    {
+      "id": 10,
+      "name": "Zackaria",
+      "image": "assets/images/convo_character_2_ex.jpg",
+      "choice1": "1. 'We should check out the north wing.'",
+      "choice2": "2. '... I don't really care what we do.'",
+      "choice3": ""
+      }
+]  

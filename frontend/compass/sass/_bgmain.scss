@@ -1,0 +1,40 @@
+@import 'variables'; 
+
+.main-wrapper{
+    background: url('/assets/gifs/main-bg.gif');
+    background-size: cover; 
+    background-position: center;  
+    height:100%;
+    min-height: 78em; 
+    margin-top: -9em; 
+    z-index: 0;
+
+    @media(min-width:$xlg){
+        min-height: $min-height;
+        margin-top: 0em;     
+    }
+
+
+    @media(min-width:$xxlg){
+        min-height: 82em;    
+    }
+
+    @media(min-width:$xxxlg){
+        min-height: 87em;    
+    }
+
+    @media(min-width:$x4lg){
+        min-height: 91em;    
+    }
+
+    .btn-dark {
+        background: url('/assets/images/sci_fi_texture.png');
+        color: $light-gray;
+        font-family: 'Anton', sans-serif;
+        font-size: 3em;
+        letter-spacing: 10px;
+        border: 5px solid $button-border;
+        border-style: ridge;
+    }  
+
+}

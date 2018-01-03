@@ -1,0 +1,24 @@
+@import 'bgmain';
+@import 'play'; 
+@import 'footer'; 
+@import 'scene'; 
+@import 'convo';  
+@import 'variables'; 
+@import 'loginnav'; 
+@import 'login'; 
+@import 'game'; 
+@import 'button'; 
+@import 'hover'; 
+@import 'map'; 
+
+
+.efaGep {
+    color: $teal !important; 
+
+}
+
+
+.audio{
+    // visibility: hidden; 
+    display: none; 
+}
