@@ -47,7 +47,7 @@
     }
     
     .convo-side{
-        height: 17em;
+        // height: 17em;
         margin-top: 0em;
         top: 23em !important; 
         background: $scene-bg;
@@ -66,6 +66,7 @@
     .btn-secondary {
         background-color: transparent;
         border-color: #868e96;
+        width:100%; 
         &:hover {
             background-color: $dark-gray;
         }

@@ -352,7 +352,6 @@ p {
 }
 /* line 49, ../../compass/sass/_convo.scss */
 .convo-wrapper .convo-side {
-  height: 17em;
   margin-top: 0em;
   top: 23em !important;
   background: rgba(9, 12, 39, 0.7);
@@ -371,8 +370,9 @@ p {
 .convo-wrapper .btn-secondary {
   background-color: transparent;
   border-color: #868e96;
+  width: 100%;
 }
-/* line 69, ../../compass/sass/_convo.scss */
+/* line 70, ../../compass/sass/_convo.scss */
 .convo-wrapper .btn-secondary:hover {
   background-color: #464a4e;
 }

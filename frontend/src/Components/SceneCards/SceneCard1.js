@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardIm
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
-import Typing from 'react-typing-animation'; 
+import ReactRevealText from 'react-reveal-text'; 
 
 class SceneCard1 extends Component{
     constructor(props){
@@ -15,9 +15,20 @@ class SceneCard1 extends Component{
                 showCard: 'block',
                 scale: 'scale(1)',
                 transition:'transition',
+                transition2: 'transition2',
                 opacity: 1, 
-                typing: true 
+                opacity2: 0
             }
+    }
+
+    componentDidMount() {
+
+        setTimeout(() =>{
+            this.setState({
+                transition2: 'all 1s',
+                opacity2: 1
+            })
+        }, 2000)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -62,6 +73,11 @@ class SceneCard1 extends Component{
             opacity: this.state.opacity 
         }
 
+        const TransitionEffects2 = {
+            transition2: this.state.transition2 ,
+            opacity2: this.state.opacity2
+        }
+
         const CardStyle = {
             display: this.state.showCard
         }
@@ -74,9 +90,11 @@ class SceneCard1 extends Component{
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place">{storyscene.place}</div> 
-                                <CardText className = "scene-text"> 
-                                    {storyscene.text}
-                                </CardText> 
+                                <div style = {TransitionEffects2}>
+                                    <CardText className = "scene-text"> 
+                                        {storyscene.text}
+                                    </CardText> 
+                                </div>
                             </CardImgOverlay>
                         </Card> 
                     </Row>
