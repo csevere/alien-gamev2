@@ -191,3 +191,6 @@ const mapStateToProps = (state)=>{
 }
 
 export default connect(mapStateToProps, actions)(Conversation1); 
+
+//use an onCLick event to select the right result to display
+//onClick = {()=> this.props.selectedConvoId(storyconvo))}   << this comes from the actions
