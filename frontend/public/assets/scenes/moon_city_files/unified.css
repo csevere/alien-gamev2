@@ -1,0 +1,42 @@
+@font-face{font-family:'Ubuntu';src:url('fonts/Ubuntu-R-webfont.eot');src:local('☺'), url('fonts/Ubuntu-R-webfont.woff') format('woff'), url('fonts/Ubuntu-R-webfont.ttf') format('truetype'), url('fonts/Ubuntu-R-webfont.svg#webfontcceGD1qN') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'Ubuntu';src:url('fonts/Ubuntu-I-webfont.eot');src:local('☺'), url('fonts/Ubuntu-I-webfont.woff') format('woff'), url('fonts/Ubuntu-I-webfont.ttf') format('truetype'), url('fonts/Ubuntu-I-webfont.svg#webfontPxVORYT4') format('svg');font-weight:normal;font-style:italic;}
+@font-face{font-family:'Ubuntu';src:url('fonts/Ubuntu-B-webfont.eot');src:local('☺'), url('fonts/Ubuntu-B-webfont.woff') format('woff'), url('fonts/Ubuntu-B-webfont.ttf') format('truetype'), url('fonts/Ubuntu-B-webfont.svg#webfontssbCkuz5') format('svg');font-weight:bold;font-style:normal;}
+@font-face{font-family:'Ubuntu';src:url('fonts/Ubuntu-BI-webfont.eot');src:local('☺'), url('fonts/Ubuntu-BI-webfont.woff') format('woff'), url('fonts/Ubuntu-BI-webfont.ttf') format('truetype'), url('fonts/Ubuntu-BI-webfont.svg#webfont3JT5vc7d') format('svg');font-weight:bold;font-style:italic;}
+#wrapper{text-align:left;margin:0px auto;padding:0px;border:0;width:100%;min-width:800;}
+#header{margin:0 0 15px 0;}
+#leftside{float:left;width:35px;}
+#rightside{float:right;width:160px;}
+#content{}
+#content2{float:left;width:56%;}
+#footer{clear:both;background:#A2A2A2;}
+body{font-family:'Ubuntu',Arial;margin:0px 0px 0px 0px;font-size:100%;#background-position:top left;}
+hr{background:#000;height:1px;border-top:0px solid #000;border-bottom:0px solid #FFF;border-left:0px solid #000;border-right:0px solid #000;}
+A{text-decoration:none;font-weight:bold;}
+A:link{color:#22498E;text-decoration:none;font-weight:bold;}
+A:visited{color:#22498E;text-decoration:none;}
+A:active{color:#ba1000;}
+A:hover{color:#ba1000;}
+#banner{background-position:right;background-repeat:no-repeat;padding-right:0px;padding-top:0px;padding-left:0px;padding-bottom:25px;background-position:top;background-repeat:repeat-x;}
+.menuTitle{font-family:'Ubuntu',arial, sans-serif;font-size:14px;color:#000;font-weight:bold;padding-top:1px;}
+.fileMenu{font-family:'Ubuntu',arial, sans-serif;font-size:10px;color:#000;font-weight:bold;padding-top:1px;}
+#banner a:hover{text-decoration:none;background:none;}
+.tagline{font-family:'Ubuntu',arial, sans-serif;font-size:11px;color:#333;font-weight:normal;padding-top:1px;}
+.description{font-family:verdana, 'Ubuntu',arial, sans-serif;color:#FFF;font-size:80%;font-weight:bold;text-transform:none;}
+#content{padding-right:20px;text-align:center;}
+.title{font-family:'Ubuntu',arial, sans-serif;font-size:13px;line-height:13px;font-weight:bold;text-align:left;color:#333;padding-top:9px;padding-left:3px;}
+td{font-family:Arial, sans-serif;color:#333;font-size:14px;line-height:18px;font-weight:normal;}
+input, checkbox, button, select, input{border-color:DarkGray;border:1px solid DarkGray;}
+h1, h2, h3{margin:0;padding:1;}
+#content{position:relative;}
+.handle{background:#FFDAEB;opacity:0.6;border:1px solid #FF81E0;position:absolute;height:5px;width:5px;}
+#info{background:#000;color:#fff;padding:10px;width:480px;}
+.chromestyle{width:100%;min-width:1050px;font-weight:bold;font:normal 14px Verdana;}
+.chromestyle:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.chromestyle ul{border-bottom:1px solid #BBB;border-top:1px solid #BBB;width:100%;background:url(chromebg.gif) center center repeat-x;padding:4px 0;margin:0;text-align:left;}
+.chromestyle ul li{display:inline;}
+.chromestyle ul li a{color:#494949;padding:4px 7px;margin:0;text-decoration:none;border-right:1px solid #DADADA;}
+.chromestyle ul li a:hover{background:url(chromebg-over.gif) center center repeat-x;}
+.dropmenudiv{position:absolute;top:0;border:1px solid #BBB;border-bottom-width:0;font:normal 12px Verdana;line-height:18px;z-index:100;background-color:white;width:200px;visibility:hidden;}
+.dropmenudiv a{width:auto;display:block;text-indent:5px;border-bottom:0px solid #BBB;padding:2px 0;text-decoration:none;color:black;}
+* html .dropmenudiv a{width:100%;}
+.dropmenudiv a:hover{background-color:#f3a432;}

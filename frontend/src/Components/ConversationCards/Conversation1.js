@@ -18,37 +18,46 @@ class Conversation1 extends Component{
             transition4:'transition4',
             opacity4: 0,
             transition5:'transition5',
-            opacity5: 0
+            opacity5: 0,
+            showContainer: 'none',
+            showLoader: 'block'
         }
     }
 
     componentDidMount() {
         setTimeout(() =>{
             this.setState({
+                showContainer: 'block',
+                showLoader: 'none'
+            })
+        }, 3000)
+
+        setTimeout(() =>{
+            this.setState({
                 transition: 'all 1s',
                 opacity: 1
             })
-        }, 800)
+        }, 4000)
 
         setTimeout(() => {
             this.setState({
                 hideCard: 'flex'
             })
-        }, 3000)
+        }, 7000)
 
         setTimeout(() =>{
             this.setState({
                 transition2: 'all 1s',
                 opacity2: 1
             })
-        }, 4000)
+        }, 8000)
 
         setTimeout(() =>{
             this.setState({
                 transition3: 'all 1s',
                 opacity3: 1
             })
-        }, 5000)
+        }, 9000)
 
 
         setTimeout(() =>{
@@ -56,14 +65,14 @@ class Conversation1 extends Component{
                 transition4: 'all 1s',
                 opacity4: 1
             })
-        }, 6000)
+        }, 10000)
 
         setTimeout(() =>{
             this.setState({
                 transition5: 'width 1s',
                 opacity5: 1
             })
-        }, 7000)
+        }, 11000)
     }
 
     renderChar(){
@@ -152,10 +161,25 @@ class Conversation1 extends Component{
 
     render(){
 
+        const showContainer = {
+            display: this.state.showContainer
+        }
+
+        const showLoader = {
+            display: this.state.showLoader 
+        }
+
         return(
             <div>
                 <div className = "convo-wrapper no-gutters">
-                    <Container>
+                    <div style = {showLoader} className="preload">
+                        <div className="preload-status">
+                            <div className="preload-status-bar"></div>
+                            <div className="preload-status-info">LOADING</div>
+                        </div>
+                    </div>
+
+                    <Container style = {showContainer}>
                         <Row>
                             <Col md = "12">
                                 {this.renderChar()}

@@ -13,11 +13,22 @@ class SceneCard1 extends Component{
                 showNextButton: 'block',
                 showContinueButton: 'none',
                 showCard: 'block',
+                showContainer: 'none',
+                showLoader: 'block',
                 scale: 'scale(1)',
                 transition:'transition',
                 transition2: 'transition2',
+                transition3: 'transition3',
+                transition4: 'transition4',
+                transition5: 'transition5',
+                transition6: 'transition6',
                 opacity: 1, 
-                opacity2: 0
+                opacity2: 0,
+                opacity3: 0,
+                opacity4: 0,
+                opacity5: 0,
+                opacity6: 0
+                
             }
     }
 
@@ -25,10 +36,45 @@ class SceneCard1 extends Component{
 
         setTimeout(() =>{
             this.setState({
+                showContainer: 'block',
+                showLoader: 'none'
+            })
+        }, 3000)
+
+        setTimeout(() =>{
+            this.setState({
                 transition2: 'all 1s',
                 opacity2: 1
             })
-        }, 2000)
+        }, 4000)
+
+        setInterval(() =>{
+            this.setState({
+                transition3: 'all 1s',
+                opacity3: 1
+            })
+        }, 5000)
+
+        setInterval(() =>{
+            this.setState({
+                transition4: 'all 1s',
+                opacity4: 1
+            })
+        }, 6000)
+
+        setInterval(() =>{
+            this.setState({
+                transition5: 'width 1s',
+                opacity5: 1
+            })
+        }, 7000)
+
+        setInterval(() =>{
+            this.setState({
+                transition6: 'width 1s',
+                opacity6: 1
+            })
+        }, 8000)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -74,8 +120,23 @@ class SceneCard1 extends Component{
         }
 
         const TransitionEffects2 = {
-            transition2: this.state.transition2 ,
-            opacity2: this.state.opacity2
+            transition: this.state.transition3,
+            opacity: this.state.opacity3
+        }
+        const TransitionEffects3 = {
+            transition: this.state.transition4,
+            opacity: this.state.opacity4
+        }
+
+        const TransitionEffects4 = {
+            transition: this.state.transition5,
+            opacity: this.state.opacity5
+        }
+
+
+        const TransitionEffects5 = {
+            transition: this.state.transition6,
+            opacity: this.state.opacity6 
         }
 
         const CardStyle = {
@@ -90,11 +151,12 @@ class SceneCard1 extends Component{
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place">{storyscene.place}</div> 
-                                <div style = {TransitionEffects2}>
-                                    <CardText className = "scene-text"> 
-                                        {storyscene.text}
+                                    <CardText className = "scene-text">
+                                        <div className = "s_text" style = {TransitionEffects2}>{storyscene.text1}</div>  
+                                        <div className = "s_text" style = {TransitionEffects3}>{storyscene.text2}</div>
+                                        <div className = "s_text" style = {TransitionEffects4}>{storyscene.text3}</div>
+                                        <div className = "s_text" style = {TransitionEffects5}>{storyscene.text4}</div>
                                     </CardText> 
-                                </div>
                             </CardImgOverlay>
                         </Card> 
                     </Row>
@@ -118,10 +180,28 @@ class SceneCard1 extends Component{
             display: this.state.showContinueButton
         }
 
+        const showContainer = {
+            display: this.state.showContainer,
+            transition: this.state.transition2,
+            opacity: this.state.opacity2 
+        }
+
+        const showLoader = {
+            display: this.state.showLoader 
+        }
+
         return(
             <div>
                 <div className = "scene-wrapper1 no-gutters">
-                    <Container className = "position-relative">
+
+                    <div style = {showLoader} className="preload">
+                        <div className="preload-status">
+                            <div className="preload-status-bar"></div>
+                            <div className="preload-status-info">LOADING</div>
+                        </div>
+                    </div>
+
+                    <Container style = {showContainer} className = "position-relative">
                         {this.renderScene()}
                         <Row style = {ContinueStyle} className = "no-gutters">
                             <Col md="5"  className="align-middle">
