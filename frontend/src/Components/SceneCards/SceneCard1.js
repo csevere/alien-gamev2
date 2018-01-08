@@ -27,9 +27,9 @@ class SceneCard1 extends Component{
                 opacity3: 0,
                 opacity4: 0,
                 opacity5: 0,
-                opacity6: 0
-                
+                opacity6: 0  
             }
+        this.showAgain = this.showAgain.bind(this);
     }
 
     componentDidMount() {
@@ -48,33 +48,71 @@ class SceneCard1 extends Component{
             })
         }, 4000)
 
-        setInterval(() =>{
+        setTimeout(() =>{
             this.setState({
                 transition3: 'all 1s',
                 opacity3: 1
             })
         }, 5000)
 
-        setInterval(() =>{
+        setTimeout(() =>{
             this.setState({
                 transition4: 'all 1s',
                 opacity4: 1
             })
         }, 6000)
 
-        setInterval(() =>{
+        setTimeout(() =>{
             this.setState({
                 transition5: 'width 1s',
                 opacity5: 1
             })
         }, 7000)
 
-        setInterval(() =>{
+        setTimeout(() =>{
             this.setState({
                 transition6: 'width 1s',
                 opacity6: 1
             })
         }, 8000)
+    }
+
+    showAgain(){
+        this.setState({
+            opacity3: 0,
+            opacity4: 0,
+            opacity5: 0,
+            opacity6: 0  
+        })
+
+        setTimeout(() =>{
+            this.setState({
+                transition3: 'all 1s',
+                opacity3: 1
+            })
+        }, 2000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition4: 'all 1s',
+                opacity4: 1
+            })
+        }, 3000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition5: 'width 1s',
+                opacity5: 1
+            })
+        }, 4000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition6: 'width 1s',
+                opacity6: 1
+            })
+        }, 5000)
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -95,6 +133,8 @@ class SceneCard1 extends Component{
                 opacity: 0
             }) 
 
+            this.showAgain()
+
         }
 
 
@@ -105,6 +145,8 @@ class SceneCard1 extends Component{
                 showContinueButton: 'block',
                 showCard: 'none'
             })
+
+            this.showAgain()
         }
     }
 
