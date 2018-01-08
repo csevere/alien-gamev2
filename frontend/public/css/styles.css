@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 /* line 3, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
@@ -183,7 +184,7 @@ p {
 /* line 3, ../../compass/sass/_scene.scss */
 .scene-wrapper1 {
   background: url("/assets/images/scene_texture.jpg");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   height: 100%;
   min-height: 772px;
@@ -249,49 +250,49 @@ p {
   font-size: 18px;
   margin-top: -19em;
 }
-/* line 54, ../../compass/sass/_scene.scss */
-.scene-wrapper1 .scene-card .scene-text {
+/* line 55, ../../compass/sass/_scene.scss */
+.scene-wrapper1 .scene-card .scene-text .s_text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
 @media (max-width: 1199px) {
-  /* line 54, ../../compass/sass/_scene.scss */
-  .scene-wrapper1 .scene-card .scene-text {
+  /* line 55, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 .scene-card .scene-text .s_text {
     font-size: 18px;
   }
 }
 @media (max-width: 736px) {
-  /* line 54, ../../compass/sass/_scene.scss */
-  .scene-wrapper1 .scene-card .scene-text {
+  /* line 55, ../../compass/sass/_scene.scss */
+  .scene-wrapper1 .scene-card .scene-text .s_text {
     font-size: 1.4em;
   }
 }
-/* line 66, ../../compass/sass/_scene.scss */
+/* line 68, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button {
   margin-top: 64em;
 }
 @media (max-width: 1199px) {
-  /* line 66, ../../compass/sass/_scene.scss */
+  /* line 68, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 71em;
   }
 }
 @media (max-width: 736px) {
-  /* line 66, ../../compass/sass/_scene.scss */
+  /* line 68, ../../compass/sass/_scene.scss */
   .scene-wrapper1 .scene-button {
     margin-top: 89em;
   }
 }
-/* line 74, ../../compass/sass/_scene.scss */
+/* line 76, ../../compass/sass/_scene.scss */
 .scene-wrapper1 .scene-button .btn:focus {
   color: lightgray !important;
 }
-/* line 79, ../../compass/sass/_scene.scss */
+/* line 81, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a {
   text-decoration: none;
 }
-/* line 81, ../../compass/sass/_scene.scss */
+/* line 83, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue {
   background: url("/assets/images/sci_fi_texture.png");
   color: #ddd;
@@ -304,7 +305,7 @@ p {
   top: 12em;
   left: 12em;
 }
-/* line 92, ../../compass/sass/_scene.scss */
+/* line 94, ../../compass/sass/_scene.scss */
 .scene-wrapper1 a .continue:hover {
   color: #969494;
 }
@@ -942,12 +943,85 @@ p {
   }
 }
 
-/* line 15, ../../compass/sass/styles.scss */
+/* line 4, ../../compass/sass/_loader.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* line 8, ../../compass/sass/_loader.scss */
+html, body {
+  font-family: "Press Start 2P", Arial, sans-serif;
+  background: #202020;
+}
+
+/* line 14, ../../compass/sass/_loader.scss */
+.preload {
+  width: 28em;
+  position: relative;
+  top: 39em;
+  left: 53em;
+}
+/* line 20, ../../compass/sass/_loader.scss */
+.preload .preload-status {
+  overflow: hidden;
+  height: 50px;
+  border-left: 2px solid #3d3d3d;
+  border-right: 2px solid #3d3d3d;
+}
+/* line 27, ../../compass/sass/_loader.scss */
+.preload .preload-status-bar {
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  background: #74f9fc;
+  border: 1px solid #2f99ff;
+  box-shadow: 0px 0px 4px 1px #2F92FF;
+  left: -200px;
+  animation: preload-status-animate 1.5s infinite cubic-bezier(0.75, 0, 0.25, 1);
+}
+/* line 39, ../../compass/sass/_loader.scss */
+.preload .preload-status-info {
+  opacity: 1;
+  margin-top: -22px;
+  width: 100%;
+  height: 30px;
+  font-family: "Press Start 2P", Arial, sans-serif;
+  text-align: center;
+  color: #74f9fc;
+  text-shadow: 0px 1px #255fcc;
+  animation: preload-status-animate-2 1.5s infinite cubic-bezier(0.75, 0, 0.25, 1);
+}
+@keyframes preload-status-animate {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(400px);
+    transform: translateX(400px);
+  }
+}
+@keyframes preload-status-animate-2 {
+  100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+/* line 16, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 21, ../../compass/sass/styles.scss */
+/* line 22, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }
