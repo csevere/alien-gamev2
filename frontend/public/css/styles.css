@@ -437,28 +437,58 @@ p {
 }
 
 /* line 5, ../../compass/sass/_login.scss */
+.login-wrapper .demoForm {
+  width: 500px;
+  margin: auto;
+  color: black;
+}
+/* line 11, ../../compass/sass/_login.scss */
+.login-wrapper .panel-default {
+  border-color: transparent;
+  margin-bottom: -6px;
+  text-align: center;
+  background-color: transparent;
+}
+/* line 16, ../../compass/sass/_login.scss */
+.login-wrapper .panel-default .formErrors {
+  display: flex;
+}
+/* line 18, ../../compass/sass/_login.scss */
+.login-wrapper .panel-default .formErrors p {
+  color: red;
+  padding-left: 1em;
+}
+/* line 26, ../../compass/sass/_login.scss */
+.login-wrapper button, .login-wrapper html [type="button"], .login-wrapper [type="reset"], .login-wrapper [type="submit"] {
+  -webkit-appearance: none;
+}
+/* line 30, ../../compass/sass/_login.scss */
 .login-wrapper .login-card {
   height: 18em;
   background: transparent !important;
 }
-/* line 9, ../../compass/sass/_login.scss */
+/* line 34, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content label, .login-wrapper .login-card .login-content input {
   color: #74f9fc;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
-/* line 15, ../../compass/sass/_login.scss */
+/* line 40, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content input {
   background: black;
-  border: 1px solid white;
   color: white;
 }
-/* line 22, ../../compass/sass/_login.scss */
-.login-wrapper .login-card a {
-  text-decoration: none;
+/* line 48, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .button[disabled] {
+  cursor: not-allowed;
+  opacity: .65;
 }
-/* line 25, ../../compass/sass/_login.scss */
-.login-wrapper .login-card a .button {
+/* line 51, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .button[disabled] a {
+  pointer-events: none;
+}
+/* line 56, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .button {
   margin-top: 3em;
   margin-left: 0em;
   display: block;
@@ -469,11 +499,15 @@ p {
   border-image-slice: 1;
   cursor: pointer;
 }
-/* line 37, ../../compass/sass/_login.scss */
-.login-wrapper .login-card a .text {
+/* line 67, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .button .text {
   letter-spacing: 10px;
 }
-/* line 44, ../../compass/sass/_login.scss */
+/* line 69, ../../compass/sass/_login.scss */
+.login-wrapper .login-card .button .text a {
+  text-decoration: none;
+}
+/* line 78, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .register .button {
   margin-top: 2em;
 }
@@ -653,18 +687,7 @@ p {
   height: 20em;
 }
 
-/* line 3, ../../compass/sass/_button.scss */
-.button {
-  display: block;
-  text-align: center;
-  border-width: 1px 0px 1px 0;
-  border-style: solid;
-  border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
-  border-image-slice: 1;
-  cursor: pointer;
-}
-
-/* line 14, ../../compass/sass/_button.scss */
+/* line 4, ../../compass/sass/_button.scss */
 .text {
   text-transform: uppercase;
   font-family: 'Anton', sans-serif;
@@ -676,72 +699,72 @@ p {
   margin-top: 1px;
 }
 
-/* line 26, ../../compass/sass/_button.scss */
+/* line 16, ../../compass/sass/_button.scss */
 .line-container {
   width: 230px;
   margin: auto;
   position: relative;
 }
 
-/* line 33, ../../compass/sass/_button.scss */
+/* line 23, ../../compass/sass/_button.scss */
 .line {
   position: absolute;
 }
 
-/* line 38, ../../compass/sass/_button.scss */
+/* line 28, ../../compass/sass/_button.scss */
 .line--thick {
   width: 6px;
   background-color: #74f9fc;
 }
 
-/* line 44, ../../compass/sass/_button.scss */
+/* line 34, ../../compass/sass/_button.scss */
 .line--thin {
   position: absolute;
   height: 1px;
   background: linear-gradient(to left, rgba(199, 255, 247, 0.8), rgba(0, 224, 203, 0.4), rgba(0, 193, 224, 0.4), rgba(0, 193, 224, 0.4), rgba(199, 239, 255, 0.8));
 }
 
-/* line 53, ../../compass/sass/_button.scss */
+/* line 43, ../../compass/sass/_button.scss */
 .thick-line--short {
   height: 15px;
   top: -16px;
 }
 
-/* line 59, ../../compass/sass/_button.scss */
+/* line 49, ../../compass/sass/_button.scss */
 .thick-line--long {
   height: 40px;
   top: -1px;
 }
 
-/* line 65, ../../compass/sass/_button.scss */
+/* line 55, ../../compass/sass/_button.scss */
 .line--top-right {
   right: 0;
   transform: skew(45deg);
   box-shadow: 0px 0px 13px #17a2b87a, -12px -8px 25px 3px #17a2b87a;
 }
 
-/* line 72, ../../compass/sass/_button.scss */
+/* line 62, ../../compass/sass/_button.scss */
 .line--top-left {
   left: 0px;
   transform: skew(-45deg);
   box-shadow: 12px -8px 25px 3px #17a2b8b8, 0px 0px 13px #17a2b8a6;
 }
 
-/* line 79, ../../compass/sass/_button.scss */
+/* line 69, ../../compass/sass/_button.scss */
 .line--bottom-right {
   right: 12px;
   transform: skew(-45deg);
   box-shadow: -12px 3px 22px 3px #17a2b8b5, 0px 0px 13px #17a2b8b5;
 }
 
-/* line 86, ../../compass/sass/_button.scss */
+/* line 76, ../../compass/sass/_button.scss */
 .line--bottom-left {
   left: 12px;
   transform: skew(45deg);
   box-shadow: 12px 3px 22px 3px #17a2b8c2, 0px 0px 13px #17a2b8b3;
 }
 
-/* line 93, ../../compass/sass/_button.scss */
+/* line 83, ../../compass/sass/_button.scss */
 .line--top {
   width: 214px;
   top: -17px;
@@ -749,7 +772,7 @@ p {
   box-shadow: 0px 5px 34px 5px #17a2b857;
 }
 
-/* line 101, ../../compass/sass/_button.scss */
+/* line 91, ../../compass/sass/_button.scss */
 .line--bottom {
   width: 160px;
   top: 38px;
@@ -757,7 +780,7 @@ p {
   box-shadow: 0px -5px 34px 5px #17a2b84f;
 }
 
-/* line 108, ../../compass/sass/_button.scss */
+/* line 98, ../../compass/sass/_button.scss */
 .pseudo-class-shadow, .line-container::before, .line-container::after, .line--top-left::before, .line--top-left::after, .line--top-right::before, .line--top-right::after, .line--bottom-right::before, .line--bottom-right::after, .line--bottom-left::before, .line--bottom-left::after {
   position: absolute;
   content: '';
@@ -765,54 +788,54 @@ p {
   width: 22px;
 }
 
-/* line 116, ../../compass/sass/_button.scss */
+/* line 106, ../../compass/sass/_button.scss */
 .line-container::before {
   width: 40px;
   box-shadow: -20px 10px 45px 4px #74f9fc;
 }
 
-/* line 121, ../../compass/sass/_button.scss */
+/* line 111, ../../compass/sass/_button.scss */
 .line-container::after {
   width: 40px;
   box-shadow: 207px -12px 45px 4px #17a2b8bf;
 }
 
-/* line 127, ../../compass/sass/_button.scss */
+/* line 117, ../../compass/sass/_button.scss */
 .line--top-left::before {
   box-shadow: 28px 20px 34px 3px #17a2b87a;
 }
 
-/* line 131, ../../compass/sass/_button.scss */
+/* line 121, ../../compass/sass/_button.scss */
 .line--top-left::after {
   box-shadow: 48px 20px 34px 3px #17a2b87a;
 }
 
-/* line 136, ../../compass/sass/_button.scss */
+/* line 126, ../../compass/sass/_button.scss */
 .line--top-right::before {
   box-shadow: -48px 20px 34px 3px #17a2b8bd;
 }
 
-/* line 141, ../../compass/sass/_button.scss */
+/* line 131, ../../compass/sass/_button.scss */
 .line--top-right::after {
   box-shadow: -58px 20px 34px 3px #17a2b8ba;
 }
 
-/* line 146, ../../compass/sass/_button.scss */
+/* line 136, ../../compass/sass/_button.scss */
 .line--bottom-right::before {
   box-shadow: -42px 9px 44px 5px #17a2b89e;
 }
 
-/* line 151, ../../compass/sass/_button.scss */
+/* line 141, ../../compass/sass/_button.scss */
 .line--bottom-right::after {
   box-shadow: -52px 10px 44px 5px #17a2b88f;
 }
 
-/* line 156, ../../compass/sass/_button.scss */
+/* line 146, ../../compass/sass/_button.scss */
 .line--bottom-left::before {
   box-shadow: 32px 10px 44px 5px #17a2b88a;
 }
 
-/* line 161, ../../compass/sass/_button.scss */
+/* line 151, ../../compass/sass/_button.scss */
 .line--bottom-left::after {
   box-shadow: 42px 10px 44px 5px #17a2b88a;
 }

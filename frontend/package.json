@@ -7,6 +7,7 @@
   },
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "findup": "^0.1.5",
     "ghooks": "^2.0.2",

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Link} from 'react-router-dom';
+import { FormErrors } from './FormErrors';
 import { 
     Card, 
-    CardHeader, 
     CardBlock, 
     CardTitle, 
     CardText,
@@ -10,11 +10,10 @@ import {
     Button, 
     Form, 
     FormGroup, 
+    FormControl,
     Label, 
     Input, 
-    FormText, 
-    Row, 
-    Col
+    FormText,
 } from 'reactstrap';
 
 export class Login extends Component{
@@ -22,8 +21,16 @@ export class Login extends Component{
         super(props);
 
         this.toggle = this.toggle.bind(this); 
+        this.handleUserInput = this.handleUserInput.bind(null);
+
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+            username: '',
+            password: '',
+            formErrors: {username: '', password: ''},
+            usernameValid: false,
+            passwordValid: false,
+            formValid: false 
         };
     }
 
@@ -35,6 +42,50 @@ export class Login extends Component{
         }
     }
 
+    handleUserInput = (e) => {
+        const name = e.target.name;
+        const value = e.target.value; 
+        this.setState({[name]: value},
+            () => { this.validateField(name, value) });
+	}
+
+    validateField(fieldName, value) {
+        let fieldValidationErrors = this.state.formErrors;
+        let usernameValid = this.state.usernameValid;
+        let passwordValid = this.state.passwordValid;
+      
+        switch(fieldName) {
+
+          case 'username':
+            //simple regex for emails
+            usernameValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+            fieldValidationErrors.username = usernameValid ? '' : ' is invalid';
+            break;
+            //check for min 6 characters
+          case 'password':
+            passwordValid = value.length >= 6;
+            fieldValidationErrors.password = passwordValid ? '': ' is too short';
+            break;
+          default:
+            break;
+        }
+        //setState to update the formErrors and the field validity 
+        //and we pass the validateForm callback to set the value of formValid.
+        this.setState({formErrors: fieldValidationErrors,
+                        usernameValid: usernameValid,
+                        passwordValid: passwordValid
+                      }, this.validateForm);
+      }
+      
+    validateForm() {
+        this.setState({formValid: this.state.usernameValid && this.state.passwordValid});
+    }
+
+    errorClass(error) {
+        return(error.length === 0 ? '' : 'has-error');
+    }
+
+
 	render(){
 
 		return(
@@ -43,27 +94,44 @@ export class Login extends Component{
                     <Card className = "p-3 login-card">
                         <CardBlock>
                             <Form className = "login-content">
-                                <FormGroup>
+                                <div className = "panel panel-default">
+                                    <FormErrors formErrors={this.state.formErrors} />
+                                </div>
+                                <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
                                     <Label for="username">Username</Label>
-                                    <Input type="username" name="username" id="username" placeholder="enter username" />
-                                </FormGroup>
-                                <FormGroup>
+                                    <Input
+                                        required
+                                        type="text" 
+                                        name="username" 
+                                        placeholder="enter username" 
+                                        value = {this.state.username}  
+                                        onChange = {this.handleUserInput}
+                                    />
+                                </div>
+
+                                <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
                                     <Label for="password">Password</Label>
-                                    <Input type="password" name="password" id="examplePassword" placeholder="enter password" />
-                                </FormGroup>
-                                <Link to = "/scene">
-                                    <div className = "button hvr-bob">
-                                        <div className = "line-container">
-                                            <span className = "text">PLAY</span>
-                                            <div className="line line--top-left line--thick thick-line--short"></div>
-                                            <div className="line line--top-right line--thick thick-line--short"></div>
-                                            <div className="line line--bottom-left line--thick thick-line--long"></div>
-                                            <div className="line line--bottom-right line--thick thick-line--long"></div>
-                                            <div className="line line--top line--thin"></div>
-                                            <div className="line line--bottom line--thin"></div>
-                                        </div>
+                                    <Input
+                                        required 
+                                        type="password" 
+                                        name="password"  
+                                        placeholder="enter password" 
+                                        value = {this.state.password}  
+                                        onChange={this.handleUserInput}
+                                    />
+                                </div>
+
+                                <div type = "submit" disabled ={!this.state.formValid} className = "button hvr-bob">
+                                    <div className = "line-container">
+                                        <Link disabled ={!this.state.formValid} to = "/scene"><span className = "text">PLAY</span></Link>
+                                        <div className="line line--top-left line--thick thick-line--short"></div>
+                                        <div className="line line--top-right line--thick thick-line--short"></div>
+                                        <div className="line line--bottom-left line--thick thick-line--long"></div>
+                                        <div className="line line--bottom-right line--thick thick-line--long"></div>
+                                        <div className="line line--top line--thin"></div>
+                                        <div className="line line--bottom line--thin"></div>
                                     </div>
-                                </Link>
+                                </div>
                             </Form>
                         </CardBlock>
                     </Card>
