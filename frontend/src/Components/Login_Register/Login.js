@@ -13,7 +13,7 @@ import {
     FormControl,
     Label, 
     Input, 
-    FormText,
+    FormText
 } from 'reactstrap';
 
 export class Login extends Component{
@@ -57,8 +57,8 @@ export class Login extends Component{
         switch(fieldName) {
 
           case 'username':
-            //simple regex for emails
-            usernameValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+            //check for min 6 chars
+            usernameValid = value.length >= 6;
             fieldValidationErrors.username = usernameValid ? '' : ' is invalid';
             break;
             //check for min 6 characters

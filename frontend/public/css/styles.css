@@ -380,7 +380,7 @@ p {
 
 /* line 3, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper {
-  margin-top: 30em;
+  margin-top: 25em;
   margin-left: 24em;
   margin-right: -8em;
 }
@@ -428,8 +428,8 @@ p {
 }
 /* line 54, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .lognav-content {
-  height: 27em;
-  margin-top: -5em;
+  height: 33em;
+  margin-top: -1em;
 }
 /* line 57, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .lognav-content .register-tab {
