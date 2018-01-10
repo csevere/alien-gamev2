@@ -2,6 +2,31 @@
 
 .login-wrapper{
 
+    .demoForm {
+        width: 500px;
+        margin: auto;
+        color: black; 
+    }
+
+    .panel-default {
+        border-color: transparent; 
+        margin-bottom: -6px;
+        text-align: center;
+        background-color: transparent;
+        .formErrors{
+            display: flex; 
+            p{
+                color:red;  
+                padding-left: 1em; 
+            }
+        }
+    }
+        
+
+    button, html [type="button"], [type="reset"], [type="submit"] {
+        -webkit-appearance: none;
+    }
+
     .login-card{
         height: 18em; 
         background: transparent !important;
@@ -14,31 +39,40 @@
 
             input{
                 background: black;
-                border: 1px solid white;
+                // border: 1px solid white;
                 color: white; 
 
             }
         }
-        a{
-            text-decoration: none; 
 
-            .button {
-                margin-top: 3em; 
-                margin-left: 0em;
-                display: block;
-                text-align: center;
-                border-width: 1px 0px 1px 0;
-                border-style: solid;
-                border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
-                border-image-slice: 1;
-                cursor: pointer;
-            }
-
-            .text {
-                letter-spacing: 10px; 
+        .button[disabled]{
+            cursor: not-allowed;
+            opacity: .65; 
+            a{
+                pointer-events: none;
             } 
+        }
+        
+        .button {
+           
+            margin-top: 3em; 
+            margin-left: 0em;
+            display: block;
+            text-align: center;
+            border-width: 1px 0px 1px 0;
+            border-style: solid;
+            border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
+            border-image-slice: 1;
+            cursor: pointer;
+            .text {
+                letter-spacing: 10px;
+                a{
+                    text-decoration: none; 
+                } 
+            } 
+    
+        }
 
-        } 
         
         .register{
             .button {
