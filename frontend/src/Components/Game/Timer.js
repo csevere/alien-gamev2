@@ -1,38 +1,26 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
-import Typing from 'react-typing-animation'; 
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardBlock, 
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
-} from 'reactstrap';
+import Countdown from 'react-countdown-now';
 
 
-class Game extends Component{
-    constructor(props){
-        super(props);
-            this.state = {
-            }
-    }
+function Timer() {
+    
+    const Completionist = () => <span>You ran out of time! GAME OVER</span>
+    const renderer = ({ minutes, seconds, completed}) =>{
+        if(completed){
+            return <Completionist/>;
+        }else{
+            return <span>{minutes} : {seconds}</span>;
+        }
+    };
 
-    render(){
-        return(
-            <div>
-                <div className = "game-wrapper">
-                    <Container>
-                    </Container>
-                </div>
-            </div>
-        )
-    }
-              
+    return(
+        <div className = "timer">
+            <Countdown
+                date = {Date.now() + 300000}
+                renderer = {renderer}
+            />
+        </div>
+    )            
 }
 
-export default EnemyCard; 
+export default Timer; 
