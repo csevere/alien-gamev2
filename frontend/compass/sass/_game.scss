@@ -11,6 +11,10 @@
     margin-top: -6em; 
     z-index: 0;
 
+    .pause-text{
+        z-index: 100;
+    }
+
     @media(min-width:$xlg){
         min-height: $min-height;
         margin-top: 0em;     
@@ -36,15 +40,12 @@
             height: 5em;  
         }
 
-        .timer{
+        .countdown{
             color: white; 
-            height: 5em; 
-            margin-left:13em; 
+            float: right;  
+            font-size: 3rem;  
             background-color: black; 
-            span{
-                font-size: 36px; 
-                padding: 23px; 
-            }
+            padding: 0.5rem; 
         }
 
     }

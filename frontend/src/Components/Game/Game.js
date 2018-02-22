@@ -5,7 +5,7 @@ import * as actions from '../../Actions/story_actions';
 import EnemyCard from './EnemyCard'; 
 import PlayerCard from './PlayerCard'; 
 import Instructions from './Instructions'; 
-import Timer from './Timer'; 
+import Countdown from './Countdown'; 
 import Dice from './Dice'; 
 import Buttons from './Buttons'; 
 import { Container, 
@@ -24,13 +24,16 @@ import { Container,
 class Game extends Component{
     constructor(props){
         super(props);
-            this.state = {
-                handleFight: true,
-                message: "You've encountered a terrifying alien. What will you do?"
+		this.state = {
+			handleFight: true,
+			message: "You've encountered a terrifying alien. What will you do?",
+			showText: false,
+			isPaused: false
 
-            }
+		}
 
-            this.handleFight = this.handleFight.bind(this)
+		this.handleFight = this.handleFight.bind(this)
+		this.pauseGame = this.pauseGame.bind(this)
     }
 
 
@@ -43,20 +46,41 @@ class Game extends Component{
             die1: "assets/dice/d" + randomDie1 + ".png",
             die2: "assets/dice/d" + randomDie2 + ".png",
           })
-    }
+	}
+	
+	pauseGame(){
+		this.setState({
+		  isPaused: !this.state.isPaused,
+		  showText: !this.state.showText
+		})
+	}
 
     render(){
+		const textStyle = {
+			margin: 'auto',
+			position: 'relative',
+			top: '49rem',
+			'font-size':'10rem'
+        }
         return(
             <div>
                 <div className = "game-wrapper">
                     <Container>
+						<Row>
+							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isPaused ? 'GAME PAUSED' : ' '}</div>
+						</Row>
+						
                         <Row className = "row1 d-flex flex-row">
-                            <Col md="4">
+                            <Col md="3">
                                 <Instructions/>
                             </Col>
 
+							<Col md="6">
+                                <Button onClick ={ ()=> this.pauseGame()}>{this.state.isPaused ? 'RESUME' : 'PAUSE | |'}</Button>
+                            </Col>
+
                             <Col md = "3">
-                                <Timer/>
+                                <Countdown pauseGame = {this.pauseGame}/>
                             </Col>
                         </Row>
 
@@ -95,11 +119,11 @@ class Game extends Component{
                                     <div className = "p-5 text-dark card">card6</div>
                                 </div>
                             </Col>
-                            
+						
                             <Col md = "4">
                                 <div className = "attack-screen">
-                                    <div className = "attack-detail">attackdetail</div>
-                                    <div className = "attack-image">attackimage</div>
+                                    <div className = "attack-detail text-white">attackdetail</div>
+                                    <div className = "attack-image text-white">attackimage</div>
                                     <div className = "message">message</div>
                                 </div>
                             </Col>
