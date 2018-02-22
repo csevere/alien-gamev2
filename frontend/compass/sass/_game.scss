@@ -17,7 +17,7 @@
 
     @media(min-width:$xlg){
         min-height: $min-height;
-        margin-top: 0em;     
+        margin-top: -8em;     
     }
 
     @media(min-width:$xxlg){
@@ -34,6 +34,7 @@
 
     .row1{
         // border: 3px solid green; 
+        background: $scene-bg;
         height: 6em; 
         margin-top:9em; 
         .instructions{
@@ -51,13 +52,9 @@
     }
 
     .row2{
+        background: $scene-bg;
         border: 3px solid red; 
-        height: 24em; 
-        .enemyProgress{
-            margin-top: -7em;
-            margin-left: 12em;
-        }
-
+        height: 33em; 
 
         //ENEMY CARDS 
         .enemy-card, .player-card{
@@ -82,19 +79,22 @@
             }
         }
 
-
         //DICE
         .dice{
             height: 7em; 
             margin-left: 12em;
         }
-        .playerProgress{
-            margin-top: -7em;
-            margin-left: 12em;
+        .playerProgress, .enemyProgress{
+            margin: auto;
+            font-size: 1.35rem;
+            color: white;  
+            text-transform: uppercase; 
+
         }
     }
 
     .row3{
+        background: $scene-bg;
         border: 3px solid orange; 
         height: 20em; 
         .enemy-deck{
@@ -105,8 +105,8 @@
         }
 
         .attack-screen{
-            margin-top: -12em;
-            margin-left: -2em;
+            margin-top: -33em;
+            margin-left: -2.5em;
             width: 39em; 
 
             .attack-detail{
@@ -150,14 +150,19 @@
     }
 
     .row4{
+        background: $scene-bg;
         border: 3px solid yellow; 
         height: 20em; 
-        .p-2{
+        .comp{
             background-color: red; 
             height: 8em; 
             margin-top: 8em;
             margin-left: 12em;
             width: 10em;
+        }
+
+        .buttons{
+            margin-left:25rem; 
         }
       
         

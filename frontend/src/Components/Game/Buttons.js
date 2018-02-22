@@ -6,9 +6,9 @@ class Buttons extends Component{
 
             <div className = "buttons">
                 <span className = "start-btn" onClick = {this.props.fight}>Attack</span>
+                <span className = "start-btn">Shuffle Cards</span>
                 <span className = "start-btn">Health Boost</span>
                 <span className = "start-btn">Stamina Boost</span>
-                <span className = "start-btn">Use Items</span>
             </div>
     
         )
@@ -18,3 +18,5 @@ class Buttons extends Component{
 }
 
 export default Buttons;
+
+/* <span className = "start-btn">Use Items</span> */
