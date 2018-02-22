@@ -4,7 +4,10 @@ import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
 import EnemyCard from './EnemyCard'; 
 import PlayerCard from './PlayerCard'; 
-import Typing from 'react-typing-animation'; 
+import Instructions from './Instructions'; 
+import Timer from './Timer'; 
+import Dice from './Dice'; 
+import Buttons from './Buttons'; 
 import { Container, 
     Row, 
     Col,
@@ -13,17 +16,33 @@ import { Container,
     CardBlock, 
     CardText, 
     CardImg, 
-    CardImgOverlay 
+    CardImgOverlay,
+    Progress 
 } from 'reactstrap';
-
-
 
 
 class Game extends Component{
     constructor(props){
         super(props);
             this.state = {
+                handleFight: true,
+                message: "You've encountered a terrifying alien. What will you do?"
+
             }
+
+            this.handleFight = this.handleFight.bind(this)
+    }
+
+
+    handleFight(){
+        //getting a random number to roll random dice
+        var randomDie1 = Math.ceil(Math.random() * 6);
+        var randomDie2 = Math.ceil(Math.random() * 6);
+        
+        this.setState({
+            die1: "assets/dice/d" + randomDie1 + ".png",
+            die2: "assets/dice/d" + randomDie2 + ".png",
+          })
     }
 
     render(){
@@ -33,11 +52,11 @@ class Game extends Component{
                     <Container>
                         <Row className = "row1 d-flex flex-row">
                             <Col md="4">
-                                <div className = "instructions text-light">instructions</div>
+                                <Instructions/>
                             </Col>
 
                             <Col md = "3">
-                                <div className = "timer">timer</div>
+                                <Timer/>
                             </Col>
                         </Row>
 
@@ -49,7 +68,7 @@ class Game extends Component{
                             </Col>
 
                             <Col md = "4">
-                                <div className = "dice">dice</div>
+                                <Dice dieone = {this.state.die1} dietwo = {this.state.die2}  /> 
                             </Col>
 
                             <Col md = "4">
@@ -58,9 +77,9 @@ class Game extends Component{
                                 </div>
                                 <div className = "playerProgress d-flex flex-column">
                                     Health
-                                    <progress id = "userHealth" value = "500" max = "500"></progress>
+                                    <Progress id = "userHealth" value = "500" max = "500"></Progress>
                                     AP
-                                    <progress id = "p_AP" value = "50" max = "50"></progress>
+                                    <Progress id = "p_AP" value = "50" max = "50"></Progress>
                                 </div> 
                             </Col>
                         </Row>
@@ -104,11 +123,8 @@ class Game extends Component{
                         </Row>
 
                         <Row className = "row4">
-                            <div className = "buttons d-flex flex-row">
-                                <div className = "p-2  healthboost rounded-circle">healthboost</div>
-                                <div className = "p-2  fight rounded-circle">fight</div>
-                                <div className = "p-2 apboost rounded-circle">apboost</div>
-                                <div className = "p-2  items rounded-circle">items</div>
+                            <div className = "d-flex flex-row">
+                               <Buttons fight = {this.handleFight} />
                             </div>
                         </Row>
 
@@ -124,6 +140,15 @@ class Game extends Component{
                             </div>
                         </Row>
                     </Container>
+                    <div className = "p-2 audio">
+                        <embed 
+                            src="assets/music/quarkstar.mp3" 
+                            preload = "auto" 
+                            width="10"
+                            height="10"
+                            loop="true"
+                        controls/>	
+                    </div>
                 </div>
             </div>  
         )

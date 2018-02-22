@@ -1,38 +1,46 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
-import Typing from 'react-typing-animation'; 
-import { Container, 
-    Row, 
-    Col,
+import {
     Button, 
-    Card, 
-    CardBlock, 
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
 } from 'reactstrap';
 
+class Instructions extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
 
-class Game extends Component{
-    constructor(props){
-        super(props);
-            this.state = {
-            }
-    }
+    this.toggle = this.toggle.bind(this);
+  }
 
-    render(){
-        return(
-            <div>
-                <div className = "game-wrapper">
-                    <Container>
-                    </Container>
-                </div>
-            </div>
-        )
-    }
-              
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Button color="danger" onClick={this.toggle}>Instructions</Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader className = "text-dark" toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody className = "text-dark">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
+  }
 }
 
-export default EnemyCard; 
+
+export default Instructions; 

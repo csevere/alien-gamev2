@@ -1,38 +1,20 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
-import Typing from 'react-typing-animation'; 
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardBlock, 
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
-} from 'reactstrap';
+import React, {Component} from 'react'; 
 
-
-class Game extends Component{
-    constructor(props){
-        super(props);
-            this.state = {
-            }
-    }
-
+class Buttons extends Component{
     render(){
         return(
-            <div>
-                <div className = "game-wrapper">
-                    <Container>
-                    </Container>
-                </div>
+
+            <div className = "buttons">
+                <span className = "start-btn" onClick = {this.props.fight}>Attack</span>
+                <span className = "start-btn">Health Boost</span>
+                <span className = "start-btn">Stamina Boost</span>
+                <span className = "start-btn">Use Items</span>
             </div>
+    
         )
+
     }
-              
+	
 }
 
-export default EnemyCard; 
+export default Buttons;
