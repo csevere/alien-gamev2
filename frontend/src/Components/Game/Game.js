@@ -28,7 +28,7 @@ class Game extends Component{
 			handleFight: true,
 			message: "You've encountered a terrifying alien. What will you do?",
 			showText: false,
-			isPaused: false
+			isRunning: true
 
 		}
 
@@ -50,7 +50,7 @@ class Game extends Component{
 	
 	pauseGame(){
 		this.setState({
-		  isPaused: !this.state.isPaused,
+		  isRunning: !this.state.isRunning,
 		  showText: !this.state.showText
 		})
 	}
@@ -61,13 +61,19 @@ class Game extends Component{
 			position: 'relative',
 			top: '49rem',
 			fontSize:'10rem'
-        }
+		}
+		
+		const tempStyle ={
+			marginLeft: '64em',
+			marginTop: '-6em'
+
+		}
         return(
             <div>
                 <div className = "game-wrapper">
                     <Container>
 						<Row>
-							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isPaused ? 'GAME PAUSED' : ' '}</div>
+							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? '' : 'GAME PAUSED '}</div>
 						</Row>
 						
                         <Row className = "row1 d-flex flex-row">
@@ -75,12 +81,12 @@ class Game extends Component{
                                 <Instructions/>
                             </Col>
 
-							<Col md="6">
-                                <Button onClick ={ ()=> this.pauseGame()}>{this.state.isPaused ? 'RESUME' : 'PAUSE | |'}</Button>
+							<Col md="3">
+                                <Button color="danger" className = "start-btn" onClick ={ ()=> this.pauseGame()}>{this.state.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
                             </Col>
 
-                            <Col md = "3">
-                                <Countdown pauseGame = {this.pauseGame}/>
+                            <Col md = "3" style = {tempStyle}>
+                                <Countdown />
                             </Col>
                         </Row>
 
@@ -117,9 +123,9 @@ class Game extends Component{
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">card1</div>
-                                    <div className = "p-5 text-dark card">card2</div>
-                                    <div className = "p-5 text-dark card">card3</div>
+                                    <div className = "p-5 text-dark card">Deck</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
                                 </div>
                             </Col>
 						
@@ -133,9 +139,9 @@ class Game extends Component{
 
                             <Col md = "4">
                                 <div className = "player-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">card1</div>
-                                    <div className = "p-5 text-dark card">card2</div>
-                                    <div className = "p-5 text-dark card">card3</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "p-5 text-dark card">Card 2</div>
+                                    <div className = "p-5 text-dark card">Deck</div>
                                 </div>
                             </Col>
                         </Row>
@@ -148,9 +154,11 @@ class Game extends Component{
 										<div className = " comp">companion3</div>
 								</div>
 							</Col>
-							<div className = "d-flex flex-row">
-                               <Buttons fight = {this.handleFight} />
-                            </div>
+							<Col md = "6">
+								<div>
+								<Buttons fight = {this.handleFight} />
+								</div>
+							</Col>
                         </Row>
                     </Container>
                     <div className = "p-2 audio">

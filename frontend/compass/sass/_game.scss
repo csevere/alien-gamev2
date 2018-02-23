@@ -11,6 +11,11 @@
     margin-top: -6em; 
     z-index: 0;
 
+    button{
+        border-color: transparent !important; 
+    }
+   
+
     .pause-text{
         z-index: 100;
     }
@@ -50,11 +55,12 @@
         }
 
     }
-
+////////////////////////////////ROW 2///////////////
     .row2{
         background: $scene-bg;
         border: 3px solid red; 
         height: 33em; 
+        padding-top: 1rem; 
 
         //ENEMY CARDS 
         .enemy-card, .player-card{
@@ -82,7 +88,8 @@
         //DICE
         .dice{
             height: 7em; 
-            margin-left: 12em;
+            text-align: center;
+            margin-top: 40em; 
         }
         .playerProgress, .enemyProgress{
             margin: auto;
@@ -93,21 +100,27 @@
         }
     }
 
+   ////////////////////////////ROW 3//////////////////////
     .row3{
         background: $scene-bg;
         border: 3px solid orange; 
         height: 20em; 
-        .enemy-deck{
+        .enemy-deck, .player-deck{
             background-color:black;
             border: 2px solid red;
-            height: 9em; 
-            margin-left: -1.7em;
+            height: 19em;
+            .p-5{
+                width: 12rem; 
+            } 
+        }
+        .enemy-deck{
+            float: right;
         }
 
         .attack-screen{
             margin-top: -33em;
             margin-left: -2.5em;
-            width: 39em; 
+            width: 40em; 
 
             .attack-detail{
                 background-color:black;
@@ -128,10 +141,7 @@
         }
        
         .player-deck{
-            background-color:black;
-            border: 2px solid red;
-            height: 9em; 
-            margin-left: -1em;
+            float: left;
         }
         .companions{
             background-color:black;
@@ -148,7 +158,7 @@
         }
 
     }
-
+///////////////////////////////////ROW 4/////////////////////////
     .row4{
         background: $scene-bg;
         border: 3px solid yellow; 
@@ -162,15 +172,15 @@
         }
 
         .buttons{
-            margin-left:25rem; 
+            margin-left:20rem; 
         }
       
         
     }
 
-    .row5{
-        border: 3px solid pink; 
-        height: 20em; 
+    // .row5{
+    //     border: 3px solid pink; 
+    //     height: 20em; 
         
-    }
+    // }
 }
