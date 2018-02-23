@@ -18,9 +18,7 @@ var TimeOut = 10000;
 var TimeGap = 1000;
 var CurrentTime = (new Date()).getTime();
 var EndTime = (new Date()).getTime() + TimeOut;
-console.log(EndTime);
-
-
+// console.log(EndTime);
 
 class Countdown extends Component{
     constructor(props){
@@ -43,8 +41,10 @@ class Countdown extends Component{
    
     updateTimer(){
         var TimeOut = 10000;
+        var TimeGap = 1000;
         var EndTime = (new Date()).getTime() + TimeOut;
-        console.log(EndTime); 
+        // var CurrentTime = (new Date()).getTime();
+
 
         // Run till timeout
         if( CurrentTime + TimeGap < EndTime ) {
@@ -52,7 +52,8 @@ class Countdown extends Component{
         }
         // Countdown if running
         if( this.state.isRunning ) {
-            CurrentTime += TimeGap;
+            var test = CurrentTime += TimeGap;
+            console.log(test); 
             if( CurrentTime >= EndTime ) {
                 this.setState({
                     textColor: 'red' 
@@ -75,10 +76,13 @@ class Countdown extends Component{
 
 
     Start(Timeout) {
+        console.log('hi'); 
         TimeOut = Timeout;
         CurrentTime = ( new Date() ).getTime();
         EndTime = ( new Date() ).getTime() + TimeOut;
         this.updateTimer();
+
+        
     };
 
    
@@ -88,11 +92,11 @@ class Countdown extends Component{
             show: 'inline-grid' 
         })
 
-        this.Start(); 
+        this.Start(300000); 
     };
 
     startCountDown(){
-        this.theCountDown(300000); 
+        this.theCountDown(); 
     }
 
     pauseCountDown(){
@@ -112,7 +116,7 @@ class Countdown extends Component{
             <div>
                 <div>
                     <Button onClick = { ()=> this.startCountDown()}>Start</Button>
-                    <Button onClick = { ()=> this.pauseCountDown()}>{this.state.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
+                    <Button onClick = { ()=> this.pauseCountDown()}>{this.state.isRunning ? 'RESUME' : 'PAUSE | |'}</Button>
                 </div>
                 <div style = {textStyle} className = "countdown">
                     {this.state.timer}
