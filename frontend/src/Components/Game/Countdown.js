@@ -1,16 +1,5 @@
 import React, {Component} from 'react';
-// import Countdown from 'react-countdown-now';
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardBlock, 
-    CardText, 
-    CardImg, 
-    CardImgOverlay,
-    Progress 
-} from 'reactstrap';
+import {Button} from 'reactstrap';
 
 // Length ms 
 var TimeOut = 10000;
@@ -22,7 +11,6 @@ var EndTime = CurrentTime + TimeOut;
 console.log(EndTime); 
 
 class Countdown extends Component{
-
     constructor(props){
         super(props);
         this.state = {
@@ -30,29 +18,24 @@ class Countdown extends Component{
             timer: '00:00',
             textColor: 'white',
 
-        }
-            
+        }   
        this.theCountDown = this.theCountDown.bind(this);
        this.pauseCountDown = this.pauseCountDown.bind(this); 
        this.updateTimer = this.updateTimer.bind(this); 
-      
+       this.startTimer = this.startTimer.bind(this); 
     }
     
-
-    updateTimer(Timeout){
-        TimeOut = Timeout;
-        CurrentTime = (new Date()).getTime();
-        EndTime = CurrentTime + TimeOut;
-        
+    updateTimer(){
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
-            setTimeout( this.updateTimer, TimeGap );
+            setTimeout(this.updateTimer, TimeGap);
         }
         // Countdown if running
         if(this.state.isRunning === true) {
             CurrentTime += TimeGap;
-
+            console.log(EndTime + " EndTime")
             if( CurrentTime >= EndTime ) {
+                
                 this.setState({
                     textColor: 'red' 
                 })
@@ -70,6 +53,14 @@ class Countdown extends Component{
             + `${(Seconds < 10 ? '0' : '')}` + `${Seconds}`
         })
     };
+
+    startTimer(Timeout){
+        TimeOut = Timeout;
+        CurrentTime = (new Date()).getTime();
+        EndTime = CurrentTime + TimeOut;
+        console.log(TimeOut);
+        this.updateTimer();  
+    }
    
     theCountDown(){
         this.setState({
@@ -78,16 +69,14 @@ class Countdown extends Component{
         })
 
         // console.log(EndTime);
-        this.updateTimer(300000); 
+        this.startTimer(300000); 
     };
-
 
     pauseCountDown(){
         this.setState({
             isRunning:!this.state.isRunning
         })
     }
-
 
     render(){
         const textStyle = {
@@ -99,7 +88,7 @@ class Countdown extends Component{
             <div>
                 <div>
                     <Button onClick = { ()=> this.theCountDown()}>Start</Button>
-                    <Button onClick = { ()=> this.pauseCountDown()}>{this.state.isRunning ? 'RESUME' : 'PAUSE | |'}</Button>
+                    <Button onClick = { ()=> this.pauseCountDown()}>{this.state.isRunning ? 'PAUSE ||' : 'RESUME'}</Button>
                 </div>
                 <div style = {textStyle} className = "countdown">
                     {this.state.timer}
@@ -109,15 +98,7 @@ class Countdown extends Component{
     }
 
 }
+
 export default Countdown;
 
-
-
-
-// pauseIt(){
-//     const {pauseGame} = this.props
-//     pauseGame();
-// }
-
-// this.pauseIt = this.pauseIt.bind(this)
 
