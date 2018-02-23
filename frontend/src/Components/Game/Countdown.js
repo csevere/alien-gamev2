@@ -35,24 +35,23 @@ class Countdown extends Component{
        this.theCountDown = this.theCountDown.bind(this);
        this.pauseCountDown = this.pauseCountDown.bind(this); 
        this.updateTimer = this.updateTimer.bind(this); 
+       this.startTimer = this.startTimer.bind(this); 
       
     }
     
 
-    updateTimer(Timeout){
-        TimeOut = Timeout;
-        CurrentTime = (new Date()).getTime();
-        EndTime = CurrentTime + TimeOut;
-        
+    updateTimer(){
+
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
-            setTimeout( this.updateTimer, TimeGap );
+            setTimeout(this.updateTimer, TimeGap);
         }
         // Countdown if running
         if(this.state.isRunning === true) {
             CurrentTime += TimeGap;
-
+            console.log(EndTime + " EndTime")
             if( CurrentTime >= EndTime ) {
+                
                 this.setState({
                     textColor: 'red' 
                 })
@@ -70,6 +69,14 @@ class Countdown extends Component{
             + `${(Seconds < 10 ? '0' : '')}` + `${Seconds}`
         })
     };
+
+    startTimer(Timeout){
+        TimeOut = Timeout;
+        CurrentTime = (new Date()).getTime();
+        EndTime = CurrentTime + TimeOut;
+        console.log(TimeOut);
+        this.updateTimer();  
+    }
    
     theCountDown(){
         this.setState({
@@ -78,7 +85,7 @@ class Countdown extends Component{
         })
 
         // console.log(EndTime);
-        this.updateTimer(300000); 
+        this.startTimer(300000); 
     };
 
 
@@ -109,15 +116,7 @@ class Countdown extends Component{
     }
 
 }
+
 export default Countdown;
 
-
-
-
-// pauseIt(){
-//     const {pauseGame} = this.props
-//     pauseGame();
-// }
-
-// this.pauseIt = this.pauseIt.bind(this)
 
