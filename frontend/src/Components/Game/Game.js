@@ -5,7 +5,7 @@ import * as actions from '../../Actions/story_actions';
 import EnemyCard from './EnemyCard'; 
 import PlayerCard from './PlayerCard'; 
 import Instructions from './Instructions'; 
-import Timer from './Timer'; 
+import Countdown from './Countdown'; 
 import Dice from './Dice'; 
 import Buttons from './Buttons'; 
 import { Container, 
@@ -24,13 +24,16 @@ import { Container,
 class Game extends Component{
     constructor(props){
         super(props);
-            this.state = {
-                handleFight: true,
-                message: "You've encountered a terrifying alien. What will you do?"
+		this.state = {
+			handleFight: true,
+			message: "You've encountered a terrifying alien. What will you do?",
+			showText: false,
+			isRunning: true
 
-            }
+		}
 
-            this.handleFight = this.handleFight.bind(this)
+		this.handleFight = this.handleFight.bind(this)
+		this.pauseGame = this.pauseGame.bind(this)
     }
 
 
@@ -43,20 +46,42 @@ class Game extends Component{
             die1: "assets/dice/d" + randomDie1 + ".png",
             die2: "assets/dice/d" + randomDie2 + ".png",
           })
-    }
+	}
+	
+	pauseGame(){
+		this.setState({
+		  isRunning: !this.state.isRunning,
+		  showText: !this.state.showText
+		})
+	}
 
     render(){
+		const textStyle = {
+			margin: 'auto',
+			position: 'relative',
+			top: '49rem',
+			fontSize:'10rem'
+		}
+		
         return(
             <div>
                 <div className = "game-wrapper">
                     <Container>
+						<Row>
+							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? '' : 'GAME PAUSED '}</div>
+						</Row>
+						
                         <Row className = "row1 d-flex flex-row">
-                            <Col md="4">
+                            <Col md="3">
                                 <Instructions/>
                             </Col>
 
+							<Col md="3">
+                                <Button color="danger" className = "start-btn" onClick ={ ()=> this.pauseGame()}>{this.state.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
+                            </Col>
+
                             <Col md = "3">
-                                <Timer/>
+                                <Countdown />
                             </Col>
                         </Row>
 
@@ -65,6 +90,12 @@ class Game extends Component{
                                 <div className = "enemy-card mx-auto">
                                     <EnemyCard /> 
                                 </div>
+								<div className = "enemyProgress d-flex flex-column">
+                                    Health
+                                    <Progress id = "userHealth" value = "500" max = "500"></Progress>
+                                    AP
+                                    <Progress id = "p_AP" value = "50" max = "50"></Progress>
+                                </div> 
                             </Col>
 
                             <Col md = "4">
@@ -87,57 +118,42 @@ class Game extends Component{
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">card1</div>
-                                    <div className = "p-5 text-dark card">card2</div>
-                                    <div className = "p-5 text-dark card">card3</div>
-                                    <div className = "p-5 text-dark card">card4</div>
-                                    <div className = "p-5 text-dark card">card5</div>
-                                    <div className = "p-5 text-dark card">card6</div>
+                                    <div className = "p-5 text-dark card">Deck</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
                                 </div>
                             </Col>
-                            
+						
                             <Col md = "4">
                                 <div className = "attack-screen">
-                                    <div className = "attack-detail">attackdetail</div>
-                                    <div className = "attack-image">attackimage</div>
-                                    <div className = "message">message</div>
+                                    <div className = "attack-detail text-white">attackdetail</div>
+                                    <div className = "attack-image text-white">attackimage</div>
+                                    <div className = "message text-white">message</div>
                                 </div>
                             </Col>
 
                             <Col md = "4">
                                 <div className = "player-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">card1</div>
-                                    <div className = "p-5 text-dark card">card2</div>
-                                    <div className = "p-5 text-dark card">card3</div>
-                                    <div className = "p-5 text-dark card">card4</div>
-                                    <div className = "p-5 text-dark card">card5</div>
-                                    <div className = "p-5 text-dark card">card6</div>
-                                </div>
-                                <Button>Shuffle</Button>
-                                <div className = "companions float-right d-flex flex-column">
-                                    <div className = "p-2">companion1</div>
-                                    <div className = "p-2">companion2</div>
-                                    <div className = "p-2">companion3</div>
+                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "p-5 text-dark card">Card 2</div>
+                                    <div className = "p-5 text-dark card">Deck</div>
                                 </div>
                             </Col>
                         </Row>
 
                         <Row className = "row4">
-                            <div className = "d-flex flex-row">
-                               <Buttons fight = {this.handleFight} />
-                            </div>
-                        </Row>
-
-                        <Row className = "row5">
-                            <div className = "p-2">Player Status</div>
-                            <div className = "status-bar d-flex flex-row">
-                                <div className = "p-5 player-level">playerlevel</div>
-                                <div className = "p-5 experience">experience</div>
-                                <div className = "p-5 attack-points">attackpoints</div>
-                                <div className = "p-5 weapons">weapons</div>
-                                <div className = "p-5 items">items</div>
-                                <div className = "p-5 gear">gear</div>
-                            </div>
+							<Col md = "6">
+								<div className = "companions float-right d-flex flex-row">
+										<div className = " comp">companion1</div>
+										<div className = " comp">companion2</div>
+										<div className = " comp">companion3</div>
+								</div>
+							</Col>
+							<Col md = "6">
+								<div>
+								<Buttons fight = {this.handleFight} />
+								</div>
+							</Col>
                         </Row>
                     </Container>
                     <div className = "p-2 audio">
@@ -157,3 +173,17 @@ class Game extends Component{
 
 
 export default Game; 
+
+// <div className = "p-5 items">items</div>
+// <div className = "p-5 gear">gear</div>
+
+
+// <Row className = "row5">
+// <div className = "p-2">Player Status</div>
+// <div className = "status-bar d-flex flex-row text-whiste">
+// 	<div className = "p-5 player-level">playerlevel</div>
+// 	<div className = "p-5 experience">experience</div>
+// 	<div className = "p-5 attack-points">attackpoints</div>
+// 	<div className = "p-5 weapons">weapons</div>
+// </div>
+// </Row>

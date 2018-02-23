@@ -26,7 +26,7 @@ class Instructions extends Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>Instructions</Button>
+        <Button className = "start-btn" color="danger" onClick={this.toggle}>Instructions</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader className = "text-dark" toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody className = "text-dark">
