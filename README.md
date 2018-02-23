@@ -15,7 +15,7 @@ Alien Battlecraft is a visual story game that takes place in a massive alien shi
 
 ## Languages and Technologies
 
-Bootstrap Beta 4 | ES6 | Java | Express | Postgres | React & Redux    
+Bootstrap Beta 4 | ES6 | JavaScript | Express | Postgres | React & Redux    
 
 
 
