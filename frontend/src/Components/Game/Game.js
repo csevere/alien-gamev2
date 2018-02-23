@@ -20,22 +20,133 @@ import { Container,
     Progress 
 } from 'reactstrap';
 
+// Length ms 
+var TimeOut = 10000;
+// Interval ms
+var TimeGap = 1000;
+var CurrentTime = (new Date()).getTime();
+var EndTime = CurrentTime + TimeOut;
 
 class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
 			handleFight: true,
-			message: "You've encountered a terrifying alien. What will you do?",
+			isRunning: false,
+            timer: '00:00',
+            textColor: 'white',
+			message: "What are you waiting for? Press the attack button!",
 			showText: false,
-			isRunning: true
+			showLoader: 'block',
+			showContainer: 'none',
+			showFightScreen: 'none',
+            transition:'transition',
+			opacity: 0,
+			transition2: 'transition',
+			opacity2: 0
 
 		}
 
+		this.startGame = this.startGame.bind(this)
 		this.handleFight = this.handleFight.bind(this)
-		this.pauseGame = this.pauseGame.bind(this)
-    }
 
+		this.theCountDown = this.theCountDown.bind(this);
+		this.pauseCountDown = this.pauseCountDown.bind(this); 
+		this.updateTimer = this.updateTimer.bind(this); 
+		this.startTimer = this.startTimer.bind(this); 
+	}
+	
+	componentDidMount() {
+
+        setTimeout(() =>{
+            this.setState({
+                showFightScreen: 'block',
+                showLoader: 'none'
+            })
+        }, 3000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition: 'all 1s',
+                opacity: 1
+            })
+        }, 4000)
+	}
+
+
+	updateTimer(){
+        // Run till timeout
+        if(CurrentTime + TimeGap < EndTime ) {
+            setTimeout(this.updateTimer, TimeGap);
+        }
+        // Countdown if running
+        if(this.state.isRunning === true) {
+            CurrentTime += TimeGap;
+            console.log(EndTime + " EndTime")
+            if( CurrentTime >= EndTime ) {
+                
+                this.setState({
+                    textColor: 'red' 
+                })
+            }
+        }
+        // Update Gui
+        const Time = new Date();
+        Time.setTime( EndTime - CurrentTime);
+        var Minutes = Time.getMinutes();
+        var Seconds = Time.getSeconds();
+        
+        this.setState({
+            timer:`${(Minutes < 10 ? '0' : '')}` + `${Minutes}` 
+            + `:`
+            + `${(Seconds < 10 ? '0' : '')}` + `${Seconds}`
+        })
+    };
+
+    startTimer(Timeout){
+        TimeOut = Timeout;
+        CurrentTime = (new Date()).getTime();
+        EndTime = CurrentTime + TimeOut;
+        console.log(TimeOut);
+        this.updateTimer();  
+    }
+   
+    theCountDown(){
+        this.setState({
+            isRunning: true,
+            show: 'inline-grid' 
+        })
+
+		this.startTimer(300000); 	
+	};
+	
+
+    pauseCountDown(){
+        this.setState({
+			isRunning:!this.state.isRunning,
+			showText: !this.state.showText
+        })
+    }
+	
+
+	startGame(){
+		this.setState({
+			showContainer: 'block',
+			showFightScreen: 'none', 
+		})
+
+		setTimeout(() =>{
+            this.setState({
+                transition2: 'all 1s',
+                opacity2: 1
+            })
+		}, 500)
+
+		setTimeout(() =>{
+			this.theCountDown();
+		}, 1100)
+		
+	}
 
     handleFight(){
         //getting a random number to roll random dice
@@ -48,12 +159,6 @@ class Game extends Component{
           })
 	}
 	
-	pauseGame(){
-		this.setState({
-		  isRunning: !this.state.isRunning,
-		  showText: !this.state.showText
-		})
-	}
 
     render(){
 		const textStyle = {
@@ -63,10 +168,46 @@ class Game extends Component{
 			fontSize:'10rem'
 		}
 		
+
+        const showLoader = {
+			display: this.state.showLoader,
+			background: 'black'  
+		}
+
+		const fightScreen = {
+			display: this.state.showFightScreen,
+			transition: this.state.transition,
+            opacity: this.state.opacity
+		}
+
+		const showContainer = {
+            display: this.state.showContainer,
+            transition: this.state.transition2,
+            opacity: this.state.opacity2
+        }
+		
         return(
             <div>
                 <div className = "game-wrapper">
-                    <Container>
+
+					<div style = {showLoader} className="preload">
+						<div className="preload-status">
+							<div className="preload-status-bar"></div>
+							<div className="preload-status-info">LOADING</div>
+						</div>
+					</div>
+
+					<div style = {fightScreen} className = "fightscreen">
+						<div className = "display4">
+							Are you ready to <br/> 
+							<div className = "display2">battle?</div>
+						</div> 
+
+						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">FIGHT</Button>
+
+					</div> 
+
+                    <Container style = {showContainer}>
 						<Row>
 							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? '' : 'GAME PAUSED '}</div>
 						</Row>
@@ -76,12 +217,13 @@ class Game extends Component{
                                 <Instructions/>
                             </Col>
 
-							<Col md="3">
-                                <Button color="danger" className = "start-btn" onClick ={ ()=> this.pauseGame()}>{this.state.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
-                            </Col>
-
                             <Col md = "3">
-                                <Countdown />
+								<Countdown 
+									timer = {this.state.timer} 
+									textColor = {this.state.textColor}
+									pauseCountDown = {this.pauseCountDown}
+									isRunning = {this.isRunning}
+								/>
                             </Col>
                         </Row>
 
@@ -128,7 +270,7 @@ class Game extends Component{
                                 <div className = "attack-screen">
                                     <div className = "attack-detail text-white">attackdetail</div>
                                     <div className = "attack-image text-white">attackimage</div>
-                                    <div className = "message text-white">message</div>
+                                    <div className = "message text-white">{this.state.message}</div>
                                 </div>
                             </Col>
 
