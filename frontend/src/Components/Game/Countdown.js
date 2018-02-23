@@ -40,6 +40,7 @@ class Countdown extends Component{
 
    
     updateTimer(){
+        console.log('hi'); 
         var TimeOut = 10000;
         var TimeGap = 1000;
         var EndTime = (new Date()).getTime() + TimeOut;
@@ -81,12 +82,11 @@ class Countdown extends Component{
         CurrentTime = ( new Date() ).getTime();
         EndTime = ( new Date() ).getTime() + TimeOut;
         this.updateTimer();
-
-        
+  
     };
 
    
-    theCountDown(time){
+    theCountDown(){
         this.setState({
             isRunning: !this.state.isRunning,
             show: 'inline-grid' 
