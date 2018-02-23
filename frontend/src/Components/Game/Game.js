@@ -63,11 +63,6 @@ class Game extends Component{
 			fontSize:'10rem'
 		}
 		
-		const tempStyle ={
-			marginLeft: '64em',
-			marginTop: '-6em'
-
-		}
         return(
             <div>
                 <div className = "game-wrapper">
@@ -85,7 +80,7 @@ class Game extends Component{
                                 <Button color="danger" className = "start-btn" onClick ={ ()=> this.pauseGame()}>{this.state.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
                             </Col>
 
-                            <Col md = "3" style = {tempStyle}>
+                            <Col md = "3">
                                 <Countdown />
                             </Col>
                         </Row>
