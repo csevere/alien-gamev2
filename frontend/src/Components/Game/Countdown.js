@@ -35,17 +35,14 @@ class Countdown extends Component{
        this.pauseCountDown = this.pauseCountDown.bind(this); 
        this.updateTimer = this.updateTimer.bind(this); 
        this.Start = this.Start.bind(this); 
-
     }
 
-   
-    updateTimer(){
-        console.log('hi'); 
-        var TimeOut = 10000;
-        var TimeGap = 1000;
-        var EndTime = (new Date()).getTime() + TimeOut;
-        // var CurrentTime = (new Date()).getTime();
 
+    updateTimer(TimeOut, EndTime, CurrentTime){
+        // var CurrentTime = (new Date()).getTime();
+        var TimeGap = 1000;
+        console.log(EndTime);
+        console.log(TimeOut); 
 
         // Run till timeout
         if( CurrentTime + TimeGap < EndTime ) {
@@ -53,8 +50,7 @@ class Countdown extends Component{
         }
         // Countdown if running
         if( this.state.isRunning ) {
-            var test = CurrentTime += TimeGap;
-            console.log(test); 
+            CurrentTime += TimeGap;
             if( CurrentTime >= EndTime ) {
                 this.setState({
                     textColor: 'red' 
@@ -77,12 +73,13 @@ class Countdown extends Component{
 
 
     Start(Timeout) {
-        console.log('hi'); 
         TimeOut = Timeout;
-        CurrentTime = ( new Date() ).getTime();
-        EndTime = ( new Date() ).getTime() + TimeOut;
-        this.updateTimer();
-  
+        CurrentTime = (new Date()).getTime();
+        EndTime = CurrentTime + TimeOut;
+        console.log(EndTime); 
+        console.log(CurrentTime); 
+
+        this.updateTimer(TimeOut, EndTime, CurrentTime);
     };
 
    
