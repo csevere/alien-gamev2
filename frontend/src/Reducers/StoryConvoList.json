@@ -3,13 +3,13 @@
       "id": 1,
       "name":"Meliz",
       "image": "assets/images/convo_character_1_ex.jpg",
-      "text": "'I am saying something different 0 This Is my story. omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventorexs'"
+      "text": "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut'"
     },
     {
       "id": 2,
       "name": "Zackaria",
       "image": "assets/images/convo_character_2_ex.jpg",
-      "choice1": "1. 'We should check out the north wing.'",
+      "choice1": "1. 'I agree. We should scout the area and find the other team.'",
       "choice2": "2. '... I don't really care what we do.'",
       "choice3": "3. 'And who the hell made you the leader?'"
     },
