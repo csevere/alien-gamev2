@@ -1,26 +1,17 @@
 import React, {Component} from 'react';
 import {Button} from 'reactstrap';
 
-// Length ms 
-var TimeOut = 10000;
-// Interval ms
-var TimeGap = 1000;
-var CurrentTime = (new Date()).getTime();
-var EndTime = CurrentTime + TimeOut;
-
-console.log(EndTime); 
 
 class Countdown extends Component{
     constructor(props){
         super(props);
-
+        
         this.pauseButton = this.pauseButton.bind(this); 
 
     }
     
     pauseButton(){
         this.props.pauseCountDown(); 
-        console.log(this.props.isRunning); 
     }
 
     render(){
@@ -29,10 +20,12 @@ class Countdown extends Component{
             marginTop: '-5.5rem'
         }
 
+        console.log(this.props.isRunning); 
+
         return(
             <div>
                 <div>
-                    <Button color="danger" className = "start-btn" onClick = { ()=> this.pauseButton()}>{this.props.isRunning ? 'RESUME' : 'PAUSE | |'}</Button>
+                    <Button color="danger" className = "start-btn" onClick = { ()=> this.pauseButton()}>{this.props.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
                 </div>
                 <div style = {textStyle} className = "countdown">
                     {this.props.timer}

@@ -229,7 +229,7 @@ class Game extends Component{
 									timer = {this.state.timer} 
 									textColor = {this.state.textColor}
 									pauseCountDown = {this.pauseCountDown}
-									isRunning = {this.isRunning}
+									isRunning = {this.state.isRunning}
 								/>
                             </Col>
                         </Row>
