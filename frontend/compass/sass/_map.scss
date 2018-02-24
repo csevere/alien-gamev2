@@ -1,5 +1,17 @@
 @import 'variables';
 
+// $color1:#FA8;
+// $color2:#930;
+// $color3:#F85;
+
+$color1:$scene-bg;
+$color2:$scene-text;
+$color3:$scene-button; 
+
+$speed:10s; 
+$speed2:6s;
+
+
 
 .map-wrapper{
     background: url('https://img00.deviantart.net/7b80/i/2010/146/3/8/forerunner_texture_by_invaderveex.jpg'); 
@@ -18,8 +30,11 @@
 
     .button{
         margin-top: 6em; 
+        cursor: pointer;
         .text{
-            letter-spacing: 5px; 
+            letter-spacing: 5px;
+            font-size: 1.3rem; 
+            padding-bottom: 10px;  
         }
 
         @media(min-width:$reg){
@@ -34,13 +49,13 @@
         border-style: ridge;
         background: $scene-bg;
                 background-size: cover;
-                border: 4px solid #d9edf7;
+                border: 4px solid gray;
                 border-style: ridge;
                 box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px $scene-text, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;  
         .row{
-            border:white; 
+            border: gray; 
             .cell{
-                border: 1px dotted white;
+                border: 1px dotted #cccccc85;
                 background: transparent; 
                 height: 8em;
                 @media(min-width:$reg){
@@ -50,5 +65,112 @@
             }
         }
     }
+
+    /////////////// THE ORBS ///////////////////////////////
+
+    .orb{
+        display:block;
+        position:absolute;
+        left:50%;
+        top:50%;
+        border-radius:100%;
+        transform:translate(-50%,-50%) rotate(30deg);
+        // width:195px;
+        // height:195px;
+        width: 50px;
+        height: 50px; 
+        box-shadow:
+            1px 10px 50px -20px,
+            inset -1px 30px 50px -10px #fff,
+            inset -1px -30px 50px -10px #210,
+            inset 0 120px 7px -70px rgba(255,255,240,0.2)
+        ;
+        // z-index:50;
+        z-index:0;
+        cursor: pointer; 
+         
+    }
+    .orbs{
+        -webkit-filter:blur(1px) contrast(20) blur(15px);
+        cursor: pointer; 
+        display:block;
+        position:absolute;
+        left:50%;top:50%;
+        overflow:hidden;
+        border-radius:100%;
+        transform:translate(-50%,-50%);
+        // width:190px;
+        // height:190px;
+        width: 50px;
+        height: 50px; 
+        box-shadow: 0 0 50px -20px $color3;
+        z-index:40;
+    }
+    .orbs:before{
+        -webkit-filter:blur(8px);
+        content:'';
+        display:block;
+        position:relative;
+        left:50%;top:50%;
+        opacity:0.8;
+        border-radius:100%;
+        transform:translate(-50%,-50%);
+        width:200px;height:200px;
+        animation: spin2 $speed2 infinite linear;
+        background-color:$color3;
+        background-image:
+            linear-gradient(
+                transparent 29.29%,
+                $color1 29.29%,
+                $color2 70.71%,
+                transparent 70.71%
+            ),
+            linear-gradient(90deg,
+                transparent 29.29%,
+                $color1 29.29%,
+                $color2 70.71%,
+                transparent 70.71%
+            )
+        ;
+        z-index:10;
+        box-shadow: 0 0 50px -20px $color3;
+    }
+    .orbs:after{
+        -webkit-filter:blur(5px);
+        content:'';
+        display:block;
+        position:absolute;
+        opacity:0.5;
+        left:50%;top:50%;
+        border-radius:100%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        width:200px;height:200px;
+        animation: spin1 $speed infinite linear;
+        background:
+            linear-gradient(
+                transparent 29.29%,
+                $color1 29.29%,
+                $color2 70.71%,
+                transparent 70.71%
+            ),
+            linear-gradient(90deg,
+                transparent 29.29%,
+                $color1 29.29%,
+                $color2 70.71%,
+                transparent 70.71%
+            )
+        ;
+        z-index:10;
+        box-shadow: 0 0 50px -20px $color3;
+    }
+    @keyframes spin1{
+        0%{transform:translate(-50%,-50%) rotate(45deg);}
+        100%{transform:translate(-50%,-50%) rotate(405deg);}
+    }
+    @keyframes spin2{
+        0%{transform:translate(-50%,-50%) rotate(360deg);}
+        100%{transform:translate(-50%,-50%) rotate(0deg);}
+    }
+
 }
 

@@ -551,9 +551,35 @@ p {
 .game-wrapper button {
   border-color: transparent !important;
 }
-/* line 19, ../../compass/sass/_game.scss */
-.game-wrapper .pause-text {
+/* line 18, ../../compass/sass/_game.scss */
+.game-wrapper .fightscreen {
+  color: red;
+  height: 40rem;
+  width: 10rem;
+  background: rgba(9, 12, 39, 0.7);
+  border: 4px solid #d9edf7;
+  border-style: ridge;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 8rem;
+  margin: auto;
+  padding: 3rem;
+  position: relative;
+  text-align: center;
+  text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  top: 28rem;
+  width: 80%;
+}
+/* line 40, ../../compass/sass/_game.scss */
+.game-wrapper .pause {
   z-index: 100;
+}
+/* line 42, ../../compass/sass/_game.scss */
+.game-wrapper .pause .pause-text {
+  font-family: 'Orbitron', sans-serif !important;
+  text-align: center;
+  text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
 }
 @media (min-width: 1440px) {
   /* line 4, ../../compass/sass/_game.scss */
@@ -580,17 +606,17 @@ p {
     min-height: 91em;
   }
 }
-/* line 40, ../../compass/sass/_game.scss */
+/* line 68, ../../compass/sass/_game.scss */
 .game-wrapper .row1 {
   background: rgba(9, 12, 39, 0.7);
   height: 6em;
   margin-top: 9em;
 }
-/* line 45, ../../compass/sass/_game.scss */
+/* line 73, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .instructions {
   height: 5em;
 }
-/* line 49, ../../compass/sass/_game.scss */
+/* line 77, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .countdown {
   color: white;
   float: right;
@@ -598,20 +624,19 @@ p {
   background-color: black;
   padding: 0.5rem;
 }
-/* line 59, ../../compass/sass/_game.scss */
+/* line 87, ../../compass/sass/_game.scss */
 .game-wrapper .row2 {
   background: rgba(9, 12, 39, 0.7);
-  border: 3px solid red;
   height: 33em;
   padding-top: 1rem;
 }
-/* line 66, ../../compass/sass/_game.scss */
+/* line 94, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card, .game-wrapper .row2 .player-card {
   height: 23em;
   width: 20em;
   color: white !important;
 }
-/* line 70, ../../compass/sass/_game.scss */
+/* line 98, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card, .game-wrapper .row2 .player-card .card {
   border: 4px solid #0c4fab !important;
   border-style: ridge;
@@ -619,77 +644,75 @@ p {
   font-size: 10px;
   text-transform: uppercase;
 }
-/* line 76, ../../compass/sass/_game.scss */
+/* line 104, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .enemy-card .card .card-footer, .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 82, ../../compass/sass/_game.scss */
+/* line 110, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card img, .game-wrapper .row2 .player-card img {
   height: 15em;
   margin-top: -0.4em;
 }
-/* line 89, ../../compass/sass/_game.scss */
+/* line 117, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .dice {
   height: 7em;
   text-align: center;
-  margin-top: 40em;
+  margin-top: 47em;
 }
-/* line 94, ../../compass/sass/_game.scss */
+/* line 122, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress, .game-wrapper .row2 .enemyProgress {
   margin: auto;
   font-size: 1.35rem;
   color: white;
   text-transform: uppercase;
 }
-/* line 104, ../../compass/sass/_game.scss */
+/* line 132, ../../compass/sass/_game.scss */
 .game-wrapper .row3 {
   background: rgba(9, 12, 39, 0.7);
-  border: 3px solid orange;
   height: 20em;
 }
-/* line 108, ../../compass/sass/_game.scss */
+/* line 136, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck, .game-wrapper .row3 .player-deck {
   background-color: black;
-  border: 2px solid red;
   height: 19em;
 }
-/* line 112, ../../compass/sass/_game.scss */
+/* line 140, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck .p-5, .game-wrapper .row3 .player-deck .p-5 {
   width: 12rem;
 }
-/* line 116, ../../compass/sass/_game.scss */
+/* line 144, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck {
   float: right;
 }
-/* line 120, ../../compass/sass/_game.scss */
+/* line 148, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {
-  margin-top: -33em;
+  margin-top: -27em;
   margin-left: -2.5em;
   width: 40em;
 }
-/* line 125, ../../compass/sass/_game.scss */
+/* line 153, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 130, ../../compass/sass/_game.scss */
+/* line 158, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image {
   background-color: black;
   border: 2px solid red;
   height: 27em;
 }
-/* line 135, ../../compass/sass/_game.scss */
+/* line 163, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .message {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 143, ../../compass/sass/_game.scss */
+/* line 171, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .player-deck {
   float: left;
 }
-/* line 146, ../../compass/sass/_game.scss */
+/* line 174, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions {
   background-color: black;
   border: 2px solid red;
@@ -697,20 +720,19 @@ p {
   width: 10em;
   margin-top: 1em;
 }
-/* line 152, ../../compass/sass/_game.scss */
+/* line 180, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions .p-2 {
   background: yellow;
   height: 10em;
   border: 2px solid black;
   color: black;
 }
-/* line 162, ../../compass/sass/_game.scss */
+/* line 190, ../../compass/sass/_game.scss */
 .game-wrapper .row4 {
   background: rgba(9, 12, 39, 0.7);
-  border: 3px solid yellow;
   height: 20em;
 }
-/* line 166, ../../compass/sass/_game.scss */
+/* line 194, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .comp {
   background-color: red;
   height: 8em;
@@ -718,7 +740,7 @@ p {
   margin-left: 12em;
   width: 10em;
 }
-/* line 174, ../../compass/sass/_game.scss */
+/* line 202, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .buttons {
   margin-left: 20rem;
 }
@@ -943,7 +965,7 @@ p {
   animation-direction: normal, alternate;
 }
 
-/* line 4, ../../compass/sass/_map.scss */
+/* line 16, ../../compass/sass/_map.scss */
 .map-wrapper {
   background: url("https://img00.deviantart.net/7b80/i/2010/146/3/8/forerunner_texture_by_invaderveex.jpg");
   background-size: contain;
@@ -954,54 +976,139 @@ p {
   z-index: 0;
 }
 @media (min-width: 1440px) {
-  /* line 4, ../../compass/sass/_map.scss */
+  /* line 16, ../../compass/sass/_map.scss */
   .map-wrapper {
     min-height: 82em;
     margin-top: 0em;
   }
 }
-/* line 19, ../../compass/sass/_map.scss */
+/* line 31, ../../compass/sass/_map.scss */
 .map-wrapper .button {
   margin-top: 6em;
+  cursor: pointer;
 }
-/* line 21, ../../compass/sass/_map.scss */
+/* line 34, ../../compass/sass/_map.scss */
 .map-wrapper .button .text {
   letter-spacing: 5px;
+  font-size: 1.3rem;
+  padding-bottom: 10px;
 }
 @media (min-width: 1360px) {
-  /* line 19, ../../compass/sass/_map.scss */
+  /* line 31, ../../compass/sass/_map.scss */
   .map-wrapper .button {
     margin-top: 13em;
   }
 }
-/* line 31, ../../compass/sass/_map.scss */
+/* line 46, ../../compass/sass/_map.scss */
 .map-wrapper .grid {
   margin-top: 6em;
   border: 5px solid rgba(119, 75, 12, 0.8);
   border-style: ridge;
   background: rgba(9, 12, 39, 0.7);
   background-size: cover;
-  border: 4px solid #d9edf7;
+  border: 4px solid gray;
   border-style: ridge;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
-/* line 40, ../../compass/sass/_map.scss */
+/* line 55, ../../compass/sass/_map.scss */
 .map-wrapper .grid .row {
-  border: white;
+  border: gray;
 }
-/* line 42, ../../compass/sass/_map.scss */
+/* line 57, ../../compass/sass/_map.scss */
 .map-wrapper .grid .row .cell {
-  border: 1px dotted white;
+  border: 1px dotted #cccccc85;
   background: transparent;
   height: 8em;
 }
 @media (min-width: 1360px) {
-  /* line 42, ../../compass/sass/_map.scss */
+  /* line 57, ../../compass/sass/_map.scss */
   .map-wrapper .grid .row .cell {
     height: 7em;
   }
 }
-
+/* line 71, ../../compass/sass/_map.scss */
+.map-wrapper .orb {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 100%;
+  transform: translate(-50%, -50%) rotate(30deg);
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 10px 50px -20px, inset -1px 30px 50px -10px #fff, inset -1px -30px 50px -10px #210, inset 0 120px 7px -70px rgba(255, 255, 240, 0.2);
+  z-index: 0;
+  cursor: pointer;
+}
+/* line 93, ../../compass/sass/_map.scss */
+.map-wrapper .orbs {
+  -webkit-filter: blur(1px) contrast(20) blur(15px);
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 50px -20px #7cc2fb;
+  z-index: 40;
+}
+/* line 109, ../../compass/sass/_map.scss */
+.map-wrapper .orbs:before {
+  -webkit-filter: blur(8px);
+  content: '';
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  opacity: 0.8;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  animation: spin2 6s infinite linear;
+  background-color: #7cc2fb;
+  background-image: linear-gradient(transparent 29.29%, rgba(9, 12, 39, 0.7) 29.29%, #74f9fc 70.71%, transparent 70.71%), linear-gradient(90deg, transparent 29.29%, rgba(9, 12, 39, 0.7) 29.29%, #74f9fc 70.71%, transparent 70.71%);
+  z-index: 10;
+  box-shadow: 0 0 50px -20px #7cc2fb;
+}
+/* line 138, ../../compass/sass/_map.scss */
+.map-wrapper .orbs:after {
+  -webkit-filter: blur(5px);
+  content: '';
+  display: block;
+  position: absolute;
+  opacity: 0.5;
+  left: 50%;
+  top: 50%;
+  border-radius: 100%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 200px;
+  height: 200px;
+  animation: spin1 10s infinite linear;
+  background: linear-gradient(transparent 29.29%, rgba(9, 12, 39, 0.7) 29.29%, #74f9fc 70.71%, transparent 70.71%), linear-gradient(90deg, transparent 29.29%, rgba(9, 12, 39, 0.7) 29.29%, #74f9fc 70.71%, transparent 70.71%);
+  z-index: 10;
+  box-shadow: 0 0 50px -20px #7cc2fb;
+}
+@keyframes spin1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+@keyframes spin2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
 /* line 4, ../../compass/sass/_loader.scss */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -1075,12 +1182,12 @@ html, body {
     opacity: 1;
   }
 }
-/* line 23, ../../compass/sass/styles.scss */
+/* line 24, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 29, ../../compass/sass/styles.scss */
+/* line 30, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }

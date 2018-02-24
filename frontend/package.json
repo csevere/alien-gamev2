@@ -21,7 +21,6 @@
     "react-reveal-text": "^0.1.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-transition-group": "^2.2.1",
     "react-typing-animation": "^1.1.5",
     "reactstrap": "^4.8.0",
     "redux": "^3.7.2",
