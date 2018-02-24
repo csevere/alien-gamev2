@@ -19,7 +19,7 @@ Alien Battlecraft is a visual story game that takes place in a massive alien shi
 
 
 <p align='center'>
-  <img src="frontend/public/Images/mainscreen.png">
+  <img src="frontend/public/Images/gamescreen.png">
 </p>
 
 
