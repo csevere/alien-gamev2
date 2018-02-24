@@ -13,6 +13,11 @@ Alien Battlecraft is a visual story game that takes place in a massive alien shi
 </p>
 
 
+<p align='center'>
+  <img src="frontend/public/Images/convo-screen.png">
+</p>
+
+
 ## Languages and Technologies
 
 Bootstrap Beta 4 | ES6 | JavaScript | Express | Postgres | React & Redux    
