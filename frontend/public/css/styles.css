@@ -2,6 +2,7 @@
 /* line 1, ../../compass/sass/styles.scss */
 * {
   font-family: 'Ek Mukta', sans-serif;
+  background-color: rgba(0, 255, 0, 0.1);
 }
 
 /* line 3, ../../compass/sass/_bgmain.scss */
@@ -570,8 +571,15 @@ p {
   width: 80%;
 }
 /* line 40, ../../compass/sass/_game.scss */
-.game-wrapper .pause-text {
+.game-wrapper .pause {
   z-index: 100;
+}
+/* line 42, ../../compass/sass/_game.scss */
+.game-wrapper .pause .pause-text {
+  font-family: 'Orbitron', sans-serif !important;
+  text-align: center;
+  text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
 }
 @media (min-width: 1440px) {
   /* line 4, ../../compass/sass/_game.scss */
@@ -598,17 +606,17 @@ p {
     min-height: 91em;
   }
 }
-/* line 61, ../../compass/sass/_game.scss */
+/* line 68, ../../compass/sass/_game.scss */
 .game-wrapper .row1 {
   background: rgba(9, 12, 39, 0.7);
   height: 6em;
   margin-top: 9em;
 }
-/* line 66, ../../compass/sass/_game.scss */
+/* line 73, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .instructions {
   height: 5em;
 }
-/* line 70, ../../compass/sass/_game.scss */
+/* line 77, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .countdown {
   color: white;
   float: right;
@@ -616,19 +624,19 @@ p {
   background-color: black;
   padding: 0.5rem;
 }
-/* line 80, ../../compass/sass/_game.scss */
+/* line 87, ../../compass/sass/_game.scss */
 .game-wrapper .row2 {
   background: rgba(9, 12, 39, 0.7);
   height: 33em;
   padding-top: 1rem;
 }
-/* line 87, ../../compass/sass/_game.scss */
+/* line 94, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card, .game-wrapper .row2 .player-card {
   height: 23em;
   width: 20em;
   color: white !important;
 }
-/* line 91, ../../compass/sass/_game.scss */
+/* line 98, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card, .game-wrapper .row2 .player-card .card {
   border: 4px solid #0c4fab !important;
   border-style: ridge;
@@ -636,75 +644,75 @@ p {
   font-size: 10px;
   text-transform: uppercase;
 }
-/* line 97, ../../compass/sass/_game.scss */
+/* line 104, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .enemy-card .card .card-footer, .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 103, ../../compass/sass/_game.scss */
+/* line 110, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card img, .game-wrapper .row2 .player-card img {
   height: 15em;
   margin-top: -0.4em;
 }
-/* line 110, ../../compass/sass/_game.scss */
+/* line 117, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .dice {
   height: 7em;
   text-align: center;
   margin-top: 47em;
 }
-/* line 115, ../../compass/sass/_game.scss */
+/* line 122, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress, .game-wrapper .row2 .enemyProgress {
   margin: auto;
   font-size: 1.35rem;
   color: white;
   text-transform: uppercase;
 }
-/* line 125, ../../compass/sass/_game.scss */
+/* line 132, ../../compass/sass/_game.scss */
 .game-wrapper .row3 {
   background: rgba(9, 12, 39, 0.7);
   height: 20em;
 }
-/* line 129, ../../compass/sass/_game.scss */
+/* line 136, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck, .game-wrapper .row3 .player-deck {
   background-color: black;
   height: 19em;
 }
-/* line 133, ../../compass/sass/_game.scss */
+/* line 140, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck .p-5, .game-wrapper .row3 .player-deck .p-5 {
   width: 12rem;
 }
-/* line 137, ../../compass/sass/_game.scss */
+/* line 144, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .enemy-deck {
   float: right;
 }
-/* line 141, ../../compass/sass/_game.scss */
+/* line 148, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {
   margin-top: -27em;
   margin-left: -2.5em;
   width: 40em;
 }
-/* line 146, ../../compass/sass/_game.scss */
+/* line 153, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 151, ../../compass/sass/_game.scss */
+/* line 158, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image {
   background-color: black;
   border: 2px solid red;
   height: 27em;
 }
-/* line 156, ../../compass/sass/_game.scss */
+/* line 163, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .message {
   background-color: black;
   border: 2px solid red;
   height: 5em;
 }
-/* line 164, ../../compass/sass/_game.scss */
+/* line 171, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .player-deck {
   float: left;
 }
-/* line 167, ../../compass/sass/_game.scss */
+/* line 174, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions {
   background-color: black;
   border: 2px solid red;
@@ -712,19 +720,19 @@ p {
   width: 10em;
   margin-top: 1em;
 }
-/* line 173, ../../compass/sass/_game.scss */
+/* line 180, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .companions .p-2 {
   background: yellow;
   height: 10em;
   border: 2px solid black;
   color: black;
 }
-/* line 183, ../../compass/sass/_game.scss */
+/* line 190, ../../compass/sass/_game.scss */
 .game-wrapper .row4 {
   background: rgba(9, 12, 39, 0.7);
   height: 20em;
 }
-/* line 187, ../../compass/sass/_game.scss */
+/* line 194, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .comp {
   background-color: red;
   height: 8em;
@@ -732,7 +740,7 @@ p {
   margin-left: 12em;
   width: 10em;
 }
-/* line 195, ../../compass/sass/_game.scss */
+/* line 202, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .buttons {
   margin-left: 20rem;
 }

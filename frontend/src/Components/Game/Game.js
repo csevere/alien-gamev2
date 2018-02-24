@@ -31,15 +31,16 @@ class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
+			active: true,
 			handleFight: true,
 			isRunning: false,
             timer: '00:00',
             textColor: 'white',
 			message: "What are you waiting for? Press the attack button!",
-			showText: false,
 			showLoader: 'block',
 			showContainer: 'none',
 			showFightScreen: 'none',
+			showRow: 'none',
             transition:'transition',
 			opacity: 0,
 			transition2: 'transition',
@@ -124,8 +125,10 @@ class Game extends Component{
     pauseCountDown(){
         this.setState({
 			isRunning:!this.state.isRunning,
-			showText: !this.state.showText
-        })
+			showRow: 'block',
+			active: !this.state.active
+		})
+		
     }
 	
 
@@ -161,14 +164,18 @@ class Game extends Component{
 	
 
     render(){
+		const rowStyle = {
+			position: 'absolute',
+			top: '28rem',
+			width: '82%',
+			display: this.state.showRow
+		}
+
 		const textStyle = {
+			fontSize: '10rem',
 			margin: 'auto',
-			position: 'relative',
-			top: '49rem',
-			fontSize:'10rem'
 		}
 		
-
         const showLoader = {
 			display: this.state.showLoader,
 			background: 'black'  
@@ -184,7 +191,8 @@ class Game extends Component{
             display: this.state.showContainer,
             transition: this.state.transition2,
             opacity: this.state.opacity2
-        }
+		}
+		
 		
         return(
             <div>
@@ -208,16 +216,15 @@ class Game extends Component{
 					</div> 
 
                     <Container style = {showContainer}>
-						<Row>
-							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? '' : 'GAME PAUSED '}</div>
+
+						<Row className = "pause" style = {rowStyle}>
+							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? ' ' : 'GAME PAUSED '}</div>
 						</Row>
 						
                         <Row className = "row1 d-flex flex-row">
-                            <Col md="3">
-                                <Instructions/>
-                            </Col>
+                           
 
-                            <Col md = "3">
+                            <Col>
 								<Countdown 
 									timer = {this.state.timer} 
 									textColor = {this.state.textColor}
@@ -293,7 +300,7 @@ class Game extends Component{
 							</Col>
 							<Col md = "6">
 								<div>
-								<Buttons fight = {this.handleFight} />
+								<Buttons active = {this.state.active} fight = {this.handleFight} />
 								</div>
 							</Col>
                         </Row>
@@ -329,3 +336,7 @@ export default Game;
 // 	<div className = "p-5 weapons">weapons</div>
 // </div>
 // </Row>
+
+/* <Col md="3">
+<Instructions/>
+</Col> */
