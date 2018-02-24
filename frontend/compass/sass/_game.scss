@@ -1,55 +1,20 @@
 @import 'variables'; 
 @import 'gamebuttons'; 
 
+$min-height: 85em;
+
 .game-wrapper{
     background: url('/assets/gifs/game-gifs/outer-space4.gif'); 
     background-size: cover; 
     background-position: center;
     background-attachment: fixed; 
     height:100%;
-    min-height: 78em; 
+    min-height: 92em; 
     margin-top: -6em; 
     z-index: 0;
-
-    button{
-        border-color: transparent !important; 
-    }
-
-    .fightscreen{
-        color: red; 
-        height: 40rem; 
-        width: 10rem;
-        background: $scene-bg;
-        border: 4px solid #d9edf7;
-        border-style: ridge;
-        font-family: 'Orbitron', sans-serif !important;
-        font-size: 8rem; 
-        margin: auto;
-        padding: 3rem;
-        position: relative;
-        text-align: center; 
-        text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
-        text-transform: uppercase; 
-        top: 28rem; 
-        width: 80%;
-         
-        
-    }
-   
-
-    .pause{
-        z-index: 100;
-        .pause-text{
-            font-family: 'Orbitron', sans-serif !important;
-            text-align: center; 
-            text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
-            text-transform: uppercase; 
-
-        }
-    }
-
+    
     @media(min-width:$xlg){
-        min-height: $min-height;
+        min-height: 92em;
         margin-top: -8em;     
     }
 
@@ -65,44 +30,98 @@
         min-height: 91em;    
     }
 
+    button{
+        border-color: transparent !important; 
+    }
+
+    .fightscreen{
+        color: red; 
+        height: 40rem; 
+        width: 10rem;
+        background: $scene-bg;
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        font-family: $button-text;
+        font-size: 8rem; 
+        margin: auto;
+        padding: 3rem;
+        position: relative;
+        text-align: center; 
+        text-shadow: $text-shadow;
+        text-transform: uppercase; 
+        top: 28rem; 
+        width: 80%; 
+        .fight-text{
+            font-family: $button-text; 
+        }
+    }
+   
+
+    .pause{
+        z-index: 100;
+        .pause-text{
+            font-family: $button-text;
+            text-align: center; 
+            text-shadow: $text-shadow; 
+            text-transform: uppercase; 
+        }
+    }
+
+    .game-container{
+        background: $scene-bg;
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        box-shadow: $box-shadow; 
+        position: relative;
+        top: 10rem; 
+        max-width: 123rem; 
+    }
+
+    // .row1,.row2, .row3, .row5{
+    //     border-style: ridge;
+    //     box-shadow: $box-shadow; 
+
+    // }
+
     .row1{
         // border: 3px solid green; 
-        background: $scene-bg;
+    
         height: 6em; 
-        margin-top:9em; 
+        // margin-top:9em; 
+        margin: 0.5em; 
         .instructions{
             height: 5em;  
         }
 
         .countdown{
-            color: white; 
             float: right;  
             font-size: 3rem;  
-            background-color: black; 
+            font-family: $button-text;
             padding: 0.5rem; 
+            text-shadow: $text-shadow; 
+            text-transform: uppercase; 
         }
 
     }
 ////////////////////////////////ROW 2///////////////
     .row2{
-        background: $scene-bg;
         // border: 3px solid red; 
         height: 33em; 
         padding-top: 1rem; 
 
-        //ENEMY CARDS 
+        //BOTH CARDS 
         .enemy-card, .player-card{
             height: 23em; 
             width: 20em; 
             color: white !important; 
             .card{
-                border: 4px solid $border !important;
                 border-style: ridge; 
-                box-shadow: $box-shadow2;
-                font-size: 10px;
                 text-transform: uppercase;
                 .card-header, .card-footer{
-                    background: $inner !important;
+                    font-family: 'Exo 2', sans-serif;
+                }
+                .card-header{
+                    font-size: 1.5rem;
                 }
 
             }
@@ -113,11 +132,38 @@
             }
         }
 
-        //DICE
+        /////////////PLAYER CARDS////////////////////////
+
+        .player-card{
+            .card{
+                border: 4px solid $border !important;
+                box-shadow: $box-shadow2;
+                text-transform: uppercase;
+                .card-header, .card-footer{
+                    background: $inner !important;
+                   
+                }
+
+            }
+
+        }
+        ///////////////////////ENEMY CARDS/////////////////////
+
+        .enemy-card{
+            .card{
+                border: 4px solid $enemy-border !important;
+                box-shadow: $box-shadow-en;  
+            }
+            .card-header, .card-footer{
+                background: $enemy-inner !important;
+            }
+        }
+
+        ///////////////DICE///////////////////////////
         .dice{
             height: 7em; 
             text-align: center;
-            margin-top: 47em; 
+            margin-top: 40em; 
         }
         .playerProgress, .enemyProgress{
             margin: auto;
@@ -130,7 +176,6 @@
 
    ////////////////////////////ROW 3//////////////////////
     .row3{
-        background: $scene-bg;
         // border: 3px solid orange; 
         height: 20em; 
         .enemy-deck, .player-deck{
@@ -145,25 +190,31 @@
             float: right;
         }
 
+        $attack-bg: rgba(152, 153, 156, 0.7);
+
         .attack-screen{
-            margin-top: -27em;
-            margin-left: -2.5em;
+            margin-top: -34em;
+            margin-left: -1em;
             width: 40em; 
 
+            .attack-detail, .attack-image, .message{
+                background-color: $attack-bg;
+                border: 2px solid gray;
+                border-style: ridge; 
+            }
+
             .attack-detail{
-                background-color:black;
-                border: 2px solid red;
                 height: 5em; 
             }
             .attack-image{
-                background-color:black;
-                border: 2px solid red;
                 height: 27em; 
             }
             .message{
-                background-color:black;
-                border: 2px solid red;
-                height: 5em; 
+                font-family: $button-text; 
+                font-size: 2rem;
+                letter-spacing: 3px;
+                height: 3em; 
+                text-align: center;
             }
 
         }
@@ -171,44 +222,45 @@
         .player-deck{
             float: left;
         }
-        .companions{
-            background-color:black;
-            border: 2px solid red;
-            height: 30em; 
-            width: 10em; 
-            margin-top: 1em; 
-            .p-2{
-                background: yellow; 
-                height: 10em; 
-                border: 2px solid black; 
-                color: black; 
-            }
-        }
+
 
     }
 ///////////////////////////////////ROW 4/////////////////////////
     .row4{
-        background: $scene-bg;
         // border: 3px solid yellow; 
         height: 20em; 
-        .comp{
-            background-color: red; 
-            height: 8em; 
-            margin-top: 8em;
-            margin-left: 12em;
-            width: 10em;
+        .companions{
+            margin: auto; 
+            .companions-card{
+                border: 4px solid $ally-border;
+                box-shadow: $box-shadow-al;
+                color: white; 
+                height: 19rem; 
+                text-transform: uppercase;
+                img{
+                    height: 79%; 
+                }
+                .card-header{
+                    font-family: 'Exo 2', sans-serif;
+                    background: $ally-inner !important;
+                }
+                .card-footer{
+                    margin: auto;
+                    position: relative;
+                    top: -6rem;
+                    background: transparent; 
+                }
+                .card-header{
+                    font-size: 1.5rem;
+                }
+            }
+            .start-btn{
+                padding: 6px!important; 
+            }
         }
 
         .buttons{
-            margin-left:20rem; 
-        }
-      
-        
+            margin-left:10rem; 
+        }  
     }
-
-    // .row5{
-    //     border: 3px solid pink; 
-    //     height: 20em; 
-        
-    // }
 }

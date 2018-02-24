@@ -4,17 +4,19 @@
     text-align: center;
     display: inline-block;
     margin: 5px;
-    font-size: 1.6rem;
+    font-family: $button-text; 
+    font-size: 1.8rem;
     padding: 16px 30px 12px 24px;
     background-color: lightgray;
     text-shadow: -1px -1px black, 1px 1px white;
-    color: #dc3545;
+    color: red;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -o-border-radius: 7px;
     border-radius: 7px;
     box-shadow: 0 0.2em grey;
     cursor: pointer;
+    letter-spacing: 3px; 
 
   }
   

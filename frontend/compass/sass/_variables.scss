@@ -34,6 +34,7 @@ $scene-bg: rgba(9,12,39,0.7);
 $scene-text:#74f9fc;
 $scene-button: #7cc2fb;
 $scene-font: 'Exo 2', sans-serif;
+$button-text: 'Orbitron', sans-serif !important; 
 
 
 //CARD
@@ -58,7 +59,47 @@ $box-shadow2:0px 1px 0px #ededed,
 0 0 0px $scene-text,
 0px 0px 0px $border, 
 0 0 20px $border, 
-0 0 0px #ededf7; 
+0 0 0px #ededf7;
+
+//ENEMY
+
+$enemy-border: #a94442; 
+$box-shadow-en: 0px 1px 0px #ededed, 
+0 0 4px white, 
+0 0 0px #dc3545,
+0px 0px 0px #dc3545, 
+0 0 20px #dc3545, 
+0 0 0px #ededf7;
+$enemy-inner: -webkit-radial-gradient(
+    center, 
+    ellipse cover, 
+    #732930 0%, 
+    #0a0909 98%, 
+    #ef0d23 100%);
+
+
+/// ALLIES 
+$ally-border: #127d2a; 
+$box-shadow-al: 0px 1px 0px #ededed, 
+    0 0 4px white, 
+    0 0 0px #3c763d, 
+    0px 0px 0px #28a745, 
+    0 0 20px #5cca5e, 
+    0 0 0px #ededf7; 
+
+$ally-inner: -webkit-radial-gradient(
+    center, 
+    ellipse cover, 
+    #28a745 0%, 
+    #0a0909 98%, 
+    #0def48 100%);
+
+
+
+
+
+
+$text-shadow:-1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
 
 
 //media queries

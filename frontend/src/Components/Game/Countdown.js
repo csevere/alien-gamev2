@@ -25,7 +25,7 @@ class Countdown extends Component{
         return(
             <div>
                 <div>
-                    <Button color="danger" className = "start-btn" onClick = { ()=> this.pauseButton()}>{this.props.isRunning ? 'PAUSE | |' : 'RESUME'}</Button>
+                    <Button color="danger" className = "start-btn" onClick = { ()=> this.pauseButton()}>{this.props.isRunning ? 'PAUSE | |' : 'PLAY  ▶︎'}</Button>
                 </div>
                 <div style = {textStyle} className = "countdown">
                     {this.props.timer}

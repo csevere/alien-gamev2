@@ -2,13 +2,13 @@
     {
       "id": 1,
       "name":"Meliz",
-      "image": "assets/images/convo_character_1_ex.jpg",
+      "image": "assets/images/players/ally1.jpg",
       "text": "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut'"
     },
     {
       "id": 2,
       "name": "Zackaria",
-      "image": "assets/images/convo_character_2_ex.jpg",
+      "image": "assets/images/players/player1.png",
       "choice1": "1. 'I agree. We should scout the area and find the other team.'",
       "choice2": "2. '... I don't really care what we do.'",
       "choice3": "3. 'And who the hell made you the leader?'"

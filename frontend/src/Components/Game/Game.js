@@ -2,22 +2,21 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions/story_actions';
-import EnemyCard from './EnemyCard'; 
-import PlayerCard from './PlayerCard'; 
-import Instructions from './Instructions'; 
+
+import Buttons from './Buttons'; 
+import Companions from './Companions'; 
 import Countdown from './Countdown'; 
 import Dice from './Dice'; 
-import Buttons from './Buttons'; 
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardBlock, 
-    CardText, 
-    CardImg, 
-    CardImgOverlay,
-    Progress 
+import EnemyCard from './EnemyCard';
+import Instructions from './Instructions';  
+import PlayerCard from './PlayerCard'; 
+
+import { 
+	Button,
+	Container, 
+	Col,
+	Progress, 
+    Row
 } from 'reactstrap';
 
 // Length ms 
@@ -32,20 +31,21 @@ class Game extends Component{
         super(props);
 		this.state = {
 			active: true,
+			attackdetail: '',
+			attackimage: '', 
 			handleFight: true,
 			isRunning: false,
-            timer: '00:00',
-            textColor: 'white',
-			message: "What are you waiting for? Press the attack button!",
-			showLoader: 'block',
+			message: "Alien attack! Quick, press the attack button!",
+			opacity: 0,
+			opacity2: 0,
 			showContainer: 'none',
+			showLoader: 'block',
 			showFightScreen: 'none',
 			showRow: 'none',
+			timer: 'TIME 00:00',
+            textColor: '#74f9fc',
             transition:'transition',
-			opacity: 0,
-			transition2: 'transition',
-			opacity2: 0
-
+			transition2: 'transition'
 		}
 
 		this.startGame = this.startGame.bind(this)
@@ -98,7 +98,7 @@ class Game extends Component{
         var Seconds = Time.getSeconds();
         
         this.setState({
-            timer:`${(Minutes < 10 ? '0' : '')}` + `${Minutes}` 
+            timer:`TIME ${(Minutes < 10 ? '0' : '')}` + `${Minutes}` 
             + `:`
             + `${(Seconds < 10 ? '0' : '')}` + `${Seconds}`
         })
@@ -167,7 +167,7 @@ class Game extends Component{
 		const rowStyle = {
 			position: 'absolute',
 			top: '28rem',
-			width: '82%',
+			width: '100%',
 			display: this.state.showRow
 		}
 
@@ -206,16 +206,16 @@ class Game extends Component{
 					</div>
 
 					<div style = {fightScreen} className = "fightscreen">
-						<div className = "display4">
+						<div className = "display4 fight-text">
 							Are you ready to <br/> 
-							<div className = "display2">battle?</div>
+							<div className = "display1 fight-text">battle?</div>
 						</div> 
 
 						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">FIGHT</Button>
 
 					</div> 
 
-                    <Container style = {showContainer}>
+                    <Container className="game-container" style = {showContainer}>
 
 						<Row className = "pause" style = {rowStyle}>
 							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? ' ' : 'GAME PAUSED '}</div>
@@ -275,8 +275,8 @@ class Game extends Component{
 						
                             <Col md = "4">
                                 <div className = "attack-screen">
-                                    <div className = "attack-detail text-white">attackdetail</div>
-                                    <div className = "attack-image text-white">attackimage</div>
+                                    <div className = "attack-detail text-white">{this.state.attackdetail}</div>
+                                    <div className = "attack-image text-white">{this.state.attackimage}</div>
                                     <div className = "message text-white">{this.state.message}</div>
                                 </div>
                             </Col>
@@ -292,10 +292,8 @@ class Game extends Component{
 
                         <Row className = "row4">
 							<Col md = "6">
-								<div className = "companions float-right d-flex flex-row">
-										<div className = " comp">companion1</div>
-										<div className = " comp">companion2</div>
-										<div className = " comp">companion3</div>
+								<div className = "float-right">
+									<Companions/>
 								</div>
 							</Col>
 							<Col md = "6">
