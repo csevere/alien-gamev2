@@ -25,9 +25,28 @@ class Game extends Component{
     render(){
         return(
             <div>
-                <div className = "game-wrapper">
-                    <Container>
-                    </Container>
+                <div className = "player-deck d-flex flex-row">
+                    <Card className = "companions-card m-2">
+                        <CardHeader className = "text-center"></CardHeader>
+                        <CardImg width="85%" src = "assets/images/players/ally1.jpg" />
+                        <CardFooter>
+                            <Button color="danger"  className = "start-btn">Help</Button>
+                        </CardFooter>
+                    </Card>
+                    <Card className = "companions-card m-2">
+                        <CardHeader className = "text-center">Ryker</CardHeader>
+                        <CardImg width="85%" src = "assets/images/players/ally2.png" />
+                        <CardFooter>
+                            <Button color="danger"  className = "start-btn">Help</Button>
+                        </CardFooter>
+                    </Card>
+                    <Card className = "companions-card m-2">
+                        <CardHeader className = "text-center">Faust</CardHeader>
+                        <CardImg width="85%" src = "assets/images/players/ally3.png" />
+                        <CardFooter>
+                        <Button color="danger"  className = "start-btn">Help</Button>
+                        </CardFooter>
+                    </Card>
                 </div>
             </div>
         )
