@@ -2,13 +2,13 @@
     {
       "id": 1,
       "name":"Meliz",
-      "image": "assets/images/players/ally1.jpg",
+      "image": "assets/players/ally1.jpg",
       "text": "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut'"
     },
     {
       "id": 2,
       "name": "Zackaria",
-      "image": "assets/images/players/player1.png",
+      "image": "assets/players/player1.jpg",
       "choice1": "1. 'I agree. We should scout the area and find the other team.'",
       "choice2": "2. '... I don't really care what we do.'",
       "choice3": "3. 'And who the hell made you the leader?'"
@@ -16,13 +16,13 @@
     {
       "id": 3,
       "name":"Meliz",
-      "image": "assets/images/convo_character_1_ex.jpg",
+      "image": "assets/players/ally1.jpg",
       "text": "Good. Then let's proceed. Be careful out there."
     },
     {
       "id": 4,
-      "name":"Meliz",
-      "image": "assets/images/convo_character_1_ex.jpg",
+      "name":"Zackaria",
+      "image": "assets/players/player1.jpg",
       "text": "Way to take the iniative. Just don't die or get any of us killed."
       
     },

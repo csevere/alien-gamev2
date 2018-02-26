@@ -49,7 +49,7 @@ class BattleCraftMap extends Component{
 
         return(
             <div>
-                <div className = "map-wrapper">
+                <div className = "map-wrapper d-flex align-items-center">
                     <div style = {showLoader} className="preload">
                         <div className="preload-status">
                             <div className="preload-status-bar"></div>

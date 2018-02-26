@@ -192,7 +192,7 @@ class SceneCard1 extends Component{
                         <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
-                                <div className = "float-right place">{storyscene.place}</div> 
+                                <div className = "float-right place text-white">{storyscene.place}</div> 
                                     <CardText className = "scene-text">
                                         <div className = "s_text" style = {TransitionEffects2}>{storyscene.text1}</div>  
                                         <div className = "s_text" style = {TransitionEffects3}>{storyscene.text2}</div>
@@ -234,7 +234,7 @@ class SceneCard1 extends Component{
 
         return(
             <div>
-                <div className = "scene-wrapper1 no-gutters">
+                <div className = "scene-wrapper1 no-gutters d-flex align-items-end">
 
                     <div style = {showLoader} className="preload">
                         <div className="preload-status">
@@ -243,7 +243,7 @@ class SceneCard1 extends Component{
                         </div>
                     </div>
 
-                    <Container style = {showContainer} className = "position-relative">
+                    <Container style = {showContainer} className = "position-relative scene">
                         {this.renderScene()}
                         <Row style = {ContinueStyle} className = "no-gutters">
                             <Col md="5"  className="align-middle">
@@ -256,6 +256,7 @@ class SceneCard1 extends Component{
                         </Row> 
                     </Container> 
                 </div>
+
                 <div className = "p-2 audio">
                     <embed 
                         src="assets/music/betweenworlds.mp3" 
@@ -265,6 +266,7 @@ class SceneCard1 extends Component{
                         loop="true"
                     controls/>	
                 </div>
+
             </div>  
         )
     }

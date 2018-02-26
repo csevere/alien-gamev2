@@ -10,6 +10,8 @@ import Dice from './Dice';
 import EnemyCard from './EnemyCard';
 import Instructions from './Instructions';  
 import PlayerCard from './PlayerCard'; 
+import PlayerDeck from './PlayerDeck';
+
 
 import { 
 	Button,
@@ -18,6 +20,7 @@ import {
 	Progress, 
     Row
 } from 'reactstrap';
+
 
 // Length ms 
 var TimeOut = 10000;
@@ -33,12 +36,15 @@ class Game extends Component{
 			active: true,
 			attackdetail: '',
 			attackimage: '', 
-			handleFight: true,
+            handleFight: true,
+            hideBattleBtns: true, 
+            hideDeckBtns: true, 
 			isRunning: false,
-			message: "Alien attack! Quick, press the attack button!",
+			message: "Alien attack! Quick, press the roll button!",
 			opacity: 0,
-			opacity2: 0,
-			showContainer: 'none',
+            opacity2: 0,
+            showContainer: 'none',
+            showCards: false, 
 			showLoader: 'block',
 			showFightScreen: 'none',
 			showRow: 'none',
@@ -49,7 +55,8 @@ class Game extends Component{
 		}
 
 		this.startGame = this.startGame.bind(this)
-		this.handleFight = this.handleFight.bind(this)
+        this.handleRoll = this.handleRoll.bind(this)
+        this.handleDeal = this.handleDeal.bind(this)
 
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
@@ -147,11 +154,13 @@ class Game extends Component{
 
 		setTimeout(() =>{
 			this.theCountDown();
-		}, 1100)
+		}, 1500)
 		
 	}
 
-    handleFight(){
+    /////ROLLING THE DICE/////////////////
+
+    handleRoll(){
         //getting a random number to roll random dice
         var randomDie1 = Math.ceil(Math.random() * 6);
         var randomDie2 = Math.ceil(Math.random() * 6);
@@ -160,7 +169,31 @@ class Game extends Component{
             die1: "assets/dice/d" + randomDie1 + ".png",
             die2: "assets/dice/d" + randomDie2 + ".png",
           })
-	}
+
+        if((randomDie1 + randomDie2 >= 7) && (randomDie1 + randomDie2 < 12)){
+            this.setState({
+                hideBattleBtns: false,
+                hideDeckBtns: false,
+                message: "Shuffle then deal the cards or simply deal to attack!"
+            })
+        } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
+            this.setState({
+                hideBattleBtns: true,  
+                hideDeckBtns: true,
+                message: "You rolled below 7. You're getting attacked!"
+            })
+          
+        }
+        
+    }
+
+    handleDeal(){
+        this.setState({
+            showCards: true
+        })
+    }
+    
+
 	
 
     render(){
@@ -196,7 +229,7 @@ class Game extends Component{
 		
         return(
             <div>
-                <div className = "game-wrapper">
+                <div className = "game-wrapper d-flex align-items-end">
 
 					<div style = {showLoader} className="preload">
 						<div className="preload-status">
@@ -267,9 +300,9 @@ class Game extends Component{
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">Deck</div>
-                                    <div className = "p-5 text-dark card">Card 1</div>
-                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "m-2 p-5 text-dark card">Deck</div>
+                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
+                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
                                 </div>
                             </Col>
 						
@@ -282,23 +315,27 @@ class Game extends Component{
                             </Col>
 
                             <Col md = "4">
-                                <div className = "player-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">Card 1</div>
-                                    <div className = "p-5 text-dark card">Card 2</div>
-                                    <div className = "p-5 text-dark card">Deck</div>
-                                </div>
+                                <div>
+                                    <PlayerDeck showCards = {this.state.showCards}/>
+                                </div> 
                             </Col>
                         </Row>
 
                         <Row className = "row4">
 							<Col md = "6">
 								<div className = "float-right">
-									<Companions/>
+									<Companions active = {this.state.active}/>
 								</div>
 							</Col>
 							<Col md = "6">
 								<div>
-								<Buttons active = {this.state.active} fight = {this.handleFight} />
+                                <Buttons 
+                                    active = {this.state.active}
+                                    deck = {this.state.hideDeckBtns}
+                                    hide = {this.state.hideBattleBtns}  
+                                    roll = {this.handleRoll}
+                                    deal = {this.handleDeal}
+                                />
 								</div>
 							</Col>
                         </Row>

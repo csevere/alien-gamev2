@@ -171,7 +171,7 @@ class Conversation1 extends Component{
 
         return(
             <div>
-                <div className = "convo-wrapper no-gutters">
+                <div className = "convo-wrapper no-gutters d-flex align-items-center">
                     <div style = {showLoader} className="preload">
                         <div className="preload-status">
                             <div className="preload-status-bar"></div>

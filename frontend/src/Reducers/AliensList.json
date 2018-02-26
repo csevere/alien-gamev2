@@ -1,0 +1,188 @@
+[
+    {
+        "id": 1,
+        "name":"Krizeot",
+        "image": "assets/images/aliens/Krizeot.png",
+        "atk_pwr": "10",
+        "def_pwr": "15",
+        "spc_pwr": "Glacial Crusher"
+    },
+
+    {
+        "id": 2,
+        "name":"Treoziet",
+        "image": "assets/images/aliens/Treoziet.png",
+        "atk_pwr": "15",
+        "def_pwr": "20",
+        "spc_pwr": "Blizzard Barrage"    
+    },
+
+    {
+        "id": 3,
+        "name":"Vrykx",
+        "image": "assets/images/aliens/Vrykx.png",
+        "atk_pwr": "20",
+        "def_pwr": "15",
+        "spc_pwr": "Frost Grenade"  
+    },
+
+    {
+        "id": 4,
+        "name":"Gorgeer",
+        "image": "assets/images/aliens/Gorgeer.png",
+        "atk_pwr": "25",
+        "def_pwr": "20",
+        "spc_pwr": "Freezing Bolt"  
+    },
+
+    {
+        "id": 5,
+        "name":"Tergrak",
+        "image": "assets/images/aliens/Tergrak.png",
+        "atk_pwr": "30",
+        "def_pwr": "35",
+        "spc_pwr": "Explosive Icicle"  
+    },
+
+    {
+        "id": 6,
+        "name":"Okrem",
+        "image": "assets/images/aliens/Okrem.png",
+        "atk_pwr": "35",
+        "def_pwr": "40",
+        "spc_pwr": "Shredding Ice"  
+    },
+
+    {
+        "id": 7,
+        "name":"Uzlag",
+        "image": "assets/images/aliens/Uzlag.png",
+        "atk_pwr": "40",
+        "def_pwr": "40",
+        "spc_pwr": "Frost Strike"  
+    },
+
+    {
+        "id": 8,
+        "name":"Ekrunt",
+        "image": "assets/images/aliens/Ekrunt.png",
+        "atk_pwr": "45",
+        "def_pwr": "45",
+        "spc_pwr": "Violent Blizzard"  
+    },
+
+    {
+        "id": 9,
+        "name":"Agdyrus",
+        "image": "assets/images/aliens/Agdyrus.png",
+        "atk_pwr": "50",
+        "def_pwr": "60",
+        "spc_pwr": "Freezing Cleaver"
+    },
+
+    {
+        "id": 10,
+        "name":"Ictaske",
+        "image": "assets/images/aliens/Ictaske.png",
+        "atk_pwr": "55",
+        "def_pwr": "65",
+        "spc_pwr": "Cold Delusion"  
+    },
+
+    {
+        "id": 11,
+        "name":"Jymmek",
+        "image": "assets/images/aliens/Jymmek.png",
+        "atk_pwr": "60",
+        "def_pwr": "65",
+        "spc_pwr": "Blizzard Dart"  
+    },
+
+    {
+        "id": 12,
+        "name":"Oojuc",
+        "image": "assets/images/aliens/Oojuc.png",
+        "atk_pwr": "65",
+        "def_pwr": "70",
+        "spc_pwr": "Chill Blazer"   
+    },
+
+    {
+        "id": 13,
+        "name":"Soyvit",
+        "image": "assets/images/aliens/Soyvit.png",
+        "atk_pwr": "70",
+        "def_pwr": "80",
+        "spc_pwr": "Arctic Aria"  
+    },
+
+    {
+        "id": 14,
+        "name":"Urkbek",
+        "image": "assets/images/aliens/Urkbek.png",
+        "atk_pwr": "75",
+        "def_pwr": "85",
+        "spc_pwr": "Cold Tremor"   
+    },
+     
+    {
+        "id": 15,
+        "name":"Ubling",
+        "image": "assets/images/aliens/Ubling.png",
+        "atk_pwr": "85",
+        "def_pwr": "75",
+        "spc_pwr": "Ice Maelstrom"  
+    },
+
+    {
+        "id": 16,
+        "name":"Kryntag",
+        "image": "assets/images/aliens/Kryntag.png",
+        "atk_pwr": "90",
+        "def_pwr": "80",
+        "spc_pwr": "True Frost"   
+    },
+    {
+        "id": 17,
+        "name":"Kayprok",
+        "image": "assets/images/aliens/Kayprok.png",
+        "atk_pwr": "95",
+        "def_pwr": "95",
+        "spc_pwr": "Slashing Chill"  
+    },
+
+    {
+        "id": 18,
+        "name":"Slozod",
+        "image": "assets/images/aliens/Slozod.png",
+        "atk_pwr": "100",
+        "def_pwr": "100",
+        "spc_pwr": "Omni Crystal Blizzard"   
+    },
+    {
+        "id": 19,
+        "name":"Ooblag",
+        "image": "assets/images/aliens/Ooblag.png",
+        "atk_pwr": "105",
+        "def_pwr": "100",
+        "spc_pwr": "Crashing Winter Delusion"  
+    },
+
+    {
+        "id": 20,
+        "name":"Urgriolgeeg",
+        "image": "assets/images/aliens/Urgriolgeeg.png",
+        "atk_pwr": "135",
+        "def_pwr": "110",
+        "spc_pwr": "Edged Flash Avalanche"   
+    },
+
+    {
+        "id": 21,
+        "name":"Ossaizlula",
+        "image": "assets/images/aliens/ssaizlula.png",
+        "atk_pwr": "150",
+        "def_pwr": "120",
+        "spc_pwr": "Crashing Blizzard Rocket Barrage"   
+    }
+] 

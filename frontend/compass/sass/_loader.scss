@@ -12,11 +12,9 @@ html, body {
 
 
 .preload {
-    width: 28em;
-    position: relative;
-    top: 39em;
-    left: 0em;
+    background: black;
     margin: auto; 
+    width: 28em;
 
     .preload-status {
         overflow: hidden;

@@ -14,7 +14,7 @@ $speed2:6s;
 
 
 .map-wrapper{
-    background: url('https://img00.deviantart.net/7b80/i/2010/146/3/8/forerunner_texture_by_invaderveex.jpg'); 
+    background: url('/assets/bg/scifi-texture.jpg'); 
     background-size: contain;
     background-position: center;  
     height:100%;
@@ -27,18 +27,12 @@ $speed2:6s;
         margin-top: 0em;    
     }
 
-
     .button{
-        margin-top: 6em; 
         cursor: pointer;
         .text{
             letter-spacing: 5px;
             font-size: 1.3rem; 
             padding-bottom: 10px;  
-        }
-
-        @media(min-width:$reg){
-           margin-top: 13em;   
         }
     }
 

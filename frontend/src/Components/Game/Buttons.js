@@ -3,30 +3,40 @@ import {
     Button
 } from 'reactstrap';
 
-const Buttons = (props)=>{
+const Buttons = (props) => {
+    const state = props.active; 
+    const hideFight = props.hide; 
+    const hideDeck = props.hide; 
 
-        const disableButtons = {
-            display: 'none'
-        }
-        
-        const state = props.active; 
+    const hideButtons = {
+        display: 'none'
+    }
+    const hideDeckBtns = {
+        display: 'none'
+    } 
+    const hideFghtBtns = {
+        display: 'none'
+    } 
 
-   
-        return(
+    console.log(hideDeck + " Deck");
 
-            <div className = "buttons" style = {!state ? disableButtons : null }>
-                <div className = "d-flex flex-row">
-                    <Button color="danger" className = "start-btn" onClick = {props.fight} >Attack</Button>
-                    <Button color="danger" className = "start-btn">Shuffle Cards</Button>
-                </div>
+    return(
 
-                <div className = "d-flex flex-row">
-                    <Button color="danger"  className = "start-btn">Health Boost</Button>
-                    <Button color="danger"  className = "start-btn">Stamina Boost</Button>
-                </div>
+        <div className = "buttons" style = {!state ? hideButtons : null }>
+            <div className = "d-flex flex-row">
+                <Button color="danger" className = "start-btn" onClick = {props.roll}>Roll</Button>
+                <Button color="danger" className = "start-btn" onClick = {props.deal} style = {hideDeck ? hideDeckBtns : null }>Deal</Button>
+                <Button color="danger" className = "start-btn" style = {hideDeck ? hideDeckBtns : null }>Shuffle</Button>
             </div>
-    
-        )
+
+            <div className = "d-flex flex-row">
+                <Button color="danger" className = "start-btn" style = {hideFight ? hideFghtBtns : null }>Attack</Button>
+                <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>HP Up | 5X</Button>
+                <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>AP Up | 5X</Button>
+            </div>
+        </div>
+
+    )
 
 
 	

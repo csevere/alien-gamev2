@@ -21,7 +21,7 @@ class PlayerCard extends Component{
         return(
             <Card>
                 <CardHeader className = "text-center enemy">Zackaria</CardHeader>
-                <CardImg width="100%" src = "assets/images/players/player1.jpg" />
+                <CardImg width="100%" src = "assets/players/player1.jpg" />
                 <CardFooter className="text-center d-flex flex-column">
                     <div>Attack Power: 50</div>
                     <div>Defense Power: 25</div>
