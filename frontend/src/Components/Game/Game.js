@@ -68,8 +68,6 @@ class Game extends Component{
 
         /////Card Functions ////////
         this.handleDeal = this.handleDeal.bind(this);
-        // this.createPlayerDeck = this.createPlayerDeck.bind(this);
-        // this.shuffleCards = this.shuffleCards.bind(this);
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this); 
 
@@ -247,26 +245,6 @@ class Game extends Component{
            
         }); 
     }
-
-    // shuffleCards(){
-    //     var { deckweapons } = this.props;
-    //     var count = 0;
-        
-    //     for(let i = 0; i < 6; i++){
-    //         count++;
-    //         console.log(count + "COUNT");
-	// 		var random1 = Math.floor(Math.random() * 19);
-	// 		var random2 = Math.floor(Math.random() * 19);
-	// 		// Store in temp, the value at index random1, in array theDeck (for later)
-	// 		var temp = deckweapons[random1];
-	// 		// Overwrite what's at index random1 with what's at index random2
-	// 		deckweapons[random1] = deckweapons[random2];
-	// 		// Overwrite what's at index random2 with what's in temp
-    //         deckweapons[random2] = temp;
-            
-    //     }
-
-    // }
 
 
     handleDeal(){
