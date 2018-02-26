@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import { connect } from 'react-redux';
+import  {bindActionCreators} from 'redux';
 import * as actions from '../../Actions';
 
 import Buttons from './Buttons'; 
@@ -231,7 +232,7 @@ class Game extends Component{
         var { deckweapons } = this.props;
 
         return deckweapons.map((elem) => {
-            if(elem === deckweapons[1]){
+            if(elem === deckweapons[5]){
                 return(
                     <div key = {elem.id}>
                         <CardHeader className = "text-center">{elem.name}</CardHeader>
@@ -449,6 +450,7 @@ const mapStateToProps = (state)=>{
         shuffle: state.cardShuffle
     }
 }
+
 
 export default connect(mapStateToProps,actions)(Game); 
 
