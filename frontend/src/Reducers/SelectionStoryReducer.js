@@ -5,12 +5,6 @@ const INITIAL_STATE ={
 
 export default (state = INITIAL_STATE, action) => {
     console.log(action); 
-//     switch(action.type){
-//         case 'select_story':
-//             return action.payload;
-//     default:
-//         return state; 
-//    }
 
     if(action.type === "next"){
         let count = state.count + 1
