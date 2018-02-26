@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Container, Row, Col, Button, Card, CardGroup, CardHeader, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
+
 
 class Conversation1 extends Component{
     constructor(props){
@@ -133,6 +133,7 @@ class Conversation1 extends Component{
             opacity: this.state.opacity5 
         }
 
+
         return storyconvo.map((storyconvo) => {
             if(storyconvo.id == 2){
                 return(
@@ -171,7 +172,7 @@ class Conversation1 extends Component{
 
         return(
             <div>
-                <div className = "convo-wrapper no-gutters">
+                <div className = "convo-wrapper no-gutters d-flex align-items-center">
                     <div style = {showLoader} className="preload">
                         <div className="preload-status">
                             <div className="preload-status-bar"></div>
@@ -214,7 +215,7 @@ const mapStateToProps = (state)=>{
     }
 }
 
-export default connect(mapStateToProps, actions)(Conversation1); 
+export default connect(mapStateToProps)(Conversation1); 
 
 //use an onCLick event to select the right result to display
 //onClick = {()=> this.props.selectedConvoId(storyconvo))}   << this comes from the actions

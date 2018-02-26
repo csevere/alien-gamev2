@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
+import { connect } from 'react-redux';
+
 
 import Buttons from './Buttons'; 
 import Companions from './Companions'; 
@@ -10,14 +10,22 @@ import Dice from './Dice';
 import EnemyCard from './EnemyCard';
 import Instructions from './Instructions';  
 import PlayerCard from './PlayerCard'; 
+import PlayerDeck from './PlayerDeck';
+
 
 import { 
 	Button,
 	Container, 
 	Col,
 	Progress, 
-    Row
+    Row,
+    Card, 
+    CardHeader,
+    CardFooter,
+    CardText, 
+    CardImg, 
 } from 'reactstrap';
+
 
 // Length ms 
 var TimeOut = 10000;
@@ -26,19 +34,24 @@ var TimeGap = 1000;
 var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
 
+
 class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
 			active: true,
 			attackdetail: '',
-			attackimage: '', 
-			handleFight: true,
+            attackimage: '', 
+            deal: 'false',
+            handleFight: true,
+            hideBattleBtns: true, 
+            hideDeckBtns: true, 
 			isRunning: false,
-			message: "Alien attack! Quick, press the attack button!",
+			message: "Alien attack! Quick, press the roll button!",
 			opacity: 0,
-			opacity2: 0,
-			showContainer: 'none',
+            opacity2: 0,
+            showContainer: 'none',
+            showCards: false, 
 			showLoader: 'block',
 			showFightScreen: 'none',
 			showRow: 'none',
@@ -48,8 +61,16 @@ class Game extends Component{
 			transition2: 'transition'
 		}
 
-		this.startGame = this.startGame.bind(this)
-		this.handleFight = this.handleFight.bind(this)
+		this.startGame = this.startGame.bind(this);
+        this.handleRoll = this.handleRoll.bind(this);
+
+
+        /////Card Functions ////////
+        this.handleDeal = this.handleDeal.bind(this);
+        // this.createPlayerDeck = this.createPlayerDeck.bind(this);
+        this.shuffleCards = this.shuffleCards.bind(this);
+        this.getCard1 = this.getCard1.bind(this); 
+        this.getCard2 = this.getCard2.bind(this); 
 
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
@@ -75,6 +96,8 @@ class Game extends Component{
 	}
 
 
+    ////////////////// HANDLING THE TIMER ////////////////////
+
 	updateTimer(){
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
@@ -83,7 +106,6 @@ class Game extends Component{
         // Countdown if running
         if(this.state.isRunning === true) {
             CurrentTime += TimeGap;
-            console.log(EndTime + " EndTime")
             if( CurrentTime >= EndTime ) {
                 
                 this.setState({
@@ -106,9 +128,9 @@ class Game extends Component{
 
     startTimer(Timeout){
         TimeOut = Timeout;
+        console.log(TimeOut); 
         CurrentTime = (new Date()).getTime();
         EndTime = CurrentTime + TimeOut;
-        console.log(TimeOut);
         this.updateTimer();  
     }
    
@@ -147,23 +169,118 @@ class Game extends Component{
 
 		setTimeout(() =>{
 			this.theCountDown();
-		}, 1100)
+        }, 1500)
 		
 	}
 
-    handleFight(){
+    ////////////////////////ROLLING THE DIE////////////////////////////////
+
+    handleRoll(){
         //getting a random number to roll random dice
         var randomDie1 = Math.ceil(Math.random() * 6);
         var randomDie2 = Math.ceil(Math.random() * 6);
+
+        console.log('TEST'); 
         
         this.setState({
             die1: "assets/dice/d" + randomDie1 + ".png",
             die2: "assets/dice/d" + randomDie2 + ".png",
           })
-	}
-	
 
+        if((randomDie1 + randomDie2 >= 7) && (randomDie1 + randomDie2 < 12)){
+            this.setState({
+                hideBattleBtns: false,
+                hideDeckBtns: false,
+                message: "Shuffle then deal the cards or simply deal to attack!"
+            })
+        } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
+            this.setState({
+                hideBattleBtns: true,  
+                hideDeckBtns: true,
+                message: "You rolled below 7. You're getting attacked!"
+            })
+          
+        }
+        
+    }
+
+    //////////////////////DEALING THE CARDS////////////////////////////
+   
+    getCard1(){
+        var { deckweapons } = this.props;
+        console.log(deckweapons); 
+
+        return deckweapons.map((elem) => {
+            if( elem === deckweapons[0] ){
+                console.log(elem.id)
+                return(
+                    <div key = {elem.id}>
+                        <CardHeader className = "text-center">{elem.name}</CardHeader>
+                        <CardImg src = {elem.image} />
+                        <CardFooter>
+                        <div className = "text-center">Damage: {elem.damage}</div>
+                        </CardFooter>
+                    </div>
+                )
+
+            }
+           
+        }); 
+    }
+
+    getCard2(){
+        var { deckweapons } = this.props;
+        // console.log(deckweapons); 
+
+        return deckweapons.map((elem) => {
+            if(elem === deckweapons[9]){
+                return(
+                    <div key = {elem.id}>
+                        <CardHeader className = "text-center">{elem.name}</CardHeader>
+                        <CardImg src = {elem.image} />
+                        <CardFooter>
+                        <div className = "text-center">Damage: {elem.damage}</div>
+                        </CardFooter>
+                    </div>
+                )
+
+            }
+           
+        }); 
+    }
+
+    shuffleCards(){
+        var { deckweapons } = this.props;
+        
+        for(let i = 0; i < 14000; i++){
+			var random1 = Math.floor(Math.random() * 19);
+			var random2 = Math.floor(Math.random() * 19);
+			// Store in temp, the value at index random1, in array theDeck (for later)
+			var temp = deckweapons[random1];
+			// Overwrite what's at index random1 with what's at index random2
+			deckweapons[random1] = deckweapons[random2];
+			// Overwrite what's at index random2 with what's in temp
+            deckweapons[random2] = temp;
+            
+        }
+
+    }
+
+
+    handleDeal(){
+        this.setState({
+            showCards: true,
+            deal: true
+        });
+
+        // this.getCard1();
+        // this.getCard2();
+
+    }
+
+   
     render(){
+
 		const rowStyle = {
 			position: 'absolute',
 			top: '28rem',
@@ -196,7 +313,7 @@ class Game extends Component{
 		
         return(
             <div>
-                <div className = "game-wrapper">
+                <div className = "game-wrapper d-flex align-items-end">
 
 					<div style = {showLoader} className="preload">
 						<div className="preload-status">
@@ -267,9 +384,9 @@ class Game extends Component{
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">Deck</div>
-                                    <div className = "p-5 text-dark card">Card 1</div>
-                                    <div className = "p-5 text-dark card">Card 1</div>
+                                    <div className = "m-2 p-5 text-dark card">Deck</div>
+                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
+                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
                                 </div>
                             </Col>
 						
@@ -282,23 +399,33 @@ class Game extends Component{
                             </Col>
 
                             <Col md = "4">
-                                <div className = "player-deck d-flex flex-row">
-                                    <div className = "p-5 text-dark card">Card 1</div>
-                                    <div className = "p-5 text-dark card">Card 2</div>
-                                    <div className = "p-5 text-dark card">Deck</div>
-                                </div>
+                                <div>
+                                    <PlayerDeck 
+                                        dealCond = {this.state.deal}
+                                        getCard1 = {this.getCard1}
+                                        getCard2 = {this.getCard2}
+                                        showCards = {this.state.showCards}
+                                    />
+                                </div> 
                             </Col>
                         </Row>
 
                         <Row className = "row4">
 							<Col md = "6">
 								<div className = "float-right">
-									<Companions/>
+									<Companions active = {this.state.active}/>
 								</div>
 							</Col>
 							<Col md = "6">
 								<div>
-								<Buttons active = {this.state.active} fight = {this.handleFight} />
+                                <Buttons 
+                                    active = {this.state.active}
+                                    deck = {this.state.hideDeckBtns}
+                                    hide = {this.state.hideBattleBtns}  
+                                    roll = {this.handleRoll}
+                                    deal = {this.handleDeal}
+                                    shuffle = {this.shuffleCards}
+                                />
 								</div>
 							</Col>
                         </Row>
@@ -318,23 +445,13 @@ class Game extends Component{
     }
 }
 
+const mapStateToProps = (state)=>{
+    return{
+        deckweapons: state.weaponsLibrary
+    }
+}
 
-export default Game; 
-
-// <div className = "p-5 items">items</div>
-// <div className = "p-5 gear">gear</div>
+export default connect(mapStateToProps)(Game); 
 
 
-// <Row className = "row5">
-// <div className = "p-2">Player Status</div>
-// <div className = "status-bar d-flex flex-row text-whiste">
-// 	<div className = "p-5 player-level">playerlevel</div>
-// 	<div className = "p-5 experience">experience</div>
-// 	<div className = "p-5 attack-points">attackpoints</div>
-// 	<div className = "p-5 weapons">weapons</div>
-// </div>
-// </Row>
 
-/* <Col md="3">
-<Instructions/>
-</Col> */

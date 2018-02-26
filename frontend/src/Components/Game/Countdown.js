@@ -20,8 +20,6 @@ class Countdown extends Component{
             marginTop: '-5.5rem'
         }
 
-        console.log(this.props.isRunning); 
-
         return(
             <div>
                 <div>

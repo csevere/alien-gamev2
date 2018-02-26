@@ -1,0 +1,48 @@
+@import 'variables'; 
+@import 'gamebuttons'; 
+
+.enemy-deck, .player-deck{
+  // border: 2px solid red;
+    height: 19em;
+    .p-5{
+        width: 14rem; 
+    } 
+}
+.enemy-deck{
+    float: right;
+}
+
+.player-deck{
+    float: left;
+
+    .card{
+        width: 100% !important; 
+    } 
+
+    .deal{
+        img{
+            height: 9.2rem;
+        }
+    }
+
+    .player-deck-card{
+        border: 4px solid $border;
+        box-shadow: $box-shadow2;
+        color: white; 
+        height: 19rem; 
+        text-transform: uppercase;
+
+        .card-header, .card-footer{
+            font-family: 'Exo 2', sans-serif;
+            background: $inner !important;
+        }
+        .card-footer{
+            margin: auto;
+        }
+        .card-header{
+            font-size: 1.5rem;
+        }
+
+       
+    }
+}

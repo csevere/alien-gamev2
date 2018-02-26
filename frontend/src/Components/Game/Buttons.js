@@ -3,30 +3,66 @@ import {
     Button
 } from 'reactstrap';
 
-const Buttons = (props)=>{
+class Buttons extends Component{
+    constructor(props){
+        super(props);
+        
+        this.rollDie = this.rollDie.bind(this); 
+        this.dealCard = this.dealCard.bind(this);
+        this.shuffleCards = this.shuffleCards.bind(this)
 
-        const disableButtons = {
+    }
+
+    rollDie(){
+        this.props.roll(); 
+    }
+
+    dealCard(){
+        this.props.deal(); 
+    }
+
+    shuffleCards(){
+        this.props.shuffle(); 
+    }
+
+
+
+
+    render(){
+
+        const state = this.props.active; 
+        const hideFight = this.props.hide; 
+        const hideDeck = this.props.deck; 
+
+        const hideButtons = {
             display: 'none'
         }
-        
-        const state = props.active; 
+        const hideDeckBtns = {
+            display: 'none'
+        } 
+        const hideFghtBtns = {
+            display: 'none'
+        } 
 
-   
         return(
 
-            <div className = "buttons" style = {!state ? disableButtons : null }>
-                <div className = "d-flex flex-row">
-                    <Button color="danger" className = "start-btn" onClick = {props.fight} >Attack</Button>
-                    <Button color="danger" className = "start-btn">Shuffle Cards</Button>
+            <div className = "buttons" style = {!state ? hideButtons : null }>
+                <div className = "d-flex flex-row">    
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()}>Roll</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.dealCard()} style = {hideDeck ? hideDeckBtns : null }>Deal</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : null }>Shuffle</Button>
                 </div>
-
+    
                 <div className = "d-flex flex-row">
-                    <Button color="danger"  className = "start-btn">Health Boost</Button>
-                    <Button color="danger"  className = "start-btn">Stamina Boost</Button>
+                    <Button color="danger" className = "start-btn" style = {hideFight ? hideFghtBtns : null }>Attack</Button>
+                    <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>HP Up | 5X</Button>
+                    <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>AP Up | 5X</Button>
                 </div>
             </div>
     
         )
+    }
+    
 
 
 	

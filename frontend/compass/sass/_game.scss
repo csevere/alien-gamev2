@@ -9,13 +9,12 @@ $min-height: 85em;
     background-position: center;
     background-attachment: fixed; 
     height:100%;
-    min-height: 92em; 
+    min-height: 88em; 
     margin-top: -6em; 
     z-index: 0;
     
     @media(min-width:$xlg){
-        min-height: 92em;
-        margin-top: -8em;     
+        min-height: 88em;    
     }
 
     @media(min-width:$xxlg){
@@ -45,11 +44,9 @@ $min-height: 85em;
         font-size: 8rem; 
         margin: auto;
         padding: 3rem;
-        position: relative;
         text-align: center; 
         text-shadow: $text-shadow;
-        text-transform: uppercase; 
-        top: 28rem; 
+        text-transform: uppercase;  
         width: 80%; 
         .fight-text{
             font-family: $button-text; 
@@ -72,9 +69,7 @@ $min-height: 85em;
         border: 4px solid #d9edf7;
         border-style: ridge;
         box-shadow: $box-shadow; 
-        position: relative;
-        top: 10rem; 
-        max-width: 123rem; 
+        max-width: 141rem; 
     }
 
     // .row1,.row2, .row3, .row5{
@@ -178,17 +173,12 @@ $min-height: 85em;
     .row3{
         // border: 3px solid orange; 
         height: 20em; 
-        .enemy-deck, .player-deck{
-            background-color:black;
-            // border: 2px solid red;
-            height: 19em;
-            .p-5{
-                width: 12rem; 
-            } 
-        }
-        .enemy-deck{
-            float: right;
-        }
+
+        ///////////////////DECK//////////////
+
+        @import 'deck'; 
+
+        ///////////ATTACK SCREEN////////////////////////
 
         $attack-bg: rgba(152, 153, 156, 0.7);
 
@@ -211,7 +201,7 @@ $min-height: 85em;
             }
             .message{
                 font-family: $button-text; 
-                font-size: 2rem;
+                font-size: 1.6rem;
                 letter-spacing: 3px;
                 height: 3em; 
                 text-align: center;
@@ -219,16 +209,19 @@ $min-height: 85em;
 
         }
        
-        .player-deck{
-            float: left;
-        }
+       
 
 
     }
 ///////////////////////////////////ROW 4/////////////////////////
     .row4{
-        // border: 3px solid yellow; 
+        // border: 3px solid yellow;
+        .card{
+            width: 23% !important; 
+        } 
         height: 20em; 
+
+        ////////////COMPANIONS/////////////////
         .companions{
             margin: auto; 
             .companions-card{
@@ -260,7 +253,7 @@ $min-height: 85em;
         }
 
         .buttons{
-            margin-left:10rem; 
+            margin-top: 5rem;
         }  
     }
 }
