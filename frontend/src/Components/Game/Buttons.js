@@ -6,7 +6,7 @@ import {
 const Buttons = (props) => {
     const state = props.active; 
     const hideFight = props.hide; 
-    const hideDeck = props.hide; 
+    const hideDeck = props.deck; 
 
     const hideButtons = {
         display: 'none'

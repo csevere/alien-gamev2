@@ -3,133 +3,133 @@
     {
         "id": 1,
         "name":"Rocket Launcher",
-        "image": "assets/deck/weapons/rocketlauncher.jpeg",
+        "image": "assets/deck/weapons/rocketlauncher.jpg",
         "damage": "35"
     },
 
     {
         "id": 2,
         "name":"Rocket Launcher",
-        "image": "assets/deck/weapons/rocketlauncher.jpeg",
+        "image": "assets/deck/weapons/rocketlauncher.jpg",
         "damage": "35"
     },
 
     {
         "id": 3,
         "name":"Rocket Launcher",
-        "image": "assets/deck/weapons/rocketlauncher.jpeg",
+        "image": "assets/deck/weapons/rocketlauncher.jpg",
         "damage": "35"
     },
 
     {
         "id": 4,
         "name":"Rocket Launcher",
-        "image": "assets/deck/weapons/rocketlauncher.jpeg",
+        "image": "assets/deck/weapons/rocketlauncher.jpg",
         "damage": "35"
     },
 
     {
         "id": 5,
         "name":"High-Beam Pistol",
-        "image": "assets/deck/weapons/highbeampistol.jpeg",
+        "image": "assets/deck/weapons/highbeampistol.jpg",
         "damage": "25"
     },
 
     {
         "id": 6,
         "name":"High-Beam Pistol",
-        "image": "assets/deck/weapons/highbeampistol.jpeg",
+        "image": "assets/deck/weapons/highbeampistol.jpg",
         "damage": "25"
     },
 
     {
         "id": 7,
         "name":"High-Beam Pistol",
-        "image": "assets/deck/weapons/highbeampistol.jpeg",
+        "image": "assets/deck/weapons/highbeampistol.jpg",
         "damage": "25"
     },
 
     {
         "id": 8,
         "name":"High-Beam Pistol",
-        "image": "assets/deck/weapons/highbeampistol.jpeg",
+        "image": "assets/deck/weapons/highbeampistol.jpg",
         "damage": "25"
     },
 
     {
         "id": 9,
         "name":"Thermal Gun",
-        "image": "assets/deck/weapons/thermalgun.jpeg",
+        "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": "35"
     },
 
     {
         "id": 10,
         "name":"Thermal Gun",
-        "image": "assets/deck/weapons/thermalgun.jpeg",
+        "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": "35"
     },
 
     {
         "id": 11,
         "name":"Thermal Gun",
-        "image": "assets/deck/weapons/thermalgun.jpeg",
+        "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": "35"
     },
 
     {
         "id": 12,
         "name":"Thermal Gun",
-        "image": "assets/deck/weapons/thermalgun.jpeg",
+        "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": "35"
     },
 
     {
         "id": 13,
         "name": "Thunder Handgun",
-        "image": "assets/deck/weapons/thunderhandgun.jpeg",
+        "image": "assets/deck/weapons/thunderhandgun.jpg",
         "damage": "30"
     },
 
     {
         "id": 14,
         "name": "Thunder Handgun",
-        "image": "assets/deck/weapons/thunderhandgun.jpeg",
+        "image": "assets/deck/weapons/thunderhandgun.jpg",
         "damage": "30"
     },
 
     {
         "id": 15,
         "name":"Thunder Handgun",
-        "image": "assets/deck/weapons/thunderhandgun.jpeg",
+        "image": "assets/deck/weapons/thunderhandgun.jpg",
         "damage": "30"
     },
 
     {
         "id": 16,
         "name":"Thunder Handgun",
-        "image": "assets/deck/weapons/thunderhandgun.jpeg",
+        "image": "assets/deck/weapons/thunderhandgun.jpg",
         "damage": "30"
     },
     
     {
         "id": 17,
         "name":"Anti-Matter Rifle",
-        "image": "assets/deck/weapons/antimatterrifle.jpeg",
+        "image": "assets/deck/weapons/antimatterrifle.jpg",
         "damage": "50"
     },
 
     {
         "id": 18,
         "name":"Armageddon Fusion Rifle",
-        "image": "assets/deck/weapons/armageddonrifle.jpeg",
+        "image": "assets/deck/weapons/armageddonrifle.jpg",
         "damage": "50"
     },
 
     {
         "id": 19,
         "name":"Phaser of Eternal Justice",
-        "image": "assets/deck/weapons/phaserjustice.jpeg",
+        "image": "assets/deck/weapons/phaserjustice.jpg",
         "damage": "75"
     }
 

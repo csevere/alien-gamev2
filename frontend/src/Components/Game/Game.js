@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
+import { connect } from 'react-redux';
+
 
 import Buttons from './Buttons'; 
 import Companions from './Companions'; 
@@ -18,7 +18,12 @@ import {
 	Container, 
 	Col,
 	Progress, 
-    Row
+    Row,
+    Card, 
+    CardHeader,
+    CardFooter,
+    CardText, 
+    CardImg, 
 } from 'reactstrap';
 
 
@@ -35,7 +40,8 @@ class Game extends Component{
 		this.state = {
 			active: true,
 			attackdetail: '',
-			attackimage: '', 
+            attackimage: '', 
+            deal: 'false',
             handleFight: true,
             hideBattleBtns: true, 
             hideDeckBtns: true, 
@@ -57,6 +63,7 @@ class Game extends Component{
 		this.startGame = this.startGame.bind(this)
         this.handleRoll = this.handleRoll.bind(this)
         this.handleDeal = this.handleDeal.bind(this)
+        this.createPlayerDeck = this.createPlayerDeck.bind(this)
 
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
@@ -189,9 +196,38 @@ class Game extends Component{
 
     handleDeal(){
         this.setState({
-            showCards: true
+            showCards: true,
+            deal: true
         })
+
+       const freshDeck = this.createPlayerDeck(); 
+       var playerHand = []
     }
+
+    createPlayerDeck(){
+        const { deckweapons } = this.props;
+  
+        return deckweapons.map((elem) => {
+            if (elem.id > 12){
+                return(
+                    <div>
+                        <CardHeader className = "text-center">{elem.name}</CardHeader>
+                        <CardImg src = {elem.image} />
+                        <CardFooter>
+                            <div className = "text-center">Damage: {elem.damage}</div>
+                        </CardFooter>
+                    </div>
+                )
+
+            }
+            
+        });
+       
+    }
+
+   
+
+    
     
 
 	
@@ -316,7 +352,11 @@ class Game extends Component{
 
                             <Col md = "4">
                                 <div>
-                                    <PlayerDeck showCards = {this.state.showCards}/>
+                                    <PlayerDeck 
+                                        dealCond = {this.state.deal}
+                                        dealCards = {this.createPlayerDeck}
+                                        showCards = {this.state.showCards}
+                                    />
                                 </div> 
                             </Col>
                         </Row>
@@ -355,23 +395,13 @@ class Game extends Component{
     }
 }
 
+const mapStateToProps = (state)=>{
+    return{
+        deckweapons: state.weaponsLibrary
+    }
+}
 
-export default Game; 
-
-// <div className = "p-5 items">items</div>
-// <div className = "p-5 gear">gear</div>
+export default connect(mapStateToProps)(Game); 
 
 
-// <Row className = "row5">
-// <div className = "p-2">Player Status</div>
-// <div className = "status-bar d-flex flex-row text-whiste">
-// 	<div className = "p-5 player-level">playerlevel</div>
-// 	<div className = "p-5 experience">experience</div>
-// 	<div className = "p-5 attack-points">attackpoints</div>
-// 	<div className = "p-5 weapons">weapons</div>
-// </div>
-// </Row>
 
-/* <Col md="3">
-<Instructions/>
-</Col> */
