@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
-import Typing from 'react-typing-animation'; 
 import { Container, 
     Row, 
     Col,

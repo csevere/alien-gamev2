@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import { connect } from 'react-redux';
-
+import * as actions from '../../Actions';
 
 import Buttons from './Buttons'; 
 import Companions from './Companions'; 
@@ -68,7 +68,7 @@ class Game extends Component{
         /////Card Functions ////////
         this.handleDeal = this.handleDeal.bind(this);
         // this.createPlayerDeck = this.createPlayerDeck.bind(this);
-        this.shuffleCards = this.shuffleCards.bind(this);
+        // this.shuffleCards = this.shuffleCards.bind(this);
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this); 
 
@@ -212,7 +212,6 @@ class Game extends Component{
 
         return deckweapons.map((elem) => {
             if( elem === deckweapons[0] ){
-                console.log(elem.id)
                 return(
                     <div key = {elem.id}>
                         <CardHeader className = "text-center">{elem.name}</CardHeader>
@@ -230,10 +229,9 @@ class Game extends Component{
 
     getCard2(){
         var { deckweapons } = this.props;
-        // console.log(deckweapons); 
 
         return deckweapons.map((elem) => {
-            if(elem === deckweapons[9]){
+            if(elem === deckweapons[1]){
                 return(
                     <div key = {elem.id}>
                         <CardHeader className = "text-center">{elem.name}</CardHeader>
@@ -249,22 +247,25 @@ class Game extends Component{
         }); 
     }
 
-    shuffleCards(){
-        var { deckweapons } = this.props;
+    // shuffleCards(){
+    //     var { deckweapons } = this.props;
+    //     var count = 0;
         
-        for(let i = 0; i < 14000; i++){
-			var random1 = Math.floor(Math.random() * 19);
-			var random2 = Math.floor(Math.random() * 19);
-			// Store in temp, the value at index random1, in array theDeck (for later)
-			var temp = deckweapons[random1];
-			// Overwrite what's at index random1 with what's at index random2
-			deckweapons[random1] = deckweapons[random2];
-			// Overwrite what's at index random2 with what's in temp
-            deckweapons[random2] = temp;
+    //     for(let i = 0; i < 6; i++){
+    //         count++;
+    //         console.log(count + "COUNT");
+	// 		var random1 = Math.floor(Math.random() * 19);
+	// 		var random2 = Math.floor(Math.random() * 19);
+	// 		// Store in temp, the value at index random1, in array theDeck (for later)
+	// 		var temp = deckweapons[random1];
+	// 		// Overwrite what's at index random1 with what's at index random2
+	// 		deckweapons[random1] = deckweapons[random2];
+	// 		// Overwrite what's at index random2 with what's in temp
+    //         deckweapons[random2] = temp;
             
-        }
+    //     }
 
-    }
+    // }
 
 
     handleDeal(){
@@ -272,9 +273,6 @@ class Game extends Component{
             showCards: true,
             deal: true
         });
-
-        // this.getCard1();
-        // this.getCard2();
 
     }
 
@@ -424,7 +422,7 @@ class Game extends Component{
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
                                     deal = {this.handleDeal}
-                                    shuffle = {this.shuffleCards}
+                                    shuffle = {this.props.shuffleCards}
                                 />
 								</div>
 							</Col>
@@ -447,11 +445,12 @@ class Game extends Component{
 
 const mapStateToProps = (state)=>{
     return{
-        deckweapons: state.weaponsLibrary
+        deckweapons: state.weaponsLibrary,
+        shuffle: state.cardShuffle
     }
 }
 
-export default connect(mapStateToProps)(Game); 
+export default connect(mapStateToProps,actions)(Game); 
 
 
 

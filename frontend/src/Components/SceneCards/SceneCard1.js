@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
-import * as actions from '../../Actions/story_actions';
+import * as actions from '../../Actions';
 import ReactRevealText from 'react-reveal-text'; 
 
 class SceneCard1 extends Component{
