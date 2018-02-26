@@ -251,7 +251,7 @@ class Game extends Component{
 
     shuffleCards(){
         var { deckweapons } = this.props;
-
+        
         for(let i = 0; i < 14000; i++){
 			var random1 = Math.floor(Math.random() * 19);
 			var random2 = Math.floor(Math.random() * 19);
@@ -264,7 +264,6 @@ class Game extends Component{
             
         }
 
-
     }
 
 
@@ -274,14 +273,13 @@ class Game extends Component{
             deal: true
         });
 
-        this.getCard1();
-        this.getCard2();
+        // this.getCard1();
+        // this.getCard2();
 
     }
 
    
     render(){
-        this.shuffleCards();
 
 		const rowStyle = {
 			position: 'absolute',
