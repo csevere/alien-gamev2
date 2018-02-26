@@ -133,6 +133,7 @@ class Conversation1 extends Component{
             opacity: this.state.opacity5 
         }
 
+
         return storyconvo.map((storyconvo) => {
             if(storyconvo.id == 2){
                 return(

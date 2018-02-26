@@ -13,9 +13,10 @@ import { Container,
 } from 'reactstrap';
 
 
-const PlayerDeck = (props) =>{
+const PlayerDeck = (props)=>{
+ 
     const deal = props.dealCond; 
-    console.log(deal + "DEAL"); 
+
     const showCards = props.showCards
     const showFightCards = {
         visibility: 'visible'
@@ -23,19 +24,16 @@ const PlayerDeck = (props) =>{
     const hideFightCards = {
         visibility: 'hidden'
     }
-
-
-
     return(
         <div>
             <div className = "player-deck d-flex flex-row">
 
-                <Card className = "player-deck-card m-2" style = {!showCards ? hideFightCards : showFightCards} >
-                    {!deal ? null : props.dealCards()}
+                <Card className = "player-deck-card m-2 deal card1" style = {!showCards ? hideFightCards : showFightCards} >
+                    {!deal ? null : props.getCard1()}
                 </Card>
 
-               <Card className = "player-deck-card m-2" style = {!showCards ? hideFightCards : showFightCards}>
-                    {!deal ? null : props.dealCards()}
+                <Card className = "player-deck-card m-2 deal card2" style = {!showCards ? hideFightCards : showFightCards}>
+                    {!deal ? null : props.getCard2()}
                 </Card> 
 
                 <Card className = "player-deck-card m-2">
@@ -44,6 +42,9 @@ const PlayerDeck = (props) =>{
             </div>
         </div>
     )
+
+
+   
              
 }
 

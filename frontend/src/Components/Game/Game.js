@@ -34,6 +34,7 @@ var TimeGap = 1000;
 var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
 
+
 class Game extends Component{
     constructor(props){
         super(props);
@@ -60,10 +61,16 @@ class Game extends Component{
 			transition2: 'transition'
 		}
 
-		this.startGame = this.startGame.bind(this)
-        this.handleRoll = this.handleRoll.bind(this)
-        this.handleDeal = this.handleDeal.bind(this)
-        this.createPlayerDeck = this.createPlayerDeck.bind(this)
+		this.startGame = this.startGame.bind(this);
+        this.handleRoll = this.handleRoll.bind(this);
+
+
+        /////Card Functions ////////
+        this.handleDeal = this.handleDeal.bind(this);
+        // this.createPlayerDeck = this.createPlayerDeck.bind(this);
+        this.shuffleCards = this.shuffleCards.bind(this);
+        this.getCard1 = this.getCard1.bind(this); 
+        this.getCard2 = this.getCard2.bind(this); 
 
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
@@ -89,6 +96,8 @@ class Game extends Component{
 	}
 
 
+    ////////////////// HANDLING THE TIMER ////////////////////
+
 	updateTimer(){
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
@@ -97,7 +106,6 @@ class Game extends Component{
         // Countdown if running
         if(this.state.isRunning === true) {
             CurrentTime += TimeGap;
-            console.log(EndTime + " EndTime")
             if( CurrentTime >= EndTime ) {
                 
                 this.setState({
@@ -120,9 +128,9 @@ class Game extends Component{
 
     startTimer(Timeout){
         TimeOut = Timeout;
+        console.log(TimeOut); 
         CurrentTime = (new Date()).getTime();
         EndTime = CurrentTime + TimeOut;
-        console.log(TimeOut);
         this.updateTimer();  
     }
    
@@ -161,16 +169,18 @@ class Game extends Component{
 
 		setTimeout(() =>{
 			this.theCountDown();
-		}, 1500)
+        }, 1500)
 		
 	}
 
-    /////ROLLING THE DICE/////////////////
+    ////////////////////////ROLLING THE DIE////////////////////////////////
 
     handleRoll(){
         //getting a random number to roll random dice
         var randomDie1 = Math.ceil(Math.random() * 6);
         var randomDie2 = Math.ceil(Math.random() * 6);
+
+        console.log('TEST'); 
         
         this.setState({
             die1: "assets/dice/d" + randomDie1 + ".png",
@@ -194,45 +204,85 @@ class Game extends Component{
         
     }
 
-    handleDeal(){
-        this.setState({
-            showCards: true,
-            deal: true
-        })
+    //////////////////////DEALING THE CARDS////////////////////////////
+   
+    getCard1(){
+        var { deckweapons } = this.props;
+        console.log(deckweapons); 
 
-       const freshDeck = this.createPlayerDeck(); 
-       var playerHand = []
-    }
-
-    createPlayerDeck(){
-        const { deckweapons } = this.props;
-  
         return deckweapons.map((elem) => {
-            if (elem.id > 12){
+            if( elem === deckweapons[0] ){
+                console.log(elem.id)
                 return(
-                    <div>
+                    <div key = {elem.id}>
                         <CardHeader className = "text-center">{elem.name}</CardHeader>
                         <CardImg src = {elem.image} />
                         <CardFooter>
-                            <div className = "text-center">Damage: {elem.damage}</div>
+                        <div className = "text-center">Damage: {elem.damage}</div>
                         </CardFooter>
                     </div>
                 )
 
             }
+           
+        }); 
+    }
+
+    getCard2(){
+        var { deckweapons } = this.props;
+        // console.log(deckweapons); 
+
+        return deckweapons.map((elem) => {
+            if(elem === deckweapons[9]){
+                return(
+                    <div key = {elem.id}>
+                        <CardHeader className = "text-center">{elem.name}</CardHeader>
+                        <CardImg src = {elem.image} />
+                        <CardFooter>
+                        <div className = "text-center">Damage: {elem.damage}</div>
+                        </CardFooter>
+                    </div>
+                )
+
+            }
+           
+        }); 
+    }
+
+    shuffleCards(){
+        var { deckweapons } = this.props;
+
+        for(let i = 0; i < 14000; i++){
+			var random1 = Math.floor(Math.random() * 19);
+			var random2 = Math.floor(Math.random() * 19);
+			// Store in temp, the value at index random1, in array theDeck (for later)
+			var temp = deckweapons[random1];
+			// Overwrite what's at index random1 with what's at index random2
+			deckweapons[random1] = deckweapons[random2];
+			// Overwrite what's at index random2 with what's in temp
+            deckweapons[random2] = temp;
             
+        }
+
+
+    }
+
+
+    handleDeal(){
+        this.setState({
+            showCards: true,
+            deal: true
         });
-       
+
+        this.getCard1();
+        this.getCard2();
+
     }
 
    
-
-    
-    
-
-	
-
     render(){
+        this.shuffleCards();
+
 		const rowStyle = {
 			position: 'absolute',
 			top: '28rem',
@@ -354,7 +404,8 @@ class Game extends Component{
                                 <div>
                                     <PlayerDeck 
                                         dealCond = {this.state.deal}
-                                        dealCards = {this.createPlayerDeck}
+                                        getCard1 = {this.getCard1}
+                                        getCard2 = {this.getCard2}
                                         showCards = {this.state.showCards}
                                     />
                                 </div> 
@@ -375,6 +426,7 @@ class Game extends Component{
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
                                     deal = {this.handleDeal}
+                                    shuffle = {this.shuffleCards}
                                 />
 								</div>
 							</Col>

@@ -3,40 +3,66 @@ import {
     Button
 } from 'reactstrap';
 
-const Buttons = (props) => {
-    const state = props.active; 
-    const hideFight = props.hide; 
-    const hideDeck = props.deck; 
+class Buttons extends Component{
+    constructor(props){
+        super(props);
+        
+        this.rollDie = this.rollDie.bind(this); 
+        this.dealCard = this.dealCard.bind(this);
+        this.shuffleCards = this.shuffleCards.bind(this)
 
-    const hideButtons = {
-        display: 'none'
     }
-    const hideDeckBtns = {
-        display: 'none'
-    } 
-    const hideFghtBtns = {
-        display: 'none'
-    } 
 
-    console.log(hideDeck + " Deck");
+    rollDie(){
+        this.props.roll(); 
+    }
 
-    return(
+    dealCard(){
+        this.props.deal(); 
+    }
 
-        <div className = "buttons" style = {!state ? hideButtons : null }>
-            <div className = "d-flex flex-row">
-                <Button color="danger" className = "start-btn" onClick = {props.roll}>Roll</Button>
-                <Button color="danger" className = "start-btn" onClick = {props.deal} style = {hideDeck ? hideDeckBtns : null }>Deal</Button>
-                <Button color="danger" className = "start-btn" style = {hideDeck ? hideDeckBtns : null }>Shuffle</Button>
+    shuffleCards(){
+        this.props.shuffle(); 
+    }
+
+
+
+
+    render(){
+
+        const state = this.props.active; 
+        const hideFight = this.props.hide; 
+        const hideDeck = this.props.deck; 
+
+        const hideButtons = {
+            display: 'none'
+        }
+        const hideDeckBtns = {
+            display: 'none'
+        } 
+        const hideFghtBtns = {
+            display: 'none'
+        } 
+
+        return(
+
+            <div className = "buttons" style = {!state ? hideButtons : null }>
+                <div className = "d-flex flex-row">    
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()}>Roll</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.dealCard()} style = {hideDeck ? hideDeckBtns : null }>Deal</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : null }>Shuffle</Button>
+                </div>
+    
+                <div className = "d-flex flex-row">
+                    <Button color="danger" className = "start-btn" style = {hideFight ? hideFghtBtns : null }>Attack</Button>
+                    <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>HP Up | 5X</Button>
+                    <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>AP Up | 5X</Button>
+                </div>
             </div>
-
-            <div className = "d-flex flex-row">
-                <Button color="danger" className = "start-btn" style = {hideFight ? hideFghtBtns : null }>Attack</Button>
-                <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>HP Up | 5X</Button>
-                <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>AP Up | 5X</Button>
-            </div>
-        </div>
-
-    )
+    
+        )
+    }
+    
 
 
 	
