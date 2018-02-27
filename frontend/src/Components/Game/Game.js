@@ -211,62 +211,65 @@ class Game extends Component{
     //////////////////////DRAWING THE CARDS////////////////////////////
    
     getCard1(){
+        
         var { playersHand } = this.props.playersHand;
 
         const showFightCards = {
-            visibility: 'visible'
+            opacity: '1',
+            transition: 'all 3s',
+            visibility: 'visible' 
         }
 
         const hideFightCards = {
-            visibility: 'hidden'
+            opacity: '0',
+            visibility: 'hidden' 
+            
         }
-       
-
+    
         console.log("PLAYER HAND IN GAME")
         console.log(this.props.playersHand.playersHand);
 
         return playersHand.map((player,index) => {
             if( player === playersHand[0] && playersHand.length < 23){
                 return(
-                    <div key = {index}>
-                        <Card className = "player-deck-card m-1 deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
-                            <CardHeader className = "text-center">{player.name}</CardHeader>
-                            <CardImg src = {player.image} />
-                            <CardFooter>
+                    <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader  className = "text-center">{player.name}</CardHeader>
+                        <CardImg src = {player.image} />
+                        <CardFooter>
                             <div className = "text-center">Damage: {player.damage}</div>
-                            </CardFooter>
-                        </Card>
-                    </div>
+                        </CardFooter>
+                    </Card>
                 )
-
             }
-           
-        }); 
+        });    
     }
 
     getCard2(){
         var { playersHand } = this.props.playersHand;
         
         const showFightCards = {
-            visibility: 'visible'
+            opacity: '1',
+            transition: 'all 6s',
+            visibility: 'visible' 
         }
 
         const hideFightCards = {
-            visibility: 'hidden'
+            opacity: '0',
+            visibility: 'hidden' 
         }
     
         return playersHand.map((player2, index) => {
             if(player2 === playersHand[1] && playersHand.length < 23){
                 return(
-                    <div key = {index}>
-                        <Card className = "player-deck-card m-1 deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
-                            <CardHeader className = "text-center">{player2.name}</CardHeader>
-                            <CardImg src = {player2.image} />
-                            <CardFooter>
+            
+                    <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader className = "text-center">{player2.name}</CardHeader>
+                        <CardImg src = {player2.image} />
+                        <CardFooter>
                             <div className = "text-center">Damage: {player2.damage}</div>
-                            </CardFooter>
-                        </Card>
-                    </div>
+                        </CardFooter>
+                    </Card>
+                
                 )
 
             }
@@ -279,7 +282,7 @@ class Game extends Component{
         console.log("SHUFFLED IN GAME")
         console.log(data); 
         const deckStyle = {
-            left:'1rem'
+            left:'1rem',
         }
         return data.map((elem, index) => {
             if(data.length < 20){

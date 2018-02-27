@@ -20,30 +20,64 @@ const PlayerDeck = (props)=>{
     const showCards = props.showCards
    
 
-    const cardStyle = {
-        width: '100%'
+    const cardStyle1 = {
+        listStyle: 'none'
     }
 
+    const cardStyle2 = {
+        listStyle: 'none'
+    }
 
     return(
         <div>
             <div className = "player-deck d-flex flex-row">
-             
-               <div>
-                    {!draw ? null : props.getCard1()}
-                </div>
-               
-                <div>
-                    {!draw ? null : props.getCard2()}
-                </div>
 
-                <div className = "m-2" style = {cardStyle}>
-                    <ul className = "deck">
-                        <li>
-                           {props.getDeck()}
-                        </li> 
-                    </ul>
-                </div>
+              
+                <ul className = "d-flex justify-content-start deck-faux m-2" style = {cardStyle1}>
+
+                    <li className = "deck-faux-item faux">
+                        <Card className = "player-deck-card">
+                            <CardHeader className = "text-center">STAND IN</CardHeader>
+                            <CardImg src = 'assets/deck/scifi-texture.jpg' />
+                            <CardFooter>
+                                <div className = "text-center">Stand in</div>
+                            </CardFooter>
+                        </Card>
+                    </li> 
+
+                    <li className = "deck-faux-item">
+                        {!draw ? null : props.getCard1()}
+                    </li>
+
+                </ul>
+            
+
+        
+                <ul className = "deck-faux m-2" style = {cardStyle2}>
+
+                    <li className = "deck-faux-item faux">
+                        <Card className = "player-deck-card">
+                            <CardHeader className = "text-center">STAND IN</CardHeader>
+                            <CardImg src = 'assets/deck/scifi-texture.jpg' />
+                            <CardFooter>
+                                <div className = "text-center">Stand in</div>
+                            </CardFooter>
+                        </Card>
+                    </li> 
+
+                      <li className = "deck-faux-item">
+                        {!draw ? null : props.getCard2()}
+                    </li>
+                </ul>
+              
+
+                <ul className = "deck">
+                    <li>
+                        {props.getDeck()}
+                    </li> 
+                </ul>
+            
+
             </div>
         </div>
     )

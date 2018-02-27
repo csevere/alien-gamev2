@@ -13,16 +13,39 @@
 }
 
 .player-deck{
+
+    margin-left: -6rem;
     .deck{
         position: relative;
+        margin-left: 4rem;
+        width: 90%;
         .deck-item{
+            opacity: 1;
             right: 4%;
             margin-top: -1.2em;
             position: absolute;
         }
     }
 
-    float: left;
+    .deck-faux{
+        position: relative;
+        // margin-left: -10rem;
+        width: 100%;
+        
+        .deck-faux-item{
+            opacity: 1;
+            width: 100%;
+            position: absolute;
+            // right: 4%;
+            // margin-top: -1.2em;
+        }
+        .faux{
+            opacity: 0;
+        }
+
+    }
+
+
 
     .card{
         width: 100%; 
@@ -45,9 +68,7 @@
             font-family: 'Exo 2', sans-serif;
             background: $inner !important;
         }
-        .card-footer{
-            margin: auto;
-        }
+
         .card-header{
             font-size: 1.5rem;
         }
