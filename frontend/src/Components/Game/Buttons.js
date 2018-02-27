@@ -7,10 +7,15 @@ class Buttons extends Component{
     constructor(props){
         super(props);
         
+        this.attackEn = this.attackEn.bind(this); 
         this.rollDie = this.rollDie.bind(this); 
         this.shuffleCards = this.shuffleCards.bind(this)
         this.drawCards = this.drawCards.bind(this); 
 
+    }
+
+    attackEn(){
+        this.props.attack(); 
     }
 
     rollDie(){
@@ -54,7 +59,7 @@ class Buttons extends Component{
                 </div>
     
                 <div className = "d-flex flex-row">
-                    <Button color="danger" className = "start-btn"  style = {hideFight ? hideFghtBtns : null }>Attack</Button>
+                    <Button color="danger" className = "start-btn"  onClick = {()=> this.attackEn()} style = {hideFight ? hideFghtBtns : null }>Attack</Button>
                     <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>HP Up | 5X</Button>
                     <Button color="danger"  className = "start-btn" style = {hideFight ? hideFghtBtns : null }>AP Up | 5X</Button>
                 </div>

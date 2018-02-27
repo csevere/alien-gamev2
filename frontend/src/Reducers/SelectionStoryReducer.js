@@ -5,7 +5,6 @@ const INITIAL_STATE ={
 
 export default (state = INITIAL_STATE, action) => {
     
-
     if(action.type === "next"){
         let count = state.count + 1
         console.log(state.count)

@@ -26,6 +26,13 @@ export const drawCard = () =>{
 }
 
 
+export const attackEnemy = () =>{
+  return{
+      type: 'attack'
+  };
+}
+
+
 
 
 

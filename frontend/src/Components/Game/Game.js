@@ -74,7 +74,11 @@ class Game extends Component{
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
 		this.updateTimer = this.updateTimer.bind(this); 
-		this.startTimer = this.startTimer.bind(this); 
+        this.startTimer = this.startTimer.bind(this); 
+        
+
+        ///FIGHT FUNCTIONS///
+        this.attackEnemy = this.attackEnemy.bind(this); 
 	}
 	
 	componentDidMount() {
@@ -260,6 +264,15 @@ class Game extends Component{
 
     }
 
+    attackEnemy(){
+        var { playersHand } = this.props.playersHand;
+
+        playersHand.shift(); 
+
+        console.log("NEW PLAYERS HAND"); 
+        console.log(playersHand);
+    } 
+
    
     render(){
 
@@ -402,6 +415,7 @@ class Game extends Component{
 								<div>
                                 <Buttons 
                                     active = {this.state.active}
+                                    attack ={this.attackEnemy}
                                     deck = {this.state.hideDeckBtns}
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
