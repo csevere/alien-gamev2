@@ -266,9 +266,7 @@ class Game extends Component{
 
     attackEnemy(){
         var { playersHand } = this.props.playersHand;
-
         playersHand.shift(); 
-
         console.log("NEW PLAYERS HAND"); 
         console.log(playersHand);
     } 
