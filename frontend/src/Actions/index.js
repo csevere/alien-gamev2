@@ -19,6 +19,23 @@ export const shuffleCards = () =>{
 }
 
 
+export const drawCard = () =>{
+  return{
+      type: 'draw'
+  };
+}
+
+
+export const attackEnemy = () =>{
+  return{
+      type: 'attack'
+  };
+}
+
+
+
+
+
 
 
 

@@ -6,7 +6,6 @@ var INITIAL_STATE ={
 }
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action);
 
   if(action.type === "shuffle"){
     for(var i = 0; i < 1400; i++){

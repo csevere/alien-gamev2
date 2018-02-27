@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import CardShuffleReducer from './CardShuffleReducer';  
+import CardShuffleReducer from './CardShuffleReducer'; 
+import DrawCardReducer from './DrawCardReducer';  
 import StorySceneReducer from './StorySceneReducer';
 import SelectionStoryReducer from './SelectionStoryReducer'; 
 import StoryConvoReducer from './StoryConvoReducer';
@@ -9,6 +10,7 @@ import WeaponsListReducer from './WeaponsListReducer';
  
 const rootReducer =  combineReducers({
     cardShuffle: CardShuffleReducer,
+    playersHand: DrawCardReducer,
     storySceneLibrary: StorySceneReducer,
     selectedStoryId: SelectionStoryReducer,
     storyConvoLibrary: StoryConvoReducer,

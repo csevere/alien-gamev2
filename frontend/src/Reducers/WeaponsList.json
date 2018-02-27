@@ -16,7 +16,7 @@
 
     {
         "id": 2,
-        "name":"Thermal Gun",
+        "name":"The Thermal Gun",
         "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": 35
     },
@@ -45,14 +45,14 @@
 
     {
         "id": 6,
-        "name":"Thermal Gun",
+        "name":"The Thermal Gun",
         "image": "assets/deck/weapons/thermalgun.jpg",
         "damage":35
     },
 
     {
         "id": 7,
-        "name":"Thunder Handgun",
+        "name":"The Thunder Handgun",
         "image": "assets/deck/weapons/thunderhandgun.jpg",
         "damage": 30
     },
@@ -74,7 +74,7 @@
 
     {
         "id": 10,
-        "name":"Thermal Gun",
+        "name":"The Thermal Gun",
         "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": 35
     },
@@ -95,7 +95,7 @@
 
     {
         "id": 13,
-        "name":"Thermal Gun",
+        "name":"The Thermal Gun",
         "image": "assets/deck/weapons/thermalgun.jpg",
         "damage": 35
     },
