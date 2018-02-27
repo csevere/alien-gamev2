@@ -13,10 +13,19 @@
 }
 
 .player-deck{
+    .deck{
+        position: relative;
+        .deck-item{
+            right: 4%;
+            margin-top: -1.2em;
+            position: absolute;
+        }
+    }
+
     float: left;
 
     .card{
-        width: 100% !important; 
+        width: 100%; 
     } 
 
     .deal{

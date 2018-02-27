@@ -28,12 +28,13 @@ export default (state = INITIAL_STATE, action) => {
   if(action.type === "draw"){
     console.log("PLAYERS HAND IN REDUCER"); 
     console.log(state.playersHand);
-   
-    return {
+
+    if(state.data.length < 20 && state.data.length > 0){
+      return {
         ...state,
         playersHand: [...state.playersHand,state.data.shift()]
-    }
-
+      }
+    } else return state; 
   } else return state; 
 }
 

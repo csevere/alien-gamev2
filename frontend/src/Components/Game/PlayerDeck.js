@@ -15,30 +15,35 @@ import { Container,
 
 const PlayerDeck = (props)=>{
  
-    const deal = props.dealCond; 
+    const draw = props.drawCond; 
 
     const showCards = props.showCards
-    const showFightCards = {
-        visibility: 'visible'
+   
+
+    const cardStyle = {
+        width: '100%'
     }
-    const hideFightCards = {
-        visibility: 'hidden'
-    }
+
+
     return(
         <div>
             <div className = "player-deck d-flex flex-row">
+             
+               <div>
+                    {!draw ? null : props.getCard1()}
+                </div>
+               
+                <div>
+                    {!draw ? null : props.getCard2()}
+                </div>
 
-                <Card className = "player-deck-card m-2 deal card1" style = {!showCards ? hideFightCards : showFightCards} >
-                    {!deal ? null : props.getCard1()}
-                </Card>
-
-                <Card className = "player-deck-card m-2 deal card2" style = {!showCards ? hideFightCards : showFightCards}>
-                    {!deal ? null : props.getCard2()}
-                </Card> 
-
-                <Card className = "player-deck-card m-2">
-                    <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                </Card>
+                <div className = "m-2" style = {cardStyle}>
+                    <ul className = "deck">
+                        <li>
+                           {props.getDeck()}
+                        </li> 
+                    </ul>
+                </div>
             </div>
         </div>
     )

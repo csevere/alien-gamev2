@@ -6,6 +6,11 @@ import {
 class Buttons extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            shuffleNum : 5,
+            displayShuff: 'block'
+        }
+
         
         this.attackEn = this.attackEn.bind(this); 
         this.rollDie = this.rollDie.bind(this); 
@@ -29,6 +34,18 @@ class Buttons extends Component{
 
     shuffleCards(){
         this.props.shuffle(); 
+       
+
+        if(this.state.shuffleNum < 2){
+            this.setState({
+                displayShuff: 'none'
+            })
+
+        } else{
+            this.setState({
+                shuffleNum:this.state.shuffleNum - 1
+            })
+        }
     }
 
 
@@ -38,6 +55,7 @@ class Buttons extends Component{
         const state = this.props.active; 
         const hideFight = this.props.hide; 
         const hideDeck = this.props.deck; 
+        const hideShuffle = this.state.displayShuff; 
 
         const hideButtons = {
             display: 'none'
@@ -49,13 +67,17 @@ class Buttons extends Component{
             display: 'none'
         } 
 
+        const hideShuff = {
+            display: hideShuffle
+        }
+
         return(
 
             <div className = "buttons" style = {!state ? hideButtons : null }>
                 <div className = "d-flex flex-row">    
                     <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()}>Roll</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.drawCards()} style = {hideDeck ? hideDeckBtns : null }>Draw</Button>
-                    <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : null }>Shuffle</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : hideShuff }>Shuffle | {this.state.shuffleNum}X</Button>
                 </div>
     
                 <div className = "d-flex flex-row">
