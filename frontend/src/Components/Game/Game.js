@@ -67,7 +67,7 @@ class Game extends Component{
 
 
         /////Card Functions ////////
-        this.handleDeal = this.handleDeal.bind(this);
+        this.handleDraw = this.handleDraw.bind(this);
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this); 
 
@@ -206,17 +206,20 @@ class Game extends Component{
     //////////////////////DEALING THE CARDS////////////////////////////
    
     getCard1(){
-        var { deckweapons } = this.props;
-        console.log(deckweapons); 
+        var { playersHand } = this.props.playersHand;
+       
 
-        return deckweapons.map((elem) => {
-            if( elem === deckweapons[0] ){
+        console.log("PLAYER HAND IN GAME")
+        console.log(this.props.playersHand.playersHand);
+
+        return playersHand.map((player,index) => {
+            if( player === playersHand[0] ){
                 return(
-                    <div key = {elem.id}>
-                        <CardHeader className = "text-center">{elem.name}</CardHeader>
-                        <CardImg src = {elem.image} />
+                    <div key = {index}>
+                        <CardHeader className = "text-center">{player.name}</CardHeader>
+                        <CardImg src = {player.image} />
                         <CardFooter>
-                        <div className = "text-center">Damage: {elem.damage}</div>
+                        <div className = "text-center">Damage: {player.damage}</div>
                         </CardFooter>
                     </div>
                 )
@@ -227,16 +230,16 @@ class Game extends Component{
     }
 
     getCard2(){
-        var { deckweapons } = this.props;
-
-        return deckweapons.map((elem) => {
-            if(elem === deckweapons[5]){
+        var { playersHand } = this.props.playersHand;
+    
+        return playersHand.map((player2, index) => {
+            if(player2 === playersHand[1]){
                 return(
-                    <div key = {elem.id}>
-                        <CardHeader className = "text-center">{elem.name}</CardHeader>
-                        <CardImg src = {elem.image} />
+                    <div key = {index}>
+                        <CardHeader className = "text-center">{player2.name}</CardHeader>
+                        <CardImg src = {player2.image} />
                         <CardFooter>
-                        <div className = "text-center">Damage: {elem.damage}</div>
+                        <div className = "text-center">Damage: {player2.damage}</div>
                         </CardFooter>
                     </div>
                 )
@@ -247,11 +250,13 @@ class Game extends Component{
     }
 
 
-    handleDeal(){
+    handleDraw(){
         this.setState({
             showCards: true,
             deal: true
         });
+
+        this.props.drawCard(); 
 
     }
 
@@ -400,8 +405,9 @@ class Game extends Component{
                                     deck = {this.state.hideDeckBtns}
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
-                                    deal = {this.handleDeal}
+                                    drawC= {this.handleDraw}
                                     shuffle = {this.props.shuffleCards}
+
                                 />
 								</div>
 							</Col>
@@ -423,10 +429,13 @@ class Game extends Component{
 }
 
 const mapStateToProps = (state)=>{
+    console.log("LOOOK HERE"); 
     return{
         deckweapons: state.weaponsLibrary,
-        shuffle: state.cardShuffle
+        playersHand: state.playersHand
+        
     }
+
 }
 
 
