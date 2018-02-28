@@ -719,7 +719,7 @@ p {
 .game-wrapper .row3 .player-deck {
   margin-left: -6rem;
 }
-/* line 18, ../../compass/sass/_deck.scss */
+/* line 17, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck {
   position: relative;
   margin-left: 4rem;
@@ -727,35 +727,34 @@ p {
 }
 /* line 22, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck .deck-item {
-  opacity: 1;
-  right: 4%;
-  margin-top: -1.2em;
+  right: -5%;
+  margin-top: -1em;
   position: absolute;
 }
-/* line 30, ../../compass/sass/_deck.scss */
+/* line 45, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-faux {
   position: relative;
   width: 100%;
 }
-/* line 35, ../../compass/sass/_deck.scss */
+/* line 49, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-faux .deck-faux-item {
   opacity: 1;
   width: 100%;
   position: absolute;
 }
-/* line 42, ../../compass/sass/_deck.scss */
+/* line 54, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-faux .faux {
   opacity: 0;
 }
-/* line 50, ../../compass/sass/_deck.scss */
+/* line 60, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .card {
   width: 100%;
 }
-/* line 55, ../../compass/sass/_deck.scss */
+/* line 65, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deal img {
   height: 9.2rem;
 }
-/* line 60, ../../compass/sass/_deck.scss */
+/* line 70, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card {
   border: 4px solid #0c4fab;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 20px #0c4fab, 0 0 0px #ededf7;
@@ -763,12 +762,12 @@ p {
   height: 19rem;
   text-transform: uppercase;
 }
-/* line 67, ../../compass/sass/_deck.scss */
+/* line 77, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header, .game-wrapper .row3 .player-deck .player-deck-card .card-footer {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 72, ../../compass/sass/_deck.scss */
+/* line 82, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header {
   font-size: 1.5rem;
 }

@@ -52,10 +52,12 @@ class Buttons extends Component{
 
     render(){
 
+
         const state = this.props.active; 
         const hideFight = this.props.hide; 
         const hideDeck = this.props.deck; 
         const hideShuffle = this.state.displayShuff; 
+        const showroll = this.props.showroll; 
 
         const hideButtons = {
             display: 'none'
@@ -66,7 +68,9 @@ class Buttons extends Component{
         const hideFghtBtns = {
             display: 'none'
         } 
-
+        const hideRoll = {
+            display: 'none'
+        } 
         const hideShuff = {
             display: hideShuffle
         }
@@ -75,8 +79,8 @@ class Buttons extends Component{
 
             <div className = "buttons" style = {!state ? hideButtons : null }>
                 <div className = "d-flex flex-row">    
-                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()}>Roll</Button>
-                    <Button color="danger" className = "start-btn" onClick = {()=> this.drawCards()} style = {hideDeck ? hideDeckBtns : null }>Draw</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()} style = {showroll ? null: hideRoll}>Roll</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.drawCards()} style = {hideDeck ? hideDeckBtns : null}>Draw</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : hideShuff }>Shuffle | {this.state.shuffleNum}X</Button>
                 </div>
     

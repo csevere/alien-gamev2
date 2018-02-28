@@ -40,9 +40,11 @@ class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
-			active: true,
+            active: true,
+            addClass: false,
 			attackdetail: '',
             attackimage: '', 
+            deckopacity: 1,
             draw: 'false',
             handleFight: true,
             hideBattleBtns: true, 
@@ -56,6 +58,7 @@ class Game extends Component{
 			showLoader: 'block',
 			showFightScreen: 'none',
             showRow: 'none',
+            showRoll: true,
 			timer: 'TIME 00:00',
             textColor: '#74f9fc',
             transition:'transition',
@@ -195,13 +198,15 @@ class Game extends Component{
             this.setState({
                 hideBattleBtns: false,
                 hideDeckBtns: false,
-                message: "Shuffle then draw the cards or simply deal to attack!"
+                message: "Shuffle, draw, attack or draw then attack!",
+                showRoll: false
             })
         } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
             this.setState({
                 hideBattleBtns: true,  
                 hideDeckBtns: true,
-                message: "You rolled below 7. You're getting attacked!"
+                message: "You rolled below 7. You're getting attacked!",
+                showRoll: true
             })
           
         }
@@ -250,7 +255,7 @@ class Game extends Component{
         const showFightCards = {
             opacity: '1',
             transition: 'all 6s',
-            visibility: 'visible' 
+            visibility: 'visible'
         }
 
         const hideFightCards = {
@@ -283,14 +288,29 @@ class Game extends Component{
         console.log(data); 
         const deckStyle = {
             left:'1rem',
+            opacity: this.state.deckopacity,
+            transition: '2s'
         }
+
         return data.map((elem, index) => {
             if(data.length < 20){
                 return(
                     <div key = {index}>
-                        <Card className = "player-deck-card deck-item" style = {deckStyle}>
-                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                        </Card>
+                        <div className="front">
+                            <Card className = "player-deck-card deck-item deal card2">
+                                <CardHeader className = "text-center">{elem.name}</CardHeader>
+                                <CardImg src = {elem.image} />
+                                <CardFooter>
+                                    <div className = "text-center">Damage: {elem.damage}</div>
+                                </CardFooter>
+                            </Card>
+		                </div>
+
+                        <div className = "back">
+                            <Card className = "player-deck-card deck-item" style = {deckStyle}>
+                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                            </Card>
+                        </div>
                     </div>
                 )
             } else if (data.length <= 0){
@@ -300,19 +320,30 @@ class Game extends Component{
                     })
             }
 
-        }); 
+        }).reverse(); 
     }
 
     //////////////////// DRAWING THE CARDS ////////////
 
     handleDraw(){
+        var { playersHand } = this.props.playersHand;
+
         this.setState({
             showCards: true,
-            draw: true
+            draw: true,
+            addClass: !this.state.addClass,
+            deckopacity: '0'
         });
 
         this.props.drawCard(); 
 
+        setTimeout(() =>{
+			this.setState({
+                deckopacity:'1'
+            })
+        }, 1500)
+
+        
     }
 
     ///////////////////////// ATTACKING ENEMY //////////////////////////
@@ -322,6 +353,12 @@ class Game extends Component{
         if(playersHand.length < 23){
             playersHand.shift(); 
         }
+
+        this.setState({
+            hideBattleBtns: true, 
+            hideDeckBtns: true,
+            showRoll: true
+        })
        
         console.log("NEW PLAYERS HAND"); 
         console.log(playersHand);
@@ -376,20 +413,15 @@ class Game extends Component{
 							Are you ready to <br/> 
 							<div className = "display1 fight-text">battle?</div>
 						</div> 
-
 						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">FIGHT</Button>
-
 					</div> 
 
                     <Container className="game-container" style = {showContainer}>
-
 						<Row className = "pause" style = {rowStyle}>
 							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? ' ' : 'GAME PAUSED '}</div>
 						</Row>
 						
                         <Row className = "row1 d-flex flex-row">
-                           
-
                             <Col>
 								<Countdown 
 									timer = {this.state.timer} 
@@ -476,6 +508,7 @@ class Game extends Component{
                                     roll = {this.handleRoll}
                                     drawC= {this.handleDraw}
                                     shuffle = {this.props.shuffleCards}
+                                    showroll = {this.state.showRoll}
 
                                 />
 								</div>
