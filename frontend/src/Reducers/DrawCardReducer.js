@@ -1,4 +1,4 @@
-import data from './WeaponsList.json'; 
+import data from './WeaponsList.json';
 
 var INITIAL_STATE ={
   data,
@@ -17,12 +17,8 @@ var INITIAL_STATE ={
       "image": "assets/deck/weapons/thermalgun.jpg",
       "damage": 35
     }
-  ]
-
-
-
+  ],
 }
-
 
 export default (state = INITIAL_STATE, action) => { 
   if(action.type === "draw"){

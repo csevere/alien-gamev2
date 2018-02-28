@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect } from 'react-redux';
-import  {bindActionCreators} from 'redux';
 import * as actions from '../../Actions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
 import Buttons from './Buttons'; 
 import Companions from './Companions'; 
@@ -13,18 +12,17 @@ import Instructions from './Instructions';
 import PlayerCard from './PlayerCard'; 
 import PlayerDeck from './PlayerDeck';
 
-
 import { 
-	Button,
-	Container, 
-	Col,
-	Progress, 
-    Row,
+    Button,
     Card, 
     CardHeader,
     CardFooter,
     CardText, 
     CardImg, 
+	Container, 
+	Col,
+	Progress, 
+    Row,
 } from 'reactstrap';
 
 
@@ -34,14 +32,13 @@ var TimeOut = 10000;
 var TimeGap = 1000;
 var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
-
+var count = 0;
 
 class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
             active: true,
-            addClass: false,
 			attackdetail: '',
             attackimage: '', 
             deckopacity: 1,
@@ -68,25 +65,24 @@ class Game extends Component{
 		this.startGame = this.startGame.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
 
-
-        /////Card Functions ////////
+        //////////// CARD METHODS/////// ////////
         this.handleDraw = this.handleDraw.bind(this);
+        this.handleDeal = this.handleDeal.bind(this); 
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this); 
         this.getDeck = this.getDeck.bind(this); 
 
+        //////////////THE COUNDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
 		this.updateTimer = this.updateTimer.bind(this); 
         this.startTimer = this.startTimer.bind(this); 
         
-
-        ///FIGHT FUNCTIONS///
+        /////////////FIGHT FUNCTIONS/////////////////
         this.attackEnemy = this.attackEnemy.bind(this); 
 	}
 	
 	componentDidMount() {
-
         setTimeout(() =>{
             this.setState({
                 showFightScreen: 'block',
@@ -101,7 +97,6 @@ class Game extends Component{
             })
         }, 4000)
 	}
-
 
     ////////////////// HANDLING THE TIMER ////////////////////
 
@@ -140,7 +135,7 @@ class Game extends Component{
         EndTime = CurrentTime + TimeOut;
         this.updateTimer();  
     }
-   
+
     theCountDown(){
         this.setState({
             isRunning: true,
@@ -150,7 +145,6 @@ class Game extends Component{
 		this.startTimer(300000); 	
 	};
 	
-
     pauseCountDown(){
         this.setState({
 			isRunning:!this.state.isRunning,
@@ -160,7 +154,6 @@ class Game extends Component{
 		
     }
 	
-
 	startGame(){
 		this.setState({
 			showContainer: 'block',
@@ -216,7 +209,6 @@ class Game extends Component{
     //////////////////////DRAWING THE CARDS////////////////////////////
    
     getCard1(){
-        
         var { playersHand } = this.props.playersHand;
 
         const showFightCards = {
@@ -227,12 +219,11 @@ class Game extends Component{
 
         const hideFightCards = {
             opacity: '0',
-            visibility: 'hidden' 
-            
+            visibility: 'hidden'    
         }
     
-        console.log("PLAYER HAND IN GAME")
-        console.log(this.props.playersHand.playersHand);
+        // console.log("PLAYER HAND IN GAME")
+        // console.log(this.props.playersHand.playersHand);
 
         return playersHand.map((player,index) => {
             if( player === playersHand[0] && playersHand.length < 23){
@@ -274,18 +265,17 @@ class Game extends Component{
                             <div className = "text-center">Damage: {player2.damage}</div>
                         </CardFooter>
                     </Card>
-                
                 )
-
             }
-           
         }); 
     }
 
     getDeck(){
         var { data } = this.props.shuffled;
-        console.log("SHUFFLED IN GAME")
-        console.log(data); 
+
+        // console.log("SHUFFLED IN GAME LINE 277")
+        // console.log(data); 
+
         const deckStyle = {
             left:'1rem',
             opacity: this.state.deckopacity,
@@ -313,20 +303,13 @@ class Game extends Component{
                         </div>
                     </div>
                 )
-            } else if (data.length <= 0){
-                return console.log("NO MORE CARDS!"); 
-                    this.setState({
-                        message: "You ran out of cards! Hurry, deal!"
-                    })
-            }
-
+            } 
         }).reverse(); 
     }
 
-    //////////////////// DRAWING THE CARDS ////////////
+    ///////////////////////// DRAWING & DEALING THE CARDS /////////////////////
 
     handleDraw(){
-        var { playersHand } = this.props.playersHand;
 
         this.setState({
             showCards: true,
@@ -335,16 +318,51 @@ class Game extends Component{
             deckopacity: '0'
         });
 
-        this.props.drawCard(); 
+        count++; 
+        console.log(" LINE 329 NUMBER " + count); 
+
+        if(count < 21){
+            this.props.drawCard(); 
+        } else if(count > 21){
+            this.setState({
+                message: "You ran out of cards! Deal Now!"
+            }); 
+            console.log("COUNT IS GREAT THAN 21"); 
+        }
 
         setTimeout(() =>{
 			this.setState({
                 deckopacity:'1'
             })
         }, 1500)
-
-        
     }
+
+    handleDeal(){
+        const { newDeck } = this.props; 
+        var { data } = this.props.shuffled;
+        // var newDeck = []; 
+
+        this.props.dealNewDeck();  
+
+        // console.log("NEW DECK!!! LINE 340")
+        // console.log(newDeck); 
+
+        // console.log("NEW SHUFFLED!!! LINE 340")
+        // console.log(data); 
+
+        // console.log("NEW DECK!!! LINE 343")
+        // console.log(newDeck); 
+
+        // console.log("DECK WEAPONS!! LINE 346")
+        // console.log(dealNewDeck);
+
+        // if( data.length < 2){
+        //     newDeck.push(dealNewDeck);
+        //     data = newDeck;
+             
+        // }
+    }
+
 
     ///////////////////////// ATTACKING ENEMY //////////////////////////
 
@@ -364,7 +382,6 @@ class Game extends Component{
         console.log(playersHand);
     } 
 
-   
     render(){
 
 		const rowStyle = {
@@ -395,7 +412,6 @@ class Game extends Component{
             transition: this.state.transition2,
             opacity: this.state.opacity2
 		}
-		
 		
         return(
             <div>
@@ -503,6 +519,7 @@ class Game extends Component{
                                 <Buttons 
                                     active = {this.state.active}
                                     attack ={this.attackEnemy}
+                                    deal = {this.handleDeal}
                                     deck = {this.state.hideDeckBtns}
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
@@ -534,9 +551,9 @@ const mapStateToProps = (state)=>{
     console.log("LOOOK HERE"); 
     return{
         deckweapons: state.weaponsLibrary,
+        // newDeck: state.newDeck, 
         playersHand: state.playersHand,
         shuffled: state.cardShuffle
-        
     }
 
 }

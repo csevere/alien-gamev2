@@ -12,14 +12,12 @@ import { Container,
     CardImgOverlay 
 } from 'reactstrap';
 
-
 const PlayerDeck = (props)=>{
  
     const draw = props.drawCond; 
-
+    
     const showCards = props.showCards
-   
-
+    
     const cardStyle1 = {
         listStyle: 'none'
     }
@@ -31,10 +29,7 @@ const PlayerDeck = (props)=>{
     return(
         <div>
             <div className = "player-deck d-flex flex-row">
-
-              
                 <ul className = "d-flex justify-content-start deck-faux m-2" style = {cardStyle1}>
-
                     <li className = "deck-faux-item faux">
                         <Card className = "player-deck-card">
                             <CardHeader className = "text-center">STAND IN</CardHeader>
@@ -44,17 +39,12 @@ const PlayerDeck = (props)=>{
                             </CardFooter>
                         </Card>
                     </li> 
-
                     <li className = "deck-faux-item">
                         {!draw ? null : props.getCard1()}
                     </li>
-
                 </ul>
             
-
-        
                 <ul className = "deck-faux m-2" style = {cardStyle2}>
-
                     <li className = "deck-faux-item faux">
                         <Card className = "player-deck-card">
                             <CardHeader className = "text-center">STAND IN</CardHeader>
@@ -64,27 +54,19 @@ const PlayerDeck = (props)=>{
                             </CardFooter>
                         </Card>
                     </li> 
-
-                      <li className = "deck-faux-item">
+                    <li className = "deck-faux-item">
                         {!draw ? null : props.getCard2()}
                     </li>
                 </ul>
               
-
                 <ul className = "deck">
                     <li>
                         {props.getDeck()}
                     </li> 
                 </ul>
-            
-
             </div>
         </div>
-    )
-
-
-   
-             
+    )            
 }
 
 export default PlayerDeck; 

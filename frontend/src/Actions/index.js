@@ -19,6 +19,14 @@ export const shuffleCards = () =>{
 }
 
 
+export const dealNewDeck = () =>{
+  return{
+      type: 'deal'
+  };
+}
+
+
+
 export const drawCard = () =>{
   return{
       type: 'draw'
