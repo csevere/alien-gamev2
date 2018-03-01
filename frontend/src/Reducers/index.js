@@ -7,17 +7,19 @@ import SelectionStoryReducer from './SelectionStoryReducer';
 import StoryConvoReducer from './StoryConvoReducer';
 import SelectionConvoReducer from './SelectionConvoReducer'; 
 import WeaponsListReducer from './WeaponsListReducer'; 
+import WeaponsListReducer2 from './WeaponsList2Reducer'; 
 // import DealWeaponsReducer from './DealWeaponsReducer';
  
 const rootReducer =  combineReducers({
     cardShuffle: CardShuffleReducer,
-    // newDeck: DealNewReducer, 
+    newDeck: DealNewReducer, 
     playersHand: DrawCardReducer,
     storySceneLibrary: StorySceneReducer,
     selectedStoryId: SelectionStoryReducer,
     storyConvoLibrary: StoryConvoReducer,
     selectedConvoId: SelectionConvoReducer,
-    weaponsLibrary: WeaponsListReducer
+    weaponsLibrary: WeaponsListReducer,
+    weaponsLibrary2: WeaponsListReducer2
 }); 
 
 export default rootReducer; 

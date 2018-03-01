@@ -310,7 +310,6 @@ class Game extends Component{
     ///////////////////////// DRAWING & DEALING THE CARDS /////////////////////
 
     handleDraw(){
-
         this.setState({
             showCards: true,
             draw: true,
@@ -318,55 +317,34 @@ class Game extends Component{
             deckopacity: '0'
         });
 
-        count++; 
-        console.log(" LINE 329 NUMBER " + count); 
-
-        if(count < 21){
-            this.props.drawCard(); 
-        } else if(count > 21){
-            this.setState({
-                message: "You ran out of cards! Deal Now!"
-            }); 
-            console.log("COUNT IS GREAT THAN 21"); 
-        }
-
         setTimeout(() =>{
 			this.setState({
                 deckopacity:'1'
             })
-        }, 1500)
+        }, 1500);
+
+        count++; 
+        console.log(" LINE 329 NUMBER " + count); 
+
+        this.props.drawCard(); 
+       
     }
 
     handleDeal(){
-        const { newDeck } = this.props; 
         var { data } = this.props.shuffled;
-        // var newDeck = []; 
 
-        this.props.dealNewDeck();  
+        console.log(this.props); 
+        console.log("NEW DECK!!! LINE 340")
+        console.log(data); 
 
-        // console.log("NEW DECK!!! LINE 340")
-        // console.log(newDeck); 
-
-        // console.log("NEW SHUFFLED!!! LINE 340")
-        // console.log(data); 
-
-        // console.log("NEW DECK!!! LINE 343")
-        // console.log(newDeck); 
-
-        // console.log("DECK WEAPONS!! LINE 346")
-        // console.log(dealNewDeck);
-
-        // if( data.length < 2){
-        //     newDeck.push(dealNewDeck);
-        //     data = newDeck;
-             
-        // }
+        this.props.dealNewDeck(); 
     }
 
 
     ///////////////////////// ATTACKING ENEMY //////////////////////////
 
     attackEnemy(){
+        var { data } = this.props.shuffled;
         var { playersHand } = this.props.playersHand;
         if(playersHand.length < 23){
             playersHand.shift(); 
@@ -377,9 +355,6 @@ class Game extends Component{
             hideDeckBtns: true,
             showRoll: true
         })
-       
-        console.log("NEW PLAYERS HAND"); 
-        console.log(playersHand);
     } 
 
     render(){
@@ -551,6 +526,7 @@ const mapStateToProps = (state)=>{
     console.log("LOOOK HERE"); 
     return{
         deckweapons: state.weaponsLibrary,
+        deckweapons2: state.weaponsLibrary2,
         // newDeck: state.newDeck, 
         playersHand: state.playersHand,
         shuffled: state.cardShuffle

@@ -1,0 +1,142 @@
+
+[
+  {
+      "id": 0,
+      "name":"Rocket Launcher",
+      "image": "assets/deck/weapons/rocketlauncher.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 1,
+      "name":"High-Beam Pistol",
+      "image": "assets/deck/weapons/highbeampistol.jpg",
+      "damage": 25
+  },
+
+  {
+      "id": 2,
+      "name":"The Thermal Gun",
+      "image": "assets/deck/weapons/thermalgun.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 3,
+      "name": "Thunder Handgun",
+      "image": "assets/deck/weapons/thunderhandgun.jpg",
+      "damage": 30
+  },
+
+ 
+  {
+      "id": 4,
+      "name":"Rocket Launcher",
+      "image": "assets/deck/weapons/rocketlauncher.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 5,
+      "name":"High-Beam Pistol",
+      "image": "assets/deck/weapons/highbeampistol.jpg",
+      "damage": 25
+  },
+
+  {
+      "id": 6,
+      "name":"The Thermal Gun",
+      "image": "assets/deck/weapons/thermalgun.jpg",
+      "damage":35
+  },
+
+  {
+      "id": 7,
+      "name":"The Thunder Handgun",
+      "image": "assets/deck/weapons/thunderhandgun.jpg",
+      "damage": 30
+  },
+
+  {
+      "id": 8,
+      "name":"Rocket Launcher",
+      "image": "assets/deck/weapons/rocketlauncher.jpg",
+      "damage": 35
+  },
+
+
+  {
+      "id": 9,
+      "name":"High-Beam Pistol",
+      "image": "assets/deck/weapons/highbeampistol.jpg",
+      "damage": 25
+  },
+
+  {
+      "id": 10,
+      "name":"The Thermal Gun",
+      "image": "assets/deck/weapons/thermalgun.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 11,
+      "name":"High-Beam Pistol",
+      "image": "assets/deck/weapons/highbeampistol.jpg",
+      "damage": 25
+  },
+
+  {
+      "id": 12,
+      "name": "Thunder Handgun",
+      "image": "assets/deck/weapons/thunderhandgun.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 13,
+      "name":"The Thermal Gun",
+      "image": "assets/deck/weapons/thermalgun.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 14,
+      "name":"Rocket Launcher",
+      "image": "assets/deck/weapons/rocketlauncher.jpg",
+      "damage": 35
+  },
+
+  {
+      "id": 15,
+      "name":"Thunder Handgun",
+      "image": "assets/deck/weapons/thunderhandgun.jpg",
+      "damage": 30
+  },
+
+  {
+      "id": 16,
+      "name":"Anti-Matter Rifle",
+      "image": "assets/deck/weapons/antimatterrifle.jpg",
+      "damage": 50
+  },
+
+  {
+      "id": 17,
+      "name":"Armageddon Fusion Rifle",
+      "image": "assets/deck/weapons/armageddonrifle.jpg",
+      "damage": 50
+  },
+
+  {
+      "id": 18,
+      "name":"Phaser of Justice",
+      "image": "assets/deck/weapons/phaserjustice.gif",
+      "damage": 75
+  }
+]
+
+
+
+
+
