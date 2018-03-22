@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux'; 
 import { Link} from 'react-router-dom';
 import { FormErrors } from './FormErrors';
+import { connect} from 'react-redux';
+import RegisterAction from '../../Actions/register_actions';
 import { 
     Card, 
     CardBlock, 
@@ -34,8 +37,13 @@ export class Register extends Component{
             usernameValid: false,
             passwordValid: false,
             characterValid: false, 
-            formValid: false 
-        };
+            formValid: false,
+            registerMessage: '',
+            usernameError: null,
+            emailError: null,
+            formError: false
+        }
+        this.handleRegistration = this.handleRegistration.bind(this); 
     }
 
     toggle(tab){
@@ -45,6 +53,77 @@ export class Register extends Component{
             });
         }
     }
+
+    handleRegistration(e){
+        e.preventDefault();
+        console.log("USER SUBMITTED THE FORM!!")
+        var username = e.target[0].value;
+        var email = e.target[1].value;
+        var password = e.target[2].value;
+        var character = e.target[3].value; 
+
+        var error = false;
+
+        //username
+        if(username.length < 3){
+            var usernameError = 'error';
+            error = true;
+        }else{
+            var usernameError ='success';
+        }
+
+        //email 
+        if(email.length < 3){
+            var emailError = 'error';
+            error = true;
+        }else{
+            var emailError = 'success';
+        }
+
+        if(error){
+            this.setState({
+                formError: true,
+                emailError,
+                usernameError
+            })
+            console.log(error);
+        }else{
+            this.props.registerAction({
+                username,
+                email,
+                password,
+                character
+            });
+        }
+    }
+
+    componentWillReceiveProps(props){
+        console.log("*************************");
+        console.log(props.registerRes)
+        console.log("*************************");
+
+        ///BACKEND VALIDATION ////
+        if(props.registerRes.msg == 'playerInserted'){
+            this.props.history.push('/scene'); 
+        }else if(props.registerRes.msg == 'emailAlreadyExists'){
+            console.log("EMAIL TAKEN")
+            this.setStat({
+                registerMessage: 'This email is already linked to an account.'
+            })
+        }else if(props.registerRes.msg == 'usernameAlreadyExists'){
+            console.log("USERNAME TAKEN")
+            this.setStat({
+                registerMessage: 'This username is already linked to an account.'
+            })
+        }else if(props.registerRes.msg == 'characterAlreadyExists'){
+            console.log("CHARACTER TAKEN")
+            this.setStat({
+                registerMessage: 'This character name is already linked to an account.'
+            })
+        }
+    }
+
+    ///FRONTEND VALIDATION 
 
     handleUserInput = (e) => {
         const name = e.target.name;
@@ -69,7 +148,7 @@ export class Register extends Component{
                 break;
                 //check for min 6 characters
             case 'username':
-                usernameValid = value.length >= 6;
+                usernameValid = value.length >= 5;
                 fieldValidationErrors.username = usernameValid ? '': ' is too short';
                 break;
             case 'password':
@@ -108,9 +187,10 @@ export class Register extends Component{
                 <Container className = "login-wrapper">
                     <Card className = "p-3 login-card">
                         <CardBlock>
-                            <Form className = "login-content">
+                            <Form className = "login-content" onSubmit = {this.handleRegistration}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors} />
+                                    <div>{this.state.registerMessage}</div>
                                 </div>
                                 <div className = "d-flex flex-row">
                                     <FormGroup className = "p-2">
@@ -186,6 +266,19 @@ export class Register extends Component{
 	}
 }
 
-export default Register;
+function mapStateToProps(state){
+    return{
+        registerRes: state.registerReducer 
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        registerAction: RegisterAction
+    })
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
 
 
