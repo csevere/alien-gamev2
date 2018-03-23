@@ -16,49 +16,37 @@ var randToken = require('rand-token');
 ////////////POSTS REQUEST//////////////////
 
 router.post('/register', (req, res)=>{
-  console.log("TESTING 2!"); 
+  console.log("*********** INPUT RESULTS************"); 
   console.log(req.body);
-  console.log(req.body.email);
-
   const playerData = req.body; 
   const hash = bcrypt.hashSync(playerData.password);
-
-  console.log(hash); 
 
   //check player's email first
 
   const checkPlayerForm = new Promise((resolve, reject)=>{
-    const checkPlayerEmailQuery = `SELECT * FROM players where email = ?;`;
-    const checkPlayerUsernameQuery = `SELECT * FROM players where username = ?;`;
-    const checkPlayerCharQuery = "SELECT * FROM players where `character` = ?;"; 
-
-    connection.query(checkPlayerEmailQuery, [playerData.email],(error, results)=>{
+    const checkPlayerFormQuery = "SELECT * FROM players where email = ? OR username = ? OR `character` = ?;";
+    connection.query(checkPlayerFormQuery, [playerData.email, playerData.username, playerData.character],(error, results)=>{
+      console.log("*********DB RESULTS********");
+      console.log(results); 
+      // console.log(resJSON);  
       if(error) throw error;
       if(results.length > 0){
-        reject({msg: 'emailAlreadyExists'});
+        results = JSON.stringify(results);
+        var resJSON = JSON.parse(results);
+        var email = resJSON[0].email;
+        var username = resJSON[0].username;
+        var character = resJSON[0].character;
+        if(playerData.email === email){
+          reject({msg: 'emailAlreadyExists'});
+        }else if(playerData.username === username){
+          reject({msg: 'usernameAlreadyExists'});
+        }else if(playerData.character === character){
+          reject({msg: 'characterAlreadyExists'});
+        }
       }else{
         resolve();
       }
     });
-
-    connection.query(checkPlayerUsernameQuery, [playerData.username],(error, results)=>{
-      if(error) throw error;
-      if(results.length > 0){
-        reject({msg: 'usernameAlreadyExists'});
-      }else{
-        resolve();
-      }
-    });
-
-    connection.query(checkPlayerCharQuery, [playerData.character],(error, results)=>{
-      if(error) throw error;
-      if(results.length > 0){
-        reject({msg: 'characterAlreadyExists'});
-      }else{
-        resolve();
-      }
-    });
-
   });
 
   checkPlayerForm.then(

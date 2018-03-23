@@ -123,7 +123,7 @@ export class Login extends Component{
 
                                 <div type = "submit" disabled ={!this.state.formValid} className = "button hvr-bob">
                                     <div className = "line-container">
-                                        <Link disabled ={!this.state.formValid} to = "/scene"><span className = "text">PLAY</span></Link>
+                                        <Button disabled ={!this.state.formValid} type = "submit"><span className = "text">PLAY</span></Button>
                                         <div className="line line--top-left line--thick thick-line--short"></div>
                                         <div className="line line--top-right line--thick thick-line--short"></div>
                                         <div className="line line--bottom-left line--thick thick-line--long"></div>
