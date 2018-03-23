@@ -19,13 +19,9 @@ import {
     FormText
 } from 'reactstrap';
 
-export class Register extends Component{
+class Register extends Component{
 	constructor(props) {
         super(props);
-
-        this.toggle = this.toggle.bind(this); 
-        this.handleUserInput = this.handleUserInput.bind(null);
-
         this.state = {
             activeTab: '1',
             email: '',
@@ -43,29 +39,55 @@ export class Register extends Component{
             emailError: null,
             formError: false
         }
-        this.handleRegistration = this.handleRegistration.bind(this); 
+
+        this.toggle = this.toggle.bind(this); 
+        this.handleUserInput = this.handleUserInput.bind(null);
+        this.handleSubmit = this.handleSubmit.bind(this); 
+       
     }
 
-    toggle(tab){
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
+    componentWillReceiveProps(newProps){
+        console.log("*************************");
+        console.log(this.props.register); 
+        console.log(newProps); 
+        console.log("*************************");
+
+        ///BACKEND VALIDATION ////
+        if(newProps.register.msg == 'playerInserted'){
+            this.props.history.push('/'); 
+        }else if(newProps.register.msg == 'emailAlreadyExists'){
+            console.log("EMAIL TAKEN")
+            this.setStat({
+                registerMessage: 'This email is already linked to an account.'
+            })
+        }else if(newProps.register.msg == 'usernameAlreadyExists'){
+            console.log("USERNAME TAKEN")
+            this.setStat({
+                registerMessage: 'This username is already linked to an account.'
+            })
+        }else if(newProps.register.msg == 'characterAlreadyExists'){
+            console.log("CHARACTER TAKEN")
+            this.setStat({
+                registerMessage: 'This character name is already linked to an account.'
+            })
         }
     }
 
-    handleRegistration(e){
+    handleSubmit(e){
         e.preventDefault();
         console.log("USER SUBMITTED THE FORM!!")
-        var username = e.target[0].value;
-        var email = e.target[1].value;
-        var password = e.target[2].value;
-        var character = e.target[3].value; 
+        
+        var registerData = {
+            username: e.target[0].value,
+            email: e.target[1].value,
+            password: e.target[2].value,
+            character: e.target[3].value
+        }
 
         var error = false;
 
         //username
-        if(username.length < 3){
+        if(registerData.username.length < 3){
             var usernameError = 'error';
             error = true;
         }else{
@@ -73,7 +95,15 @@ export class Register extends Component{
         }
 
         //email 
-        if(email.length < 3){
+        if(registerData.email.length < 3){
+            var emailError = 'error';
+            error = true;
+        }else{
+            var emailError = 'success';
+        }
+
+         //character
+         if(registerData.character.length < 3){
             var emailError = 'error';
             error = true;
         }else{
@@ -88,40 +118,13 @@ export class Register extends Component{
             })
             console.log(error);
         }else{
-            this.props.registerAction({
-                username,
-                email,
-                password,
-                character
-            });
+            this.props.registerAction(registerData);
         }
+
+        console.log(registerData); 
     }
 
-    componentWillReceiveProps(props){
-        console.log("*************************");
-        console.log(props.registerRes)
-        console.log("*************************");
-
-        ///BACKEND VALIDATION ////
-        if(props.registerRes.msg == 'playerInserted'){
-            this.props.history.push('/scene'); 
-        }else if(props.registerRes.msg == 'emailAlreadyExists'){
-            console.log("EMAIL TAKEN")
-            this.setStat({
-                registerMessage: 'This email is already linked to an account.'
-            })
-        }else if(props.registerRes.msg == 'usernameAlreadyExists'){
-            console.log("USERNAME TAKEN")
-            this.setStat({
-                registerMessage: 'This username is already linked to an account.'
-            })
-        }else if(props.registerRes.msg == 'characterAlreadyExists'){
-            console.log("CHARACTER TAKEN")
-            this.setStat({
-                registerMessage: 'This character name is already linked to an account.'
-            })
-        }
-    }
+   
 
     ///FRONTEND VALIDATION 
 
@@ -180,6 +183,15 @@ export class Register extends Component{
         return(error.length === 0 ? '' : 'has-error');
     }
 
+    toggle(tab){
+        if (this.state.activeTab !== tab) {
+            this.setState({
+                activeTab: tab
+            });
+        }
+    }
+
+
 	render(){
 
 		return(
@@ -187,7 +199,7 @@ export class Register extends Component{
                 <Container className = "login-wrapper">
                     <Card className = "p-3 login-card">
                         <CardBlock>
-                            <Form className = "login-content" onSubmit = {this.handleRegistration}>
+                            <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors} />
                                     <div>{this.state.registerMessage}</div>
@@ -246,9 +258,9 @@ export class Register extends Component{
                                     </FormGroup>
                                 </div>
                                
-                                <div type = "submit" disabled ={!this.state.formValid} className = "button hvr-bob">
+                                <div disabled ={!this.state.formValid} className = "button hvr-bob">
                                     <div className = "line-container">
-                                        <Link disabled ={!this.state.formValid} to = "/scene"><span className = "text">JOIN</span></Link>
+                                        <Button disabled ={!this.state.formValid} type ="submit"><span className = "text">JOIN</span></Button>
                                         <div className="line line--top-left line--thick thick-line--short"></div>
                                         <div className="line line--top-right line--thick thick-line--short"></div>
                                         <div className="line line--bottom-left line--thick thick-line--long"></div>
@@ -268,14 +280,12 @@ export class Register extends Component{
 
 function mapStateToProps(state){
     return{
-        registerRes: state.registerReducer 
+        register: state.registerReducer 
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({
-        registerAction: RegisterAction
-    })
+    return bindActionCreators({registerAction: RegisterAction}, dispatch)
 }
 
 

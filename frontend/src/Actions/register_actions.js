@@ -1,13 +1,18 @@
-import $ from 'jquery'; 
+// import axios from 'axios';
+
+import $ from 'jquery';
 
 export default function(playerData){
-  var thePromise = $.ajax({
-    method: 'POST',
-    url: window.hostAddres + '/register',
+  console.log("Auth Action is running...")
+  console.log(playerData);
+  
+  var authPromise = $.ajax({
+    method: "POST",
+    url: 'http://localhost:5000/register',
     data: playerData
   })
   return{
     type: "REGISTER",
-    payload: thePromise 
+    payload: authPromise 
   }
 }

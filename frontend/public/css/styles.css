@@ -839,7 +839,7 @@ p {
 .text {
   text-transform: uppercase;
   font-family: 'Anton', sans-serif;
-  font-size: 1.6em;
+  font-size: 1em;
   color: #74f9fc;
   text-shadow: 0 0 13px #17a2b88a, 0 0 32px #17a2b89e;
   display: block;
