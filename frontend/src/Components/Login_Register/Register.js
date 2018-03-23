@@ -48,8 +48,8 @@ class Register extends Component{
 
     componentWillReceiveProps(newProps){
         console.log("*************************");
-        console.log(this.props.register); 
         console.log(newProps); 
+        console.log(newProps.register); 
         console.log("*************************");
 
         ///BACKEND VALIDATION ////
@@ -78,8 +78,8 @@ class Register extends Component{
         console.log("USER SUBMITTED THE FORM!!")
         
         var registerData = {
-            username: e.target[0].value,
-            email: e.target[1].value,
+            email: e.target[0].value,
+            username: e.target[1].value,
             password: e.target[2].value,
             character: e.target[3].value
         }
@@ -202,7 +202,7 @@ class Register extends Component{
                             <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors} />
-                                    <div>{this.state.registerMessage}</div>
+                                    <div className = "panel-message">{this.state.registerMessage}</div>
                                 </div>
                                 <div className = "d-flex flex-row">
                                     <FormGroup className = "p-2">
