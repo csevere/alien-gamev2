@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect } from 'react-redux';
-import  {bindActionCreators} from 'redux';
 import * as actions from '../../Actions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
 import Buttons from './Buttons'; 
 import Companions from './Companions'; 
@@ -13,18 +12,17 @@ import Instructions from './Instructions';
 import PlayerCard from './PlayerCard'; 
 import PlayerDeck from './PlayerDeck';
 
-
 import { 
-	Button,
-	Container, 
-	Col,
-	Progress, 
-    Row,
+    Button,
     Card, 
     CardHeader,
     CardFooter,
     CardText, 
     CardImg, 
+	Container, 
+	Col,
+	Progress, 
+    Row,
 } from 'reactstrap';
 
 
@@ -34,15 +32,16 @@ var TimeOut = 10000;
 var TimeGap = 1000;
 var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
-
+var count = 0;
 
 class Game extends Component{
     constructor(props){
         super(props);
 		this.state = {
-			active: true,
+            active: true,
 			attackdetail: '',
             attackimage: '', 
+            deckopacity: 1,
             draw: 'false',
             handleFight: true,
             hideBattleBtns: true, 
@@ -56,6 +55,7 @@ class Game extends Component{
 			showLoader: 'block',
 			showFightScreen: 'none',
             showRow: 'none',
+            showRoll: true,
 			timer: 'TIME 00:00',
             textColor: '#74f9fc',
             transition:'transition',
@@ -65,25 +65,24 @@ class Game extends Component{
 		this.startGame = this.startGame.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
 
-
-        /////Card Functions ////////
+        //////////// CARD METHODS/////// ////////
         this.handleDraw = this.handleDraw.bind(this);
+        this.handleDeal = this.handleDeal.bind(this); 
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this); 
         this.getDeck = this.getDeck.bind(this); 
 
+        //////////////THE COUNDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
 		this.updateTimer = this.updateTimer.bind(this); 
         this.startTimer = this.startTimer.bind(this); 
         
-
-        ///FIGHT FUNCTIONS///
+        /////////////FIGHT FUNCTIONS/////////////////
         this.attackEnemy = this.attackEnemy.bind(this); 
 	}
 	
 	componentDidMount() {
-
         setTimeout(() =>{
             this.setState({
                 showFightScreen: 'block',
@@ -98,7 +97,6 @@ class Game extends Component{
             })
         }, 4000)
 	}
-
 
     ////////////////// HANDLING THE TIMER ////////////////////
 
@@ -137,7 +135,7 @@ class Game extends Component{
         EndTime = CurrentTime + TimeOut;
         this.updateTimer();  
     }
-   
+
     theCountDown(){
         this.setState({
             isRunning: true,
@@ -147,7 +145,6 @@ class Game extends Component{
 		this.startTimer(300000); 	
 	};
 	
-
     pauseCountDown(){
         this.setState({
 			isRunning:!this.state.isRunning,
@@ -157,7 +154,6 @@ class Game extends Component{
 		
     }
 	
-
 	startGame(){
 		this.setState({
 			showContainer: 'block',
@@ -195,13 +191,15 @@ class Game extends Component{
             this.setState({
                 hideBattleBtns: false,
                 hideDeckBtns: false,
-                message: "Shuffle then draw the cards or simply deal to attack!"
+                message: "Shuffle, draw, attack or draw then attack!",
+                showRoll: false
             })
         } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
             this.setState({
                 hideBattleBtns: true,  
                 hideDeckBtns: true,
-                message: "You rolled below 7. You're getting attacked!"
+                message: "You rolled below 7. You're getting attacked!",
+                showRoll: true
             })
           
         }
@@ -214,117 +212,151 @@ class Game extends Component{
         var { playersHand } = this.props.playersHand;
 
         const showFightCards = {
-            visibility: 'visible'
+            opacity: '1',
+            transition: 'all 3s',
+            visibility: 'visible' 
         }
 
         const hideFightCards = {
-            visibility: 'hidden'
+            opacity: '0',
+            visibility: 'hidden'    
         }
-       
-
-        console.log("PLAYER HAND IN GAME")
-        console.log(this.props.playersHand.playersHand);
+    
+        // console.log("PLAYER HAND IN GAME")
+        // console.log(this.props.playersHand.playersHand);
 
         return playersHand.map((player,index) => {
             if( player === playersHand[0] && playersHand.length < 23){
                 return(
-                    <div key = {index}>
-                        <Card className = "player-deck-card m-1 deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
-                            <CardHeader className = "text-center">{player.name}</CardHeader>
-                            <CardImg src = {player.image} />
-                            <CardFooter>
+                    <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader  className = "text-center">{player.name}</CardHeader>
+                        <CardImg src = {player.image} />
+                        <CardFooter>
                             <div className = "text-center">Damage: {player.damage}</div>
-                            </CardFooter>
-                        </Card>
-                    </div>
+                        </CardFooter>
+                    </Card>
                 )
-
             }
-           
-        }); 
+        });    
     }
 
     getCard2(){
         var { playersHand } = this.props.playersHand;
         
         const showFightCards = {
+            opacity: '1',
+            transition: 'all 6s',
             visibility: 'visible'
         }
 
         const hideFightCards = {
-            visibility: 'hidden'
+            opacity: '0',
+            visibility: 'hidden' 
         }
     
         return playersHand.map((player2, index) => {
             if(player2 === playersHand[1] && playersHand.length < 23){
                 return(
-                    <div key = {index}>
-                        <Card className = "player-deck-card m-1 deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
-                            <CardHeader className = "text-center">{player2.name}</CardHeader>
-                            <CardImg src = {player2.image} />
-                            <CardFooter>
+            
+                    <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader className = "text-center">{player2.name}</CardHeader>
+                        <CardImg src = {player2.image} />
+                        <CardFooter>
                             <div className = "text-center">Damage: {player2.damage}</div>
-                            </CardFooter>
-                        </Card>
-                    </div>
+                        </CardFooter>
+                    </Card>
                 )
-
             }
-           
         }); 
     }
 
     getDeck(){
         var { data } = this.props.shuffled;
-        console.log("SHUFFLED IN GAME")
-        console.log(data); 
+
+        // console.log("SHUFFLED IN GAME LINE 277")
+        // console.log(data); 
+
         const deckStyle = {
-            left:'1rem'
+            left:'1rem',
+            opacity: this.state.deckopacity,
+            transition: '2s'
         }
+
         return data.map((elem, index) => {
             if(data.length < 20){
                 return(
                     <div key = {index}>
-                        <Card className = "player-deck-card deck-item" style = {deckStyle}>
-                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                        </Card>
+                        <div className="front">
+                            <Card className = "player-deck-card deck-item deal card2">
+                                <CardHeader className = "text-center">{elem.name}</CardHeader>
+                                <CardImg src = {elem.image} />
+                                <CardFooter>
+                                    <div className = "text-center">Damage: {elem.damage}</div>
+                                </CardFooter>
+                            </Card>
+		                </div>
+
+                        <div className = "back">
+                            <Card className = "player-deck-card deck-item" style = {deckStyle}>
+                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                            </Card>
+                        </div>
                     </div>
                 )
-            } else if (data.length <= 0){
-                return console.log("NO MORE CARDS!"); 
-                    this.setState({
-                        message: "You ran out of cards! Hurry, deal!"
-                    })
-            }
-
-        }); 
+            } 
+        }).reverse(); 
     }
 
-    //////////////////// DRAWING THE CARDS ////////////
+    ///////////////////////// DRAWING & DEALING THE CARDS /////////////////////
 
     handleDraw(){
         this.setState({
             showCards: true,
-            draw: true
+            draw: true,
+            addClass: !this.state.addClass,
+            deckopacity: '0'
         });
 
-        this.props.drawCard(); 
+        setTimeout(() =>{
+			this.setState({
+                deckopacity:'1'
+            })
+        }, 1500);
 
+        count++; 
+        console.log(" LINE 329 NUMBER " + count); 
+
+        this.props.drawCard(); 
+       
     }
+
+    handleDeal(){
+        var { data } = this.props.shuffled;
+
+        console.log(this.props); 
+        console.log("NEW DECK!!! LINE 340")
+        console.log(data); 
+
+        this.props.dealNewDeck(); 
+    }
+
 
     ///////////////////////// ATTACKING ENEMY //////////////////////////
 
     attackEnemy(){
+        var { data } = this.props.shuffled;
         var { playersHand } = this.props.playersHand;
         if(playersHand.length < 23){
             playersHand.shift(); 
         }
-       
-        console.log("NEW PLAYERS HAND"); 
-        console.log(playersHand);
+
+        this.setState({
+            hideBattleBtns: true, 
+            hideDeckBtns: true,
+            showRoll: true
+        })
     } 
 
-   
     render(){
 
 		const rowStyle = {
@@ -356,7 +388,6 @@ class Game extends Component{
             opacity: this.state.opacity2
 		}
 		
-		
         return(
             <div>
                 <div className = "game-wrapper d-flex align-items-end">
@@ -373,20 +404,15 @@ class Game extends Component{
 							Are you ready to <br/> 
 							<div className = "display1 fight-text">battle?</div>
 						</div> 
-
 						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">FIGHT</Button>
-
 					</div> 
 
                     <Container className="game-container" style = {showContainer}>
-
 						<Row className = "pause" style = {rowStyle}>
 							<div className = "display-1 text-danger pause-text" style = {textStyle}>{this.state.isRunning ? ' ' : 'GAME PAUSED '}</div>
 						</Row>
 						
                         <Row className = "row1 d-flex flex-row">
-                           
-
                             <Col>
 								<Countdown 
 									timer = {this.state.timer} 
@@ -468,11 +494,13 @@ class Game extends Component{
                                 <Buttons 
                                     active = {this.state.active}
                                     attack ={this.attackEnemy}
+                                    deal = {this.handleDeal}
                                     deck = {this.state.hideDeckBtns}
                                     hide = {this.state.hideBattleBtns}  
                                     roll = {this.handleRoll}
                                     drawC= {this.handleDraw}
                                     shuffle = {this.props.shuffleCards}
+                                    showroll = {this.state.showRoll}
 
                                 />
 								</div>
@@ -498,9 +526,10 @@ const mapStateToProps = (state)=>{
     console.log("LOOOK HERE"); 
     return{
         deckweapons: state.weaponsLibrary,
+        deckweapons2: state.weaponsLibrary2,
+        // newDeck: state.newDeck, 
         playersHand: state.playersHand,
         shuffled: state.cardShuffle
-        
     }
 
 }

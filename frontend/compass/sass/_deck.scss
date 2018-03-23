@@ -13,16 +13,49 @@
 }
 
 .player-deck{
+    margin-left: -6rem;
     .deck{
+       
         position: relative;
+        margin-left: 4rem;
+        width: 90%;
         .deck-item{
-            right: 4%;
-            margin-top: -1.2em;
+            right: -5%;
+            margin-top: -1em;
             position: absolute;
         }
+
+        // .deck-item.animate{
+        //     animation-name: deck;
+        //     animation-duration: 4s;
+        //     @keyframes deck {
+        //         0%   {right: 0px;}
+        //         25%  {right: 90px;}
+        //         50%  {right: 90px;}
+        //         75%  {right: 0px;}
+        //         100% {right: 0px;}
+        //     }
+        //     opacity: 0;
+        //     transition: all 6s; 
+     
+        // }
+
     }
 
-    float: left;
+    .deck-faux{
+        position: relative;
+        width: 100%;
+        
+        .deck-faux-item{
+            opacity: 1;
+            width: 100%;
+            position: absolute;
+        }
+        .faux{
+            opacity: 0;
+        }
+
+    }
 
     .card{
         width: 100%; 
@@ -45,13 +78,9 @@
             font-family: 'Exo 2', sans-serif;
             background: $inner !important;
         }
-        .card-footer{
-            margin: auto;
-        }
+
         .card-header{
             font-size: 1.5rem;
         }
-
-       
     }
 }
