@@ -3,16 +3,19 @@
 import $ from 'jquery';
 
 export default function(playerData){
-  console.log("Auth Action is running...")
+  console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
   
   var authPromise = $.ajax({
-    method: "POST",
+    method: "post",
     url: 'http://localhost:5000/register',
-    data: playerData
+    data: playerData,
   })
+
+  console.log(authPromise); 
   return{
-    type: "REGISTER",
+    type: "register",
     payload: authPromise 
   }
 }
+
