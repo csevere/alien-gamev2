@@ -3,12 +3,9 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql'); 
 var config = require ('../config/config'); 
-//set up connection 
 var connection = mysql.createConnection(config); 
 connection.connect(); 
-//for hashing and checking password
 var bcrypt = require ('bcrypt-nodejs');
-//generating user token
 var randToken = require('rand-token'); 
 
 // console.log(connection); 
@@ -21,8 +18,6 @@ router.post('/register', (req, res)=>{
   const playerData = req.body; 
   const hash = bcrypt.hashSync(playerData.password);
 
-  //check player's email first
-
   const checkPlayerForm = new Promise((resolve, reject)=>{
     const checkPlayerFormQuery = "SELECT * FROM players where email = ? OR username = ? OR `character` = ?;";
     connection.query(checkPlayerFormQuery, [playerData.email, playerData.username, playerData.character],(error, results)=>{
@@ -30,6 +25,7 @@ router.post('/register', (req, res)=>{
       console.log(results); 
       // console.log(resJSON);  
       if(error) throw error;
+      //check player's email, username, character first
       if(results.length > 0){
         results = JSON.stringify(results);
         var resJSON = JSON.parse(results);
@@ -68,6 +64,9 @@ router.post('/register', (req, res)=>{
             email: playerData.email,
             character: playerData.character
           })
+          console.log("************** RES***********")
+          console.log(res.json); 
+          console.log("************** RES***********")
         }
       })
     }
@@ -78,9 +77,5 @@ router.post('/register', (req, res)=>{
       }
     )
 }); 
-
-
-
-
 
 module.exports = router;
