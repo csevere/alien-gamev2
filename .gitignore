@@ -5,6 +5,7 @@
 
 #ignore doc files
 .sass-cache
+config.js
 
 # testing
 /coverage

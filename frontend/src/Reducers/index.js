@@ -8,12 +8,15 @@ import StoryConvoReducer from './StoryConvoReducer';
 import SelectionConvoReducer from './SelectionConvoReducer'; 
 import WeaponsListReducer from './WeaponsListReducer'; 
 import WeaponsListReducer2 from './WeaponsList2Reducer'; 
+import RegisterReducer from './RegisterReducer';
+
 // import DealWeaponsReducer from './DealWeaponsReducer';
  
 const rootReducer =  combineReducers({
     cardShuffle: CardShuffleReducer,
     newDeck: DealNewReducer, 
     playersHand: DrawCardReducer,
+    registerReducer:RegisterReducer,
     storySceneLibrary: StorySceneReducer,
     selectedStoryId: SelectionStoryReducer,
     storyConvoLibrary: StoryConvoReducer,

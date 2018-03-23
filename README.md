@@ -1,8 +1,12 @@
 # ALIEN BATTLECRAFT
 
-
 ## About
-Alien Battlecraft is a visual story game that takes place in a massive alien ship. Players team up with a crew to explore the battlecraft, fight off its hostile inhabitants, and uncover its multitude of secrets. 
+Alien Battlecraft is a visual story game that takes place in a massive alien ship. Players team up with a crew to explore the battlecraft, fight off its hostile inhabitants, and uncover its multitude of secrets.
+
+## Languages and Technologies
+
+React & Redux | JavaScript | Express | MySQL | SASS | Bootstrap Beta 4  
+
 
 <p align='center'>
   <img src="frontend/public/Images/mainscreen.png">
@@ -22,10 +26,6 @@ Alien Battlecraft is a visual story game that takes place in a massive alien shi
   <img src="frontend/public/Images/gamescreen.png">
 </p>
 
-
-## Languages and Technologies
-
-Bootstrap Beta 4 | ES6 | JavaScript | Express | Postgres | React & Redux    
 
 
 
