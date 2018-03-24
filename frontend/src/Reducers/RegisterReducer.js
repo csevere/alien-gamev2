@@ -1,9 +1,23 @@
+import {
+  REGISTER,
+  AUTH_ERROR,
+} from '../Actions/types';
 
 export default function (state = [], action){
-  if(action.type == 'register'){
-    console.log(action.payload.data);
-    return action.payload; 
-  }else{
-    return state; 
+
+  switch(action.type){
+    case REGISTER:
+    console.log(action); 
+      return {authenticated:true, reponse:action.data, ...state}
+    case AUTH_ERROR:
+      return {error:action.payload, ...state}
   }
+  return state; 
 }
+
+
+
+// getDefinitions().then(function(defs){
+//   //access them here
+// });
+
