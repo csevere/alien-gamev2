@@ -3,7 +3,8 @@ import {bindActionCreators} from 'redux';
 import { Link} from 'react-router-dom';
 import { FormErrors } from './FormErrors';
 import { connect} from 'react-redux';
-import RegisterAction from '../../Actions/register_actions';
+import * as actions from '../../Actions';
+
 import { 
     Card, 
     CardBlock, 
@@ -46,28 +47,28 @@ class Register extends Component{
        
     }
 
-    componentWillReceiveProps(newProps){
+    componentWillReceiveProps(formProps){
         console.log("*************************");
-        console.log(newProps); 
-        console.log(newProps.register); 
+        console.log(formProps); 
+        console.log(formProps.register); 
         console.log("*************************");
 
         ///BACKEND VALIDATION ////
-        if(newProps.register.msg == 'playerInserted'){
+        if(formProps.register.msg == 'playerInserted'){
             this.props.history.push('/'); 
-        }else if(newProps.register.msg == 'emailAlreadyExists'){
+        }else if(formProps.register.msg == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
-            this.setStat({
+            this.setState({
                 registerMessage: 'This email is already linked to an account.'
             })
-        }else if(newProps.register.msg == 'usernameAlreadyExists'){
+        }else if(formProps.register.msg == 'usernameAlreadyExists'){
             console.log("USERNAME TAKEN")
-            this.setStat({
+            this.setState({
                 registerMessage: 'This username is already linked to an account.'
             })
-        }else if(newProps.register.msg == 'characterAlreadyExists'){
+        }else if(formProps.register.msg == 'characterAlreadyExists'){
             console.log("CHARACTER TAKEN")
-            this.setStat({
+            this.setState({
                 registerMessage: 'This character name is already linked to an account.'
             })
         }
@@ -118,7 +119,7 @@ class Register extends Component{
             })
             console.log(error);
         }else{
-            this.props.registerAction(registerData);
+            this.props.registerUser(registerData);
         }
 
         console.log(registerData); 
@@ -284,11 +285,6 @@ function mapStateToProps(state){
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({registerAction: RegisterAction}, dispatch)
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, actions)(Register);
 
 
