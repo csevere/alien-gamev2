@@ -1,9 +1,5 @@
 @import 'variables';
 
-// $color1:#FA8;
-// $color2:#930;
-// $color3:#F85;
-
 $color1:$scene-bg;
 $color2:$scene-text;
 $color3:$scene-button; 
@@ -11,21 +7,20 @@ $color3:$scene-button;
 $speed:10s; 
 $speed2:6s;
 
-
-
 .map-wrapper{
     background: url('/assets/bg/scifi-texture.jpg'); 
     background-size: contain;
     background-position: center;  
     height:100%;
-    min-height: 772px;
+    min-height: 77em;
     margin-top: -9em; 
     z-index: 0;
 
     @media(min-width:$xlg){
-        min-height: $min-height; 
-        margin-top: 0em;    
+        min-height: 77em; 
+        margin-top: 0em;     
     }
+
 
     .button{
         cursor: pointer;

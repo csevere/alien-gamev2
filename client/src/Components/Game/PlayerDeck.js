@@ -26,11 +26,17 @@ const PlayerDeck = (props)=>{
         listStyle: 'none'
     }
 
+    const deckStyle = {
+        position: 'relative',
+        left: '-2em'  
+    }
+
     return(
-        <div>
+        <div style = {deckStyle}>
             <div className = "player-deck d-flex flex-row">
-                <ul className = "d-flex justify-content-start deck-faux m-2" style = {cardStyle1}>
-                    <li className = "deck-faux-item faux">
+
+                <ul className = "d-flex justify-content-start deck-card m-2" style = {cardStyle1}>
+                    <li className = "deck-card-item faux">
                         <Card className = "player-deck-card">
                             <CardHeader className = "text-center">STAND IN</CardHeader>
                             <CardImg src = 'assets/deck/scifi-texture.jpg' />
@@ -39,13 +45,13 @@ const PlayerDeck = (props)=>{
                             </CardFooter>
                         </Card>
                     </li> 
-                    <li className = "deck-faux-item">
+                    <li className = "deck-card-item real">
                         {!draw ? null : props.getCard1()}
                     </li>
                 </ul>
             
-                <ul className = "deck-faux m-2" style = {cardStyle2}>
-                    <li className = "deck-faux-item faux">
+                <ul className = "deck-card m-2" style = {cardStyle2}>
+                    <li className = "deck-card-item faux">
                         <Card className = "player-deck-card">
                             <CardHeader className = "text-center">STAND IN</CardHeader>
                             <CardImg src = 'assets/deck/scifi-texture.jpg' />
@@ -54,7 +60,7 @@ const PlayerDeck = (props)=>{
                             </CardFooter>
                         </Card>
                     </li> 
-                    <li className = "deck-faux-item">
+                    <li className = "deck-card-item real">
                         {!draw ? null : props.getCard2()}
                     </li>
                 </ul>

@@ -8,16 +8,15 @@
         width: 14rem; 
     } 
 }
-.enemy-deck{
-    float: right;
-}
+
+//////////////PLAYER DECK ///////////
 
 .player-deck{
     margin-left: -6rem;
     .deck{
-       
         position: relative;
         margin-left: 4rem;
+
         width: 90%;
         .deck-item{
             right: -5%;
@@ -37,16 +36,16 @@
         //     }
         //     opacity: 0;
         //     transition: all 6s; 
-     
+        
         // }
 
     }
 
-    .deck-faux{
+    .deck-card{
         position: relative;
         width: 100%;
         
-        .deck-faux-item{
+        .deck-card-item{
             opacity: 1;
             width: 100%;
             position: absolute;
@@ -83,4 +82,92 @@
             font-size: 1.5rem;
         }
     }
+
+    .back{
+        .player-deck-card{
+            box-shadow: 0px 1px 0px #ededed, 0 0 1px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
+        }
+    }
 }
+
+
+
+
+
+////////ENEMY DECK //////////
+.enemy-deck{
+    float: left; 
+    margin-top: 0rem;
+
+    .deck{
+        position: relative;
+        margin-left: -7rem;
+        width: 132%;
+
+        .deck-item{
+            right: -27%;
+            // margin-top: -1.5em;
+            // position: absolute;
+        }
+
+        // .deck-item.animate{
+        //     animation-name: deck;
+        //     animation-duration: 4s;
+        //     @keyframes deck {
+        //         0%   {right: 0px;}
+        //         25%  {right: 90px;}
+        //         50%  {right: 90px;}
+        //         75%  {right: 0px;}
+        //         100% {right: 0px;}
+        //     }
+        //     opacity: 0;
+        //     transition: all 6s; 
+        
+        // }
+
+    }
+
+    .deck-card{
+        position: relative;
+        width: 96%;
+        
+        .deck-card-item{
+            opacity: 1;
+            width: 100%;
+            position: absolute;
+        }
+        .faux{
+            opacity: 0;
+        }
+
+    }
+
+    .card{
+        width: 100%; 
+    } 
+
+    .deal{
+        img{
+            height: 9.2rem;
+        }
+    }
+
+    .enemy-deck-card{
+        border: 4px solid $border;
+        box-shadow: $box-shadow2;
+        color: white; 
+        height: 19rem; 
+        text-transform: uppercase;
+
+        .card-header, .card-footer{
+            font-family: 'Exo 2', sans-serif;
+            background: $inner !important;
+        }
+
+        .card-header{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+

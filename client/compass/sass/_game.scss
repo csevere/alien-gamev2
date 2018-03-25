@@ -9,12 +9,11 @@ $min-height: 85em;
     background-position: center;
     background-attachment: fixed; 
     height:100%;
-    min-height: 88em; 
-    margin-top: -6em; 
+    min-height: 77em; 
     z-index: 0;
     
     @media(min-width:$xlg){
-        min-height: 88em;    
+        min-height: 77em;    
     }
 
     @media(min-width:$xxlg){
@@ -70,6 +69,8 @@ $min-height: 85em;
         border-style: ridge;
         box-shadow: $box-shadow; 
         max-width: 141rem; 
+        margin-top: 1em;
+        max-height: 77em;
     }
 
     // .row1,.row2, .row3, .row5{
@@ -228,10 +229,10 @@ $min-height: 85em;
                 border: 4px solid $ally-border;
                 box-shadow: $box-shadow-al;
                 color: white; 
-                height: 19rem; 
+                height: 14rem; 
                 text-transform: uppercase;
                 img{
-                    height: 79%; 
+                    height: 71%; 
                 }
                 .card-header{
                     font-family: 'Exo 2', sans-serif;
@@ -253,7 +254,7 @@ $min-height: 85em;
         }
 
         .buttons{
-            margin-top: 5rem;
+            margin-top: 2rem;
         }  
     }
 }

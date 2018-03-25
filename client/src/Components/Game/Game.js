@@ -8,9 +8,11 @@ import Companions from './Companions';
 import Countdown from './Countdown'; 
 import Dice from './Dice'; 
 import EnemyCard from './EnemyCard';
+import EnemyDeck from './EnemyDeck'; 
 import Instructions from './Instructions';  
 import PlayerCard from './PlayerCard'; 
 import PlayerDeck from './PlayerDeck';
+
 
 import { 
     Button,
@@ -206,7 +208,7 @@ class Game extends Component{
         
     }
 
-    //////////////////////DRAWING THE CARDS////////////////////////////
+    ////////////////////// DRAWING THE CARDS////////////////////////////
    
     getCard1(){
         var { playersHand } = this.props.playersHand;
@@ -455,10 +457,8 @@ class Game extends Component{
 
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
-                                <div className = "enemy-deck d-flex flex-row">
-                                    <div className = "m-2 p-5 text-dark card">Deck</div>
-                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
-                                    <div className = "m-2 p-5 text-dark card">Card 1</div>
+                                <div>
+                                    <EnemyDeck/>
                                 </div>
                             </Col>
 						
