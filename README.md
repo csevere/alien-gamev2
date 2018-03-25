@@ -9,21 +9,21 @@ React & Redux | JavaScript | Express | MySQL | SASS | Bootstrap Beta 4
 
 
 <p align='center'>
-  <img src="frontend/public/Images/mainscreen.png">
+  <img src="client/public/Images/mainscreen.png">
 </p>
 
 <p align='center'>
-  <img src="frontend/public/Images/scene1.png">
-</p>
-
-
-<p align='center'>
-  <img src="frontend/public/Images/convo-screen.png">
+  <img src="client/public/Images/scene1.png">
 </p>
 
 
 <p align='center'>
-  <img src="frontend/public/Images/gamescreen.png">
+  <img src="client/public/Images/convo-screen.png">
+</p>
+
+
+<p align='center'>
+  <img src="client/public/Images/gamescreen.png">
 </p>
 
 
