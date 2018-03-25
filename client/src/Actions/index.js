@@ -1,7 +1,7 @@
-
 import {
   REGISTER,
   LOGIN,
+  LOGOUT,
   NEXT,
   BACK,
   DRAW,
@@ -14,12 +14,9 @@ import axios from 'axios';
 const ROOT_URL = 'http://localhost:5000'; 
 
 //REGISTER THE PLAYER
-
-export function registerUser(playerData) {
-
+export const registerUser = (playerData) =>{
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
-
   return function (dispatch) {
     axios.post(`${ROOT_URL}/register`, playerData)
       .then(response => {
@@ -30,8 +27,7 @@ export function registerUser(playerData) {
 }
 
 //LOGIN IN THE PLAYER
-export function loginUser(playerData) {
-
+export const loginUser = (playerData) => {
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
 
@@ -44,11 +40,16 @@ export function loginUser(playerData) {
   }
 }
 
+//LOGOUT PLAYER 
+export const logoutUser = () =>{
+  return{
+    type: LOGOUT 
+  }
+}
 
 
 
 //SCENE ACTIONS/////
-
 export const nextCount = () =>{
   return{
       type: NEXT

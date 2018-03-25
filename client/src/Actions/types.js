@@ -1,5 +1,6 @@
 export const REGISTER = 'register';
 export const LOGIN = 'login'; 
+export const LOGOUT = 'logout'; 
 export const AUTH_ERROR = 'auth_error';
 export const NEXT = 'next';  
 export const BACK = 'back';
