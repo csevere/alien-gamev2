@@ -1,0 +1,109 @@
+@import 'variables'; 
+
+.login-wrapper{
+
+    .demoForm {
+        width: 500px;
+        margin: auto;
+        color: black; 
+    }
+
+    .panel-default {
+        border-color: transparent; 
+        margin-bottom: -6px;
+        text-align: center;
+        background-color: transparent;
+        .formErrors, .panel-message{
+            display: flex; 
+            p{
+                color:red;  
+                padding-left: 1em; 
+            }
+        }  
+    }
+        
+
+    button, html [type="button"], [type="reset"], [type="submit"] {
+        -webkit-appearance: none;
+    }
+
+    .btn-secondary.disabled, .btn-secondary:disabled{
+        background-color: transparent !important;
+        border-color: transparent; 
+        &:hover {
+          background-color:transparent;
+          border-color: transparent;
+        }
+      }
+      
+      .btn-secondary {
+        background-color:transparent;
+        border-color: transparent;
+        &:hover {
+          background-color:transparent;
+          border-color: transparent;
+        }
+      }
+
+    .login-card{
+        height: 18em; 
+        background: transparent !important;
+        .login-content{
+            label, input {
+                color: $scene-text;
+                font-size: $med;
+                font-family: $scene-font; 
+            }
+
+            input{
+                background: black;
+                // border: 1px solid white;
+                color: white; 
+
+            }
+        }
+
+        .button[disabled]{
+            cursor: not-allowed;
+            opacity: .65; 
+            a{
+                pointer-events: none;
+            } 
+        }
+        
+        .button {
+           
+            margin-top: 3em; 
+            margin-left: 0em;
+            display: block;
+            text-align: center;
+            border-width: 1px 0px 1px 0;
+            border-style: solid;
+            border-image: linear-gradient(to left, transparent, #74f9fc, transparent);
+            border-image-slice: 1;
+            cursor: pointer;
+            .text {
+                letter-spacing: 10px;
+                a{
+                    text-decoration: none; 
+                } 
+            } 
+    
+        }
+
+        
+        .register{
+            .button {
+                margin-top: 2em; 
+            }
+        
+        }
+    }
+}
+
+// button{
+//     &:hover {
+//         background-color: $dark-gray;
+//         text-decoration: none !important; 
+//     }
+// }
