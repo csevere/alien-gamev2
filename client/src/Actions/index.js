@@ -1,13 +1,19 @@
 
 import {
   REGISTER,
-  AUTH_ERROR
+  LOGIN,
+  NEXT,
+  BACK,
+  DRAW,
+  DEAL,
+  SHUFFLE,
+  ATTACK
 } from './types';
 import axios from 'axios';
 
 const ROOT_URL = 'http://localhost:5000'; 
 
-//REGISTER THE USER 
+//REGISTER THE PLAYER
 
 export function registerUser(playerData) {
 
@@ -23,48 +29,65 @@ export function registerUser(playerData) {
   }
 }
 
+//LOGIN IN THE PLAYER
+export function loginUser(playerData) {
+
+  console.log("THE PLAYER DATA IS BELOW...")
+  console.log(playerData);
+
+  return function (dispatch) {
+    axios.post(`${ROOT_URL}/login`, playerData)
+      .then(response => {
+        dispatch({ type: LOGIN, data:response});
+      })
+      .catch(error => { console.log(error)});
+  }
+}
 
 
 
 
-
+//SCENE ACTIONS/////
 
 export const nextCount = () =>{
   return{
-      type: 'next'
+      type: NEXT
   };
 }
 
 export const backCount = () =>{
   return{
-      type: 'back'
+      type: BACK
   };
 }
 
+
+//BATTLE ACTIONS /////
+
 export const shuffleCards = () =>{
   return{
-      type: 'shuffle'
+      type: SHUFFLE
   };
 }
 
 
 export const dealNewDeck = () =>{
   return{
-      type: 'deal'
+      type: DEAL
   };
 }
 
 
 export const drawCard = () =>{
   return{
-      type: 'draw'
+      type: DRAW
   };
 }
 
 
 export const attackEnemy = () =>{
   return{
-      type: 'attack'
+      type: ATTACK
   };
 }
 

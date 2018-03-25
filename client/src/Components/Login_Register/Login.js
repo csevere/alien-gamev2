@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
-import { Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import createHistory from 'history/createBrowserHistory'; 
+import { connect} from 'react-redux';
+import * as actions from '../../Actions';
+import { Link } from 'react-router-dom';
 import { FormErrors } from './FormErrors';
 import { 
     Card, 
@@ -20,9 +23,6 @@ export class Login extends Component{
 	constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this); 
-        this.handleUserInput = this.handleUserInput.bind(null);
-
         this.state = {
             activeTab: '1',
             username: '',
@@ -30,8 +30,62 @@ export class Login extends Component{
             formErrors: {username: '', password: ''},
             usernameValid: false,
             passwordValid: false,
-            formValid: false 
+            formValid: false,
+            loginMessage: '' 
         };
+
+        this.toggle = this.toggle.bind(this); 
+        this.handleUserInput = this.handleUserInput.bind(null);
+        this.handleSubmit = this.handleSubmit.bind(this); 
+    }
+
+    componentWillReceiveProps(formProps){
+        console.log("*************************");
+        console.log(formProps.login); 
+        console.log(formProps.login.response.data.msg); 
+        console.log("*************************");
+
+        var errorMessage = formProps.login.response.data.msg;
+        const history = createHistory();
+        const location = history.location;
+        const unlisten = history.listen((location, action) => {
+            // location is an object like window.location
+            console.log(action, location.pathname, location.state)
+          })
+           
+        ///BACKEND VALIDATION ////
+        if(errorMessage  == 'loginSuccess'){
+        //    history.push('/map');
+        //    history.go('/map'); 
+        }else if(errorMessage  == 'badUserName'){
+            console.log("BAD USERNAME")
+            this.setState({
+                registerMessage: 'Username not found. Please try again.'
+            })
+            setTimeout(() =>{
+                window.location.reload();
+            }, 2000)
+        }else if(errorMessage  == 'wrongPassword'){
+            console.log("BAD PASSWORD")
+            this.setState({
+                registerMessage: 'Wrong password. Please try again.'
+            })
+            setTimeout(() =>{
+                window.location.reload();
+            }, 2000)
+        }
+    }
+
+
+    handleSubmit(e){
+        e.preventDefault();
+        console.log("USER LOGGED IN!!")
+        
+        var loginData = {
+            username: e.target[0].value,
+            password: e.target[1].value,
+        }
+        this.props.loginUser(loginData);
     }
 
     toggle(tab){
@@ -87,15 +141,15 @@ export class Login extends Component{
 
 
 	render(){
-
 		return(
             <div>
                 <Container className = "login-wrapper">
                     <Card className = "p-3 login-card">
                         <CardBlock>
-                            <Form className = "login-content">
+                            <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
-                                    <FormErrors formErrors={this.state.formErrors} />
+                                    <FormErrors formErrors={this.state.formErrors}/>
+                                    <div className = "panel-message"><p>{this.state.registerMessage}</p></div>
                                 </div>
                                 <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
                                     <Label for="username">Username</Label>
@@ -121,7 +175,7 @@ export class Login extends Component{
                                     />
                                 </div>
 
-                                <div type = "submit" disabled ={!this.state.formValid} className = "button hvr-bob">
+                                <div disabled ={!this.state.formValid} className = "button hvr-bob">
                                     <div className = "line-container">
                                         <Button disabled ={!this.state.formValid} type = "submit"><span className = "text">PLAY</span></Button>
                                         <div className="line line--top-left line--thick thick-line--short"></div>
@@ -141,4 +195,13 @@ export class Login extends Component{
 	}
 }
 
-export default Login;
+function mapStateToProps(state){
+    return{
+        login: state.loginReducer
+    }
+}
+
+export default connect(mapStateToProps, actions)(Login); 
+
+
+

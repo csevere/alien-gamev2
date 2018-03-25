@@ -1,2 +1,9 @@
 export const REGISTER = 'register';
-export const AUTH_ERROR = 'auth_error'; 
+export const LOGIN = 'login'; 
+export const AUTH_ERROR = 'auth_error';
+export const NEXT = 'next';  
+export const BACK = 'back';
+export const SHUFFLE = 'shuffle';  
+export const DEAL = 'deal';  
+export const DRAW = 'draw';  
+export const ATTACK = 'attack';  

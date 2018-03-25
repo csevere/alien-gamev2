@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory'; 
 import { FormErrors } from './FormErrors';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 import { 
     Card, 
@@ -33,10 +33,7 @@ class Register extends Component{
             passwordValid: false,
             characterValid: false, 
             formValid: false,
-            registerMessage: '',
-            usernameError: null,
-            emailError: null,
-            formError: false
+            registerMessage: ''
         }
         this.toggle = this.toggle.bind(this); 
         this.handleUserInput = this.handleUserInput.bind(null);
@@ -100,42 +97,7 @@ class Register extends Component{
             password: e.target[2].value,
             character: e.target[3].value
         }
-        var error = false;
-
-        //username
-        if(registerData.username.length < 3){
-            var usernameError = 'error';
-            error = true;
-        }else{
-            var usernameError ='success';
-        }
-
-        //email 
-        if(registerData.email.length < 3){
-            var emailError = 'error';
-            error = true;
-        }else{
-            var emailError = 'success';
-        }
-
-         //character
-         if(registerData.character.length < 3){
-            var emailError = 'error';
-            error = true;
-        }else{
-            var emailError = 'success';
-        }
-
-        if(error){
-            this.setState({
-                formError: true,
-                emailError,
-                usernameError
-            })
-            console.log(error);
-        }else{
-            this.props.registerUser(registerData);
-        }
+        this.props.registerUser(registerData);
     }
 
     ///FRONTEND VALIDATION 
