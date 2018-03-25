@@ -7,32 +7,21 @@ import axios from 'axios';
 
 const ROOT_URL = 'http://localhost:5000'; 
 
+//REGISTER THE USER 
+
 export function registerUser(playerData) {
 
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
 
-  const request = axios({
-    method: "post",
-    url: `${ROOT_URL}/register`,
-    data: playerData,
-  }) 
-
   return function (dispatch) {
     axios.post(`${ROOT_URL}/register`, playerData)
       .then(response => {
-        dispatch({ type: REGISTER, data: request});
+        dispatch({ type: REGISTER, data:response});
       })
-      .catch(response => console.log('error'));
+      .catch(error => { console.log(error)});
   }
 }
-
-// export function authError(error) {
-//   return {
-//     type: AUTH_ERROR,
-//     payload: error
-//   };
-// }
 
 
 export const nextCount = () =>{

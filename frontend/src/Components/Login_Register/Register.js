@@ -51,22 +51,24 @@ class Register extends Component{
         console.log("*************************");
         console.log(formProps); 
         console.log(formProps.register); 
+        console.log(formProps.register.response.data.msg); 
+        var errorMessage = formProps.register.response.data.msg;
         console.log("*************************");
 
         ///BACKEND VALIDATION ////
-        if(formProps.register.msg == 'playerInserted'){
+        if(errorMessage  == 'playerInserted'){
             this.props.history.push('/'); 
-        }else if(formProps.register.msg == 'emailAlreadyExists'){
+        }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({
                 registerMessage: 'This email is already linked to an account.'
             })
-        }else if(formProps.register.msg == 'usernameAlreadyExists'){
+        }else if(errorMessage  == 'usernameAlreadyExists'){
             console.log("USERNAME TAKEN")
             this.setState({
                 registerMessage: 'This username is already linked to an account.'
             })
-        }else if(formProps.register.msg == 'characterAlreadyExists'){
+        }else if(errorMessage  == 'characterAlreadyExists'){
             console.log("CHARACTER TAKEN")
             this.setState({
                 registerMessage: 'This character name is already linked to an account.'
@@ -203,7 +205,7 @@ class Register extends Component{
                             <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors} />
-                                    <div className = "panel-message">{this.state.registerMessage}</div>
+                                    <div className = "panel-message"><p>{this.state.registerMessage}</p></div>
                                 </div>
                                 <div className = "d-flex flex-row">
                                     <FormGroup className = "p-2">

@@ -8,7 +8,7 @@ export default function (state = [], action){
   switch(action.type){
     case REGISTER:
     console.log(action); 
-      return {authenticated:true, reponse:action.data, ...state}
+      return {authenticated:true, response:action.data, ...state}
     case AUTH_ERROR:
       return {error:action.payload, ...state}
   }
