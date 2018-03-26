@@ -13,6 +13,7 @@ module.exports = function(router){
     console.log("*********** REGISTER INPUT RESULTS************"); 
     console.log(req.body);
     const playerData = req.body; 
+
     const hash = bcrypt.hashSync(playerData.password);
 
     const checkPlayerForm = new Promise((resolve, reject)=>{
@@ -117,5 +118,4 @@ module.exports = function(router){
       }
     })
   }); 
-
 }

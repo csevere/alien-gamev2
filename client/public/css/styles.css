@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
-/* line 1, ../../compass/sass/styles.scss */
-* {
-  font-family: 'Ek Mukta', sans-serif;
-}
-
 /* line 3, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
@@ -175,9 +170,24 @@ p {
 .main-footer {
   background: #111111;
   font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
   line-height: -1em;
   padding-top: 1em;
   font-size: 15px;
+}
+/* line 12, ../../compass/sass/_footer.scss */
+.main-footer .player-status {
+  margin-top: -1rem;
+  margin-left: 18rem;
+}
+/* line 15, ../../compass/sass/_footer.scss */
+.main-footer .player-status .player-status-btn {
+  float: right;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 1.5rem;
+  line-height: 0.25;
+  margin-top: 0rem;
+  padding: 1rem 1.75rem;
 }
 
 /* line 3, ../../compass/sass/_scene.scss */
@@ -448,69 +458,71 @@ p {
 /* line 11, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default {
   border-color: transparent;
+  background-color: transparent;
+  font-family: "Orbitron", sans-serif !important;
+  letter-spacing: 1px;
   margin-bottom: -6px;
   text-align: center;
-  background-color: transparent;
 }
-/* line 16, ../../compass/sass/_login.scss */
+/* line 18, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default .formErrors, .login-wrapper .panel-default .panel-message {
   display: flex;
 }
-/* line 18, ../../compass/sass/_login.scss */
+/* line 20, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default .formErrors p, .login-wrapper .panel-default .panel-message p {
   color: red;
   padding-left: 1em;
 }
-/* line 26, ../../compass/sass/_login.scss */
+/* line 28, ../../compass/sass/_login.scss */
 .login-wrapper button, .login-wrapper html [type="button"], .login-wrapper [type="reset"], .login-wrapper [type="submit"] {
   -webkit-appearance: none;
 }
-/* line 30, ../../compass/sass/_login.scss */
+/* line 32, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary.disabled, .login-wrapper .btn-secondary:disabled {
   background-color: transparent !important;
   border-color: transparent;
 }
-/* line 33, ../../compass/sass/_login.scss */
+/* line 35, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary.disabled:hover, .login-wrapper .btn-secondary:disabled:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 39, ../../compass/sass/_login.scss */
+/* line 41, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 42, ../../compass/sass/_login.scss */
+/* line 44, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 48, ../../compass/sass/_login.scss */
+/* line 50, ../../compass/sass/_login.scss */
 .login-wrapper .login-card {
   height: 18em;
   background: transparent !important;
 }
-/* line 52, ../../compass/sass/_login.scss */
+/* line 54, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content label, .login-wrapper .login-card .login-content input {
   color: #74f9fc;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
-/* line 58, ../../compass/sass/_login.scss */
+/* line 60, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content input {
   background: black;
   color: white;
 }
-/* line 66, ../../compass/sass/_login.scss */
+/* line 68, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button[disabled] {
   cursor: not-allowed;
   opacity: .65;
 }
-/* line 69, ../../compass/sass/_login.scss */
+/* line 71, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button[disabled] a {
   pointer-events: none;
 }
-/* line 74, ../../compass/sass/_login.scss */
+/* line 76, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button {
   margin-top: 3em;
   margin-left: 0em;
@@ -522,15 +534,15 @@ p {
   border-image-slice: 1;
   cursor: pointer;
 }
-/* line 85, ../../compass/sass/_login.scss */
+/* line 87, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button .text {
   letter-spacing: 10px;
 }
-/* line 87, ../../compass/sass/_login.scss */
+/* line 89, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button .text a {
   text-decoration: none;
 }
-/* line 96, ../../compass/sass/_login.scss */
+/* line 98, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .register .button {
   margin-top: 2em;
 }
@@ -1355,12 +1367,12 @@ html, body {
     opacity: 1;
   }
 }
-/* line 24, ../../compass/sass/styles.scss */
+/* line 23, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 30, ../../compass/sass/styles.scss */
+/* line 29, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }
