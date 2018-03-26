@@ -33,13 +33,28 @@ class Register extends Component{
             passwordValid: false,
             characterValid: false, 
             formValid: false,
-            registerMessage: ''
+            registerMessage: '',
         }
         this.toggle = this.toggle.bind(this); 
         this.handleUserInput = this.handleUserInput.bind(null);
         this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
+    handleSubmit(e){
+        e.preventDefault();
+        console.log("USER SUBMITTED THE FORM!!")
+        
+        var registerData = {
+            email: e.target[0].value,
+            username: e.target[1].value,
+            password: e.target[2].value,
+            character: e.target[3].value
+        }
+
+        this.props.registerUser(registerData);
+    }
+
+     ///BACKEND VALIDATION ////
     componentWillReceiveProps(formProps){
         console.log("*************************");
         console.log(formProps.register); 
@@ -51,13 +66,12 @@ class Register extends Component{
         const location = history.location;
         const unlisten = history.listen((location, action) => {
             // location is an object like window.location
-            console.log(action, location.pathname, location.state)
-          })
-           
-        ///BACKEND VALIDATION ////
+            console.log(action, location.pathname)
+        })
+        
         if(errorMessage  == 'playerInserted'){
-           history.push('/scene');
-           history.go('/scene'); 
+            history.push('/scene');
+            // history.go('/scene'); 
         }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({
@@ -85,19 +99,6 @@ class Register extends Component{
                 window.location.reload();
             }, 2000)
         }
-    }
-
-    handleSubmit(e){
-        e.preventDefault();
-        console.log("USER SUBMITTED THE FORM!!")
-        
-        var registerData = {
-            email: e.target[0].value,
-            username: e.target[1].value,
-            password: e.target[2].value,
-            character: e.target[3].value
-        }
-        this.props.registerUser(registerData);
     }
 
     ///FRONTEND VALIDATION 

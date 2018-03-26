@@ -42,7 +42,6 @@ export class Login extends Component{
     componentWillReceiveProps(formProps){
         console.log("*************************");
         console.log(formProps.login); 
-        console.log(formProps.login.response.data.msg); 
         console.log("*************************");
 
         var errorMessage = formProps.login.response.data.msg;
@@ -55,8 +54,7 @@ export class Login extends Component{
            
         ///BACKEND VALIDATION ////
         if(errorMessage  == 'loginSuccess'){
-        //    history.push('/map');
-        //    history.go('/map'); 
+           history.push('/map'); 
         }else if(errorMessage  == 'badUserName'){
             console.log("BAD USERNAME")
             this.setState({

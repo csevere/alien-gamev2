@@ -10,9 +10,11 @@
 
     .panel-default {
         border-color: transparent; 
+        background-color: transparent;
+        font-family: "Orbitron", sans-serif !important;
+        letter-spacing: 1px; 
         margin-bottom: -6px;
         text-align: center;
-        background-color: transparent;
         .formErrors, .panel-message{
             display: flex; 
             p{

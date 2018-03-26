@@ -21,12 +21,14 @@ export const registerUser = (playerData) =>{
     axios.post(`${ROOT_URL}/register`, playerData)
       .then(response => {
         dispatch({ type: REGISTER, data:response});
+        //save the randToken to local storage
+        localStorage.setItem('token', response.data.token);
       })
       .catch(error => { console.log(error)});
   }
 }
 
-//LOGIN IN THE PLAYER
+//LOGIN IN PLAYER
 export const loginUser = (playerData) => {
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
@@ -34,19 +36,22 @@ export const loginUser = (playerData) => {
   return function (dispatch) {
     axios.post(`${ROOT_URL}/login`, playerData)
       .then(response => {
-        dispatch({ type: LOGIN, data:response});
+        dispatch({ type: LOGIN, data:response, playerData});
+        //save the randToken to local storage
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('name', playerData.name); 
       })
       .catch(error => { console.log(error)});
   }
 }
 
-//LOGOUT PLAYER 
+// LOGOUT PLAYER 
 export const logoutUser = () =>{
+  localStorage.removeItem('token'); 
   return{
-    type: LOGOUT 
+    type: LOGOUT
   }
 }
-
 
 
 //SCENE ACTIONS/////
