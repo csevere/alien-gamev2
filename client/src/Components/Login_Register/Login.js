@@ -55,6 +55,7 @@ export class Login extends Component{
         ///BACKEND VALIDATION ////
         if(errorMessage  == 'loginSuccess'){
            history.push('/map'); 
+           history.go('/map'); 
         }else if(errorMessage  == 'badUserName'){
             console.log("BAD USERNAME")
             this.setState({

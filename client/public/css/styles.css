@@ -177,11 +177,16 @@ p {
 }
 /* line 12, ../../compass/sass/_footer.scss */
 .main-footer .player-status {
+  margin-top: -1rem;
+  margin-left: 18rem;
+}
+/* line 15, ../../compass/sass/_footer.scss */
+.main-footer .player-status .player-status-btn {
   float: right;
   font-family: "Orbitron", sans-serif !important;
   font-size: 1.5rem;
   line-height: 0.25;
-  margin: auto;
+  margin-top: 0rem;
   padding: 1rem 1.75rem;
 }
 

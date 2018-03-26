@@ -58,10 +58,13 @@ class Register extends Component{
     componentWillReceiveProps(formProps){
         console.log("*************************");
         console.log(formProps.register); 
-        console.log(formProps.register.response.data.msg); 
         console.log("*************************");
+        
+        const localToken = localStorage.getItem('token'); 
 
-        var errorMessage = formProps.register.response.data.msg;
+        if(localToken){
+            var errorMessage = formProps.register.response.data.msg;
+        }
         const history = createHistory();
         const location = history.location;
         const unlisten = history.listen((location, action) => {
@@ -71,7 +74,7 @@ class Register extends Component{
         
         if(errorMessage  == 'playerInserted'){
             history.push('/scene');
-            // history.go('/scene'); 
+            history.go('/scene'); 
         }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({

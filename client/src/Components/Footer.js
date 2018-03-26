@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import createHistory from 'history/createBrowserHistory'; 
+import createHistory from 'history/createBrowserHistory'; 
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
 import { Row, Col, Button } from 'reactstrap';
@@ -12,7 +12,10 @@ class Footer extends Component {
     }
 
     quitGame(){
-        this.props.logoutUser();  
+        this.props.logoutUser(); 
+        const history = createHistory();
+        history.push('/');
+        history.go('/'); 
     }
 
 
@@ -41,12 +44,12 @@ class Footer extends Component {
             ]
         }else{
             var rightPlayerStatus = [
-                <div className = "d-flex flex-row" style = {statStyle}>
-                    <Button className = "player-status ml-3" color="success">
+                <div className = "d-flex flex-row player-status" style = {statStyle}>
+                    <Button className = "player-status-btn ml-3" color="success">
                         <div className = "text-white p-2">Player Status :</div> 
                         <div className = "text-white status-red p-2">&nbsp; {localName} is active</div>
                     </Button>
-                    <Button className = "player-status ml-3" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
+                    <Button className = "player-status-btn ml-3 quit" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
                 </div>
             ]  
         
