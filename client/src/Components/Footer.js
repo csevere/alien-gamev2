@@ -43,10 +43,7 @@ class Footer extends Component {
 
         }else{
             var rightPlayerStatus = [ 
-                <Button className = "d-flex flex-row player-status" color="danger">
-                    <div className = "text-white p-2">Player Status :</div> 
-                    <div className = "text-white status-red p-2">&nbsp;Inactive</div>
-                </Button>
+
             ] 
         }
 

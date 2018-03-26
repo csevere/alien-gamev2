@@ -42,7 +42,7 @@ Okay, this one was super frustrating for some reason, but with a series of troub
 ## Game Walkthrough
 
 <p align='center'>
-  <img src="client/public/Images/mainscreen.png">
+  <img src="client/public/ReadMe/homescreen.png">
 </p>
 
 <p align='center'>
