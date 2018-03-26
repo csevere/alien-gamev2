@@ -29,6 +29,7 @@ const Companions = (props) =>{
                     <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
                 </CardFooter>
             </Card>
+
             <Card className = "companions-card mr-4">
                 <CardHeader className = "text-center">Ryker</CardHeader>
                 <CardImg src = "assets/players/ally2.png"/> 
@@ -36,6 +37,7 @@ const Companions = (props) =>{
                     <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
                 </CardFooter>
             </Card>
+            
             <Card className = "companions-card mr-4">
                 <CardHeader className = "text-center">Faust</CardHeader>
                 <CardImg src = "assets/players/ally3.png" />

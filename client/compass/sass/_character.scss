@@ -1,0 +1,107 @@
+@import 'variables'; 
+
+$activeColor: #27ae60; //green
+$darkenColor: darken($activeColor, 20%);
+
+.char-wrapper{
+  background: url('/assets/bg/scifi-texture.jpg'); 
+  background-size: contain;
+  background-position: center;  
+  height:100%;
+  min-height: 77em;
+  z-index: 0;
+
+  
+
+
+  .char-container{
+    color: red; 
+    height: 72rem; 
+    width: 10rem;
+    background: $scene-bg;
+    border: 4px solid #d9edf7;
+    border-style: ridge;
+    font-family: $button-text;
+    font-size: 4rem; 
+    margin: auto;
+    padding: 3rem;
+    text-align: center; 
+    text-shadow: $text-shadow;
+    text-transform: uppercase;  
+    width: 80%; 
+
+        /* .roundedOne */
+    .roundedOne {
+      width: 28px;
+      height: 28px;
+      position: relative;
+      margin-left: 7.25rem !important;
+      background: #fcfff4;
+      background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+      border-radius: 50px;
+      box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+      label {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        border-radius: 50px;
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+        &:after {
+          content: '';
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          background: $activeColor;
+          background: linear-gradient(top, $activeColor 0%, $darkenColor 100%);
+          opacity: 0;
+          border-radius: 50px;
+          box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+        }
+        &:hover::after {
+          opacity: 0.3;
+        }
+      }
+      input[type=checkbox] {
+        visibility: hidden;
+        &:checked + label:after {
+          opacity: 1;
+        }
+      }    
+    }
+/* end .roundedOne */
+    .char-text{
+        font-family: $button-text; 
+    }
+    margin: auto; 
+    .companions-card{
+        border: 4px solid $ally-border;
+        box-shadow: $box-shadow-al;
+        color: white; 
+        height: 20rem; 
+        width: 78%;
+        text-transform: uppercase;
+        img{
+            height: 80%; 
+        }
+        .card-header{
+            font-family: 'Exo 2', sans-serif;
+            background: $ally-inner !important;
+        }
+        .card-footer{
+            margin: auto;
+            position: relative;
+            top: -6rem;
+            background: transparent; 
+        }
+        .card-header{
+            font-size: 1.5rem;
+        }
+    }
+  }
+}

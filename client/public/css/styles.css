@@ -1367,12 +1367,124 @@ html, body {
     opacity: 1;
   }
 }
-/* line 23, ../../compass/sass/styles.scss */
+/* line 6, ../../compass/sass/_character.scss */
+.char-wrapper {
+  background: url("/assets/bg/scifi-texture.jpg");
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  min-height: 77em;
+  z-index: 0;
+}
+/* line 17, ../../compass/sass/_character.scss */
+.char-wrapper .char-container {
+  color: red;
+  height: 72rem;
+  width: 10rem;
+  background: rgba(9, 12, 39, 0.7);
+  border: 4px solid #d9edf7;
+  border-style: ridge;
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 4rem;
+  margin: auto;
+  padding: 3rem;
+  text-align: center;
+  text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  width: 80%;
+  /* .roundedOne */
+  /* end .roundedOne */
+  margin: auto;
+}
+/* line 34, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-left: 7.25rem !important;
+  background: #fcfff4;
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* line 43, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: linear-gradient(top, #222 0%, #45484d 100%);
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+}
+/* line 53, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne label:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #27ae60;
+  background: linear-gradient(top, #27ae60 0%, #145b32 100%);
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* line 66, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne label:hover::after {
+  opacity: 0.3;
+}
+/* line 70, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne input[type=checkbox] {
+  visibility: hidden;
+}
+/* line 72, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .roundedOne input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+/* line 78, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .char-text {
+  font-family: "Orbitron", sans-serif !important;
+}
+/* line 82, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .companions-card {
+  border: 4px solid #127d2a;
+  box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #3c763d, 0px 0px 0px #28a745, 0 0 20px #5cca5e, 0 0 0px #ededf7;
+  color: white;
+  height: 20rem;
+  width: 78%;
+  text-transform: uppercase;
+}
+/* line 89, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .companions-card img {
+  height: 80%;
+}
+/* line 92, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .companions-card .card-header {
+  font-family: 'Exo 2', sans-serif;
+  background: -webkit-radial-gradient(center, ellipse cover, #28a745 0%, #0a0909 98%, #0def48 100%) !important;
+}
+/* line 96, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .companions-card .card-footer {
+  margin: auto;
+  position: relative;
+  top: -6rem;
+  background: transparent;
+}
+/* line 102, ../../compass/sass/_character.scss */
+.char-wrapper .char-container .companions-card .card-header {
+  font-size: 1.5rem;
+}
+
+/* line 24, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 29, ../../compass/sass/styles.scss */
+/* line 30, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }

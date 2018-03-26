@@ -68,8 +68,8 @@ class Register extends Component{
         const history = createHistory();
         
         if(errorMessage  == 'playerInserted'){
-            history.push('/scene');
-            history.go('/scene'); 
+            history.push('/choose');
+            history.go('/choose'); 
         }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({

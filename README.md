@@ -27,7 +27,8 @@ With that, the rest was history, and I simply compared the user input values aga
 
 - Authentication Part 2: Keeping the user logged in after page refreshes and handling log out
 
-Okay, this one was super frustrating for some reason, but with a series of troubleshooting got me the desired results. 
+Okay, this one was super frustrating for some reason, but a series of troubleshooting got me the desired results. Also, one line saved my life: localStorage.setItem('token', response.data.token);
+
 
 <p align='center'>
   <img src="client/public/ReadMe/userloggedin2.png">
