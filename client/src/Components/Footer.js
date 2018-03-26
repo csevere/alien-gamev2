@@ -18,27 +18,19 @@ class Footer extends Component {
         history.go('/'); 
     }
 
-
     render(){
         const statStyle = {
             float: 'right',
             marginLeft: '23rem'
         }
 
-        // const { authenticated } = this.props.userData; 
         console.log("*******CHECKING LOGOUT ACTION**********");
         const localToken = localStorage.getItem('token'); 
         const localName = localStorage.getItem('name'); 
         console.log(localToken); 
+        console.log(localName); 
 
-        if(!localToken){
-            var rightPlayerStatus = [ 
-                <Button className = "d-flex flex-row player-status" color="danger">
-                    <div className = "text-white p-2">Player Status :</div> 
-                    <div className = "text-white status-red p-2">&nbsp;Inactive</div>
-                </Button>
-            ]
-        }else{
+        if(localToken && localName){
             var rightPlayerStatus = [
                 <div className = "d-flex flex-row player-status" style = {statStyle}>
                     <Button className = "player-status-btn ml-3" color="success">
@@ -47,7 +39,15 @@ class Footer extends Component {
                     </Button>
                     <Button className = "player-status-btn ml-3 quit" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
                 </div>
-            ]  
+            ]
+
+        }else{
+            var rightPlayerStatus = [ 
+                <Button className = "d-flex flex-row player-status" color="danger">
+                    <div className = "text-white p-2">Player Status :</div> 
+                    <div className = "text-white status-red p-2">&nbsp;Inactive</div>
+                </Button>
+            ] 
         }
 
         return(
@@ -66,6 +66,5 @@ class Footer extends Component {
         )
     }
 }
-
 
 export default connect(null,actions)(Footer);

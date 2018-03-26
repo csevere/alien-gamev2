@@ -23,7 +23,6 @@ export const registerUser = (playerData) =>{
         dispatch({ type: REGISTER, data:response});
         //save the randToken to local storage
         localStorage.setItem('token', response.data.token);
-        localStorage.setItem('name', playerData.username); 
       })
       .catch(error => { console.log(error)});
   }

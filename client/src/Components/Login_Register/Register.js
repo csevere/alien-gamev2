@@ -62,9 +62,9 @@ class Register extends Component{
         
         const localToken = localStorage.getItem('token'); 
 
-        if(localToken){
-            var errorMessage = formProps.register.response.data.msg;
-        }
+   
+        var errorMessage = formProps.register.response.data.msg;
+      
         const history = createHistory();
         
         if(errorMessage  == 'playerInserted'){
@@ -99,8 +99,10 @@ class Register extends Component{
         }
     }
 
-    ///FRONTEND VALIDATION 
 
+    
+
+    ///FRONTEND VALIDATION 
     handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value; 
