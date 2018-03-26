@@ -66,11 +66,6 @@ class Register extends Component{
             var errorMessage = formProps.register.response.data.msg;
         }
         const history = createHistory();
-        const location = history.location;
-        const unlisten = history.listen((location, action) => {
-            // location is an object like window.location
-            console.log(action, location.pathname)
-        })
         
         if(errorMessage  == 'playerInserted'){
             history.push('/scene');

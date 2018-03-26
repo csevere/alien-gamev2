@@ -20,17 +20,13 @@ class Footer extends Component {
 
 
     render(){
-        // this.props.logoutUser ("faux");
-        const { authenticated } = this.props.userData; 
-        console.log("*******CHECKING LOGOUT ACTION**********");
-        console.log(this.props.userData);
-        console.log(authenticated); 
-    
         const statStyle = {
             float: 'right',
             marginLeft: '23rem'
         }
 
+        // const { authenticated } = this.props.userData; 
+        console.log("*******CHECKING LOGOUT ACTION**********");
         const localToken = localStorage.getItem('token'); 
         const localName = localStorage.getItem('name'); 
         console.log(localToken); 
@@ -52,8 +48,8 @@ class Footer extends Component {
                     <Button className = "player-status-btn ml-3 quit" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
                 </div>
             ]  
-        
         }
+
         return(
             <footer className = "main-footer pl-3">
                 <Row className="no-gutters d-flex flex-row">
@@ -71,10 +67,5 @@ class Footer extends Component {
     }
 }
 
-function mapStateToProps(state){
-    return{
-        userData: state.loginReducer
-    }
-}
-	
-export default connect(mapStateToProps,actions)(Footer);
+
+export default connect(null,actions)(Footer);
