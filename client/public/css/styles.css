@@ -449,6 +449,41 @@ p {
 .lognav-wrapper .lognav-content .register-tab {
   height: 25em;
 }
+/* line 62, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn {
+  margin-top: 15rem;
+  margin-left: 10rem;
+  width: 80%;
+  letter-spacing: 4px;
+}
+/* line 68, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn .btn-secondary.disabled, .lognav-wrapper .loggedIn .btn-secondary:disabled {
+  background-color: transparent !important;
+  border-color: transparent;
+}
+/* line 71, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn .btn-secondary.disabled:hover, .lognav-wrapper .loggedIn .btn-secondary:disabled:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+/* line 77, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn .btn-secondary {
+  background-color: transparent;
+  border-color: transparent;
+}
+/* line 80, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn .btn-secondary:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+/* line 84, ../../compass/sass/_loginnav.scss */
+.lognav-wrapper .loggedIn .btn-secondary .text {
+  font-size: 1.5em;
+  letter-spacing: 5px;
+  margin-left: 4rem;
+  margin-top: -2rem;
+  text-align: center;
+}
 
 /* line 5, ../../compass/sass/_login.scss */
 .login-wrapper .demoForm {

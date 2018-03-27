@@ -18,6 +18,8 @@ import {
     FormText
 } from 'reactstrap';
 
+const localToken = localStorage.getItem('token'); 
+
 class Register extends Component{
 	constructor(props) {
         super(props);
@@ -60,15 +62,12 @@ class Register extends Component{
         console.log(formProps.register); 
         console.log("*************************");
         
-        const localToken = localStorage.getItem('token'); 
-
         var errorMessage = formProps.register.response.data.msg;
-      
-        const history = createHistory();
         
         if(errorMessage  == 'playerInserted'){
-            history.push('/');
-            history.go('/Ç'); 
+            this.setState({
+                registerMessage: 'Player registration successful. Please log in to play.'
+            })
         }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({

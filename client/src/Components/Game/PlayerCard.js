@@ -9,6 +9,10 @@ import { Card,
     CardFooter 
 } from 'reactstrap';
 
+const localChar = localStorage.getItem('charName'); 
+const localPic = localStorage.getItem('pic'); 
+const localExp = localStorage.getItem('exp'); 
+const localLevel = localStorage.getItem('level'); 
 
 class PlayerCard extends Component{
     constructor(props){
@@ -20,11 +24,11 @@ class PlayerCard extends Component{
     render(){
         return(
             <Card>
-                <CardHeader className = "text-center enemy">Zackaria</CardHeader>
-                <CardImg width="100%" src = "assets/players/player1.jpg" />
+                <CardHeader className = "text-center enemy">{localChar}</CardHeader>
+                <CardImg width="100%" src = {localPic} />
                 <CardFooter className="text-center d-flex flex-column">
-                    <div>LEVEL : 1</div>
-                    <div>EXP : 100</div>
+                    <div>LEVEL : {localLevel}</div>
+                    <div>EXP : {localExp}</div>
                 </CardFooter>
             </Card>
         )
