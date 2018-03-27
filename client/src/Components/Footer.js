@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import * as actions from '../Actions';
 import { Row, Col, Button } from 'reactstrap';
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
+
 class Footer extends Component { 
     constructor(props){
         super(props); 
@@ -25,14 +28,12 @@ class Footer extends Component {
         }
 
         console.log("*******CHECKING LOGOUT ACTION**********");
-        const localToken = localStorage.getItem('token'); 
-        const localName = localStorage.getItem('name'); 
         console.log(localToken); 
         console.log(localName); 
 
         if(localToken && localName){
             var rightPlayerStatus = [
-                <div className = "d-flex flex-row player-status" style = {statStyle}>
+                <div className = "d-flex flex-row player-status" style = {statStyle} key = '1'>
                     <Button className = "player-status-btn ml-3" color="success">
                         <div className = "text-white p-2">Player Status :</div> 
                         <div className = "text-white status-red p-2">&nbsp; {localName} is active</div>
@@ -42,9 +43,7 @@ class Footer extends Component {
             ]
 
         }else{
-            var rightPlayerStatus = [ 
-
-            ] 
+            var rightPlayerStatus = [] 
         }
 
         return(

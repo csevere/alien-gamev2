@@ -16,6 +16,10 @@ import {
 	Input,
 	Row} from 'reactstrap';
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
+const localChar = localStorage.getItem('charName'); 
+const history = createHistory();
 
 class ChooseCharacter extends Component{
     constructor(props){
@@ -32,8 +36,8 @@ class ChooseCharacter extends Component{
 	
 	handleCharSubmit(e){
 		e.preventDefault();
-        console.log("USER SUBMITTED A PIC!!")
-        
+		console.log("USER SUBMITTED A PIC!!")
+
         var charPicData = {
 			picture: e.target[0].value,
 			character: e.target[4].value 
@@ -59,16 +63,29 @@ class ChooseCharacter extends Component{
         }, 6000)
 	}
 	
-	componentWillMount(){
+	componentWillMount(charProps){
 		//Getting character name
-		const localToken = localStorage.getItem('token'); 
-		const localName = localStorage.getItem('name'); 
-		const localChar = localStorage.getItem('charName'); 
-
 		if(localToken && localName){
 			this.setState({
 				charName:localChar
 			})
+		}
+	}
+
+	componentWillReceiveProps(charProps){
+		console.log("*************************");
+        console.log(charProps.chooseChar); 
+		console.log("*************************");
+		
+		const localExp = localStorage.getItem('exp'); 
+		const localLevel = localStorage.getItem('level');
+
+		var dataMessage = charProps.chooseChar.response.data.msg;
+		console.log(dataMessage); 
+		if(dataMessage === "picInserted"){
+			console.log("wait"); 
+			console.log(localExp);
+			console.log(localLevel); 
 		}
 	}
 
@@ -181,7 +198,7 @@ class ChooseCharacter extends Component{
 
 function mapStateToProps(state){
     return{
-        chooseChar: state. chooseChar
+        chooseChar: state.chooseChar
     }
 }
 

@@ -57,5 +57,37 @@
         .register-tab{
             height: 25em; 
         }
-    }  
+    } 
+    
+    .loggedIn{
+       
+        margin-top: 15rem;
+        margin-left: 10rem;
+        width: 80%;
+        letter-spacing: 4px; 
+        .btn-secondary.disabled, .btn-secondary:disabled{
+            background-color: transparent !important;
+            border-color: transparent; 
+            &:hover {
+              background-color:transparent;
+              border-color: transparent;
+            }
+          }
+          
+          .btn-secondary {
+            background-color:transparent;
+            border-color: transparent;
+            &:hover {
+              background-color:transparent;
+              border-color: transparent;
+            }
+            .text{
+                font-size: 1.5em;
+                letter-spacing: 5px;
+                margin-left: 4rem;
+                margin-top: -2rem; 
+                text-align: center;
+            }
+          }
+    }
 }

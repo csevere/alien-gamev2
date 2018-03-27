@@ -3,6 +3,8 @@ import { Container, Row, Col, Button, Card, CardGroup, CardHeader, CardBlock, Ca
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 
+const localChar = localStorage.getItem('charName'); 
+const localPic = localStorage.getItem('pic'); 
 
 class Conversation1 extends Component{
     constructor(props){
@@ -109,6 +111,9 @@ class Conversation1 extends Component{
     }
 
     renderMainChar(){
+        console.log(localPic);
+        console.log(localChar);
+
         const { storyconvo } = this.props; 
 
         const TransitionEffects2 = {
@@ -127,19 +132,17 @@ class Conversation1 extends Component{
             opacity: this.state.opacity4 
         }
 
-
         const TransitionEffects5 = {
             transition: this.state.transition5 ,
             opacity: this.state.opacity5 
         }
-
 
         return storyconvo.map((storyconvo) => {
             if(storyconvo.id == 2){
                 return(
                     <CardGroup style = {TransitionEffects2} key = {storyconvo.id}>
                         <Card className = "side-text">
-                            <CardHeader className = "convo-text header header-2">{storyconvo.name}</CardHeader>
+                            <CardHeader className = "convo-text header header-2">{localChar}</CardHeader>
                             <CardBlock className = "convo-side">
                                 <CardText className = "convo-text p-3 d-flex flex-column m-auto">
                                     <Link to = "/map"><Button><div style = {TransitionEffects3} className = "convo-text">{storyconvo.choice1}</div></Button></Link>
@@ -150,14 +153,13 @@ class Conversation1 extends Component{
                         </Card>
                         <Col md = "2">
                             <Card className = "speaker2">
-                                <CardImg className = "img-fluid" top width="100%" src={storyconvo.image} alt="Card image cap" />
+                                <CardImg className = "img-fluid" top width="100%" src={localPic} alt="Card image cap" />
                             </Card>
                         </Col>
                     </CardGroup>
                 )
             }
         });
-       
     }
 
     render(){
@@ -211,7 +213,8 @@ class Conversation1 extends Component{
 const mapStateToProps = (state)=>{
     return{
         storyconvo: state.storyConvoLibrary,
-        selectedconvo: state.selectedConvoId
+        selectedconvo: state.selectedConvoId,
+        charpic:state.chooseChar
     }
 }
 

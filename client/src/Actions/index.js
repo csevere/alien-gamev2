@@ -55,6 +55,8 @@ export const logoutUser = () =>{
   localStorage.removeItem('name'); 
   localStorage.removeItem('charName'); 
   localStorage.removeItem('pic'); 
+  localStorage.removeItem('exp');
+  localStorage.removeItem('level'); 
   return{
     type: LOGOUT
   }
@@ -70,7 +72,12 @@ export const choosePic = (charPicData) =>{
     axios.post(`${ROOT_URL}/char`, charPicData)
     .then(response => {
       dispatch ({type: CHOOSE, data:response}); 
+      console.log("**********EXP RESPONSE********")
+      console.log(response);
+      console.log("******************")
       localStorage.setItem('pic', charPicData.picture); 
+      localStorage.setItem('exp', response.data.exp);
+      localStorage.setItem('level', response.data.level); 
     })
     .catch(error => {console.log(error)}); 
   }

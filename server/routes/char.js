@@ -13,20 +13,31 @@ module.exports = function(router){
       console.log('**********CHECKING CHAR RESULTS*********') 
       console.log(results); 
       if(error) throw error;
-      if(results.length === 0){
+      if(results.length > 0){
+        results = JSON.stringify(results);
+        var resJSON = JSON.parse(results);
+        var character = resJSON[0].character;
+        var picture = resJSON[0].picture;
+        var experience = resJSON[0].experience;
+        var level = resJSON[0].level;
+        console.log(experience);
+        console.log(level); 
         res.json({
-          msg:'badcharName'
+          character,
+          picture,
+          exp: experience,
+          level,
+          msg: 'picInserted'
         })
       }else{
-        const insertCharQuery = "UPDATE `characters` SET picture = ? WHERE `character` = ?;"; 
-        connection.query(insertCharQuery, [charData.picture, charData.character], (error, results)=>{
+        const updateCharQuery = "UPDATE `characters` SET picture = ? WHERE `character` = ?;"; 
+        connection.query(updateCharQuery, [charData.picture, charData.character, charData.experience, charData.level], (error, results)=>{
           if(error){
             console.log(error)
             throw error; 
           }else {
             res.json({
-              msg:'picInserted',
-              pic: charData.picture 
+              msg:'success', 
             })
           }
           console.log("pic inserted success!")

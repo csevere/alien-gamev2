@@ -1,22 +1,22 @@
 [
     {
       "id": 1,
-      "name":"Meliz",
-      "image": "assets/players/ally1.jpg",
+      "name":"Ryker",
+      "image": "assets/players/char2.png",
       "text": "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut'"
     },
     {
       "id": 2,
       "name": "Zackaria",
-      "image": "assets/players/player1.jpg",
+      "image": "assets/players/p1.jpg",
       "choice1": "1. 'I agree. We should scout the area and find the other team.'",
       "choice2": "2. '... I don't really care what we do.'",
       "choice3": "3. 'And who the hell made you the leader?'"
     },
     {
       "id": 3,
-      "name":"Meliz",
-      "image": "assets/players/ally1.jpg",
+      "name":"Ryker",
+      "image": "assets/players/char2.png",
       "text": "Good. Then let's proceed. Be careful out there."
     },
     {

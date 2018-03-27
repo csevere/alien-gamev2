@@ -67,8 +67,8 @@ module.exports = function(router){
             console.log("*************************")
           }
 
-          const insertCharQuery = "INSERT INTO `characters` (`character`) VALUES (?);"; 
-          connection.query(insertCharQuery, [playerData.character], (error, results)=>{
+          const insertCharQuery = "INSERT INTO `characters` (`character`, experience, level) VALUES (?,'100', '1');"; 
+          connection.query(insertCharQuery, [playerData.character, playerData.experience, playerData.level], (error, results)=>{
             if(error){
               console.log(error)
               throw error; 

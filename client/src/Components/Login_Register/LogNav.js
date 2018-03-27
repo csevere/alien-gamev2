@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link} from 'react-router-dom';
 import { 
+    Button,
     TabContent, 
     TabPane, 
     Nav, 
@@ -14,14 +15,19 @@ import Register from './Register';
 import Login from './Login'; 
 import classnames from 'classnames';
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
+
 export class LogNav extends Component{
 	constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this); 
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+            loggedIn:'none'
         };
+
+        this.toggle = this.toggle.bind(this); 
     }
 
     toggle(tab){
@@ -32,11 +38,27 @@ export class LogNav extends Component{
         }
     }
 
+    componentDidMount(){
+        if (localToken && localName){
+            this.setState({
+                loggedIn: 'block'
+            })
+        }
+    }
+
 	render(){
 
+        const logNavStyle = {
+            display: 'none'
+        }
+
+        const loggedInBtn = {
+            display: this.state.loggedIn
+        }
+
 		return(
-            <div  className = "py-3 mb-3 lognav-wrapper">
-                <Row className = "row-nav"> 
+            <div className = "py-3 mb-3 lognav-wrapper">
+                <Row className = "row-nav" style = {localName && localToken ? logNavStyle : null}> 
                     <Col className = "logtabs align-middle mx-auto my-5" sm = "9" md = "9">
                         <Nav tabs>
                             <NavItem>
@@ -71,6 +93,19 @@ export class LogNav extends Component{
                         </TabContent>
                     </Col>
                 </Row> 
+                <Link to = '/scene' style = {loggedInBtn}> 
+                    <div className = "button hvr-bob loggedIn">
+                        <div className = "line-container">
+                            <Button type ="submit"><span className = "text">CONTINUE</span></Button>
+                            <div className="line line--top-left line--thick thick-line--short"></div>
+                            <div className="line line--top-right line--thick thick-line--short"></div>
+                            <div className="line line--bottom-left line--thick thick-line--long"></div>
+                            <div className="line line--bottom-right line--thick thick-line--long"></div>
+                            <div className="line line--top line--thin"></div>
+                            <div className="line line--bottom line--thin"></div>
+                        </div>
+                    </div>
+                </Link>
 			</div>
 		)
 	}
