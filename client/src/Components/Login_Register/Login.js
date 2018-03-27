@@ -96,6 +96,7 @@ export class Login extends Component{
     }
 
     handleUserInput = (e) => {
+        e.preventDefault();
         const name = e.target.name;
         const value = e.target.value; 
         this.setState({[name]: value},
@@ -111,7 +112,7 @@ export class Login extends Component{
 
           case 'username':
             //check for min 6 chars
-            usernameValid = value.length >= 6;
+            usernameValid = value.length >= 3;
             fieldValidationErrors.username = usernameValid ? '' : ' is invalid';
             break;
             //check for min 6 characters

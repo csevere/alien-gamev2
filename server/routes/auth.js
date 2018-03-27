@@ -47,8 +47,8 @@ module.exports = function(router){
       () => {
         //set up a token for the user
         var token = randToken.uid(25); 
-        var insertQuery = "INSERT INTO players (email, username, `password`, `character`, token) VALUES (?,?,?,?,?);";
-        connection.query(insertQuery, [playerData.email, playerData.username, hash, playerData.character, token], (error, results)=>{
+        var insertPlayerQuery = "INSERT INTO players (email, username, `password`, `character`, token) VALUES (?,?,?,?,?);";
+        connection.query(insertPlayerQuery, [playerData.email, playerData.username, hash, playerData.character, token], (error, results)=>{
           if(error){
             throw error;
             res.json({
@@ -66,7 +66,16 @@ module.exports = function(router){
             console.log("register success"); 
             console.log("*************************")
           }
-        })
+
+          const insertCharQuery = "INSERT INTO `characters` (`character`) VALUES (?);"; 
+          connection.query(insertCharQuery, [playerData.character], (error, results)=>{
+            if(error){
+              console.log(error)
+              throw error; 
+            }
+            console.log("character registration success!")
+          }); 
+        });
       }
     ).catch(
         (error)=>{
@@ -104,6 +113,7 @@ module.exports = function(router){
             res.json({
               msg: "loginSuccess",
               name: playerData.username,
+              charName: resJSON[0].character,
               token
             })
             console.log("*************************")

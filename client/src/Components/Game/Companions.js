@@ -24,7 +24,7 @@ const Companions = (props) =>{
         <div className = "companions d-flex flex-row">
             <Card className = "companions-card mr-4">
                 <CardHeader className = "text-center">Meliz</CardHeader>
-                <CardImg src = "assets/players/ally1.jpg" />
+                <CardImg src = "assets/players/char1.jpg" />
                 <CardFooter>
                     <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
                 </CardFooter>
@@ -32,15 +32,15 @@ const Companions = (props) =>{
 
             <Card className = "companions-card mr-4">
                 <CardHeader className = "text-center">Ryker</CardHeader>
-                <CardImg src = "assets/players/ally2.png"/> 
+                <CardImg src = "assets/players/char2.png"/> 
                 <CardFooter>
                     <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
                 </CardFooter>
             </Card>
-            
+
             <Card className = "companions-card mr-4">
                 <CardHeader className = "text-center">Faust</CardHeader>
-                <CardImg src = "assets/players/ally3.png" />
+                <CardImg src = "assets/players/char3.png" />
                 <CardFooter>
                     <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
                 </CardFooter>

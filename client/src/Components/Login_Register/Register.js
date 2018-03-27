@@ -62,14 +62,13 @@ class Register extends Component{
         
         const localToken = localStorage.getItem('token'); 
 
-   
         var errorMessage = formProps.register.response.data.msg;
       
         const history = createHistory();
         
         if(errorMessage  == 'playerInserted'){
-            history.push('/choose');
-            history.go('/choose'); 
+            history.push('/');
+            history.go('/Ç'); 
         }else if(errorMessage  == 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({
@@ -99,9 +98,6 @@ class Register extends Component{
         }
     }
 
-
-    
-
     ///FRONTEND VALIDATION 
     handleUserInput = (e) => {
         const name = e.target.name;
@@ -118,7 +114,6 @@ class Register extends Component{
         let characterValid = this.state.characterValid; 
       
         switch(fieldName) {
-
             case 'email':
                 //simple regex for emails
                 emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -141,7 +136,7 @@ class Register extends Component{
                 break;
         }
         //setState to update the formErrors and the field validity 
-        //and we pass the validateForm callback to set the value of formValid.
+        //and pass the validateForm callback to set the value of formValid.
         this.setState({formErrors: fieldValidationErrors,
                         emailValid: emailValid,
                         usernameValid: usernameValid,
@@ -157,6 +152,8 @@ class Register extends Component{
     errorClass(error) {
         return(error.length === 0 ? '' : 'has-error');
     }
+
+    //END FRONTEND VALIDATION
 
     toggle(tab){
         if (this.state.activeTab !== tab) {

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import CardShuffleReducer from './CardShuffleReducer'; 
+import ChooseCharReducer from './ChooseCharReducer'; 
 import DealNewReducer from './DealNewReducer';
 import DrawCardReducer from './DrawCardReducer';  
 import LoginReducer from './LoginReducer'; 
@@ -15,6 +16,7 @@ import RegisterReducer from './RegisterReducer';
  
 const rootReducer =  combineReducers({
     cardShuffle: CardShuffleReducer,
+    chooseChar: ChooseCharReducer,
     newDeck: DealNewReducer, 
     loginReducer:LoginReducer,
     playersHand: DrawCardReducer,

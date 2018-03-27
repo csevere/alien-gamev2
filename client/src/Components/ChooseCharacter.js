@@ -11,6 +11,9 @@ import {
     CardFooter, 
 	Col,
 	Form,
+	FormGroup,
+	Label,
+	Input,
 	Row} from 'reactstrap';
 
 
@@ -22,15 +25,21 @@ class ChooseCharacter extends Component{
             showContainer: 'none',
             transition:'transition',
 			opacity: 0,
-			background: '',
-			border: '',
-			boxShadow: ''
+			charName: ''
 		}
-		 this.chooseChar = this.chooseChar.bind(this); 
+		 this.handleCharSubmit = this.handleCharSubmit.bind(this); 
 	}
 	
-	chooseChar(){
-		console.log("hello"); 
+	handleCharSubmit(e){
+		e.preventDefault();
+        console.log("USER SUBMITTED A PIC!!")
+        
+        var charPicData = {
+			picture: e.target[0].value,
+			character: e.target[4].value 
+        }
+
+        this.props.choosePic(charPicData);
 	}
 
     componentDidMount() {
@@ -38,18 +47,30 @@ class ChooseCharacter extends Component{
             this.setState({
                 showContainer: 'block',
                 showLoader: 'none'
-            })
-        }, 3000)
+			})
+
+        }, 5000)
 
         setTimeout(() =>{
             this.setState({
                 transition: 'all 1s',
                 opacity: 1
             })
-        }, 4000)
-    }
+        }, 6000)
+	}
+	
+	componentWillMount(){
+		//Getting character name
+		const localToken = localStorage.getItem('token'); 
+		const localName = localStorage.getItem('name'); 
+		const localChar = localStorage.getItem('charName'); 
 
-
+		if(localToken && localName){
+			this.setState({
+				charName:localChar
+			})
+		}
+	}
 
     render(){
 		const showContainer = {
@@ -60,7 +81,13 @@ class ChooseCharacter extends Component{
 
         const showLoader = {
             display: this.state.showLoader 
-        }
+		}
+
+		const hideInput = {
+			display: 'none'
+		}
+
+		const localChar = localStorage.getItem('charName'); 
 
         return(
             <div>
@@ -73,69 +100,92 @@ class ChooseCharacter extends Component{
 					</div>
 
 					<Container style = {showContainer} className ="char-container align-middle">
-						
 						<div className = "char-text">Choose your character:</div>
-
-						<Form className = "char-form">
+						<Form className = "char-form" onSubmit = {this.handleCharSubmit}>
 							<Row className = "d-flex flex-row align mt-5">
 								<Col className = "m-auto" md = "3">
 									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">Meliz</CardHeader>
-										<CardImg src = "assets/players/ally1.jpg" />
+										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
+										<CardImg src = "assets/players/char1.jpg" />
 									</Card>
-									<div className="roundedOne mt-2">
-										<input type="checkbox" value="None" id="roundedOne" name="check" checked/>
-										<label for="roundedOne"></label>
-									</div>
+									<FormGroup>
+										<div className="roundedOne mt-2">
+											<Input type="radio" value='assets/players/char1.jpg' id="roundedOne" name="check"/>
+											<Label for="roundedOne"></Label>
+										</div>
+									</FormGroup>
 								</Col> 
 
 								<Col className = "m-auto" md = "3">
 									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">Faust</CardHeader>
-										<CardImg src = "assets/players/ally3.png" />
+										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
+										<CardImg src = 'assets/players/char3.png' />
 									</Card>
-									<div className="roundedOne mt-2">
-										<input type="checkbox" value="None" id="roundedOne" name="check"/>
-										<label for="roundedOne"></label>
-									</div>
+									<FormGroup>
+										<div className="roundedOne mt-2">
+											<Input type="radio" value='assets/players/char3.png' id="roundedOne" name="check"/>
+											<Label for="roundedOne"></Label>
+										</div>
+									</FormGroup>
 								</Col>
-							
 							</Row>
 
 							<Row className = "d-flex flex-row mt-5">
 								<Col className = "m-auto" md = "3">
 									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">Faust</CardHeader>
-										<CardImg src = "assets/players/player1.jpg" />
+										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
+										<CardImg src = "assets/players/char4.jpg" />
 									</Card>
-									<div className="roundedOne mt-2">
-										<input type="checkbox" value="None" id="roundedOne" name="check"/>
-										<label for="roundedOne"></label>
-									</div>
+									<FormGroup>
+										<div className="roundedOne mt-2">
+											<Input type="radio" value='assets/players/char4.jpg' id="roundedOne" name="check"/>
+											<Label for="roundedOne"></Label>
+										</div>
+									</FormGroup>
 								</Col>
 
 								<Col className = "m-auto" md = "3">
 									<Card className = "companions-card  mr-2">
-										<CardHeader className = "text-center">Faust</CardHeader>
-										<CardImg src = "assets/players/ally2.png" />
+										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
+										<CardImg src = "assets/players/char2.png" />
 									</Card>
-									<div className="roundedOne mt-2">
-										<input type="checkbox" value="None" id="roundedOne" name="check"/>
-										<label for="roundedOne"></label>
-									</div>
+									<FormGroup>
+										<div className="roundedOne mt-2">
+											<Input type="radio" value='assets/players/char2.png' id="roundedOne" name="check"/>
+											<Label for="roundedOne"></Label>
+										</div>
+									</FormGroup>
 								</Col>
 							</Row>
-							<Button type = "submit" color="danger" className = "start-btn">CONTINUE</Button>
+							<FormGroup style = {hideInput}>
+								<Input type="radio" value={localChar} id="roundedOne" name="character"/>
+								<Label for="character"></Label>
+							</FormGroup>
+							<Button type = "submit" color="danger" className = "start-btn">CONFIRM</Button>
 						</Form>
-
 					</Container>
+					<div className = "p-2 audio">
+                        <embed 
+                            src="assets/music/nightwalk.mp3" 
+                            preload = "auto" 
+                            width="10"
+                            height="10"
+                            loop="true"
+                        controls/>	
+                    </div>
 				</div>
             </div>  
         )
     }
 }
 
-export default connect(null,actions)(ChooseCharacter);
+function mapStateToProps(state){
+    return{
+        chooseChar: state. chooseChar
+    }
+}
+
+export default connect(mapStateToProps,actions)(ChooseCharacter);
 
 
 

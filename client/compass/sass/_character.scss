@@ -11,9 +11,6 @@ $darkenColor: darken($activeColor, 20%);
   min-height: 77em;
   z-index: 0;
 
-  
-
-
   .char-container{
     color: red; 
     height: 72rem; 
@@ -37,9 +34,9 @@ $darkenColor: darken($activeColor, 20%);
       position: relative;
       margin-left: 7.25rem !important;
       background: #fcfff4;
-      background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
       border-radius: 50px;
       box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+
       label {
         width: 20px;
         height: 20px;
@@ -47,9 +44,12 @@ $darkenColor: darken($activeColor, 20%);
         position: absolute;
         left: 4px;
         top: 4px;
-        background: linear-gradient(top, #222 0%, #45484d 100%);
+        background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#45484d));
+        background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
         border-radius: 50px;
-        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+        box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+
         &:after {
           content: '';
           width: 16px;
@@ -57,22 +57,30 @@ $darkenColor: darken($activeColor, 20%);
           position: absolute;
           top: 2px;
           left: 2px;
-          background: $activeColor;
-          background: linear-gradient(top, $activeColor 0%, $darkenColor 100%);
+          background: #27ae60;
+          background: linear-gradient(top, #27ae60 0%, #145b32 100%);
           opacity: 0;
           border-radius: 50px;
-          box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+          box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
         }
         &:hover::after {
           opacity: 0.3;
         }
       }
-      input[type=checkbox] {
-        visibility: hidden;
-        &:checked + label:after {
-          opacity: 1;
-        }
-      }    
+
+      input{
+        position: absolute;
+        margin-left: -0.7rem;
+        z-index: 100;
+        margin-top: 0.6rem;
+        /* visibility: hidden; */
+        opacity: 0;
+      }
+      
+     input[type=radio]:checked + label:after {
+        opacity: 1;
+      }
+
     }
 /* end .roundedOne */
     .char-text{
@@ -90,8 +98,9 @@ $darkenColor: darken($activeColor, 20%);
             height: 80%; 
         }
         .card-header{
-            font-family: 'Exo 2', sans-serif;
+            // font-family: 'Exo 2', sans-serif;
             background: $ally-inner !important;
+            letter-spacing: 3px;
         }
         .card-footer{
             margin: auto;

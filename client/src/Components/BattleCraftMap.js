@@ -215,6 +215,15 @@ class BattleCraftMap extends Component{
                             </Row>
                         </div>
                     </Container>
+                    <div className = "p-2 audio">
+                        <embed 
+                            src="assets/music/tendersteps.mp3" 
+                            preload = "auto" 
+                            width="10"
+                            height="10"
+                            loop="true"
+                        controls/>	
+                    </div>
                 </div>    
             </div>  
         )

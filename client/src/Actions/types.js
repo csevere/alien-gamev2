@@ -1,7 +1,7 @@
 export const REGISTER = 'register';
 export const LOGIN = 'login'; 
 export const LOGOUT = 'logout'; 
-export const AUTH_ERROR = 'auth_error';
+export const CHOOSE = 'choose'; 
 export const NEXT = 'next';  
 export const BACK = 'back';
 export const SHUFFLE = 'shuffle';  
