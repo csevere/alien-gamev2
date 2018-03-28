@@ -1,9 +1,8 @@
 // *{
     
-//     // background-color: rgba(0,255,0,0.1); 
+//     background-color: rgba(0,255,0,0.1); 
 // }
 
- 
 @import 'bgmain';
 @import 'play'; 
 @import 'footer'; 
@@ -20,17 +19,41 @@
 @import 'character'; 
 
 
-
 .efaGep {
     color: $teal !important; 
 
 }
 
-
 .audio{
     // visibility: hidden; 
     display: none; 
 }
+
+//logged out message 
+.logged-out-col{
+    margin: auto; 
+    .logged-out{
+        background: $scene-bg;
+        border: 4px solid #d9edf7;
+        border-style: ridge;
+        height: 25rem;
+        margin-top: 30rem;
+        .logged-out-text{
+            color: red;
+            font-family: $button-text;
+            font-size: 2rem; 
+            margin: auto;
+            padding: 3rem;
+            text-align: center; 
+            text-shadow: $text-shadow;
+        }
+        .start-btn{
+            width: 98.6%;
+            margin-top: 4rem;
+        }
+    }
+}
+
 
 
 // .modal{

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import { Container, Row} from 'reactstrap';
+import { Container, Row, Col, Button} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
 
 class BattleCraftMap extends Component{
     constructor(props){
@@ -14,12 +16,21 @@ class BattleCraftMap extends Component{
             showLoader: 'block',
             showContainer: 'none',
             transition:'transition',
-            opacity: 0
+            opacity: 0,
+            loggedIn:'initial',
+			logMessage: 'none' 
         } 
     
     }
 
     componentDidMount() {
+
+        if(!localToken && !localName){
+			this.setState({
+				loggedIn: 'hidden',
+				logMessage: 'block'
+			})
+		}
 
         setTimeout(() =>{
             this.setState({
@@ -47,9 +58,26 @@ class BattleCraftMap extends Component{
             display: this.state.showLoader 
         }
 
+        const showRegMsg = {
+			display: this.state.logMessage
+		}
+
+		const hideScreen = {
+			visibility: this.state.loggedIn
+		}
+
+
         return(
             <div>
-                <div className = "map-wrapper d-flex align-items-center">
+                <Row>
+					<Col md= '6' className = "logged-out-col">
+						<div className = "logged-out" style = {showRegMsg}>
+							<div className = "logged-out-text">Unauthorized player. Please register or log in to play. Thank you.</div>
+							<Link to = "/"><Button className = "start-btn">Register/Login</Button></Link>
+						</div>
+					</Col>
+				</Row> 
+                <div className = "map-wrapper d-flex align-items-center" style = {hideScreen}>
                     <div style = {showLoader} className="preload">
                         <div className="preload-status">
                             <div className="preload-status-bar"></div>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import createHistory from 'history/createBrowserHistory'; 
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
+import { Link } from 'react-router-dom';
 import { 
 	Container, 
 	Button,  
@@ -19,19 +20,32 @@ import {
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
 const localChar = localStorage.getItem('charName'); 
+const localExp = localStorage.getItem('exp'); 
+const localLevel = localStorage.getItem('level');
 const history = createHistory();
 
 class ChooseCharacter extends Component{
     constructor(props){
 		super(props);
 		this.state = {
+			loggedIn:'initial',
+			logMessage: 'none', 
             showLoader: 'block',
             showContainer: 'none',
             transition:'transition',
 			opacity: 0,
-			charName: ''
+			charName: '',
+			selectedOption: 'assets/players/char1.jpg'
 		}
+
+		 this.handleOptionChange = this.handleOptionChange.bind(this); 
 		 this.handleCharSubmit = this.handleCharSubmit.bind(this); 
+	}
+
+	handleOptionChange(changeEvent){
+		this.setState({
+			selectedOption: changeEvent.target.value
+		})
 	}
 	
 	handleCharSubmit(e){
@@ -39,28 +53,40 @@ class ChooseCharacter extends Component{
 		console.log("USER SUBMITTED A PIC!!")
 
         var charPicData = {
-			picture: e.target[0].value,
+			picture: this.state.selectedOption,
 			character: e.target[4].value 
         }
 
         this.props.choosePic(charPicData);
 	}
 
+	
+
     componentDidMount() {
+		//logged in/out
+
+		if(!localToken && !localName){
+			this.setState({
+				loggedIn: 'hidden',
+				logMessage: 'block'
+			})
+		}
+
+		//Loader 
         setTimeout(() =>{
             this.setState({
                 showContainer: 'block',
                 showLoader: 'none'
 			})
 
-        }, 5000)
+        }, 4000)
 
         setTimeout(() =>{
             this.setState({
                 transition: 'all 1s',
                 opacity: 1
             })
-        }, 6000)
+        }, 5000)
 	}
 	
 	componentWillMount(charProps){
@@ -76,9 +102,6 @@ class ChooseCharacter extends Component{
 		console.log("*************************");
         console.log(charProps.chooseChar); 
 		console.log("*************************");
-		
-		const localExp = localStorage.getItem('exp'); 
-		const localLevel = localStorage.getItem('level');
 
 		var dataMessage = charProps.chooseChar.response.data.msg;
 		console.log(dataMessage); 
@@ -86,6 +109,8 @@ class ChooseCharacter extends Component{
 			console.log("wait"); 
 			console.log(localExp);
 			console.log(localLevel); 
+			// history.push('/scene');
+			// history.go('/scene'); 
 		}
 	}
 
@@ -104,11 +129,26 @@ class ChooseCharacter extends Component{
 			display: 'none'
 		}
 
-		const localChar = localStorage.getItem('charName'); 
+		const showRegMsg = {
+			display: this.state.logMessage
+		}
+
+		const hideScreen = {
+			visibility: this.state.loggedIn
+		}
 
         return(
             <div>
-				<div className = "char-wrapper d-flex align-items-center">
+				<Row>
+					<Col md= '6' className = "logged-out-col">
+						<div className = "logged-out" style = {showRegMsg}>
+							<div className = "logged-out-text">Unauthorized player. Please register or log in to play. Thank you.</div>
+							<Link to = "/"><Button className = "start-btn">Register/Login</Button></Link>
+						</div>
+					</Col>
+				</Row> 
+
+				<div className = "char-wrapper d-flex align-items-center" style = {hideScreen}>
 					<div style = {showLoader} className ="preload">
 						<div className="preload-status">
 							<div className="preload-status-bar"></div>
@@ -127,7 +167,12 @@ class ChooseCharacter extends Component{
 									</Card>
 									<FormGroup>
 										<div className="roundedOne mt-2">
-											<Input type="radio" value='assets/players/char1.jpg' id="roundedOne" name="check"/>
+											<Input 
+												type ="radio" 
+												value = 'assets/players/char1.jpg' 
+												checked = {this.state.selectedOption === 'assets/players/char1.jpg'}
+												onChange = {this.handleOptionChange}  
+												id="roundedOne"/>
 											<Label for="roundedOne"></Label>
 										</div>
 									</FormGroup>
@@ -140,7 +185,12 @@ class ChooseCharacter extends Component{
 									</Card>
 									<FormGroup>
 										<div className="roundedOne mt-2">
-											<Input type="radio" value='assets/players/char3.png' id="roundedOne" name="check"/>
+											<Input 
+												type="radio" 
+												value='assets/players/char3.png' 
+												checked = {this.state.selectedOption === 'assets/players/char3.png'}
+												onChange = {this.handleOptionChange} 
+												id="roundedOne"/>
 											<Label for="roundedOne"></Label>
 										</div>
 									</FormGroup>
@@ -155,7 +205,12 @@ class ChooseCharacter extends Component{
 									</Card>
 									<FormGroup>
 										<div className="roundedOne mt-2">
-											<Input type="radio" value='assets/players/char4.jpg' id="roundedOne" name="check"/>
+											<Input 
+												type="radio" 
+												value='assets/players/char4.jpg' 
+												checked = {this.state.selectedOption === 'assets/players/char4.jpg'} 
+												onChange = {this.handleOptionChange}
+												id="roundedOne"/>
 											<Label for="roundedOne"></Label>
 										</div>
 									</FormGroup>
@@ -168,14 +223,23 @@ class ChooseCharacter extends Component{
 									</Card>
 									<FormGroup>
 										<div className="roundedOne mt-2">
-											<Input type="radio" value='assets/players/char2.png' id="roundedOne" name="check"/>
+											<Input 
+												type="radio" 
+												value='assets/players/char2.png' 
+												checked = {this.state.selectedOption === 'assets/players/char2.png'} 
+												onChange = {this.handleOptionChange}
+												id="roundedOne"/>
 											<Label for="roundedOne"></Label>
 										</div>
 									</FormGroup>
 								</Col>
 							</Row>
 							<FormGroup style = {hideInput}>
-								<Input type="radio" value={localChar} id="roundedOne" name="character"/>
+								<Input 
+									type="radio" 
+									value={localChar} 
+									id="roundedOne" 
+									name="character"/>
 								<Label for="character"></Label>
 							</FormGroup>
 							<Button type = "submit" color="danger" className = "start-btn">CONFIRM</Button>

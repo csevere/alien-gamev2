@@ -10,6 +10,11 @@
     z-index: 0;
     overflow-y: hidden; 
 
+    .preload{
+        position: relative;
+        top: 35rem; 
+    }
+
     @media(min-width:$xlg){
         min-height: $min-height; 
         margin-top: 0em;     

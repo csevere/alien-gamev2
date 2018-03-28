@@ -251,8 +251,8 @@ class SceneCard1 extends Component{
                             </Col>
                         </Row>
                         <Row className = "scene-button float-right">
-                            <Button style = {BackStyle} className = "btn btn-dark float-left" onClick ={ ()=> this.props.backCount()}>BACK</Button>
-                            <Button style = {NextStyle} className = "btn btn-dark float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
+                            <Button style = {BackStyle} className = "btn float-left" onClick ={ ()=> this.props.backCount()}>BACK</Button>
+                            <Button style = {NextStyle} className = "btn float-right" onClick ={ ()=> this.props.nextCount()}>NEXT</Button>
                         </Row> 
                     </Container> 
                 </div>

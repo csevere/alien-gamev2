@@ -3,12 +3,53 @@ import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardIm
 import {Link} from 'react-router-dom'; 
 import Conversation1 from './ConversationCards/Conversation1';
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
+
 class ConversationBoard extends Component{
+    constructor(props){
+		super(props);
+		this.state = {
+			loggedIn:'initial',
+			logMessage: 'none', 
+		}
+    }
+    
+    componentDidMount() {
+		//logged in/out
+
+		if(!localToken && !localName){
+			this.setState({
+				loggedIn: 'hidden',
+				logMessage: 'block'
+			})
+		}
+    }
 
     render(){
+
+		const showRegMsg = {
+			display: this.state.logMessage
+		}
+
+		const hideScreen = {
+			visibility: this.state.loggedIn
+		}
+
         return(
             <div>
-                <Conversation1/> 
+                 <Row>
+					<Col md= '6' className = "logged-out-col">
+						<div className = "logged-out" style = {showRegMsg}>
+							<div className = "logged-out-text">Unauthorized player. Please register or log in to play. Thank you.</div>
+							<Link to = "/"><Button className = "start-btn">Register/Login</Button></Link>
+						</div>
+					</Col>
+				</Row> 
+
+                <div style = {hideScreen}>
+                    <Conversation1/> 
+                </div>
             </div>  
         )
     }
