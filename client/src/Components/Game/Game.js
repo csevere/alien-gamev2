@@ -36,6 +36,9 @@ var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
 var count = 0;
 
+const localToken = localStorage.getItem('token'); 
+const localName = localStorage.getItem('name'); 
+
 class Game extends Component{
     constructor(props){
         super(props);
@@ -48,7 +51,9 @@ class Game extends Component{
             handleFight: true,
             hideBattleBtns: true, 
             hideDeckBtns: true, 
-			isRunning: false,
+            isRunning: false,
+            loggedIn:'initial',
+			logMessage: 'none', 
 			message: "Alien attack! Quick, press the roll button!",
 			opacity: 0,
             opacity2: 0,
@@ -85,6 +90,15 @@ class Game extends Component{
 	}
 	
 	componentDidMount() {
+
+        //logged in/out
+		if(!localToken && !localName){
+			this.setState({
+				loggedIn: 'hidden',
+				logMessage: 'block'
+			})
+        }
+        
         setTimeout(() =>{
             this.setState({
                 showFightScreen: 'block',
@@ -388,11 +402,28 @@ class Game extends Component{
             display: this.state.showContainer,
             transition: this.state.transition2,
             opacity: this.state.opacity2
+        }
+        
+        const showRegMsg = {
+			display: this.state.logMessage
+		}
+
+		const hideScreen = {
+			visibility: this.state.loggedIn
 		}
 		
         return(
             <div>
-                <div className = "game-wrapper d-flex align-items-end">
+                  <Row>
+					<Col md= '6' className = "logged-out-col">
+						<div className = "logged-out" style = {showRegMsg}>
+							<div className = "logged-out-text">Unauthorized player. Please register or log in to play. Thank you.</div>
+							<Link to = "/"><Button className = "start-btn">Register/Login</Button></Link>
+						</div>
+					</Col>
+				</Row> 
+
+                <div className = "game-wrapper d-flex align-items-end" style = {hideScreen}>
 
 					<div style = {showLoader} className="preload">
 						<div className="preload-status">
