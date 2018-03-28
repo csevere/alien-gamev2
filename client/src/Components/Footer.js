@@ -22,10 +22,6 @@ class Footer extends Component {
     }
 
     render(){
-        const statStyle = {
-            float: 'right',
-            marginLeft: '23rem'
-        }
 
         console.log("*******CHECKING LOGOUT ACTION**********");
         console.log(localToken); 
@@ -33,12 +29,12 @@ class Footer extends Component {
 
         if(localToken && localName){
             var rightPlayerStatus = [
-                <div className = "d-flex flex-row player-status" style = {statStyle} key = '1'>
-                    <Button className = "player-status-btn ml-3" color="success">
+                <div className = "d-flex flex-row player-status" key = '1'>
+                    <Button className = "player-status-btn btn-1 ml-3" color="success">
                         <div className = "text-white p-2">Player Status :</div> 
                         <div className = "text-white status-red p-2">&nbsp; {localName} is active</div>
                     </Button>
-                    <Button className = "player-status-btn ml-3 quit" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
+                    <Button className = "player-status-btn btn-2 ml-3 quit" color = "danger" onClick = {()=> this.quitGame()}>QUIT GAME</Button>
                 </div>
             ]
 
@@ -52,8 +48,7 @@ class Footer extends Component {
                     <div className = "d-flex flex-row text-white">
                         <div className = "p-2"><p>Alien BattleCraft &copy; 2018 Carla Severe</p></div>
                         <div className = "p-2">|&nbsp; &nbsp;How to Play</div>
-                        <div className = "p-2">|&nbsp; &nbsp;Game Soundtrack</div>
-                        <div className = "p-2">|&nbsp; &nbsp;Credits</div>
+                        <div className = "p-2">|&nbsp; &nbsp;Soundtrack</div>
                         <div className = "p-2">|&nbsp; &nbsp;Donate</div>
                     </div>
                     {rightPlayerStatus}

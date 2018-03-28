@@ -12,12 +12,12 @@ $speed2:6s;
     background-size: contain;
     background-position: center;  
     height:100%;
-    min-height: 77em;
+    min-height: $min-height2;
     margin-top: -9em; 
     z-index: 0;
 
     @media(min-width:$xlg){
-        min-height: 77em; 
+        min-height: $min-height2; 
         margin-top: 0em;     
     }
 

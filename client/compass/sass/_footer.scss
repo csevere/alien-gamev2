@@ -1,7 +1,9 @@
 @import 'variables'; 
 
 .main-footer{
-    background: $black;
+    background: $black; 
+    border: 4px solid #d9edf7;
+    border-style: ridge;
     font-family: 'Anton', sans-serif;
     letter-spacing: 2px;
     line-height: -1em;
@@ -11,7 +13,7 @@
 
     .player-status{
         margin-top: -1rem;
-        margin-left: 18rem; 
+        margin-left: 40rem; 
         .player-status-btn{
             float:right; 
             font-family: "Orbitron", sans-serif !important;
@@ -19,6 +21,14 @@
             line-height: 0.25;
             margin-top: 0rem;
             padding: 1rem 1.75rem;
+        }
+
+        .btn-1{
+            background: rgba(76, 175, 80, 0.47);
+        }
+
+        .btn-2{
+            background: rgba(244, 67, 54, 0.54); 
         }
     }
 }

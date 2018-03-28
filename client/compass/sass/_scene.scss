@@ -78,6 +78,9 @@
         @media(max-width:736px){
             margin-top: 89em;    
         }
+        .btn{
+            background: $scene-bg; 
+        }
         .btn:focus{
             color: lightgray !important;
         }

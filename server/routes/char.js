@@ -21,7 +21,7 @@ module.exports = function(router){
         var experience = resJSON[0].experience;
         var level = resJSON[0].level;
         console.log(experience);
-        console.log(level); 
+        console.log(level);
         res.json({
           character,
           picture,
@@ -29,18 +29,13 @@ module.exports = function(router){
           level,
           msg: 'picInserted'
         })
-      }else{
         const updateCharQuery = "UPDATE `characters` SET picture = ? WHERE `character` = ?;"; 
         connection.query(updateCharQuery, [charData.picture, charData.character, charData.experience, charData.level], (error, results)=>{
           if(error){
             console.log(error)
             throw error; 
-          }else {
-            res.json({
-              msg:'success', 
-            })
           }
-          console.log("pic inserted success!")
+          console.log("pic updated success!")
         }); 
       }
     });
