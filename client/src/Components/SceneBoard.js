@@ -11,13 +11,12 @@ class SceneBoard extends Component{
 		super(props);
 		this.state = {
 			loggedIn:'initial',
-			logMessage: 'none', 
+			logMessage: 'none' 
 		}
     }
     
     componentDidMount() {
 		//logged in/out
-
 		if(!localToken && !localName){
 			this.setState({
 				loggedIn: 'hidden',

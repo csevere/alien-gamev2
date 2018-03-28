@@ -424,7 +424,6 @@ class Game extends Component{
 				</Row> 
 
                 <div className = "game-wrapper d-flex align-items-end" style = {hideScreen}>
-
 					<div style = {showLoader} className="preload">
 						<div className="preload-status">
 							<div className="preload-status-bar"></div>

@@ -109,8 +109,8 @@ class ChooseCharacter extends Component{
 			console.log("wait"); 
 			console.log(localExp);
 			console.log(localLevel); 
-			// history.push('/scene');
-			// history.go('/scene'); 
+			history.push('/scene');
+			history.go('/scene'); 
 		}
 	}
 
