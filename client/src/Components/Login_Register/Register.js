@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import createHistory from 'history/createBrowserHistory'; 
 import { FormErrors } from './FormErrors';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 import { 
     Card, 
     CardBlock, 
-    CardTitle, 
-    CardText,
     Container, 
     Button, 
     Form, 
@@ -17,8 +14,6 @@ import {
     Input, 
     FormText
 } from 'reactstrap';
-
-const localToken = localStorage.getItem('token'); 
 
 class Register extends Component{
 	constructor(props) {
@@ -64,11 +59,11 @@ class Register extends Component{
         
         var errorMessage = formProps.register.response.data.msg;
         
-        if(errorMessage  == 'playerInserted'){
+        if(errorMessage  === 'playerInserted'){
             this.setState({
                 registerMessage: 'Player registration successful. Please log in to play.'
             })
-        }else if(errorMessage  == 'emailAlreadyExists'){
+        }else if(errorMessage  === 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
             this.setState({
                 registerMessage: 'This email is already linked to an account.'
@@ -77,7 +72,7 @@ class Register extends Component{
                 window.location.reload();
             }, 2000)
             
-        }else if(errorMessage  == 'usernameAlreadyExists'){
+        }else if(errorMessage  === 'usernameAlreadyExists'){
             console.log("USERNAME TAKEN")
             this.setState({
                 registerMessage: 'This username is already linked to an account.'
@@ -86,7 +81,7 @@ class Register extends Component{
                 window.location.reload();
             }, 2000)
 
-        }else if(errorMessage  == 'characterAlreadyExists'){
+        }else if(errorMessage  === 'characterAlreadyExists'){
             console.log("CHARACTER TAKEN")
             this.setState({
                 registerMessage: 'This character name is already linked to an account.'

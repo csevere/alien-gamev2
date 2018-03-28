@@ -1,3 +1,3 @@
-import data from './StoryConvoList.json'; 
+import data from './JSON/StoryConvoList.json'; 
 
 export default () => data; 

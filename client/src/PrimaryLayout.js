@@ -4,6 +4,7 @@ import BattleCraftMap from './Components/BattleCraftMap';
 import ChooseCharacter from './Components/ChooseCharacter'; 
 import ConversationBoard from './Components/ConversationBoard';
 import Footer from './Components/Footer';
+import FooterPage from './Components/FooterPage'; 
 import Game from './Components/Game/Game'; 
 import SceneBoard from './Components/SceneBoard';  
 import Welcome from './Components/Welcome';
@@ -24,6 +25,7 @@ const PrimaryLayout = () => (
         <Route path ="/convo" component = {ConversationBoard}/>
         <Route path="/map" component={BattleCraftMap} />
         <Route path="/game" component={Game} />
+        <Route path="/links" component={FooterPage} />
         
         <Footer/>
       </main>

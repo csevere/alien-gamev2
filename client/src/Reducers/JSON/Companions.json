@@ -1,0 +1,31 @@
+[
+    {
+        "id": 0,
+        "name":"Meliz",
+        "image": "assets/players/char1.jpg"
+    },
+
+    {
+        "id": 1,
+        "name":"Ryker",
+        "image": "assets/players/char2.png" 
+    },
+
+    {
+        "id": 2,
+        "name":"Faust",
+        "image": "assets/players/char3.png"
+    },
+
+    {
+        "id": 3,
+        "name":"Zackaria",
+        "image": "assets/players/char4.jpg"
+    }
+
+]
+
+
+
+
+

@@ -1,12 +1,10 @@
-import data from './WeaponsList.json'; 
-
+import data from './JSON/WeaponsList.json'; 
 
 var INITIAL_STATE ={
   data
 }
 
 export default (state = INITIAL_STATE, action) => {
-
   if(action.type === "shuffle"){
     for(var i = 0; i < 1400; i++){
       var random1 = Math.floor(Math.random() * state.data.length);

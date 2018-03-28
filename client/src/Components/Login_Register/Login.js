@@ -7,16 +7,13 @@ import { FormErrors } from './FormErrors';
 import { 
     Card, 
     CardBlock, 
-    CardTitle, 
-    CardText,
     Container, 
     Button, 
     Form, 
     FormGroup, 
     FormControl,
     Label, 
-    Input, 
-    FormText
+    Input
 } from 'reactstrap';
 
 export class Login extends Component{
@@ -46,17 +43,12 @@ export class Login extends Component{
 
         var errorMessage = formProps.login.response.data.msg;
         const history = createHistory();
-        const location = history.location;
-        const unlisten = history.listen((location, action) => {
-            // location is an object like window.location
-            console.log(action, location.pathname, location.state)
-          })
            
         ///BACKEND VALIDATION ////
-        if(errorMessage  == 'loginSuccess'){
+        if(errorMessage  === 'loginSuccess'){
            history.push('/choose'); 
            history.go('/choose'); 
-        }else if(errorMessage  == 'badUserName'){
+        }else if(errorMessage  === 'badUserName'){
             console.log("BAD USERNAME")
             this.setState({
                 registerMessage: 'Username not found. Please try again.'
@@ -64,7 +56,7 @@ export class Login extends Component{
             setTimeout(() =>{
                 window.location.reload();
             }, 2000)
-        }else if(errorMessage  == 'wrongPassword'){
+        }else if(errorMessage  === 'wrongPassword'){
             console.log("BAD PASSWORD")
             this.setState({
                 registerMessage: 'Wrong password. Please try again.'
@@ -195,7 +187,7 @@ export class Login extends Component{
 	}
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) =>{
     return{
         login: state.loginReducer
     }

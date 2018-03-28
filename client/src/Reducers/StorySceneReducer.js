@@ -1,3 +1,3 @@
-import data from './StorySceneList.json'; 
+import data from './JSON/StorySceneList.json'; 
 
 export default () => data; 
