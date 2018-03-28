@@ -54,12 +54,22 @@
                 font-size: 2.5rem;
                 font-family: $welcome-font;  
                 letter-spacing: 1px; 
+
+                //MEDIA QUERIES///
+                @media(min-height:$mobile1){
+                    font-size: 1em;  
+                }
             }
 
             input{
                 background: black;
                 // border: 1px solid white;
                 color: white; 
+
+                 //MEDIA QUERIES///
+                @media(min-height:$mobile1){
+                    height: 3em;
+                }
 
             }
         }
@@ -92,7 +102,6 @@
     
         }
 
-        
         .register{
             .button {
                 margin-top: 2em; 

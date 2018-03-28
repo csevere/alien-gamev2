@@ -8,19 +8,42 @@
     letter-spacing: 2px;
     line-height: -1em;
     padding-top: 1em; 
-    font-size: 15px !important; 
+    font-size: 15px; 
 
+    @media(min-height:$mobile1){
+        min-height: 0em; 
+        margin-top: 0em; 
+        height: 13vh;  
+        font-size: 10px;   
+    }
+
+    .p-2{
+        @media(min-height:$mobile1){ 
+            padding: 0 !important; 
+        }
+        p{
+            @media(min-height:$mobile1){ 
+                font-size: 10px;   
+            }
+        }
+    }
+       
     .nav{
         color: #d9edf7; 
         text-decoration: none !important;
+
         button{
             color: #d9edf7; 
-            font-size: 15px !important; 
+            font-size: 15px; 
             letter-spacing: 2px;
             line-height: -1em;
             background: transparent;
             margin-left: 1rem;
             margin-top: -1rem;
+            @media(min-height:$mobile1){ 
+                font-size: 10px;
+                border: transparent;    
+            }
         }
     } 
 
@@ -31,14 +54,22 @@
         &:visited{
             text-decoration: none; 
         }
+        @media(min-height:$mobile1){ 
+            font-size: 10px;   
+        }
         .p-2{
             color: #d9edf7; 
             text-decoration: none !important;
             &:hover{
                 color: $scene-text; 
             }
+            @media(min-height:$mobile1){ 
+                padding: 0 !important;    
+            }
         } 
     }
+
+
 
     //PLAYER STATUS 
 

@@ -4,6 +4,11 @@
     margin-top: 25em;
     margin-left: 24em;
     margin-right: -8em;
+
+    ///MEDIA QUERIES ////
+    @media(min-height:$mobile1){
+        margin: 0;   
+    }
  
     .row-nav{
         height: 41em; 
@@ -22,10 +27,21 @@
         0 0 20px #f7eaf5, 
         0 0 20px #2753c4, 
         0 0 0px #ededf7;
+
+        ///MEDIA QUERIES ////
+        @media(min-height:$mobile1){
+            margin: 0;
+            max-width: 53%;
+            height: 5.2em;    
+        }
     }
 
     .logtabs{
         height: 6.2em;
+         ///MEDIA QUERIES ////
+         @media(min-height:$mobile1){
+            height: 5.2em;    
+        }
        
         .nav-tabs{
             border: none !important; 
@@ -36,6 +52,11 @@
             }
             .nav-link.active, .nav-link{
                 border-color: transparent; 
+
+                ///MEDIA QUERIES//////
+                @media(min-height:$mobile1){
+                    font-size: 11px;  
+                }
                 &:hover{
                     color: $gray;
                     background-color: transparent;
