@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'; 
 
 import Buttons from './Buttons'; 
-import Companions from './Companions'; 
+import Companions from './Companions';  
 import Countdown from './Countdown'; 
 import Dice from './Dice'; 
 import EnemyCard from './EnemyCard';
@@ -516,7 +516,7 @@ class Game extends Component{
                         <Row className = "row4">
 							<Col md = "6">
 								<div className = "float-right">
-									<Companions active = {this.state.active}/>
+                                    <Companions/> 
 								</div>
 							</Col>
 							<Col md = "6">

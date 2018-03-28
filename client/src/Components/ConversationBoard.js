@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
+import {Button, Row, Col} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import Conversation1 from './ConversationCards/Conversation1';
 

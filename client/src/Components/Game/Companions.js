@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { 
     Button,  
     Card, 
@@ -12,44 +12,57 @@ import {
     Row
 } from 'reactstrap';
 
+const localPic = localStorage.getItem('pic'); 
 
-const Companions = (props) =>{
+class Companions extends Component{
+    constructor(props){
+        super(props);
 
-    const state = props.active; 
-    const hideButtons = {
-        display: 'none'
+        this.renderCompanions = this.renderCompanions.bind(this)
     }
 
-    return(
-        <div className = "companions d-flex flex-row">
-            <Card className = "companions-card mr-4">
-                <CardHeader className = "text-center">Meliz</CardHeader>
-                <CardImg src = "assets/players/char1.jpg" />
-                <CardFooter>
-                    <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
-                </CardFooter>
-            </Card>
+    renderCompanions(){
+        const { companions } = this.props; 
+        console.log(companions)
 
-            <Card className = "companions-card mr-4">
-                <CardHeader className = "text-center">Ryker</CardHeader>
-                <CardImg src = "assets/players/char2.png"/> 
-                <CardFooter>
-                    <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
-                </CardFooter>
-            </Card>
+        const state = this.props.active; 
 
-            <Card className = "companions-card mr-4">
-                <CardHeader className = "text-center">Faust</CardHeader>
-                <CardImg src = "assets/players/char3.png" />
-                <CardFooter>
-                    <Button color="danger"  className = "start-btn" style = {!state ? hideButtons : null }>Help</Button>
-                </CardFooter>
-            </Card>
-        </div>
-    )
+        const hideButtons = {
+            display: 'none'
+        }
+        
+        return companions.map((companion)=>{
+            if(localPic !== companion.image){
+                return(
+                    <Card className = "companions-card mr-4" key = {companion.id}>
+                        <CardHeader className = "text-center">{companion.name}</CardHeader>
+                        <CardImg src = {companion.image}/>
+                        <CardFooter>
+                            <Button color="danger"  className = "start-btn">Help</Button>
+                        </CardFooter>
+                    </Card>
+                )
+            }
+        })
+    }
 
-              
+    render(){
+        return(
+            <div>
+                <div className = "companions d-flex flex-row">
+                    {this.renderCompanions()}
+                </div>
+            </div>  
+        )
+    }
 }
 
-export default Companions; 
+const mapStateToProps = (state)=>{
+    return{
+        companions: state.companions
+    }
+}
+
+export default connect(mapStateToProps)(Companions); 
+
 

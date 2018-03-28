@@ -5,13 +5,13 @@
     background-size: cover; 
     background-position: center;  
     height:100%;
-    min-height: 772px; 
+    min-height: 73rem; 
     margin-top: -9em; 
     z-index: 0;
-
+    overflow-y: hidden; 
     
     @media(min-width:$xlg){
-        min-height: $min-height;
+        min-height: 73em;
         margin-top: 0em;     
     }
     

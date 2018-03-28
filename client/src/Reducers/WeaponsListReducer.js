@@ -1,3 +1,3 @@
-import data from './WeaponsList.json'; 
+import data from './JSON/WeaponsList.json'; 
 
 export default () => data; 

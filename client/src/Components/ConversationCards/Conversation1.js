@@ -86,7 +86,7 @@ class Conversation1 extends Component{
         }
 
         return storyconvo.map((storyconvo) => {
-            if(storyconvo.id == 1){
+            if(storyconvo.id === 1){
                 return(
                     <CardGroup style = {TransitionEffects}  key = {storyconvo.id}>
                         <Col md = "2">
@@ -138,7 +138,7 @@ class Conversation1 extends Component{
         }
 
         return storyconvo.map((storyconvo) => {
-            if(storyconvo.id == 2){
+            if(storyconvo.id === 2){
                 return(
                     <CardGroup style = {TransitionEffects2} key = {storyconvo.id}>
                         <Card className = "side-text">

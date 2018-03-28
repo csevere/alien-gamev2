@@ -1,5 +1,5 @@
-import data from './WeaponsList.json'; 
-import data2 from './WeaponsList2.json';
+import data from './JSON/WeaponsList.json'; 
+import data2 from './JSON/WeaponsList2.json';
 
 var INITIAL_STATE ={
   data,

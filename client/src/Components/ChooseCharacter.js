@@ -9,7 +9,6 @@ import {
     Card, 
     CardHeader, 
     CardImg,
-    CardFooter, 
 	Col,
 	Form,
 	FormGroup,
