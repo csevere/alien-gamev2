@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Link } from 'react-router-dom';  
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
-import { Row, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { Row, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Label } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
@@ -14,10 +14,12 @@ class Footer extends Component {
 
         this.state = {
             dropdownOpen: false,
+            dropdownOpen1: false,
         };
 
         this.quitGame = this.quitGame.bind(this); 
         this.toggle = this.toggle.bind(this);
+        this.toggle1 = this.toggle1.bind(this);
     }
 
     quitGame(){
@@ -31,9 +33,13 @@ class Footer extends Component {
         this.setState({
           dropdownOpen: !this.state.dropdownOpen,
         });
+    }
 
-        console.log("toggle!"); 
-        console.log(this.state.dropdownOpen); 
+
+    toggle1() {
+        this.setState({
+          dropdownOpen1: !this.state.dropdownOpen1,
+        });
     }
 
     render(){
@@ -62,6 +68,12 @@ class Footer extends Component {
             menuClass.push('show')
         }
 
+        var musicClass = ["dropdown-menu"];
+        if(this.state.dropdownOpen1){
+            musicClass.push('show')
+        }
+
+
         console.log("LOOK HERE")
         console.log(this.state.dropdownOpen); 
         console.log(menuClass); 
@@ -88,7 +100,18 @@ class Footer extends Component {
                                     <Link className = "dropdown-item" to = "/game"><div>Battle</div></Link>
                                 </div>
                             </div>
-                            
+                        </div>
+                        <div className = "p-2 nav">
+                            Music &nbsp;
+                            <div className="slideThree"> 
+                                <Input 
+                                    type="checkbox" 
+                                    value="None" 
+                                    id="slideThree" 
+                                    name="check" 
+                                />
+                                <Label for="slideThree"></Label>
+                            </div>
                         </div>
                     </div>
                     {rightPlayerStatus}

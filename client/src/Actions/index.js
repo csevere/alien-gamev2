@@ -8,7 +8,9 @@ import {
   DRAW,
   DEAL,
   SHUFFLE,
-  ATTACK
+  ATTACK,
+  MUSICOFF,
+  MUSICON
 } from './types';
 import axios from 'axios';
 
@@ -124,6 +126,19 @@ export const attackEnemy = () =>{
   return{
       type: ATTACK
   };
+}
+
+//MUSIC
+export const musicOn = () =>{
+  return{
+    type: MUSICON
+  }
+}
+
+export const musicOff = () =>{
+  return{
+    type: MUSICOFF
+  }
 }
 
 

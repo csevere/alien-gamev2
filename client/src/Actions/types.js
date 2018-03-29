@@ -7,4 +7,6 @@ export const BACK = 'back';
 export const SHUFFLE = 'shuffle';  
 export const DEAL = 'deal';  
 export const DRAW = 'draw';  
-export const ATTACK = 'attack';  
+export const ATTACK = 'attack'; 
+export const MUSICON = 'musicOn';  
+export const MUSICOFF = 'musicOff';  

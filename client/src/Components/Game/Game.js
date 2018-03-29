@@ -410,7 +410,9 @@ class Game extends Component{
 
 		const hideScreen = {
 			visibility: this.state.loggedIn
-		}
+        }
+        
+        const {music} = this.props; 
 		
         return(
             <div>
@@ -537,7 +539,7 @@ class Game extends Component{
 							</Col>
                         </Row>
                     </Container>
-                    <div className = "p-2 audio">
+                    <div className = {music}> 
                         <embed 
                             src="assets/music/quarkstar.mp3" 
                             preload = "auto" 
@@ -559,7 +561,8 @@ const mapStateToProps = (state)=>{
         deckweapons2: state.weaponsLibrary2,
         // newDeck: state.newDeck, 
         playersHand: state.playersHand,
-        shuffled: state.cardShuffle
+        shuffled: state.cardShuffle,
+        music: state.musicReducer
     }
 
 }
