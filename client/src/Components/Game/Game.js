@@ -476,33 +476,33 @@ class Game extends Component{
     ////////////////////////// ALLY HELP //////////////////////////
     //////////////////////////////////////////////////////////////
 
-      handleHelp(){
+      handleHelp(e){
+        e_Health_val -= 50
 
         const { companions } = this.props; 
-        console.log("COMPANIONS BUTTON")
-        companions.forEach((companion)=>{
-            if(companions.id){
-                message = companion.message
-            }
-        })
 
-        if(companions.id === 0){
-            message = companions.message
-        }
-        else if(companions.id === 1){
-            message = companions.message
-        } else if(companions.id === 2){
-            message = companions.message
-        }  else if(companions.id === 3){
-            message = companions.message
+        switch (e.target.value){
+            case 0:
+                message = companions[0].message
+                image = companions[0].image
+            case 1:
+                message = companions[1].message
+                image = companions[1].image
+            case 2:
+                message = companions[2].message
+                image = companions[2].image
+            case 3:
+                message = companions[0].message
+                image = companions[0].image
         }
 
-        e_Health_val -= 50
+        console.log("ALLY VALUE"); 
+        console.log(e.target.value);
 
         this.setState({
             e_Health: e_Health_val,
-            message: message,
-            attackdetail: "Dealt 50 damage!"
+            attackdetail: "Dealt 50 damage!",
+            image: image
         })
       }
 
