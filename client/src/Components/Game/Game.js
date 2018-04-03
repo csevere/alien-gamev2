@@ -2,18 +2,17 @@ import React, {Component} from 'react';
 import * as actions from '../../Actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'; 
-
 import Buttons from './Buttons'; 
 import Companions from './Companions';  
 import Countdown from './Countdown'; 
 import Dice from './Dice'; 
 import EnemyCard from './EnemyCard';
 import EnemyDeck from './EnemyDeck'; 
+import EnemyProgress from './EnemyProgress'; 
 import Instructions from './Instructions';  
 import PlayerCard from './PlayerCard'; 
 import PlayerDeck from './PlayerDeck';
-
-
+import PlayerProgress from './PlayerProgress'; 
 import { 
     Button,
     Card, 
@@ -28,6 +27,7 @@ import {
 } from 'reactstrap';
 
 
+
 // Length ms 
 var TimeOut = 10000;
 // Interval ms
@@ -37,7 +37,16 @@ var EndTime = CurrentTime + TimeOut;
 var count = 0;
 
 const localToken = localStorage.getItem('token'); 
-const localName = localStorage.getItem('name'); 
+const localName = localStorage.getItem('name');
+
+var p_Health_val = 500;
+var p_AP_val = 50;
+var e_Health_val = 1000;
+var e_AP_val = 50; 
+var attackdetail = ""; 
+var message = ""; 
+var image = "";  
+var hideAlly = ""; 
 
 class Game extends Component{
     constructor(props){
@@ -45,18 +54,24 @@ class Game extends Component{
 		this.state = {
             active: true,
 			attackdetail: '',
-            attackimage: '', 
             deckopacity: 1,
             draw: 'false',
+            e_AP: 50,
+            e_Health: 1000,
             handleFight: true,
+            hideAlly: "",
             hideBattleBtns: true, 
             hideDeckBtns: true, 
             isRunning: false,
+            image: 'assets/aliens/alien1.jpg',
             loggedIn:'initial',
 			logMessage: 'none', 
-			message: "Alien attack! Quick, press the roll button!",
+            message: "Alien attack! Quick, press the roll button!",
+            music: '',
 			opacity: 0,
             opacity2: 0,
+            p_AP: 50,
+            p_Health: 500, 
             showContainer: 'none',
             showCards: false, 
 			showLoader: 'block',
@@ -87,10 +102,12 @@ class Game extends Component{
         
         /////////////FIGHT FUNCTIONS/////////////////
         this.attackEnemy = this.attackEnemy.bind(this); 
+        this.handleAP = this.handleAP.bind(this);
+        this.handleHP = this.handleHP.bind(this); 
+        this.handleHelp = this.handleHelp.bind(this); 
 	}
 	
 	componentDidMount() {
-
         //logged in/out
 		if(!localToken && !localName){
 			this.setState({
@@ -112,10 +129,11 @@ class Game extends Component{
                 opacity: 1
             })
         }, 4000)
-	}
-
-    ////////////////// HANDLING THE TIMER ////////////////////
-
+    }
+    
+    ////////////////////////////////////////////////////////////////////
+    ////////////////// HANDLING THE TIMER //////////////////////////////
+    ////////////////////////////////////////////////////////////////////
 	updateTimer(){
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
@@ -189,7 +207,9 @@ class Game extends Component{
 		
 	}
 
-    ////////////////////////ROLLING THE DIE////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////ROLLING THE DIE/////////////////////////////
+    ////////////////////////////////////////////////////////////////////
 
     handleRoll(){
         //getting a random number to roll random dice
@@ -222,8 +242,9 @@ class Game extends Component{
         
     }
 
+    ////////////////////////////////////////////////////////////////////
     ////////////////////// DRAWING THE CARDS////////////////////////////
-   
+    ////////////////////////////////////////////////////////////////////
     getCard1(){
         var { playersHand } = this.props.playersHand;
 
@@ -323,8 +344,9 @@ class Game extends Component{
         }).reverse(); 
     }
 
-    ///////////////////////// DRAWING & DEALING THE CARDS /////////////////////
-
+    /////////////////////////////////////////////////////////////////////////
+    ///////////////////////// DRAWING & DEALING THE CARDS ///////////////////
+    ////////////////////////////////////////////////////////////////////////
     handleDraw(){
         this.setState({
             showCards: true,
@@ -356,22 +378,134 @@ class Game extends Component{
         this.props.dealNewDeck(); 
     }
 
-
+    ////////////////////////////////////////////////////////////////////
     ///////////////////////// ATTACKING ENEMY //////////////////////////
+    ////////////////////////////////////////////////////////////////////
 
     attackEnemy(){
+        // attacking enemy 
         var { data } = this.props.shuffled;
         var { playersHand } = this.props.playersHand;
-        if(playersHand.length < 23){
-            playersHand.shift(); 
+        console.log("GET THE GUN HIT POINTS")
+        console.log(this.props.playersHand); 
+        console.log(playersHand[0].damage); 
+        console.log(playersHand[0].image); 
+
+        e_Health_val -= playersHand[0].damage;
+        p_AP_val -= 5;
+
+        this.setState({
+            e_Health: e_Health_val,
+            p_AP: p_AP_val,
+            attackdetail:`Dealt ${playersHand[0].damage} damage!`,  
+            message : 'Keep giving \'em hell!',
+            image: playersHand[0].image
+        })
+
+         //managing deck / cards 
+         if(playersHand.length < 23){
+             playersHand.shift(); 
+         }
+ 
+         this.setState({
+             hideBattleBtns: true, 
+             hideDeckBtns: true,
+             showRoll: true
+         })
+    } 
+    ///////////////////////////////////////////////////////////////
+    ////////////////////////// HP/AP UP //////////////////////////
+    /////////////////////////////////////////////////////////////
+
+    handleHP(){
+        if(p_Health_val <= 250){
+            p_Health_val += 50;  
+            message = "You gained 50 health points!";
+            image = "assets/gamescreen/health.png";
+    
+        }else{
+            message = "You have enough Health!";
+            image = "assets/gamescreen/full.jpg"
+          
+    
+        }if(p_Health_val <= 0){
+            image = "Images/you_died.jpg"; 
+            message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+            p_AP_val = 0;
+        }
+       
+        this.setState({
+          p_Health: p_Health_val,
+          message: message,
+          image: image ,
+          hideBattleBtns: true, 
+          hideDeckBtns: true,
+          showRoll: true 
+        })
+     }
+
+    handleAP(){
+        if(p_AP_val  <= 50){
+            p_AP_val  += 10;
+            message = "You gained 10 action points!";
+            image = "assets/gamescreen/scifi-crate.jpg"
+    
+        }else{
+            message = "You have enough Action Points!"
+            image = "assets/gamescreen/full.jpg"
+    
+        }if(p_Health_val <= 0){
+            image = "Images/you_died.jpg"; 
+            message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+            p_AP_val  = 0; 
+    
         }
 
         this.setState({
+            p_AP: p_AP_val,
+            message: message,
+            image:image,
             hideBattleBtns: true, 
             hideDeckBtns: true,
-            showRoll: true
+            showRoll: true  
         })
-    } 
+      }
+
+
+    ///////////////////////////////////////////////////////////////
+    ////////////////////////// ALLY HELP //////////////////////////
+    //////////////////////////////////////////////////////////////
+
+      handleHelp(){
+
+        const { companions } = this.props; 
+        console.log("COMPANIONS BUTTON")
+        companions.forEach((companion)=>{
+            if(companions.id){
+                message = companion.message
+            }
+        })
+
+        if(companions.id === 0){
+            message = companions.message
+        }
+        else if(companions.id === 1){
+            message = companions.message
+        } else if(companions.id === 2){
+            message = companions.message
+        }  else if(companions.id === 3){
+            message = companions.message
+        }
+
+        e_Health_val -= 50
+
+        this.setState({
+            e_Health: e_Health_val,
+            message: message,
+            attackdetail: "Dealt 50 damage!"
+        })
+      }
+
 
     render(){
 
@@ -411,8 +545,6 @@ class Game extends Component{
 		const hideScreen = {
 			visibility: this.state.loggedIn
         }
-        
-        const {music} = this.props; 
 		
         return(
             <div>
@@ -462,12 +594,12 @@ class Game extends Component{
                                 <div className = "enemy-card mx-auto">
                                     <EnemyCard /> 
                                 </div>
-								<div className = "enemyProgress d-flex flex-column">
-                                    Health
-                                    <Progress id = "userHealth" value = "500" max = "500"></Progress>
-                                    AP
-                                    <Progress id = "p_AP" value = "50" max = "50"></Progress>
-                                </div> 
+							
+                                <EnemyProgress
+                                    health = {this.state.e_Health}
+                                    ap = {this.state.e_AP}
+                                />
+                              
                             </Col>
 
                             <Col md = "4">
@@ -478,12 +610,10 @@ class Game extends Component{
                                 <div className = "player-card mx-auto">
                                     <PlayerCard />
                                 </div>
-                                <div className = "playerProgress d-flex flex-column">
-                                    Health
-                                    <Progress id = "userHealth" value = "500" max = "500"></Progress>
-                                    AP
-                                    <Progress id = "p_AP" value = "50" max = "50"></Progress>
-                                </div> 
+                                <PlayerProgress
+                                    health = {this.state.p_Health}
+                                    ap = {this.state.p_AP}
+                                />
                             </Col>
                         </Row>
 
@@ -497,7 +627,9 @@ class Game extends Component{
                             <Col md = "4">
                                 <div className = "attack-screen">
                                     <div className = "attack-detail text-white">{this.state.attackdetail}</div>
-                                    <div className = "attack-image text-white">{this.state.attackimage}</div>
+                                    <div className = "attack-image text-white"> 
+                                        <CardImg src = {this.state.image} />
+                                    </div>
                                     <div className = "message text-white">{this.state.message}</div>
                                 </div>
                             </Col>
@@ -518,33 +650,36 @@ class Game extends Component{
                         <Row className = "row4">
 							<Col md = "6">
 								<div className = "float-right">
-                                    <Companions/> 
+                                    <Companions
+                                        active = {this.state.active}
+                                        helpPlayer = {this.handleHelp}
+                                        hide = {this.state.hideBattleBtns}
+                                    /> 
 								</div>
 							</Col>
 							<Col md = "6">
 								<div>
                                 <Buttons 
                                     active = {this.state.active}
+                                    apBoost = {this.handleAP}
                                     attack ={this.attackEnemy}
                                     deal = {this.handleDeal}
                                     deck = {this.state.hideDeckBtns}
-                                    hide = {this.state.hideBattleBtns}  
+                                    hide = {this.state.hideBattleBtns}
+                                    hpBoost = {this.handleHP}  
                                     roll = {this.handleRoll}
                                     drawC= {this.handleDraw}
                                     shuffle = {this.props.shuffleCards}
                                     showroll = {this.state.showRoll}
-
                                 />
 								</div>
 							</Col>
                         </Row>
                     </Container>
-                    <div className = {music}> 
+                    <div className = "p-2 audio">
                         <embed 
                             src="assets/music/quarkstar.mp3" 
                             preload = "auto" 
-                            width="10"
-                            height="10"
                             loop="true"
                         controls/>	
                     </div>
@@ -561,8 +696,8 @@ const mapStateToProps = (state)=>{
         deckweapons2: state.weaponsLibrary2,
         // newDeck: state.newDeck, 
         playersHand: state.playersHand,
-        shuffled: state.cardShuffle,
-        music: state.musicReducer
+        shuffled: state.cardShuffle, 
+        companions: state.companions
     }
 
 }

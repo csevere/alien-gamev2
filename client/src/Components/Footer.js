@@ -14,12 +14,12 @@ class Footer extends Component {
 
         this.state = {
             dropdownOpen: false,
-            dropdownOpen1: false,
+            off: true
         };
 
         this.quitGame = this.quitGame.bind(this); 
         this.toggle = this.toggle.bind(this);
-        this.toggle1 = this.toggle1.bind(this);
+        // this.handleChange = this.handleChange.bind(this); 
     }
 
     quitGame(){
@@ -35,12 +35,20 @@ class Footer extends Component {
         });
     }
 
+    // handleChange(){
+	// 	this.setState({
+    //         off: !this.state.off
+    //     })
+    //     console.log("CHANGE OF Off"); 
+    //     console.log(this.state.off);
 
-    toggle1() {
-        this.setState({
-          dropdownOpen1: !this.state.dropdownOpen1,
-        });
-    }
+    //     if(this.state.off){
+    //         this.props.musicOff();
+    //     }else{
+    //         this.props.musicOn(); 
+    //     }
+    // }
+    
 
     render(){
 
@@ -68,15 +76,8 @@ class Footer extends Component {
             menuClass.push('show')
         }
 
-        var musicClass = ["dropdown-menu"];
-        if(this.state.dropdownOpen1){
-            musicClass.push('show')
-        }
-
-
-        console.log("LOOK HERE")
-        console.log(this.state.dropdownOpen); 
-        console.log(menuClass); 
+        console.log("DEFAULT Off"); 
+        console.log(this.state.off);
 
         return(
             <footer className = "main-footer pl-3">
@@ -101,18 +102,6 @@ class Footer extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className = "p-2 nav">
-                            Music &nbsp;
-                            <div className="slideThree"> 
-                                <Input 
-                                    type="checkbox" 
-                                    value="None" 
-                                    id="slideThree" 
-                                    name="check" 
-                                />
-                                <Label for="slideThree"></Label>
-                            </div>
-                        </div>
                     </div>
                     {rightPlayerStatus}
                 </Row>
@@ -123,16 +112,16 @@ class Footer extends Component {
 
 export default connect(null,actions)(Footer);
 
-                            // <Dropdown direction="up" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            //     <DropdownToggle caret>
-                            //         Navigate
-                            //     </DropdownToggle>
-                            //     <DropdownMenu>
-                            //         <Link to = "/"><DropdownItem>Home</DropdownItem></Link>
-                            //         <Link to = "/choose"><DropdownItem>Choose Character</DropdownItem></Link>
-                            //         <Link to = "/scene"><DropdownItem>Story Scenes</DropdownItem></Link>
-                            //         <Link to = "/convo"><DropdownItem>Conversations</DropdownItem></Link>
-                            //         <Link to = "/map"><DropdownItem>BattleCraft Map</DropdownItem></Link>
-                            //         <Link to = "/game"><DropdownItem>Battle</DropdownItem></Link>
-                            //     </DropdownMenu>
-                            // </Dropdown> 
+/* <div className = "p-2 nav">
+    Music &nbsp;
+    <div className="slideThree"> 
+        <Input 
+            type="checkbox" 
+            value={this.state.off}
+            id="slideThree" 
+            name="check" 
+            onChange = {this.handleChange}  
+        />
+        <Label for="slideThree"></Label>
+    </div>
+</div> */

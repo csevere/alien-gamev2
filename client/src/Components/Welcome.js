@@ -69,7 +69,7 @@ class Welcome extends Component{
                             width="10"
                             height="10"
                             loop="true"
-                        controls/>	
+                        controls/>		
                     </div>
                 </div> 
             </div>  

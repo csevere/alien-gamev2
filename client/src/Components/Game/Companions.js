@@ -17,8 +17,19 @@ const localPic = localStorage.getItem('pic');
 class Companions extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            displayAlly: 'block'
+        }
 
         this.renderCompanions = this.renderCompanions.bind(this)
+        this.handleHelp = this.handleHelp.bind(this)
+    }
+
+    handleHelp(){
+        this.props.helpPlayer()
+        this.setState({
+            displayAlly: 'none'
+        })
     }
 
     renderCompanions(){
@@ -37,8 +48,8 @@ class Companions extends Component{
                     <Card className = "companions-card mr-4" key = {companion.id}>
                         <CardHeader className = "text-center">{companion.name}</CardHeader>
                         <CardImg src = {companion.image}/>
-                        <CardFooter>
-                            <Button color="danger"  className = "start-btn">Help</Button>
+                        <CardFooter style = {!state ? hideButtons : null }>
+                            <Button onClick = {()=> this.handleHelp()}  color="danger"  className = "start-btn">Help</Button>
                         </CardFooter>
                     </Card>
                 )

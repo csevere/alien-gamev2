@@ -60,7 +60,6 @@ class ChooseCharacter extends Component{
 	}
 
 	
-
     componentDidMount() {
 		//logged in/out
 

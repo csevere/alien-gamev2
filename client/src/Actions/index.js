@@ -130,12 +130,14 @@ export const attackEnemy = () =>{
 
 //MUSIC
 export const musicOn = () =>{
+  console.log("MUSIC TURNED ON");
   return{
     type: MUSICON
   }
 }
 
 export const musicOff = () =>{
+  console.log("MUSIC TURNED OFF");
   return{
     type: MUSICOFF
   }
