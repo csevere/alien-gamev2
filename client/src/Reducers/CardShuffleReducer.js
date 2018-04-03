@@ -8,8 +8,8 @@ var INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) =>{
   switch(action.type){
     case SHUFFLE:
-    console.log(action);
-      return{shuffled:action.shuffle, ...state}
+      console.log(action);
+      return{ shuffled:action.shuffle, ...state }
     default:
       return state 
   }

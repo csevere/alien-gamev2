@@ -122,6 +122,12 @@ export const shuffleCards = () =>{
   };
 }
 
+export const drawCard = () =>{
+  return{
+    type: DRAW 
+  }
+}
+
 
 export const dealNewDeck = () =>{
   return{
@@ -130,11 +136,7 @@ export const dealNewDeck = () =>{
 }
 
 
-export const drawCard = () =>{
-  return{
-      type: DRAW
-  };
-}
+
 
 
 export const attackEnemy = () =>{

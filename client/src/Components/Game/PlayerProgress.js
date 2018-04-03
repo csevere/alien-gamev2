@@ -15,7 +15,7 @@ class PlayerProgress extends Component{
         return(
 			<div className = "playerProgress d-flex flex-column">
 				Health
-				<Progress className = "p_Health tex-white" value = {this.props.health} max = "500"> {this.props.health}  / 500</Progress>
+				<Progress className = "p_Health tex-white" value = {this.props.health} max = "1000"> {this.props.health}  / 1000</Progress>
 				AP
 				<Progress className = "p_AP" value = {this.props.ap} max = "50"> {this.props.ap}  / 50</Progress>
 			</div> 

@@ -38,10 +38,11 @@ var count = 0;
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name');
+const localPic = localStorage.getItem('pic'); 
 
-var p_Health_val = 500;
+var p_Health_val = 1000;
 var p_AP_val = 50;
-var e_Health_val = 1000;
+var e_Health_val = 1250;
 var e_AP_val = 50; 
 var attackdetail = ""; 
 var message = ""; 
@@ -57,7 +58,7 @@ class Game extends Component{
             deckopacity: 1,
             draw: 'false',
             e_AP: 50,
-            e_Health: 1000,
+            e_Health: 1250,
             handleFight: true,
             hideAlly: "",
             hideBattleBtns: true, 
@@ -71,7 +72,7 @@ class Game extends Component{
 			opacity: 0,
             opacity2: 0,
             p_AP: 50,
-            p_Health: 500, 
+            p_Health: 1000, 
             showContainer: 'none',
             showCards: false, 
 			showLoader: 'block',
@@ -212,6 +213,8 @@ class Game extends Component{
     ////////////////////////////////////////////////////////////////////
 
     handleRoll(){
+        var { playersHand } = this.props.playersHand;
+
         //getting a random number to roll random dice
         var randomDie1 = Math.ceil(Math.random() * 6);
         var randomDie2 = Math.ceil(Math.random() * 6);
@@ -225,26 +228,59 @@ class Game extends Component{
 
         if((randomDie1 + randomDie2 >= 7) && (randomDie1 + randomDie2 < 12)){
             this.setState({
+                attackdetail: "", 
                 hideBattleBtns: false,
                 hideDeckBtns: false,
                 message: "Shuffle, draw, attack or draw then attack!",
-                showRoll: false
+                showRoll: false,
+                image : "assets/aliens/alien1.jpg"
             })
         } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
+            p_Health_val -= 50;
+            e_AP_val -= 5; 
             this.setState({
+                attackdetail: "You lost 50 health points!",
+                e_AP: e_AP_val, 
                 hideBattleBtns: true,  
                 hideDeckBtns: true,
-                message: "You rolled below 7. You're getting attacked!",
-                showRoll: true
+                image : "assets/aliens/alien1.jpg",
+                message: "You rolled below 7. You've been attacked!",
+                p_Health: p_Health_val,
+                showRoll: true,
             })
           
-        }
-        
+        } else if(randomDie1 + randomDie2 === 12){
+            var attack = 2 * playersHand[0].damage;
+            e_Health_val -= attack;
+            p_AP_val += 15;
+            this.setState({
+                attackdetail: `Dealt ${attack} damage! Gained 15 AP!`,
+                e_Health: e_Health_val,  
+                image : "assets/aliens/alien1.jpg",
+                message: "You rolled a 12! Excellent!",
+                p_AP: p_AP_val
+            })
+        } else if(randomDie1 + randomDie2 === 2){
+            var e_attack = 2 * 50;
+            p_Health_val -= e_attack;
+            p_AP_val -= 15;
+            this.setState({
+                p_Health: p_Health_val,  
+                attackdetail: `Received ${e_attack} damage! Lost 15 AP!`,
+                image : "assets/aliens/alien1.jpg",
+                message: "You rolled a 2! Not good!",
+                p_AP: p_AP_val
+            })
+        } 
     }
+
+
+
 
     ////////////////////////////////////////////////////////////////////
     ////////////////////// DRAWING THE CARDS////////////////////////////
     ////////////////////////////////////////////////////////////////////
+   
     getCard1(){
         var { playersHand } = this.props.playersHand;
 
@@ -356,7 +392,7 @@ class Game extends Component{
         });
 
         setTimeout(() =>{
-			this.setState({
+            this.setState({
                 deckopacity:'1'
             })
         }, 1500);
@@ -364,9 +400,11 @@ class Game extends Component{
         count++; 
         console.log(" LINE 329 NUMBER " + count); 
 
-        this.props.drawCard(); 
+        this.props.drawCard();
        
     }
+
+
 
     handleDeal(){
         var { data } = this.props.shuffled;
@@ -378,51 +416,64 @@ class Game extends Component{
         this.props.dealNewDeck(); 
     }
 
+
     ////////////////////////////////////////////////////////////////////
     ///////////////////////// ATTACKING ENEMY //////////////////////////
     ////////////////////////////////////////////////////////////////////
 
     attackEnemy(){
-        // attacking enemy 
         var { data } = this.props.shuffled;
         var { playersHand } = this.props.playersHand;
-        console.log("GET THE GUN HIT POINTS")
-        console.log(this.props.playersHand); 
-        console.log(playersHand[0].damage); 
-        console.log(playersHand[0].image); 
 
-        e_Health_val -= playersHand[0].damage;
-        p_AP_val -= 5;
+        //managing deck / cards 
+        if(playersHand.length < 23){
+            playersHand.shift(); 
+        }
 
-        this.setState({
-            e_Health: e_Health_val,
-            p_AP: p_AP_val,
-            attackdetail:`Dealt ${playersHand[0].damage} damage!`,  
-            message : 'Keep giving \'em hell!',
-            image: playersHand[0].image
-        })
+        if(playersHand.length > 0){
+            console.log("GET THE GUN HIT POINTS")
+            console.log(this.props.playersHand); 
+            console.log(playersHand[0].damage); 
+            console.log(playersHand[0].image); 
+            
+            // attacking enemy 
+            e_Health_val -= playersHand[0].damage;
+            p_AP_val -= 5;
 
-         //managing deck / cards 
-         if(playersHand.length < 23){
-             playersHand.shift(); 
-         }
- 
-         this.setState({
-             hideBattleBtns: true, 
-             hideDeckBtns: true,
-             showRoll: true
-         })
+            this.setState({
+                e_Health: e_Health_val,
+                p_AP: p_AP_val,
+                attackdetail:`Dealt ${playersHand[0].damage} damage!`,  
+                message : 'Keep giving \'em hell!',
+                image: playersHand[0].image,
+                hideBattleBtns: true, 
+                hideDeckBtns: true,
+                showRoll: true
+            })
+
+        }else{
+            p_Health_val -= 20; 
+            this.setState({
+                attackdetail: "You lost 20 health points!",
+                image:"assets/aliens/alien1.jpg", 
+                message: "You need to draw cards! Hit the draw button!",
+                p_Health: p_Health_val
+            });
+        }
     } 
+
     ///////////////////////////////////////////////////////////////
     ////////////////////////// HP/AP UP //////////////////////////
     /////////////////////////////////////////////////////////////
 
     handleHP(){
-        if(p_Health_val <= 250){
-            p_Health_val += 50;  
-            message = "You gained 50 health points!";
+        if(p_Health_val <= 350){
+            p_Health_val += 150;  
+            message = "You gained 150 health points!";
             image = "assets/gamescreen/health.png";
-    
+        }else if(p_Health_val === 500){
+            message = "You have enough Health!";
+            image = "assets/gamescreen/full.jpg"
         }else{
             message = "You have enough Health!";
             image = "assets/gamescreen/full.jpg"
@@ -435,34 +486,44 @@ class Game extends Component{
         }
        
         this.setState({
-          p_Health: p_Health_val,
-          message: message,
-          image: image ,
-          hideBattleBtns: true, 
-          hideDeckBtns: true,
-          showRoll: true 
+            attackdetail: "",  
+            p_Health: p_Health_val,
+            message: message,
+            image: image ,
+            hideBattleBtns: true, 
+            hideDeckBtns: true,
+            showRoll: true 
         })
-     }
+    }
+
 
     handleAP(){
-        if(p_AP_val  <= 50){
-            p_AP_val  += 10;
-            message = "You gained 10 action points!";
-            image = "assets/gamescreen/scifi-crate.jpg"
-    
+        if(p_AP_val < 20){
+            if(p_AP_val > 50){
+                this.setState({
+                    p_AP: 50 
+                })
+            }else{
+                p_AP_val  += 30;
+                message = "You gained 30 action points!";
+                image = "assets/gamescreen/scifi-crate.jpg"
+            }
+        }else if(p_AP_val === 50){
+            message = "You have enough action points!";
+            image = "assets/gamescreen/full.jpg"
         }else{
-            message = "You have enough Action Points!"
+            message = "You have enough action points!"
             image = "assets/gamescreen/full.jpg"
     
         }if(p_Health_val <= 0){
             image = "Images/you_died.jpg"; 
             message = "GAME OVER! The Aliens are now experimenting on your corpse.";
             p_AP_val  = 0; 
-    
         }
 
         this.setState({
             p_AP: p_AP_val,
+            attackdetail : "",
             message: message,
             image:image,
             hideBattleBtns: true, 
@@ -476,35 +537,49 @@ class Game extends Component{
     ////////////////////////// ALLY HELP //////////////////////////
     //////////////////////////////////////////////////////////////
 
-      handleHelp(e){
-        e_Health_val -= 50
-
+    handleHelp(){
         const { companions } = this.props; 
+        console.log(companions);
 
-        switch (e.target.value){
-            case 0:
-                message = companions[0].message
-                image = companions[0].image
-            case 1:
-                message = companions[1].message
-                image = companions[1].image
-            case 2:
-                message = companions[2].message
-                image = companions[2].image
-            case 3:
-                message = companions[0].message
-                image = companions[0].image
+        if(localPic !== companions.image &&  p_AP_val >= 25){
+            e_Health_val -= 200;
+            p_AP_val  -= 25;
+            var current = [];
+            current.unshift(companions.shift())
+            message = current[0].message;
+            image = current[0].image; 
+            attackdetail = "Dealt 200 damage!";
+            console.log("CURRENT");
+            console.log(current);
+            console.log(image);
+            console.log(message); 
+        } else if(p_AP_val <= 35){
+            attackdetail = "Enemy attacked you for 50 health points!"
+            message = "You don't have enough AP!";
+            p_Health_val -= 50;
+            image = "assets/aliens/alien1.jpg"
         }
-
-        console.log("ALLY VALUE"); 
-        console.log(e.target.value);
+    
+        if(companions.length < 1){
+            message = "You can't request aid anymore!"
+            image = "assets/aliens/alien1.jpg"
+        }
 
         this.setState({
             e_Health: e_Health_val,
-            attackdetail: "Dealt 50 damage!",
-            image: image
+            p_Health: p_Health_val,
+            p_AP: p_AP_val,
+            attackdetail: attackdetail,
+            image: image,
+            message: message,
+            hideBattleBtns: true, 
+            hideDeckBtns: true,
+            showRoll: true  
         })
-      }
+    }
+
+
+
 
 
     render(){
@@ -649,13 +724,11 @@ class Game extends Component{
 
                         <Row className = "row4">
 							<Col md = "6">
-								<div className = "float-right">
-                                    <Companions
-                                        active = {this.state.active}
-                                        helpPlayer = {this.handleHelp}
-                                        hide = {this.state.hideBattleBtns}
-                                    /> 
-								</div>
+                                <Companions
+                                    active = {this.state.active}
+                                    helpPlayer = {this.handleHelp}
+                                    hide = {this.state.hideBattleBtns}
+                                /> 
 							</Col>
 							<Col md = "6">
 								<div>

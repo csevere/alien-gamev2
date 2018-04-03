@@ -37,7 +37,7 @@ const PlayerDeck = (props)=>{
 
                 <ul className = "d-flex justify-content-start deck-card m-2" style = {cardStyle1}>
                     <li className = "deck-card-item faux">
-                        <Card className = "player-deck-card">
+                        <Card className = "player-deck-card"> 
                             <CardHeader className = "text-center">STAND IN</CardHeader>
                             <CardImg src = 'assets/deck/scifi-texture.jpg' />
                             <CardFooter>
