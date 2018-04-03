@@ -15,7 +15,7 @@ class EnemyProgress extends Component{
         return(
 			<div className = "enemyProgress d-flex flex-column">
 				Health
-				<Progress className = "e_Health tex-white" value = {this.props.health} max = "1000"> {this.props.health}  / 1000</Progress>
+				<Progress className = "e_Health tex-white" value = {this.props.health} max = "1250"> {this.props.health}  / 1250</Progress>
 				AP
 				<Progress className = "e_AP" value = {this.props.ap} max = "50"> {this.props.ap}  / 50</Progress>
 			</div> 
