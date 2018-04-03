@@ -153,11 +153,34 @@ $min-height: 85em;
             margin-top: 40em; 
         }
         .playerProgress, .enemyProgress{
-            margin: auto;
-            font-size: 1.35rem;
             color: white;  
-            text-transform: uppercase; 
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.35rem;
+            margin: auto;
+            text-transform: uppercase;
 
+            .progress{
+                display: block; 
+                background-color: transparent; 
+            }
+
+            .progress-bar{
+                height: 1rem;
+                overflow: hidden;
+                font-size: .75rem;
+                border-radius: .25rem;
+            }
+            
+            .p_Health, .e_Health{
+                .progress-bar{
+                    background-color: $red; 
+                }
+            }
+            .p_AP, .e_AP{
+                .progress-bar{
+                    background-color:#03a9f4; 
+                }
+            }
         }
     }
 
@@ -172,7 +195,7 @@ $min-height: 85em;
 
         ///////////ATTACK SCREEN////////////////////////
 
-        $attack-bg: rgba(152, 153, 156, 0.7);
+        $attack-bg: rgba(27, 28, 29, 0.7);
 
         .attack-screen{
             margin-top: -34em;
@@ -186,12 +209,15 @@ $min-height: 85em;
             }
 
             .attack-detail{
-                height: 5em; 
+                height: 5rem; 
             }
             .attack-image{
-                height: 27em; 
+                height: 27rem; 
+                img{
+                    height: 26.2rem;
+                }
             }
-            .message{
+            .message, .attack-detail{
                 font-family: $button-text; 
                 font-size: 1.6rem;
                 letter-spacing: 3px;

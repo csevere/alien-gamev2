@@ -8,9 +8,12 @@ import {
   DRAW,
   DEAL,
   SHUFFLE,
-  ATTACK
+  ATTACK,
+  MUSICOFF,
+  MUSICON
 } from './types';
 import axios from 'axios';
+import weapons from '../Reducers/JSON/WeaponsList.json'; 
 
 const ROOT_URL = 'http://localhost:5000'; 
 
@@ -100,8 +103,22 @@ export const backCount = () =>{
 //BATTLE ACTIONS /////
 
 export const shuffleCards = () =>{
-  return{
-      type: SHUFFLE
+  for(var i = 0; i < 1400; i++){
+    var random1 = Math.floor(Math.random() * weapons.length);
+    var random2 = Math.floor(Math.random() * weapons.length);
+    // Store in temp, the value at index random1, in array theDeck (for later)
+    var temp = weapons[random1];
+    // Overwrite what's at index random1 with what's at index random2
+    weapons[random1] = weapons[random2];
+    // Overwrite what's at index random2 with what's in temp
+    weapons[random2] = temp;
+    var shuffled = weapons;
+    console.log("SHUFFLED THE DECK!"); 
+    console.log(shuffled); 
+    return{
+        type: SHUFFLE,
+        shuffle:shuffled 
+    }
   };
 }
 
@@ -124,6 +141,21 @@ export const attackEnemy = () =>{
   return{
       type: ATTACK
   };
+}
+
+//MUSIC
+export const musicOn = () =>{
+  console.log("MUSIC TURNED ON");
+  return{
+    type: MUSICON
+  }
+}
+
+export const musicOff = () =>{
+  console.log("MUSIC TURNED OFF");
+  return{
+    type: MUSICOFF
+  }
 }
 
 

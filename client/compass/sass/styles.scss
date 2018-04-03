@@ -1,7 +1,7 @@
-// *{
-    
-//     background-color: rgba(0,255,0,0.1); 
-// }
+*{
+    box-sizing: border-box;
+    // background-color: rgba(0,255,0,0.1); 
+}
 
 @import 'bgmain';
 @import 'play'; 
@@ -22,11 +22,6 @@
 .efaGep {
     color: $teal !important; 
 
-}
-
-.audio{
-    // visibility: hidden; 
-    display: none; 
 }
 
 //logged out message 
@@ -52,6 +47,14 @@
             margin-top: 4rem;
         }
     }
+}
+
+
+// /MUSIC/////
+
+.audio{
+    // visibility: hidden; 
+    display: none; 
 }
 
 // .modal{

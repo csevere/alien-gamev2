@@ -11,11 +11,6 @@ import Welcome from './Components/Welcome';
 
 
 
-
-
-
-
-
 const PrimaryLayout = () => (
     <div className="primary-layout">
       <main>
@@ -26,7 +21,6 @@ const PrimaryLayout = () => (
         <Route path="/map" component={BattleCraftMap} />
         <Route path="/game" component={Game} />
         <Route path="/links" component={FooterPage} />
-        
         <Footer/>
       </main>
     </div>

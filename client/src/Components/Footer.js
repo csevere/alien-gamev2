@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Link } from 'react-router-dom';  
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
-import { Row, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { Row, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Label } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
@@ -14,10 +14,12 @@ class Footer extends Component {
 
         this.state = {
             dropdownOpen: false,
+            off: true
         };
 
         this.quitGame = this.quitGame.bind(this); 
         this.toggle = this.toggle.bind(this);
+        // this.handleChange = this.handleChange.bind(this); 
     }
 
     quitGame(){
@@ -31,10 +33,22 @@ class Footer extends Component {
         this.setState({
           dropdownOpen: !this.state.dropdownOpen,
         });
-
-        console.log("toggle!"); 
-        console.log(this.state.dropdownOpen); 
     }
+
+    // handleChange(){
+	// 	this.setState({
+    //         off: !this.state.off
+    //     })
+    //     console.log("CHANGE OF Off"); 
+    //     console.log(this.state.off);
+
+    //     if(this.state.off){
+    //         this.props.musicOff();
+    //     }else{
+    //         this.props.musicOn(); 
+    //     }
+    // }
+    
 
     render(){
 
@@ -62,9 +76,8 @@ class Footer extends Component {
             menuClass.push('show')
         }
 
-        console.log("LOOK HERE")
-        console.log(this.state.dropdownOpen); 
-        console.log(menuClass); 
+        console.log("DEFAULT Off"); 
+        console.log(this.state.off);
 
         return(
             <footer className = "main-footer pl-3">
@@ -88,7 +101,6 @@ class Footer extends Component {
                                     <Link className = "dropdown-item" to = "/game"><div>Battle</div></Link>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                     {rightPlayerStatus}
@@ -100,16 +112,16 @@ class Footer extends Component {
 
 export default connect(null,actions)(Footer);
 
-                            // <Dropdown direction="up" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            //     <DropdownToggle caret>
-                            //         Navigate
-                            //     </DropdownToggle>
-                            //     <DropdownMenu>
-                            //         <Link to = "/"><DropdownItem>Home</DropdownItem></Link>
-                            //         <Link to = "/choose"><DropdownItem>Choose Character</DropdownItem></Link>
-                            //         <Link to = "/scene"><DropdownItem>Story Scenes</DropdownItem></Link>
-                            //         <Link to = "/convo"><DropdownItem>Conversations</DropdownItem></Link>
-                            //         <Link to = "/map"><DropdownItem>BattleCraft Map</DropdownItem></Link>
-                            //         <Link to = "/game"><DropdownItem>Battle</DropdownItem></Link>
-                            //     </DropdownMenu>
-                            // </Dropdown> 
+/* <div className = "p-2 nav">
+    Music &nbsp;
+    <div className="slideThree"> 
+        <Input 
+            type="checkbox" 
+            value={this.state.off}
+            id="slideThree" 
+            name="check" 
+            onChange = {this.handleChange}  
+        />
+        <Label for="slideThree"></Label>
+    </div>
+</div> */
