@@ -251,8 +251,8 @@ class Game extends Component{
             })
         }else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
             this.props.e_shuffleCards();  
-            this.handleEDraw();
             this.attackPlayer(); 
+            this.handleEDraw();
         }else if(randomDie1 + randomDie2 === 12){
             this.attackEnemy2();
         }else if(randomDie1 + randomDie2 === 2){
@@ -278,6 +278,12 @@ class Game extends Component{
             opacity: '0',
             visibility: 'hidden'    
         }
+
+           const deckStyle = {
+            left:'1rem',
+            opacity: this.state.deckopacity,
+            transition: '2s'
+        }
     
         // console.log("PLAYER HAND IN GAME")
         // console.log(this.props.playersHand.playersHand);
@@ -285,13 +291,23 @@ class Game extends Component{
         return playersHand.map((player,index) => {
             if( player === playersHand[0] && playersHand.length < 23){
                 return(
-                    <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
-                        <CardHeader  className = "text-center">{player.name}</CardHeader>
-                        <CardImg src = {player.image} />
-                        <CardFooter>
-                            <div className = "text-center">Damage: {player.damage}</div>
-                        </CardFooter>
-                    </Card>
+                    <div key = {index} >
+                        <div className = "front">
+                            <Card className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                                <CardHeader  className = "text-center">{player.name}</CardHeader>
+                                <CardImg src = {player.image} />
+                                <CardFooter>
+                                    <div className = "text-center">Damage: {player.damage}</div>
+                                </CardFooter>
+                            </Card>
+                        </div>
+
+                         <div className = "back card-back-1">
+                            <Card className = "player-deck-card deck-item" style = {deckStyle}>
+                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                            </Card>
+                        </div>
+                    </div>
                 )
             }
         });    
@@ -388,10 +404,9 @@ class Game extends Component{
         }, 1500);
 
         count++; 
-        console.log(" LINE 329 NUMBER " + count); 
+        console.log(" LINE 391 NUMBER " + count); 
 
         this.props.drawCard();
-       
     }
 
 
@@ -425,6 +440,17 @@ class Game extends Component{
             opacity: '0',
             visibility: 'hidden'    
         }
+
+        const e_deckStyle = {
+            left:'1rem',
+            opacity: this.state.e_deckopacity,
+            transition: '2s'
+        }
+
+        // const e_deckStyle2 = {
+        //     marginTop: '-19rem',
+        //     marginLeft: '-1rem',
+        // }
     
         // console.log("ENEMY HAND IN GAME")
         // console.log(this.props.enemysHand.enemysHand);
@@ -432,13 +458,23 @@ class Game extends Component{
         return enemysHand.map((enemy,index) => {
             if( enemy === enemysHand[0] && enemysHand.length < 23){
                 return(
-                    <Card key = {index} className = "enemy-deck-card deck-item" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
-                        <CardHeader  className = "text-center">{enemy.name}</CardHeader>
-                        <CardImg src = {enemy.image} />
-                        <CardFooter>
-                            <div className = "text-center">Damage: {enemy.damage}</div>
-                        </CardFooter>
-                    </Card>
+                    <div key = {index}>
+                        <div className = "front">
+                            <Card className = "enemy-deck-card" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
+                                <CardHeader  className = "text-center">{enemy.name}</CardHeader>
+                                <CardImg src = {enemy.image} />
+                                <CardFooter>
+                                    <div className = "text-center">Damage: {enemy.damage}</div>
+                                </CardFooter>
+                            </Card>
+                        </div>
+
+                        <div className = "back">
+                            <Card className = "enemy-deck-card" style = {e_deckStyle}>
+                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                            </Card>
+                        </div>
+                    </div>
                 )
             }
         });    
@@ -462,7 +498,7 @@ class Game extends Component{
             if(enemy2 === enemysHand[1] && enemysHand.length < 23){
                 return(
             
-                    <Card key = {index} className = "enemy-deck-card deck-item" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
+                    <Card key = {index} className = "enemy-deck-card" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
                         <CardHeader className = "text-center">{enemy2.name}</CardHeader>
                         <CardImg src = {enemy2.image} />
                         <CardFooter>
@@ -513,7 +549,7 @@ class Game extends Component{
                     </div>
                 )
             } 
-        })
+        }).reverse(); 
     }
 
 
@@ -539,8 +575,7 @@ class Game extends Component{
         count++; 
         console.log("ENEMY LINE 540 NUMBER " + count); 
 
-        this.props.drawECard();
-       
+        this.props.drawECard();       
     }
 
 
@@ -634,7 +669,6 @@ class Game extends Component{
 
         //managing deck/cards
         if(enemysHand.length < 23){
-            
             enemysHand.shift();
             console.log("ENEMY CARD SHIFTED!");
             console.log(enemysHand); 

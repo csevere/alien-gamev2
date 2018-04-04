@@ -5,17 +5,17 @@ var INITIAL_STATE ={
   data,
   enemysHand: [
     {
-      "id": 0,
+      "id": 19,
       "name":"Glacial Crusher",
       "image": "assets/aliens/attacks1/glacialcrusher.jpg",
       "damage": "40"
     },
   
     {
-      "id": 1,
+      "id": 20,
       "name":"Blizzard Barrage",
       "image": "assets/aliens/attacks1/blizzardbarrage.jpg",
-      "damage": "45"  
+      "damage": "50"  
     }
   ]
 }
@@ -23,7 +23,7 @@ var INITIAL_STATE ={
 export default (state = INITIAL_STATE, action) => { 
   switch(action.type){
     case E_DRAW:
-      console.log("PLAYERS HAND IN REDUCER"); 
+      console.log("ENEMYS HAND IN REDUCER"); 
       console.log(state.enemysHand);
       return {
         ...state,

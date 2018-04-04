@@ -36,7 +36,6 @@ const EnemyDeck = (props) =>{
     return(
         <div>
             <div className = "enemy-deck d-flex flex-row">
-
                 <ul className = "deck">
                     <div>
                         <li>
@@ -45,21 +44,9 @@ const EnemyDeck = (props) =>{
                     </div>
                 </ul>
 
-                <ul className = "d-flex justify-content-start deck-card ml-3" style = {cardStyle1}>
+                <ul className = "d-flex deck-card card-2" style = {cardStyle1}>
                     <li className = "deck-card-item faux">
-                        <Card className = "enemy-deck-card deck-item">
-                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                        </Card>
-                    </li> 
-
-                    <li className = "deck-card-item real">
-                        {!draw ? null : props.getECard1()}
-                    </li>
-                </ul>
-
-                <ul className = "d-flex deck-card ml-3" style = {cardStyle1}>
-                    <li className = "deck-card-item faux">
-                        <Card className = "enemy-deck-card deck-item" style = {deckStyle}>
+                        <Card className = "enemy-deck-card">
                             <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
                         </Card>
                     </li> 
@@ -69,7 +56,17 @@ const EnemyDeck = (props) =>{
                     </li>
                 </ul>
 
+                <ul className = "d-flex deck-card card1 " style = {cardStyle1}>
+                    <li className = "deck-card-item faux">
+                        <Card className = "enemy-deck-card" style = {deckStyle}>
+                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                        </Card>
+                    </li> 
 
+                    <li className = "deck-card-item real">
+                        {!draw ? null : props.getECard1()}
+                    </li>
+                </ul>
             </div>
         </div>
     )            

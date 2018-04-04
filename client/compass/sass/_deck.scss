@@ -14,31 +14,15 @@
 .player-deck{
     margin-left: -6rem;
     .deck{
-        position: relative;
         margin-left: 4rem;
+        position: relative;
         width: 90%;
         
         .deck-item{
-            right: -5%;
             margin-top: -1em;
             position: absolute;
+            right: -5%;
         }
-
-        // .deck-item.animate{
-        //     animation-name: deck;
-        //     animation-duration: 4s;
-        //     @keyframes deck {
-        //         0%   {right: 0px;}
-        //         25%  {right: 90px;}
-        //         50%  {right: 90px;}
-        //         75%  {right: 0px;}
-        //         100% {right: 0px;}
-        //     }
-        //     opacity: 0;
-        //     transition: all 6s; 
-        
-        // }
-
     }
 
     .deck-card{
@@ -47,8 +31,9 @@
         
         .deck-card-item{
             opacity: 1;
-            width: 100%;
             position: absolute;
+            width: 100%;
+            
         }
         .faux{
             opacity: 0;
@@ -74,13 +59,20 @@
         text-transform: uppercase;
 
         .card-header, .card-footer{
-            font-family: 'Exo 2', sans-serif;
             background: $inner !important;
+            font-family: 'Exo 2', sans-serif;
+           
         }
 
         .card-header{
             font-size: 1.5rem;
         }
+    }
+
+    .card-back-1{
+        margin-top: -19rem;
+        position: relative;
+        right: 1rem;
     }
 
     .back{
@@ -102,64 +94,68 @@
 
 
 .enemy-deck{
+    margin-left: 2rem;
 
     .back{
-        .deck-item{
+        .enemy-deck-card{
             img{
                 height: 18.2rem; 
             }
         }
     }
 
-    // float: left; 
-    // margin-top: 0rem;
-
     .deck{
+        margin-left: -4rem; 
         position: relative;
-        margin-left: 0rem;
-        width: 94%;
-        margin-top: -1rem;
+        width: 90%;
+
         .deck-item{
             right: -6%;
-            // margin-top: -1.5em;
+            margin-top: -1em;
             position: absolute;
         }
-
-        // .deck-item.animate{
-        //     animation-name: deck;
-        //     animation-duration: 4s;
-        //     @keyframes deck {
-        //         0%   {right: 0px;}
-        //         25%  {right: 90px;}
-        //         50%  {right: 90px;}
-        //         75%  {right: 0px;}
-        //         100% {right: 0px;}
-        //     }
-        //     opacity: 0;
-        //     transition: all 6s; 
-        
-        // }
-
     }
 
     .deck-card{
         position: relative;
-        width: 96%;
-        
+        width: 100%; 
+        margin-left: -2rem;
+        margin-right: 3rem;
+        margin-top: 0.5rem;
+
+        li{
+            list-style: none; 
+        }
+            
         .deck-card-item{
             opacity: 1;
-            width: 100%;
             position: absolute;
+            width: 100%;
+            
         }
         .faux{
             opacity: 0;
         }
-
     }
 
     .card{
         width: 100%; 
     } 
+
+    // .card2{
+    //     .deck-card-item{  
+    //         width: 106%            
+    //     }
+    // }
+
+    .card1{
+        .deck-card-item{
+            .back{
+                margin-top: -19rem;
+                margin-left: -1rem; 
+            }
+        }
+    }
 
     .deal{
         img{
@@ -175,7 +171,7 @@
         text-transform: uppercase;
 
         img{
-            height: 11.7rem;
+            height: 11.8rem;
         }
 
         .card-header, .card-footer{
@@ -183,10 +179,8 @@
             background: $enemy-inner !important;
         }
 
-        
-
         .card-header{
-            font-size: 1.2rem;
+            font-size: 1.17rem;
         }
     }
 }
