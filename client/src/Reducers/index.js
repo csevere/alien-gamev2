@@ -3,7 +3,10 @@ import CardShuffleReducer from './CardShuffleReducer';
 import CompanionsReducer from './CompanionsReducer'; 
 import ChooseCharReducer from './ChooseCharReducer'; 
 import DealNewReducer from './DealNewReducer';
-import DrawCardReducer from './DrawCardReducer';  
+import DrawCardReducer from './DrawCardReducer'; 
+import DrawAttackReducer from './DrawAttackReducer'; 
+import EnemyAttack1Reducer from './EnemyAttack1Reducer'; 
+import EnemyShuffleReducer from './EnemyShuffleReducer'; 
 import LoginReducer from './LoginReducer'; 
 import MusicReducer from './MusicReducer'; 
 import StorySceneReducer from './StorySceneReducer';
@@ -17,12 +20,15 @@ import RegisterReducer from './RegisterReducer';
 // import DealWeaponsReducer from './DealWeaponsReducer';
  
 const rootReducer =  combineReducers({
+    attackLibrary: EnemyAttack1Reducer,
     cardShuffle: CardShuffleReducer,
     chooseChar: ChooseCharReducer,
-    companions:CompanionsReducer,
-    newDeck: DealNewReducer, 
-    loginReducer:LoginReducer,
+    companions: CompanionsReducer,
+    enemysHand: DrawAttackReducer,
+    enemyShuffle: EnemyShuffleReducer,
+    loginReducer: LoginReducer,
     musicReducer: MusicReducer,
+    newDeck: DealNewReducer, 
     playersHand: DrawCardReducer,
     registerReducer:RegisterReducer,
     storySceneLibrary: StorySceneReducer,

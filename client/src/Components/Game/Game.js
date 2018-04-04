@@ -90,10 +90,16 @@ class Game extends Component{
 
         //////////// CARD METHODS/////// ////////
         this.handleDraw = this.handleDraw.bind(this);
-        this.handleDeal = this.handleDeal.bind(this); 
         this.getCard1 = this.getCard1.bind(this); 
-        this.getCard2 = this.getCard2.bind(this); 
+        this.getCard2 = this.getCard2.bind(this);
         this.getDeck = this.getDeck.bind(this); 
+
+        this.handleEDraw = this.handleEDraw.bind(this);
+        this.getECard1 = this.getECard1.bind(this); 
+        this.getECard2 = this.getECard2.bind(this); 
+        this.getEDeck = this.getEDeck.bind(this); 
+
+        // this.handleDeal = this.handleDeal.bind(this); 
 
         //////////////THE COUNDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
@@ -135,6 +141,7 @@ class Game extends Component{
     ////////////////////////////////////////////////////////////////////
     ////////////////// HANDLING THE TIMER //////////////////////////////
     ////////////////////////////////////////////////////////////////////
+
 	updateTimer(){
         // Run till timeout
         if(CurrentTime + TimeGap < EndTime ) {
@@ -214,6 +221,7 @@ class Game extends Component{
 
     handleRoll(){
         var { playersHand } = this.props.playersHand;
+        var { enemysHand } = this.props.enemysHand;
 
         //getting a random number to roll random dice
         var randomDie1 = Math.ceil(Math.random() * 6);
@@ -236,14 +244,20 @@ class Game extends Component{
                 image : "assets/aliens/alien1.jpg"
             })
         } else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
-            p_Health_val -= 50;
+            this.props.e_shuffleCards();  
+            this.handleEDraw();
+            var enemyAttack = enemysHand[0].damage;
+            var enemyImage = enemysHand[0].image;
+            var enemyName = enemysHand[0].name;
+            p_Health_val -= enemyAttack; 
             e_AP_val -= 5; 
+
             this.setState({
-                attackdetail: "You lost 50 health points!",
+                attackdetail: `${enemyName}! You lost ${enemyAttack} health points!`,
                 e_AP: e_AP_val, 
                 hideBattleBtns: true,  
                 hideDeckBtns: true,
-                image : "assets/aliens/alien1.jpg",
+                image : enemyImage,
                 message: "You rolled below 7. You've been attacked!",
                 p_Health: p_Health_val,
                 showRoll: true,
@@ -275,10 +289,8 @@ class Game extends Component{
     }
 
 
-
-
     ////////////////////////////////////////////////////////////////////
-    ////////////////////// DRAWING THE CARDS////////////////////////////
+    ////////////////////// SHOWING THE PLAYER'S CARDS///////////////////
     ////////////////////////////////////////////////////////////////////
    
     getCard1(){
@@ -343,6 +355,11 @@ class Game extends Component{
         }); 
     }
 
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////// SHOWING THE PLAYER'S DECK////////////////////
+    ////////////////////////////////////////////////////////////////////
+   
+
     getDeck(){
         var { data } = this.props.shuffled;
 
@@ -381,8 +398,9 @@ class Game extends Component{
     }
 
     /////////////////////////////////////////////////////////////////////////
-    ///////////////////////// DRAWING & DEALING THE CARDS ///////////////////
+    ///////////////////////// DRAWING & DEALING THE PLAYERS CARDS ///////////
     ////////////////////////////////////////////////////////////////////////
+
     handleDraw(){
         this.setState({
             showCards: true,
@@ -406,15 +424,165 @@ class Game extends Component{
 
 
 
-    handleDeal(){
-        var { data } = this.props.shuffled;
+    // handleDeal(){
+    //     var { data } = this.props.shuffled;
 
-        console.log(this.props); 
-        console.log("NEW DECK!!! LINE 340")
-        console.log(data); 
+    //     console.log(this.props); 
+    //     console.log("NEW DECK!!! LINE 340")
+    //     console.log(data); 
 
-        this.props.dealNewDeck(); 
+    //     this.props.dealNewDeck(); 
+    // }
+
+
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////// SHOWING THE ENEMY'S CARDS///////////////////
+    ////////////////////////////////////////////////////////////////////
+   
+    getECard1(){
+        var { enemysHand } = this.props.enemysHand;
+
+        const showFightCards = {
+            opacity: '1',
+            transition: 'all 3s',
+            visibility: 'visible' 
+        }
+
+        const hideFightCards = {
+            opacity: '0',
+            visibility: 'hidden'    
+        }
+    
+        // console.log("ENEMY HAND IN GAME")
+        // console.log(this.props.enemysHand.enemysHand);
+
+        return enemysHand.map((enemy,index) => {
+            if( enemy === enemysHand[0] && enemysHand.length < 23){
+                return(
+                    <Card key = {index} className = "enemy-deck-card deck-item" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader  className = "text-center">{enemy.name}</CardHeader>
+                        <CardImg src = {enemy.image} />
+                        <CardFooter>
+                            <div className = "text-center">Damage: {enemy.damage}</div>
+                        </CardFooter>
+                    </Card>
+                )
+            }
+        });    
     }
+
+    getECard2(){
+        var { enemysHand } = this.props.enemysHand;
+        
+        const showFightCards = {
+            opacity: '1',
+            transition: 'all 6s',
+            visibility: 'visible'
+        }
+
+        const hideFightCards = {
+            opacity: '0',
+            visibility: 'hidden' 
+        }
+    
+        return enemysHand.map((enemy2, index) => {
+            if(enemy2 === enemysHand[1] && enemysHand.length < 23){
+                return(
+            
+                    <Card key = {index} className = "enemy-deck-card deck-item" style = {!this.state.showCards ? hideFightCards : showFightCards} >
+                        <CardHeader className = "text-center">{enemy2.name}</CardHeader>
+                        <CardImg src = {enemy2.image} />
+                        <CardFooter>
+                            <div className = "text-center">Damage: {enemy2.damage}</div>
+                        </CardFooter>
+                    </Card>
+                )
+            }
+        }); 
+    }
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////// SHOWING THE ENEMY'S DECK////////////////////
+    ////////////////////////////////////////////////////////////////////
+   
+
+    getEDeck(){
+        var { data } = this.props.e_shuffled; 
+
+        // console.log("SHUFFLED IN GAME LINE 277")
+        // console.log(data); 
+
+        const deckStyle = {
+            left:'1rem',
+            opacity: this.state.deckopacity,
+            transition: '2s'
+        }
+    
+        return data.map((elem, index) => {
+            if(data.length < 20){
+                return(
+                    <div key = {index}>
+                        <div className="front">
+                            <Card className = "enemy-deck-card deck-item">
+                                <CardHeader className = "text-center">{elem.name}</CardHeader>
+                                <CardImg src = {elem.image} />
+                                <CardFooter>
+                                    <div className = "text-center">Damage: {elem.damage}</div>
+                                </CardFooter>
+                            </Card>
+		                </div>
+
+                        <div className = "back">
+                            <Card className = "enemy-deck-card deck-item" style = {deckStyle}>
+                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                            </Card>
+                        </div>
+                    </div>
+                )
+            } 
+        }).reverse(); 
+    }
+
+
+
+    /////////////////////////////////////////////////////////////////////////
+    ///////////////////////// DRAWING & DEALING THE ENEMY'S CARDS ///////////
+    ////////////////////////////////////////////////////////////////////////
+
+    handleEDraw(){
+        this.setState({
+            showCards: true,
+            draw: true,
+            addClass: !this.state.addClass,
+            deckopacity: '0'
+        });
+
+        setTimeout(() =>{
+            this.setState({
+                deckopacity:'1'
+            })
+        }, 1500);
+
+        count++; 
+        console.log(" LINE 329 NUMBER " + count); 
+
+        this.props.drawECard();
+       
+    }
+
+
+    // handleDeal(){
+    //     var { data } = this.props.shuffled;
+
+    //     console.log(this.props); 
+    //     console.log("NEW DECK!!! LINE 340")
+    //     console.log(data); 
+
+    //     this.props.dealNewDeck(); 
+    // }
+
+
 
 
     ////////////////////////////////////////////////////////////////////
@@ -431,21 +599,20 @@ class Game extends Component{
         }
 
         if(playersHand.length > 0){
-            console.log("GET THE GUN HIT POINTS")
-            console.log(this.props.playersHand); 
-            console.log(playersHand[0].damage); 
-            console.log(playersHand[0].image); 
+            var weaponAttack = playersHand[0].damage;
+            var weaponImage = playersHand[0].image; 
+            var weaponName = playersHand[0].name; 
             
             // attacking enemy 
-            e_Health_val -= playersHand[0].damage;
+            e_Health_val -= weaponAttack ;
             p_AP_val -= 5;
 
             this.setState({
                 e_Health: e_Health_val,
                 p_AP: p_AP_val,
-                attackdetail:`Dealt ${playersHand[0].damage} damage!`,  
-                message : 'Keep giving \'em hell!',
-                image: playersHand[0].image,
+                attackdetail:`${weaponName} dealt ${playersHand[0].damage} damage!`,  
+                message: 'Keep giving \'em hell!',
+                image: weaponImage,
                 hideBattleBtns: true, 
                 hideDeckBtns: true,
                 showRoll: true
@@ -548,7 +715,8 @@ class Game extends Component{
             current.unshift(companions.shift())
             message = current[0].message;
             image = current[0].image; 
-            attackdetail = "Dealt 200 damage!";
+            var name = current[0].name; 
+            attackdetail = ` ${name} dealt 200 damage!`;
             console.log("CURRENT");
             console.log(current);
             console.log(image);
@@ -695,7 +863,13 @@ class Game extends Component{
                         <Row className = "row3 d-flex flex-row">
                             <Col md = "4">
                                 <div>
-                                    <EnemyDeck/>
+                                    <EnemyDeck
+                                        drawCond = {this.state.draw}
+                                        getECard1 = {this.getECard1}
+                                        getECard2 = {this.getECard2}
+                                        showCards = {this.state.showCards}
+                                        getEDeck = {this.getEDeck}
+                                    />
                                 </div>
                             </Col>
 						
@@ -765,8 +939,11 @@ class Game extends Component{
 const mapStateToProps = (state)=>{
     console.log("LOOOK HERE"); 
     return{
+        enemyattacks: state.attackLibrary, 
         deckweapons: state.weaponsLibrary,
         deckweapons2: state.weaponsLibrary2,
+        enemysHand: state.enemysHand, 
+        e_shuffled: state.enemyShuffle,
         // newDeck: state.newDeck, 
         playersHand: state.playersHand,
         shuffled: state.cardShuffle, 

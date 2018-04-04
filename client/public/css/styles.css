@@ -276,7 +276,7 @@ p {
 /* line 99, ../../compass/sass/_footer.scss */
 .main-footer .player-status {
   margin-top: -1rem;
-  margin-left: 33rem;
+  margin-left: 30rem;
 }
 /* line 103, ../../compass/sass/_footer.scss */
 .main-footer .player-status .player-status-btn {
@@ -1024,36 +1024,36 @@ p {
   margin-left: 4rem;
   width: 90%;
 }
-/* line 22, ../../compass/sass/_deck.scss */
+/* line 21, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck .deck-item {
   right: -5%;
   margin-top: -1em;
   position: absolute;
 }
-/* line 45, ../../compass/sass/_deck.scss */
+/* line 44, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-card {
   position: relative;
   width: 100%;
 }
-/* line 49, ../../compass/sass/_deck.scss */
+/* line 48, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-card .deck-card-item {
   opacity: 1;
   width: 100%;
   position: absolute;
 }
-/* line 54, ../../compass/sass/_deck.scss */
+/* line 53, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deck-card .faux {
   opacity: 0;
 }
-/* line 60, ../../compass/sass/_deck.scss */
+/* line 59, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .card {
   width: 100%;
 }
-/* line 65, ../../compass/sass/_deck.scss */
+/* line 64, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deal img {
   height: 9.2rem;
 }
-/* line 70, ../../compass/sass/_deck.scss */
+/* line 69, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card {
   border: 4px solid #0c4fab;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 20px #0c4fab, 0 0 0px #ededf7;
@@ -1061,58 +1061,59 @@ p {
   height: 19rem;
   text-transform: uppercase;
 }
-/* line 77, ../../compass/sass/_deck.scss */
+/* line 76, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header, .game-wrapper .row3 .player-deck .player-deck-card .card-footer {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 82, ../../compass/sass/_deck.scss */
+/* line 81, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header {
   font-size: 1.5rem;
 }
-/* line 88, ../../compass/sass/_deck.scss */
+/* line 87, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .back .player-deck-card {
   box-shadow: 0px 1px 0px #ededed, 0 0 1px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
 }
-/* line 99, ../../compass/sass/_deck.scss */
-.game-wrapper .row3 .enemy-deck {
-  float: left;
-  margin-top: 0rem;
+/* line 108, ../../compass/sass/_deck.scss */
+.game-wrapper .row3 .enemy-deck .back .deck-item img {
+  height: 18.2rem;
 }
-/* line 103, ../../compass/sass/_deck.scss */
+/* line 117, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck {
   position: relative;
-  margin-left: -7rem;
-  width: 132%;
+  margin-left: 0rem;
+  width: 94%;
+  margin-top: -1rem;
 }
-/* line 108, ../../compass/sass/_deck.scss */
+/* line 122, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck .deck-item {
-  right: -27%;
+  right: -6%;
+  position: absolute;
 }
-/* line 131, ../../compass/sass/_deck.scss */
+/* line 145, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card {
   position: relative;
   width: 96%;
 }
-/* line 135, ../../compass/sass/_deck.scss */
+/* line 149, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card .deck-card-item {
   opacity: 1;
   width: 100%;
   position: absolute;
 }
-/* line 140, ../../compass/sass/_deck.scss */
+/* line 154, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card .faux {
   opacity: 0;
 }
-/* line 146, ../../compass/sass/_deck.scss */
+/* line 160, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .card {
   width: 100%;
 }
-/* line 151, ../../compass/sass/_deck.scss */
+/* line 165, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deal img {
   height: 9.2rem;
 }
-/* line 156, ../../compass/sass/_deck.scss */
+/* line 170, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card {
   border: 4px solid #a94442;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #dc3545, 0px 0px 0px #dc3545, 0 0 20px #dc3545, 0 0 0px #ededf7;
@@ -1120,14 +1121,18 @@ p {
   height: 19rem;
   text-transform: uppercase;
 }
-/* line 163, ../../compass/sass/_deck.scss */
+/* line 177, ../../compass/sass/_deck.scss */
+.game-wrapper .row3 .enemy-deck .enemy-deck-card img {
+  height: 11.7rem;
+}
+/* line 181, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-header, .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-footer {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #732930 0%, #0a0909 98%, #ef0d23 100%) !important;
 }
-/* line 168, ../../compass/sass/_deck.scss */
+/* line 188, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-header {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 /* line 200, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {

@@ -125,14 +125,14 @@
         "id": 17,
         "name":"Armageddon Fusion Rifle",
         "image": "assets/deck/weapons/armageddonrifle.jpg",
-        "damage": 50
+        "damage": 70
     },
 
     {
         "id": 18,
         "name":"Phaser of Justice",
         "image": "assets/deck/weapons/phaserjustice.gif",
-        "damage": 75
+        "damage": 90
     }
 ]
 

@@ -7,6 +7,8 @@ import {
   BACK,
   DRAW,
   DEAL,
+  E_SHUFFLE,
+  E_DRAW, 
   SHUFFLE,
   ATTACK,
   MUSICOFF,
@@ -14,6 +16,7 @@ import {
 } from './types';
 import axios from 'axios';
 import weapons from '../Reducers/JSON/WeaponsList.json'; 
+import attacks from '../Reducers/JSON/Enemy1Deck.json'; 
 
 const ROOT_URL = 'http://localhost:5000'; 
 
@@ -136,29 +139,82 @@ export const dealNewDeck = () =>{
 }
 
 
+/// ENEMY ATTACKS ////
 
 
+export const e_shuffleCards = () =>{
+  for(var i = 0; i < 1400; i++){
+    var random1 = Math.floor(Math.random() * attacks.length);
+    var random2 = Math.floor(Math.random() * attacks.length);
+    // Store in temp, the value at index random1, in array theDeck (for later)
+    var temp = attacks[random1];
+    // Overwrite what's at index random1 with what's at index random2
+    attacks[random1] = attacks[random2];
+    // Overwrite what's at index random2 with what's in temp
+    attacks[random2] = temp;
+    var e_shuffled = attacks;
 
-export const attackEnemy = () =>{
-  return{
-      type: ATTACK
+    console.log("SHUFFLED THE ENEMY DECK!"); 
+    console.log(e_shuffled);
+
+    return{
+        type: E_SHUFFLE,
+        e_shuffle: e_shuffled 
+    }
   };
 }
 
-//MUSIC
-export const musicOn = () =>{
-  console.log("MUSIC TURNED ON");
+export const drawECard = () =>{
   return{
-    type: MUSICON
+    type: E_DRAW 
   }
 }
 
-export const musicOff = () =>{
-  console.log("MUSIC TURNED OFF");
-  return{
-    type: MUSICOFF
-  }
-}
+
+
+
+
+// export const attackEnemy = () =>{
+//   return{
+//       type: ATTACK
+//   };
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //MUSIC
+// export const musicOn = () =>{
+//   console.log("MUSIC TURNED ON");
+//   return{
+//     type: MUSICON
+//   }
+// }
+
+// export const musicOff = () =>{
+//   console.log("MUSIC TURNED OFF");
+//   return{
+//     type: MUSICOFF
+//   }
+// }
 
 
 

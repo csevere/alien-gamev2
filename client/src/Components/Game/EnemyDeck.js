@@ -14,11 +14,11 @@ import { Container,
 } from 'reactstrap';
 
 
-const EnemyDeck = ()=>{
+const EnemyDeck = (props) =>{
 
-    // const draw = props.drawCond; 
+    const draw = props.drawCond; 
     
-    // const showCards = props.showCards
+    const showCards = props.showCards
     
     const cardStyle1 = {
         listStyle: 'none'
@@ -40,9 +40,7 @@ const EnemyDeck = ()=>{
                 <ul className = "deck">
                     <div>
                         <li>
-                            <Card className = "enemy-deck-card deck-item">
-                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                            </Card>
+                            {props.getEDeck()}
                         </li> 
                     </div>
                 </ul>
@@ -55,9 +53,7 @@ const EnemyDeck = ()=>{
                     </li> 
 
                     <li className = "deck-card-item real">
-                        <Card className = "enemy-deck-card deck-item">
-                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                        </Card>
+                        {!draw ? null : props.getECard1()}
                     </li>
                 </ul>
 
@@ -69,9 +65,7 @@ const EnemyDeck = ()=>{
                     </li> 
 
                     <li className = "deck-card-item real">
-                        <Card className = "enemy-deck-card deck-item">
-                            <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                        </Card>
+                         {!draw ? null : props.getECard2()}
                     </li>
                 </ul>
 

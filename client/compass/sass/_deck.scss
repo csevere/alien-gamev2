@@ -16,7 +16,6 @@
     .deck{
         position: relative;
         margin-left: 4rem;
-
         width: 90%;
         
         .deck-item{
@@ -95,20 +94,35 @@
 
 
 
-////////ENEMY DECK //////////
+
+
+////////////////////////////////////////////
+////////ENEMY DECK ////////////////////////
+/////////////////////////////////////////////
+
+
 .enemy-deck{
-    float: left; 
-    margin-top: 0rem;
+
+    .back{
+        .deck-item{
+            img{
+                height: 18.2rem; 
+            }
+        }
+    }
+
+    // float: left; 
+    // margin-top: 0rem;
 
     .deck{
         position: relative;
-        margin-left: -7rem;
-        width: 132%;
-
+        margin-left: 0rem;
+        width: 94%;
+        margin-top: -1rem;
         .deck-item{
-            right: -27%;
+            right: -6%;
             // margin-top: -1.5em;
-            // position: absolute;
+            position: absolute;
         }
 
         // .deck-item.animate{
@@ -160,13 +174,19 @@
         height: 19rem; 
         text-transform: uppercase;
 
+        img{
+            height: 11.7rem;
+        }
+
         .card-header, .card-footer{
             font-family: 'Exo 2', sans-serif;
             background: $enemy-inner !important;
         }
 
+        
+
         .card-header{
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
     }
 }

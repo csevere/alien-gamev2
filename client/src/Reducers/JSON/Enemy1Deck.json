@@ -1,0 +1,135 @@
+[
+	{
+		"id": 0,
+		"name":"Glacial Crusher",
+		"image": "assets/aliens/attacks1/glacialcrusher.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 1,
+		"name":"Blizzard Barrage",
+		"image": "assets/aliens/attacks1/blizzardbarrage.jpg",
+		"damage": "50"  
+	},
+
+	{
+		"id": 2,
+		"name":"Frost Blade",
+		"image": "assets/aliens/attacks1/frostblade.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 3,
+		"name":"Freezing Veins",
+		"image": "assets/aliens/attacks1/freezingveinbolt.jpg",
+		"damage": "45"
+	},
+	{
+		"id": 4,
+		"name":"Glacial Crusher",
+		"image": "assets/aliens/attacks1/glacialcrusher.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 5,
+		"name":"Blizzard Barrage",
+		"image": "assets/aliens/attacks1/blizzardbarrage.jpg",
+		"damage": "50"  
+	},
+
+	{
+		"id": 6,
+		"name":"Frost Blade",
+		"image": "assets/aliens/attacks1/frostblade.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 7,
+		"name":"Freezing Veins",
+		"image": "assets/aliens/attacks1/freezingveinbolt.jpg",
+		"damage": "45"
+	},
+
+	{
+		"id": 8,
+		"name":"Glacial Crusher",
+		"image": "assets/aliens/attacks1/glacialcrusher.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 9,
+		"name":"Blizzard Barrage",
+		"image": "assets/aliens/attacks1/blizzardbarrage.jpg",
+		"damage": "50"  
+	},
+
+	{
+		"id": 10,
+		"name":"Frost Blade",
+		"image": "assets/aliens/attacks1/frostblade.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 11,
+		"name":"Freezing Veins",
+		"image": "assets/aliens/attacks1/freezingveinbolt.jpg",
+		"damage": "45"
+	},
+
+	{
+		"id": 12,
+		"name":"Glacial Crusher",
+		"image": "assets/aliens/attacks1/glacialcrusher.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 13,
+		"name":"Blizzard Barrage",
+		"image": "assets/aliens/attacks1/blizzardbarrage.jpg",
+		"damage": "50"  
+	},
+
+	{
+		"id": 14,
+		"name":"Frost Blade",
+		"image": "assets/aliens/attacks1/frostblade.jpg",
+		"damage": "40"
+	},
+
+	{
+		"id": 15,
+		"name":"Freezing Veins",
+		"image": "assets/aliens/attacks1/freezingveinbolt.jpg",
+		"damage": "45"
+	},
+
+	{
+		"id": 16,
+		"name":"Explosive Icicle",
+		"image": "assets/aliens/attacks1/explosiveicicle.jpg",
+		"damage": "60" 
+	},
+
+	{
+		"id": 17,
+		"name":"Arctic Aria",
+		"image": "assets/aliens/attacks1/articaria.jpg",
+		"damage": "80"
+	},
+
+	{
+		"id": 18,
+		"name":"Ice Maelstrom",
+		"image": "assets/aliens/attacks1/icemaelstrom.jpg",
+		"damage": "100"
+	}
+
+]
+
