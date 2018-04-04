@@ -91,7 +91,8 @@ class Buttons extends Component{
         const hideShuffle = this.state.displayShuff;
         const hideAP = this.state.displayAP; 
         const hideHP = this.state.displayHP; 
-        const showroll = this.props.showroll; 
+        const showRoll = this.props.showroll; 
+        const showDeal = this.props.showdeal 
 
         const hideButtons = {
             display: 'none'
@@ -105,6 +106,9 @@ class Buttons extends Component{
         const hideRoll = {
             visibility: 'hidden'
         } 
+        const hideDeal ={
+            visibility: 'hidden'
+        }
         const hideShuff = {
             display: hideShuffle
         }
@@ -121,7 +125,7 @@ class Buttons extends Component{
 
             <div className = "buttons" style = {!state ? hideButtons : null }>
                 <div className = "d-flex flex-row">    
-                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()} style = {showroll ? null: hideRoll}>Roll</Button>
+                    <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()} style = {showRoll ? null: hideRoll}>Roll</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.drawCards()} style = {hideDeck ? hideDeckBtns : null}>Draw</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : hideShuff }>Shuffle | {this.state.shuffleNum}X</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.dealCards()} style = {hideDeck ? hideDeckBtns: null}>Deal</Button>

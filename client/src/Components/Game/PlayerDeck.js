@@ -35,7 +35,7 @@ const PlayerDeck = (props)=>{
         <div style = {deckStyle}>
             <div className = "player-deck d-flex flex-row">
 
-                <ul className = "d-flex justify-content-start deck-card m-2" style = {cardStyle1}>
+                <ul className = "d-flex deck-card m-2 card1" style = {cardStyle1}>
                     <li className = "deck-card-item faux">
                         <Card className = "player-deck-card"> 
                             <CardHeader className = "text-center">STAND IN</CardHeader>

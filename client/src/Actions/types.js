@@ -6,7 +6,13 @@ export const NEXT = 'next';
 export const BACK = 'back';
 export const SHUFFLE = 'shuffle';  
 export const DEAL = 'deal';  
-export const DRAW = 'draw';  
-export const ATTACK = 'attack'; 
-export const MUSICON = 'musicOn';  
-export const MUSICOFF = 'musicOff';  
+export const E_DRAW = 'e_draw';
+export const E_SHUFFLE = 'e_shuffle'; 
+export const DRAW = 'draw';
+
+
+
+
+// export const ATTACK = 'attack'; 
+// export const MUSICON = 'musicOn';  
+// export const MUSICOFF = 'musicOff';  

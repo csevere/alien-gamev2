@@ -29,11 +29,6 @@ class Companions extends Component{
 
     handleHelpSubmit(){
         this.props.helpPlayer()
-        console.log("FORM SUBMITTED"); 
-
-        // this.setState({
-        //     displayAlly: 'none'
-        // })
     }
 
     renderCompanions(){
