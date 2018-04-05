@@ -38,9 +38,9 @@ class Companions extends Component{
         return companions.map((companion)=>{
             if(localPic !== companion.image){
                 return(
-                    <ul className = "companions-cards">
+                    <ul key = {companion.id} className = "companions-cards">
                         <li>
-                            <Card className = "companions-cards-item" key = {companion.id}>
+                            <Card className = "companions-cards-item">
                                 <CardHeader className = "text-center">{companion.name}</CardHeader>
                                 <CardImg src = {companion.image}/>
                             </Card>

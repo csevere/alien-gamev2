@@ -11,7 +11,6 @@ export default (state = INITIAL_STATE, action) =>{
       console.log(action);
       return{ e_shuffled: action.e_shuffle, ...state }
     default:
-      return state 
+      return state; 
   }
-  return state; 
 }

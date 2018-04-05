@@ -1,22 +1,9 @@
-import React, {Component} from 'react';
-import { connect} from 'react-redux';
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardHeader,
-    CardFooter,
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
-} from 'reactstrap';
+import React from 'react';
+import { Card, CardHeader, CardFooter, CardImg } from 'reactstrap';
 
 const PlayerDeck = (props)=>{
  
     const draw = props.drawCond; 
-    
-    const showCards = props.showCards
     
     const cardStyle1 = {
         listStyle: 'none'

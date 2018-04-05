@@ -189,7 +189,7 @@ class SceneCard1 extends Component{
             if(count <= storyscene.id && storyscene.id <= 6){
                 return(
                     <Row style = {CardStyle} key = {storyscene.id}>
-                        <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
+                        <Card style = {storyscene.id === count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place text-white">{storyscene.place}</div> 

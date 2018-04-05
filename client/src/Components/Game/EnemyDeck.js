@@ -1,24 +1,9 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
-import { connect} from 'react-redux';
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardHeader,
-    CardFooter,
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
-} from 'reactstrap';
-
+import React from 'react';
+import { Card, CardImg } from 'reactstrap';
 
 const EnemyDeck = (props) =>{
 
     const draw = props.drawCond; 
-    
-    const showCards = props.showCards
     
     const cardStyle1 = {
         listStyle: 'none'

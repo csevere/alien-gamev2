@@ -13,7 +13,7 @@ var INITIAL_STATE ={
     },
 
     {
-      "id": 2,
+      "id": 1,
       "name":"The Thermal Gun",
       "image": "assets/deck/weapons/thermalgun.jpg",
       "damage": 35
@@ -32,5 +32,5 @@ export default (state = INITIAL_STATE, action) => {
       }
     default:
       return state
-  } return state 
+  }
 }

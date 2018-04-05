@@ -9,7 +9,7 @@ class Buttons extends Component{
         this.state = {
             apNum: 5,
             hpNum: 5,
-            shuffleNum : 5,
+            shuffleNum : 10,
             displayShuff: 'block',
             displayAP: 'block',
             displayHP: 'block'
@@ -70,6 +70,7 @@ class Buttons extends Component{
     }
 
     shuffleCards(){
+        
         this.props.shuffle(); 
        
         if(this.state.shuffleNum < 2){

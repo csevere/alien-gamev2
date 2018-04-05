@@ -874,7 +874,6 @@ p {
 /* line 35, ../../compass/sass/_game.scss */
 .game-wrapper .fightscreen {
   color: red;
-  height: 40rem;
   width: 10rem;
   background: rgba(9, 12, 39, 0.7);
   border: 4px solid #d9edf7;
@@ -924,65 +923,66 @@ p {
   float: right;
   font-size: 3rem;
   font-family: "Orbitron", sans-serif !important;
+  margin-left: 66rem;
   padding: 0.5rem;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
-/* line 94, ../../compass/sass/_game.scss */
+/* line 95, ../../compass/sass/_game.scss */
 .game-wrapper .row2 {
   height: 33em;
   padding-top: 1rem;
 }
-/* line 100, ../../compass/sass/_game.scss */
+/* line 101, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card, .game-wrapper .row2 .player-card {
   height: 23em;
   width: 20em;
   color: white !important;
 }
-/* line 104, ../../compass/sass/_game.scss */
+/* line 105, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card, .game-wrapper .row2 .player-card .card {
   border-style: ridge;
   text-transform: uppercase;
 }
-/* line 107, ../../compass/sass/_game.scss */
+/* line 108, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .enemy-card .card .card-footer, .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   font-family: 'Exo 2', sans-serif;
 }
-/* line 110, ../../compass/sass/_game.scss */
+/* line 111, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .player-card .card .card-header {
   font-size: 1.5rem;
 }
-/* line 116, ../../compass/sass/_game.scss */
+/* line 117, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card img, .game-wrapper .row2 .player-card img {
   height: 15em;
   margin-top: -0.4em;
 }
-/* line 125, ../../compass/sass/_game.scss */
+/* line 126, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .player-card .card {
   border: 4px solid #0c4fab !important;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
   text-transform: uppercase;
 }
-/* line 129, ../../compass/sass/_game.scss */
+/* line 130, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 140, ../../compass/sass/_game.scss */
+/* line 141, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card {
   border: 4px solid #a94442 !important;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #dc3545, 0px 0px 0px #dc3545, 0 0 7px #dc3545, 0 0 0px #ededf7;
 }
-/* line 144, ../../compass/sass/_game.scss */
+/* line 145, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card-header, .game-wrapper .row2 .enemy-card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #732930 0%, #0a0909 98%, #ef0d23 100%) !important;
 }
-/* line 150, ../../compass/sass/_game.scss */
+/* line 151, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .dice {
   height: 7em;
   text-align: center;
   margin-top: 40em;
 }
-/* line 155, ../../compass/sass/_game.scss */
+/* line 156, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress, .game-wrapper .row2 .enemyProgress {
   color: white;
   font-family: 'Exo 2', sans-serif;
@@ -990,27 +990,27 @@ p {
   margin: auto;
   text-transform: uppercase;
 }
-/* line 162, ../../compass/sass/_game.scss */
+/* line 163, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .progress, .game-wrapper .row2 .enemyProgress .progress {
   display: block;
   background-color: transparent;
 }
-/* line 167, ../../compass/sass/_game.scss */
+/* line 168, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .progress-bar, .game-wrapper .row2 .enemyProgress .progress-bar {
   height: 1rem;
   overflow: hidden;
   font-size: .75rem;
   border-radius: .25rem;
 }
-/* line 175, ../../compass/sass/_game.scss */
+/* line 176, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .p_Health .progress-bar, .game-wrapper .row2 .playerProgress .e_Health .progress-bar, .game-wrapper .row2 .enemyProgress .p_Health .progress-bar, .game-wrapper .row2 .enemyProgress .e_Health .progress-bar {
   background-color: #FF4136;
 }
-/* line 180, ../../compass/sass/_game.scss */
+/* line 181, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .p_AP .progress-bar, .game-wrapper .row2 .playerProgress .e_AP .progress-bar, .game-wrapper .row2 .enemyProgress .p_AP .progress-bar, .game-wrapper .row2 .enemyProgress .e_AP .progress-bar {
   background-color: #03a9f4;
 }
-/* line 188, ../../compass/sass/_game.scss */
+/* line 189, ../../compass/sass/_game.scss */
 .game-wrapper .row3 {
   height: 20em;
 }
@@ -1164,31 +1164,31 @@ p {
 .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-header {
   font-size: 1.17rem;
 }
-/* line 200, ../../compass/sass/_game.scss */
+/* line 201, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {
   margin-top: -34em;
   margin-left: 1em;
   width: 40em;
 }
-/* line 205, ../../compass/sass/_game.scss */
+/* line 206, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail, .game-wrapper .row3 .attack-screen .attack-image, .game-wrapper .row3 .attack-screen .message {
   background-color: rgba(27, 28, 29, 0.7);
   border: 2px solid gray;
   border-style: ridge;
 }
-/* line 211, ../../compass/sass/_game.scss */
+/* line 212, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail {
   height: 5rem;
 }
-/* line 214, ../../compass/sass/_game.scss */
+/* line 215, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image {
   height: 27rem;
 }
-/* line 216, ../../compass/sass/_game.scss */
+/* line 217, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image img {
   height: 26.2rem;
 }
-/* line 220, ../../compass/sass/_game.scss */
+/* line 221, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .message, .game-wrapper .row3 .attack-screen .attack-detail {
   font-family: "Orbitron", sans-serif !important;
   font-size: 1.6rem;
@@ -1196,27 +1196,27 @@ p {
   height: 3em;
   text-align: center;
 }
-/* line 235, ../../compass/sass/_game.scss */
+/* line 236, ../../compass/sass/_game.scss */
 .game-wrapper .row4 {
   height: 20em;
 }
-/* line 237, ../../compass/sass/_game.scss */
+/* line 238, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .card {
   width: 23% !important;
 }
-/* line 243, ../../compass/sass/_game.scss */
+/* line 244, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions {
   margin: auto;
   position: relative;
 }
-/* line 247, ../../compass/sass/_game.scss */
+/* line 248, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards {
   width: 38%;
   margin-left: -8rem;
   margin-top: 1rem;
   list-style: none;
 }
-/* line 253, ../../compass/sass/_game.scss */
+/* line 254, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item {
   border: 4px solid #127d2a;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #3c763d, 0px 0px 0px #28a745, 0 0 20px #5cca5e, 0 0 0px #ededf7;
@@ -1226,35 +1226,35 @@ p {
   position: absolute;
   text-transform: uppercase;
 }
-/* line 261, ../../compass/sass/_game.scss */
+/* line 262, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item img {
   height: 71%;
 }
-/* line 264, ../../compass/sass/_game.scss */
+/* line 265, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-header {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #28a745 0%, #0a0909 98%, #0def48 100%) !important;
 }
-/* line 268, ../../compass/sass/_game.scss */
+/* line 269, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-footer {
   margin: auto;
   position: relative;
   top: -6rem;
   background: transparent;
 }
-/* line 274, ../../compass/sass/_game.scss */
+/* line 275, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-header {
   font-size: 1.5rem;
 }
-/* line 278, ../../compass/sass/_game.scss */
+/* line 279, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .fake {
   opacity: 0;
 }
-/* line 284, ../../compass/sass/_game.scss */
+/* line 285, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .start-btn {
   padding: 6px !important;
 }
-/* line 289, ../../compass/sass/_game.scss */
+/* line 290, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .buttons {
   margin-top: 2rem;
 }

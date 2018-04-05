@@ -34,7 +34,7 @@ $min-height: 85em;
 
     .fightscreen{
         color: red; 
-        height: 40rem; 
+        // height: 40rem; 
         width: 10rem;
         background: $scene-bg;
         border: 4px solid #d9edf7;
@@ -84,6 +84,7 @@ $min-height: 85em;
             float: right;  
             font-size: 3rem;  
             font-family: $button-text;
+            margin-left: 66rem;
             padding: 0.5rem; 
             text-shadow: $text-shadow; 
             text-transform: uppercase; 
