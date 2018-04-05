@@ -96,7 +96,9 @@ class Game extends Component{
             e_opacity: 0,
             e_transition: "transition",
             e_showCards: false
-		}
+        }
+        
+        this.enCard = this.enCard.bind(this); 
 
 		this.startGame = this.startGame.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
@@ -109,12 +111,14 @@ class Game extends Component{
         this.getCard2 = this.getCard2.bind(this);
         this.getDeck = this.getDeck.bind(this);
         this.shufflePCards = this.shufflePCards.bind(this); 
+        this.handleHand = this.handleHand.bind(this);
 
         //enemy
         this.handleEDraw = this.handleEDraw.bind(this);
         this.getECard1 = this.getECard1.bind(this); 
         this.getECard2 = this.getECard2.bind(this); 
         this.getEDeck = this.getEDeck.bind(this); 
+        this.handleEHand = this.handleEHand.bind(this);
 
         //////////////THE COUNTDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
@@ -166,6 +170,12 @@ class Game extends Component{
                 opacity: 1
             })
         }, 4000)
+    }
+
+    enCard(){
+        var { enemysHand } = this.props.enemysHand;
+
+        enemysHand.pop(); 
     }
 
     ////////////////////////////////////////////////////////////////////
@@ -258,11 +268,71 @@ class Game extends Component{
     }
 
 
+    ///////////////////////////////////////////////////////////////
+    ////////////////HANDLING WIN/LOSE/TIME ///////////////////////
+    //////////////////////////////////////////////////////////////
+
+    handleWin(){
+        if(e_Health_val <= 0){
+            this.setState({
+                showContainer: 'none',
+                showWinScreen: 'block'
+            })
+        }else{
+            console.log("Game is in progress.")
+        }
+    }
+
+    handleLose(){
+        if(p_Health_val <= 0){
+            this.setState({
+                showContainer: 'none',
+                showLoseScreen: 'block'
+            })
+        }else{
+            console.log("Game is in progress.")
+        }
+    }
+
+    handleTimeUp(){
+        if(this.state.timer === 'TIME 00:00'){
+            this.setState({
+                showContainer: 'none',
+                showTimeScreen: 'block'
+            })
+        }else{
+            console.log("Game is in progress.")
+        }
+    }
+
+    handleRunAway(){
+        this.setState({
+            showContainer: 'none',
+            showLoseScreen: 'block'
+        })
+    }
+
+
     ////////////////////////////////////////////////////////////////////
     ////////////////////// SHOWING THE PLAYER'S CARDS///////////////////
     ////////////////////////////////////////////////////////////////////
+
+    handleHand(){
+        var { playersHand } = this.props.playersHand;
+
+        if(playersHand.length === 0){
+            this.setState({
+                showContainer: 'none',
+                showLoseScreen: 'block'
+            })
+        }else{
+            console.log("Game is in progress.")
+        }
+    }
    
     getCard1(){
+        this.handleHand();
+
         var { playersHand } = this.props.playersHand;
 
         const showFightCards = {
@@ -286,7 +356,7 @@ class Game extends Component{
         // console.log(this.props.playersHand.playersHand);
 
         return playersHand.map((player,index) => {
-            if( player === playersHand[0] && playersHand.length < 42){
+            if( player === playersHand[0] && playersHand.length > 0){
                 return(
                     <div key = {index} >
                         <div className = "front">
@@ -311,6 +381,8 @@ class Game extends Component{
     }
 
     getCard2(){
+        this.handleHand();
+
         var { playersHand } = this.props.playersHand;
         
         const showFightCards = {
@@ -325,7 +397,7 @@ class Game extends Component{
         }
     
         return playersHand.map((player2, index) => {
-            if(player2 === playersHand[1] && playersHand.length < 42){
+            if(player2 === playersHand[1] && playersHand.length >= 2){
                 return(
             
                     <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
@@ -358,7 +430,7 @@ class Game extends Component{
         }
 
         return data.map((elem, index) => {
-            if(data.length < 40){
+            if(data.length > 0){
                 return(
                     <div key = {index}>
                         <div className="front">
@@ -420,8 +492,22 @@ class Game extends Component{
     ////////////////////////////////////////////////////////////////////
     ////////////////////// SHOWING THE ENEMY'S CARDS///////////////////
     ////////////////////////////////////////////////////////////////////
+    handleEHand(){
+        var { enemysHand } = this.props.enemysHand;
+
+        if(enemysHand.length === 0){
+            this.setState({
+                showContainer: 'none',
+                showWinScreen: 'block'
+            })
+        }else{
+            console.log("Game is in progress.")
+        }
+    }
    
     getECard1(){
+        this.handleEHand(); 
+
         var { enemysHand } = this.props.enemysHand;
 
         const e_showFightCards = {
@@ -441,11 +527,11 @@ class Game extends Component{
             transition: '2s'
         }
 
-        // console.log("ENEMY HAND IN GAME")
-        // console.log(this.props.enemysHand.enemysHand);
+        console.log("ENEMY HAND IN GAME")
+        console.log(this.props.enemysHand.enemysHand);
 
         return enemysHand.map((enemy,index) => {
-            if( enemy === enemysHand[0] && enemysHand.length < 42){
+            if( enemy === enemysHand[0] && enemysHand.length > 1){
                 return(
                     <div key = {index}>
                         <div className = "front">
@@ -470,6 +556,8 @@ class Game extends Component{
     }
 
     getECard2(){
+        this.handleEHand(); 
+
         var { enemysHand } = this.props.enemysHand;
         
         const e_showFightCards = {
@@ -484,7 +572,7 @@ class Game extends Component{
         }
     
         return enemysHand.map((enemy2, index) => {
-            if(enemy2 === enemysHand[1] && enemysHand.length < 42){
+            if(enemy2 === enemysHand[1] && enemysHand.length >= 2){
                 return(
                     <Card key = {index} className = "enemy-deck-card" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
                         <CardHeader className = "text-center">{enemy2.name}</CardHeader>
@@ -513,7 +601,7 @@ class Game extends Component{
         }
 
         return data.map((elem, index) => {
-            if(data.length < 42){
+            if(data.length > 1){
                 return(
                     <div key = {index}>
                         <div className="front">
@@ -533,8 +621,6 @@ class Game extends Component{
                         </div>
                     </div>
                 )
-            }else{
-                console.log("enemy loses"); 
             } 
         }).reverse(); 
     }
@@ -870,52 +956,6 @@ class Game extends Component{
         this.handleUpdateComps();
     }
 
-   
-
-    ///////////////////////////////////////////////////////////////
-    ////////////////HANDLING WIN/LOSE/TIME ///////////////////////
-    //////////////////////////////////////////////////////////////
-
-    handleWin(){
-        if(e_Health_val <= 0){
-            this.setState({
-                showContainer: 'none',
-                showWinScreen: 'block'
-            })
-        }else{
-            console.log("Game is in progress.")
-        }
-    }
-
-    handleLose(){
-        if(p_Health_val <= 0){
-            this.setState({
-                showContainer: 'none',
-                showLoseScreen: 'block'
-            })
-        }else{
-            console.log("Game is in progress.")
-        }
-    }
-
-    handleTimeUp(){
-        if(this.state.timer === 'TIME 00:00'){
-            this.setState({
-                showContainer: 'none',
-                showTimeScreen: 'block'
-            })
-        }else{
-            console.log("Game is in progress.")
-        }
-    }
-
-    handleRunAway(){
-        this.setState({
-            showContainer: 'none',
-            showLoseScreen: 'block'
-        })
-    }
-
 
     ////////////////////////////////////////////////////////////////////
     ////////////////////////ROLLING THE DIE/////////////////////////////
@@ -1079,8 +1119,6 @@ class Game extends Component{
 						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
                         <Button onClick = {()=> this.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
 					</div> 
-
-                    <Button className = "start-btn" onClick = {()=> this.enCards()}>enemy cards</Button>
 
                     <Container className="game-container" style = {showContainer}>
 						<Row className = "pause" style = {rowStyle}>
