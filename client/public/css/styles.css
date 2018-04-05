@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+/* line 6, ../../compass/sass/styles.scss */
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
 /* line 3, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
@@ -1799,16 +1807,16 @@ html, body {
   font-size: 1.5rem;
 }
 
-/* line 22, ../../compass/sass/styles.scss */
+/* line 27, ../../compass/sass/styles.scss */
 .efaGep {
   color: #39CCCC !important;
 }
 
-/* line 28, ../../compass/sass/styles.scss */
+/* line 33, ../../compass/sass/styles.scss */
 .logged-out-col {
   margin: auto;
 }
-/* line 30, ../../compass/sass/styles.scss */
+/* line 35, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out {
   background: rgba(9, 12, 39, 0.7);
   border: 4px solid #d9edf7;
@@ -1816,7 +1824,7 @@ html, body {
   height: 25rem;
   margin-top: 30rem;
 }
-/* line 36, ../../compass/sass/styles.scss */
+/* line 41, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out .logged-out-text {
   color: red;
   font-family: "Orbitron", sans-serif !important;
@@ -1826,13 +1834,13 @@ html, body {
   text-align: center;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
 }
-/* line 45, ../../compass/sass/styles.scss */
+/* line 50, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out .start-btn {
   width: 98.6%;
   margin-top: 4rem;
 }
 
-/* line 55, ../../compass/sass/styles.scss */
+/* line 60, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }

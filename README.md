@@ -47,19 +47,25 @@ Okay, this one was super frustrating for some reason, but a series of troublesho
 </p>
 
 <p align='center'>
-  <img src="client/public/Images/scene1.png">
+  <img src="client/public/ReadMe/choose.png">
+</p>
+
+<p align='center'>
+  <img src="client/public/ReadMe/scene.png">
 </p>
 
 
 <p align='center'>
-  <img src="client/public/Images/convo-screen.png">
+  <img src="client/public/ReadMe/convo.png">
 </p>
-
 
 <p align='center'>
-  <img src="client/public/ReadMe/battle2.png">
+  <img src="client/public/ReadMe/map.png">
 </p>
 
+<p align='center'>
+  <img src="client/public/ReadMe/battleRM.png">
+</p>
 
 
 
