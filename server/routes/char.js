@@ -35,7 +35,16 @@ module.exports = function(router){
             console.log(error)
             throw error; 
           }
+          console.log(results); 
           console.log("pic updated success!")
+        }); 
+        const checkCharName2 = "SELECT * FROM `characters` WHERE `character` = ?;";
+        connection.query(checkCharName2, [charData.character], (error, results)=>{
+          if(error){
+            console.log(error)
+            throw error; 
+          }
+          console.log(results); 
         }); 
       }
     });

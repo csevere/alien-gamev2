@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import BoardReducer from './BoardReducer';
 import CardShuffleReducer from './CardShuffleReducer'; 
 import CompanionsReducer from './CompanionsReducer'; 
 import ChooseCharReducer from './ChooseCharReducer'; 
@@ -18,6 +19,7 @@ import RegisterReducer from './RegisterReducer';
  
 const rootReducer =  combineReducers({
     attackLibrary: EnemyAttack1Reducer,
+    board: BoardReducer,
     cardShuffle: CardShuffleReducer,
     chooseChar: ChooseCharReducer,
     companions: CompanionsReducer,

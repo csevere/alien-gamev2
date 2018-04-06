@@ -9,14 +9,14 @@ var INITIAL_STATE ={
         "id": 0,
         "name":"Rocket Launcher",
         "image": "assets/deck/weapons/rocketlauncher.jpg",
-        "damage": 35
+        "damage": 45
     },
 
     {
       "id": 1,
-      "name":"The Thermal Gun",
+      "name":"High Thermal Gun",
       "image": "assets/deck/weapons/thermalgun.jpg",
-      "damage": 35
+      "damage": 40
     }
   ],
 }

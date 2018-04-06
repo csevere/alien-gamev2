@@ -5,11 +5,13 @@ const router = express.Router();
 const cors = require('cors'); 
 const auth = require('./auth');
 const char = require('./char');
+const board = require('./board'); 
 
 router.use(cors()); 
 
 auth(router); 
 char(router); 
+board(router);
 
 
 router.get('/', (req, res, next)=> {

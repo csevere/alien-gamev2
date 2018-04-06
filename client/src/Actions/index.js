@@ -10,9 +10,7 @@ import {
   E_SHUFFLE,
   E_DRAW, 
   SHUFFLE,
-  ATTACK,
-  MUSICOFF,
-  MUSICON
+  STATS
 } from './types';
 import axios from 'axios';
 
@@ -68,7 +66,6 @@ export const logoutUser = () =>{
 
 
 //CHOOSE CHARACTERS
-
 export const choosePic = (charPicData) =>{
   console.log(charPicData)
 
@@ -80,6 +77,24 @@ export const choosePic = (charPicData) =>{
       console.log(response);
       console.log("******************")
       localStorage.setItem('pic', charPicData.picture); 
+      localStorage.setItem('exp', response.data.exp);
+      localStorage.setItem('level', response.data.level); 
+    })
+    .catch(error => {console.log(error)}); 
+  }
+}
+
+//GET BOARD STATS
+export const getStats = (timeData) =>{
+  console.log(timeData)
+  
+  return function (dispatch){
+    axios.post(`${ROOT_URL}/board`, timeData)
+    .then(response => {
+      dispatch ({type: STATS, data:response}); 
+      console.log("**********STATS RESPONSE********")
+      console.log(response);
+      console.log("******************")
       localStorage.setItem('exp', response.data.exp);
       localStorage.setItem('level', response.data.level); 
     })
@@ -127,13 +142,6 @@ export const drawCard = () =>{
   return{
     type: DRAW 
   }
-}
-
-
-export const dealNewDeck = () =>{
-  return{
-      type: DEAL
-  };
 }
 
 
