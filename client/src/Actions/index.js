@@ -87,9 +87,9 @@ export const choosePic = (charPicData) =>{
 //GET BOARD STATS
 export const getStats = (timeData) =>{
   console.log(timeData)
-  
+
   return function (dispatch){
-    axios.post(`${ROOT_URL}/board`, timeData)
+    axios.post(`${ROOT_URL}/stats`, timeData)
     .then(response => {
       dispatch ({type: STATS, data:response}); 
       console.log("**********STATS RESPONSE********")
