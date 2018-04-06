@@ -40,6 +40,8 @@ const localChar = localStorage.getItem('charName');
 const localToken = localStorage.getItem('token'); 
 const localName =localStorage.getItem('name');
 const localPic = localStorage.getItem('pic'); 
+var localExp = localStorage.getItem('exp');
+var localLevel = localStorage.getItem('level'); 
 
 var p_Health_val = 1000;
 var p_HealthTotal_val = 1000;
@@ -52,8 +54,8 @@ var attackdetail = "";
 var message = ""; 
 var image = "";  
 var hits_val = 0;
-var exp_val = 100; 
-var level_val = 1; 
+var exp_val = Number(localExp); 
+var level_val = Number(localLevel); 
 var e_count = 0;  
 
 var aidArr = [];
@@ -729,7 +731,7 @@ class Game extends Component{
                 this.setState({
                     e_Health: e_Health_val,
                     p_AP: p_AP_val,
-                    attackdetail:`${weaponName} dealt ${playersHand[0].damage} damage!`,  
+                    attackdetail:`${weaponName} deals ${playersHand[0].damage} damage!`,  
                     message: 'Keep giving \'em hell!',
                     image: weaponImage,
                     hideBattleBtns: true, 
@@ -774,7 +776,7 @@ class Game extends Component{
             p_AP_val += 15;
 
             this.setState({
-                attackdetail: `${weaponName} dealt ${attack} damage! Gained 15 AP!`,
+                attackdetail: `${weaponName} deals ${attack} damage! Gained 15 AP!`,
                 e_Health: e_Health_val,  
                 image: weaponImage,
                 message: "You rolled a 12! Excellent!",
@@ -873,11 +875,11 @@ class Game extends Component{
 
     ///health 
     handleHP(){
-        if(p_Health_val <= 350){
+        if(p_Health_val <= 850){
             p_Health_val += 150;  
-            message = "You gained 150 health points!";
+            message = "You gain 150 health points!";
             image = "assets/gamescreen/health.png";
-        }else if(p_Health_val === 500){
+        }else if(p_Health_val >= 900){
             message = "You have enough Health!";
             image = "assets/gamescreen/full.jpg"
         }else{
@@ -898,14 +900,14 @@ class Game extends Component{
 
     ///AP
     handleAP(){
-        if(p_AP_val < 20){
+        if(p_AP_val < 25){
             if(p_AP_val > 50){
                 this.setState({
                     p_AP: 50 
                 })
             }else{
                 p_AP_val  += 30;
-                message = "You gained 30 action points!";
+                message = "You gain 30 action points!";
                 image = "assets/gamescreen/scifi-crate.jpg"
             }
         }else if(p_AP_val === 50){
@@ -968,9 +970,9 @@ class Game extends Component{
             var damage = current[0].damage; 
             e_Health_val -= damage;
             p_AP_val  -= 25;
-            attackdetail = ` ${name} dealt ${damage} damage!`;
+            attackdetail = ` ${name} deals ${damage} damage!`;
         } else if(p_AP_val <= 25 && aidArr.length > 0){
-            attackdetail = "Enemy attacked you for 50 health points!"
+            attackdetail = "Enemy attacks you for 50 health points!"
             image = "assets/gamescreen/fallen.jpg"
             message = "You don't have enough AP!";
             p_Health_val -= 50;
@@ -1142,7 +1144,7 @@ class Game extends Component{
                             </div>
                             <Input type ="hidden" value = {this.state.charName}/>
                             <Input type ="hidden" value = {this.state.level}/>
-                            <Input type ="hidden" value = {this.state.hitPoints}/>
+                            <Input type ="hidden" value = {this.state.exp}/>
                             <Input type ="hidden" value = {this.state.playerTime}/>
                            
                             <Button type ="submit" color="danger" className = "start-btn">CONTINUE</Button>

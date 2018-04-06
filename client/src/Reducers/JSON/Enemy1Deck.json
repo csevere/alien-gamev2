@@ -114,21 +114,21 @@
 		"id": 18,
 		"name":"Explosive Icicle",
 		"image": "assets/aliens/attacks1/explosiveicicle.jpg",
-		"damage": "60" 
+		"damage": "95" 
 	},
 
 	{
 		"id": 19,
 		"name":"Arctic Aria",
 		"image": "assets/aliens/attacks1/articaria.jpg",
-		"damage": "80"
+		"damage": "100"
 	},
 
 	{
 		"id": 20,
 		"name":"Ice Maelstrom",
 		"image": "assets/aliens/attacks1/icemaelstrom.jpg",
-		"damage": "100"
+		"damage": "150"
 	},
 
 		{
@@ -246,35 +246,35 @@
 		"id": 36,
 		"name":"Explosive Icicle",
 		"image": "assets/aliens/attacks1/explosiveicicle.jpg",
-		"damage": "60" 
+		"damage": "95" 
 	},
 
 	{
 		"id": 37,
 		"name":"Arctic Aria",
 		"image": "assets/aliens/attacks1/articaria.jpg",
-		"damage": "80"
+		"damage": "100"
 	},
 
 	{
 		"id": 38,
 		"name":"Ice Maelstrom",
 		"image": "assets/aliens/attacks1/icemaelstrom.jpg",
-		"damage": "100"
+		"damage": "150"
 	},
 
 		{
 		"id": 39,
 		"name":"Arctic Aria",
 		"image": "assets/aliens/attacks1/articaria.jpg",
-		"damage": "80"
+		"damage": "100"
 	},
 
 	{
 		"id": 40,
 		"name":"Ice Maelstrom",
 		"image": "assets/aliens/attacks1/icemaelstrom.jpg",
-		"damage": "100"
+		"damage": "150"
 	}
 
 ]
