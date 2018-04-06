@@ -1,22 +1,25 @@
 import {
-  REGISTER,
-  LOGIN,
-  LOGOUT,
-  CHOOSE,
-  NEXT,
   BACK,
+  BOARD,
+  CHOOSE,
   DRAW,
   DEAL,
   E_SHUFFLE,
   E_DRAW, 
+  LOGIN,
+  LOGOUT,
+  NEXT,
+  REGISTER,
   SHUFFLE,
   STATS
 } from './types';
 import axios from 'axios';
-
 const ROOT_URL = 'http://localhost:5000'; 
 
-//REGISTER THE PLAYER
+
+/////////////////////////////////////////////////////////////
+///////////////////////REGISTER PLAYER///////////////////////
+/////////////////////////////////////////////////////////////
 export const registerUser = (playerData) =>{
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
@@ -32,7 +35,10 @@ export const registerUser = (playerData) =>{
   }
 }
 
-//LOGIN IN PLAYER
+
+/////////////////////////////////////////////////////////////
+///////////////////////LOGIN PLAYER//////////////////////////
+/////////////////////////////////////////////////////////////
 export const loginUser = (playerData) => {
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
@@ -51,7 +57,10 @@ export const loginUser = (playerData) => {
   }
 }
 
-// LOGOUT PLAYER 
+
+/////////////////////////////////////////////////////////////
+///////////////////////LOGOUT PLAYER////////////////////////
+/////////////////////////////////////////////////////////////
 export const logoutUser = () =>{
   localStorage.removeItem('token'); 
   localStorage.removeItem('name'); 
@@ -65,7 +74,9 @@ export const logoutUser = () =>{
 }
 
 
-//CHOOSE CHARACTERS
+/////////////////////////////////////////////////////////////
+///////////////////////CHOOSE CHARACTERS/////////////////////
+/////////////////////////////////////////////////////////////
 export const choosePic = (charPicData) =>{
   console.log(charPicData)
 
@@ -84,8 +95,10 @@ export const choosePic = (charPicData) =>{
   }
 }
 
-//GET BOARD STATS
-export const getStats = (timeData) =>{
+/////////////////////////////////////////////////////////////
+///////////////////////SUBMIT BOARD STATS////////////////////
+/////////////////////////////////////////////////////////////
+export const submitStats = (timeData) =>{
   console.log(timeData)
 
   return function (dispatch){
@@ -102,7 +115,27 @@ export const getStats = (timeData) =>{
   }
 }
 
-//SCENE ACTIONS/////
+
+//////////////////////////////////////////////////
+///////////////GET BOARD STATS////////////////////
+/////////////////////////////////////////////////
+export const getBoard = () =>{
+  return function (dispatch){
+    axios.get(`${ROOT_URL}/board`)
+    .then(response => {
+      dispatch ({type: BOARD, getboard:response}); 
+      console.log("**********STATS RESPONSE********")
+      console.log(response);
+      console.log("******************")
+    })
+    .catch(error => {console.log(error)}); 
+  }
+}
+
+///////////////////////////////////////////////////
+////////////////////SCENE ACTIONS//////////////////
+//////////////////////////////////////////////////
+
 export const nextCount = () =>{
   return{
       type: NEXT
@@ -116,7 +149,9 @@ export const backCount = () =>{
 }
 
 
-//BATTLE ACTIONS /////
+////////////////////////////////////////////////////
+/////////////////// PLAYER BATTLE ACTIONS //////////////////
+///////////////////////////////////////////////////
 
 export const shuffleCards = (cards) =>{
   for(var i = 0; i < 1400; i++){
@@ -144,8 +179,9 @@ export const drawCard = () =>{
   }
 }
 
-
-/// ENEMY ATTACKS ////
+///////////////////////////////////////////
+///////////// ENEMY ACTIONS ///////////////
+///////////////////////////////////////////
 
 export const e_shuffleCards = (cards) =>{
   for(var i = 0; i < 1400; i++){
@@ -174,11 +210,6 @@ export const drawECard = () =>{
     type: E_DRAW 
   }
 }
-
-
-
-
-
 
 
 //for later 

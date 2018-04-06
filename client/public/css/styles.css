@@ -1844,3 +1844,8 @@ html, body {
 .audio {
   display: none;
 }
+
+/* line 65, ../../compass/sass/styles.scss */
+.scoreboard {
+  font-size: 2.5rem;
+}

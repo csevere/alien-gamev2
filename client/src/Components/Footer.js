@@ -80,6 +80,7 @@ class Footer extends Component {
                                     <Link className = "dropdown-item"  to = "/convo"><div>Conversations</div></Link>
                                     <Link className = "dropdown-item"  to = "/map"><div>BattleCraft Map</div></Link>
                                     <Link className = "dropdown-item" to = "/game"><div>Battle</div></Link>
+                                    <Link className = "dropdown-item" to = "/board"><div>ScoreBoard</div></Link>
                                 </div>
                             </div>
                         </div>

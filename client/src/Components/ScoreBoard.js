@@ -3,14 +3,16 @@ import createHistory from 'history/createBrowserHistory';
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
 import { Link } from 'react-router-dom';
-import { Col, Row, Table } from 'reactstrap';
+import { Button, Col, Container, Row, Table } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
-const localChar = localStorage.getItem('charName'); 
-const localExp = localStorage.getItem('exp'); 
-const localLevel = localStorage.getItem('level');
+// const localChar = localStorage.getItem('charName'); 
+// const localExp = localStorage.getItem('exp'); 
+// const localLevel = localStorage.getItem('level');
 const history = createHistory();
+
+var playerArr = []; 
 
 class ScoreBoard extends Component{
     constructor(props){
@@ -22,36 +24,15 @@ class ScoreBoard extends Component{
             showContainer: 'none',
             transition:'transition',
 			opacity: 0,
-			charName: '',
-			selectedOption: 'assets/players/char1.jpg'
 		}
 
-		 this.handleOptionChange = this.handleOptionChange.bind(this); 
-		 this.handleCharSubmit = this.handleCharSubmit.bind(this); 
+		this.getStats = this.getStats.bind(this); 
+		this.renderStats = this.renderStats.bind(this); 
+		 
 	}
 
-	handleOptionChange(changeEvent){
-		this.setState({
-			selectedOption: changeEvent.target.value
-		})
-	}
-	
-	handleCharSubmit(e){
-		e.preventDefault();
-		console.log("USER SUBMITTED A PIC!!")
-
-        var charPicData = {
-			picture: this.state.selectedOption,
-			character: e.target[4].value 
-        }
-
-        this.props.choosePic(charPicData);
-	}
-
-	
     componentDidMount() {
 		//logged in/out
-
 		if(!localToken && !localName){
 			this.setState({
 				loggedIn: 'hidden',
@@ -73,35 +54,31 @@ class ScoreBoard extends Component{
                 transition: 'all 1s',
                 opacity: 1
             })
-        }, 5000)
+		}, 5000)
+
+		this.props.getBoard(); 
+
+		setTimeout(()=>{
+			this.getStats(); 
+		}, 5000)
 	}
 	
-	componentWillMount(charProps){
-		//Getting character name
-		if(localToken && localName){
-			this.setState({
-				charName:localChar
-			})
-		}
+
+	getStats(){
+		const { results } = this.props.board.response.data
+		playerArr.push(results); 
 	}
 
-	componentWillReceiveProps(charProps){
-		console.log("*************************");
-        console.log(charProps.chooseChar); 
-		console.log("*************************");
-
-		var dataMessage = charProps.chooseChar.response.data.msg;
-		console.log(dataMessage); 
-		if(dataMessage === "picInserted"){
-			console.log("wait"); 
-			console.log(localExp);
-			console.log(localLevel); 
-			history.push('/scene');
-			history.go('/scene'); 
-		}
+	renderStats(){
+		return (
+			<div>Will complete soon | Handle with promise </div>
+		)
 	}
+
+
 
     render(){
+		
 		const showContainer = {
             display: this.state.showContainer,
             transition: this.state.transition,
@@ -112,9 +89,6 @@ class ScoreBoard extends Component{
             display: this.state.showLoader 
 		}
 
-		const hideInput = {
-			display: 'none'
-		}
 
 		const showRegMsg = {
 			display: this.state.logMessage
@@ -136,6 +110,7 @@ class ScoreBoard extends Component{
 				</Row> 
 
 				<div className = "char-wrapper d-flex align-items-center" style = {hideScreen}>
+
 					<div style = {showLoader} className ="preload">
 						<div className="preload-status">
 							<div className="preload-status-bar"></div>
@@ -144,93 +119,23 @@ class ScoreBoard extends Component{
 					</div>
 
 					<Container style = {showContainer} className ="char-container align-middle">
-						<div className = "char-text">Choose your character:</div>
-						<Form className = "char-form" onSubmit = {this.handleCharSubmit}>
-							<Row className = "d-flex flex-row align mt-5">
-								<Col className = "m-auto" md = "3">
-									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
-										<CardImg src = "assets/players/char1.jpg" />
-									</Card>
-									<FormGroup>
-										<div className="roundedOne mt-2">
-											<Input 
-												type ="radio" 
-												value = 'assets/players/char1.jpg' 
-												checked = {this.state.selectedOption === 'assets/players/char1.jpg'}
-												onChange = {this.handleOptionChange}  
-												id="roundedOne"/>
-											<Label for="roundedOne"></Label>
-										</div>
-									</FormGroup>
-								</Col> 
-
-								<Col className = "m-auto" md = "3">
-									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
-										<CardImg src = 'assets/players/char3.png' />
-									</Card>
-									<FormGroup>
-										<div className="roundedOne mt-2">
-											<Input 
-												type="radio" 
-												value='assets/players/char3.png' 
-												checked = {this.state.selectedOption === 'assets/players/char3.png'}
-												onChange = {this.handleOptionChange} 
-												id="roundedOne"/>
-											<Label for="roundedOne"></Label>
-										</div>
-									</FormGroup>
-								</Col>
-							</Row>
-
-							<Row className = "d-flex flex-row mt-5">
-								<Col className = "m-auto" md = "3">
-									<Card className = "companions-card mr-2">
-										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
-										<CardImg src = "assets/players/char4.jpg" />
-									</Card>
-									<FormGroup>
-										<div className="roundedOne mt-2">
-											<Input 
-												type="radio" 
-												value='assets/players/char4.jpg' 
-												checked = {this.state.selectedOption === 'assets/players/char4.jpg'} 
-												onChange = {this.handleOptionChange}
-												id="roundedOne"/>
-											<Label for="roundedOne"></Label>
-										</div>
-									</FormGroup>
-								</Col>
-
-								<Col className = "m-auto" md = "3">
-									<Card className = "companions-card  mr-2">
-										<CardHeader className = "text-center">{this.state.charName}</CardHeader>
-										<CardImg src = "assets/players/char2.png" />
-									</Card>
-									<FormGroup>
-										<div className="roundedOne mt-2">
-											<Input 
-												type="radio" 
-												value='assets/players/char2.png' 
-												checked = {this.state.selectedOption === 'assets/players/char2.png'} 
-												onChange = {this.handleOptionChange}
-												id="roundedOne"/>
-											<Label for="roundedOne"></Label>
-										</div>
-									</FormGroup>
-								</Col>
-							</Row>
-							<FormGroup style = {hideInput}>
-								<Input 
-									type="radio" 
-									value={localChar} 
-									id="roundedOne" 
-									name="character"/>
-								<Label for="character"></Label>
-							</FormGroup>
-							<Button type = "submit" color="danger" className = "start-btn">CONFIRM</Button>
-						</Form>
+						<div className = "char-text">ScoreBoard: Top 10 EXP</div>
+						
+						<div className = "scoreboard display-4 text-white">
+							<Table key = "elem" >
+								<thead>
+								<tr>
+									<th>Name</th>
+									<th>Level</th>
+									<th>Experience Points</th>
+									<th>Time Remaining</th>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</Table>
+						</div>
+						
 					</Container>
 					<div className = "p-2 audio">
                         <embed 
@@ -249,8 +154,8 @@ class ScoreBoard extends Component{
 
 function mapStateToProps(state){
     return{
-        chooseChar: state.chooseChar
+        board: state.board
     }
 }
 
-export default connect(mapStateToProps,actions)(Scoreboard);
+export default connect(mapStateToProps,actions)(ScoreBoard);

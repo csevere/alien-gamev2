@@ -274,7 +274,7 @@ class Game extends Component{
             time: e.target[3].value,
         }
 
-        this.props.getStats(timeData);
+        this.props.submitStats(timeData);
         console.log("TIME DATA IN GAME!!!")
         console.log(timeData);
     }
@@ -731,7 +731,7 @@ class Game extends Component{
                 this.setState({
                     e_Health: e_Health_val,
                     p_AP: p_AP_val,
-                    attackdetail:`${weaponName} deals ${playersHand[0].damage} damage!`,  
+                    attackdetail:`${weaponName} deals ${weaponAttack} damage!`,  
                     message: 'Keep giving \'em hell!',
                     image: weaponImage,
                     hideBattleBtns: true, 
