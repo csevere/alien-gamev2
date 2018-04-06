@@ -10,7 +10,6 @@ import Dice from './Dice';
 import EnemyCard from './EnemyCard';
 import EnemyDeck from './EnemyDeck'; 
 import EnemyProgress from './EnemyProgress'; 
-import Instructions from './Instructions';  
 import PlayerCard from './PlayerCard'; 
 import PlayerDeck from './PlayerDeck';
 import PlayerProgress from './PlayerProgress'; 
@@ -19,11 +18,11 @@ import {
     Card, 
     CardHeader,
     CardFooter,
-    CardText, 
     CardImg, 
-	Container, 
+    Container, 
+    Form,
+    Input,
 	Col,
-	Progress, 
     Row,
 } from 'reactstrap';
 
@@ -37,23 +36,31 @@ var CurrentTime = (new Date()).getTime();
 var EndTime = CurrentTime + TimeOut;
 var count = 0;
 
+const localChar = localStorage.getItem('charName'); 
 const localToken = localStorage.getItem('token'); 
-const localName = localStorage.getItem('name');
+const localName =localStorage.getItem('name');
 const localPic = localStorage.getItem('pic'); 
+var localExp = localStorage.getItem('exp');
+var localLevel = localStorage.getItem('level'); 
 
 var p_Health_val = 1000;
+var p_HealthTotal_val = 1000;
 var p_AP_val = 50;
-var e_Health_val = 1250;
+
+var e_Health_val = 1450;
+var e_HealthTotal_val = 1450; 
 var e_AP_val = 50; 
 var attackdetail = ""; 
 var message = ""; 
 var image = "";  
-var hideAlly = ""; 
+var hits_val = 0;
+var exp_val = Number(localExp); 
+var level_val = Number(localLevel); 
+var e_count = 0;  
 
-var newPlayerDeck = [];
-var newEnemyDeck = [];  
-var player = [];
-var helpComps = []; 
+var aidArr = [];
+var current = [];
+var playerTime_val = ""; 
 
 
 class Game extends Component{
@@ -61,15 +68,21 @@ class Game extends Component{
         super(props);
 		this.state = {
             active: true,
-			attackdetail: '',
+            attackdetail: '',
+            charName: '',
             deckopacity: 1,
+            die1:"assets/dice/d1.png",
+            die2:"assets/dice/d1.png",
             draw: false,
+            exp: 100, 
             handleFight: true,
             hideAlly: "",
             hideBattleBtns: true, 
             hideDeckBtns: true, 
+            hitPoints:0,
             isRunning: false,
             image: 'assets/aliens/alien1.jpg',
+            level: 0,
             loggedIn:'initial',
 			logMessage: 'none', 
             message: "Alien attack! Quick, press the roll button!",
@@ -77,7 +90,9 @@ class Game extends Component{
 			opacity: 0,
             opacity2: 0,
             p_AP: 50,
-            p_Health: 1000, 
+            p_Health: 1000,
+            p_HealthTotal: 1000, 
+            playerTime: "",
             showContainer: 'none',
             showCards: false, 
             showDeal: false,
@@ -88,7 +103,7 @@ class Game extends Component{
             showTimeScreen: 'none',
             showRow: 'none',
             showRoll: true,
-			timer: 'TIME',
+			timer: 'TIME 00:01',
             textColor: '#74f9fc',
             transition:'transition',
             transition2: 'transition',
@@ -96,27 +111,34 @@ class Game extends Component{
             e_AP: 50,
             e_deckopacity: 1,
             e_draw: false,
-            e_Health: 1250,
+            e_Health: 1450,
+            e_HealthTotal: 1450,
             e_opacity: 0,
             e_transition: "transition",
             e_showCards: false
-		}
+        }
+        
 
 		this.startGame = this.startGame.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
+        this.handleTimeSubmit = this.handleTimeSubmit.bind(this); 
 
         //////////// CARD METHODS/////// ////////
+        
+        //player
         this.handleDraw = this.handleDraw.bind(this);
         this.getCard1 = this.getCard1.bind(this); 
         this.getCard2 = this.getCard2.bind(this);
         this.getDeck = this.getDeck.bind(this);
-        this.handleDeal = this.handleDeal.bind(this);  
-            //enemy
+        this.shufflePCards = this.shufflePCards.bind(this); 
+        this.handleHand = this.handleHand.bind(this);
+
+        //enemy
         this.handleEDraw = this.handleEDraw.bind(this);
         this.getECard1 = this.getECard1.bind(this); 
         this.getECard2 = this.getECard2.bind(this); 
         this.getEDeck = this.getEDeck.bind(this); 
-        this.handleEDeal = this.handleEDeal.bind(this); 
+        this.handleEHand = this.handleEHand.bind(this);
 
         //////////////THE COUNTDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
@@ -131,16 +153,19 @@ class Game extends Component{
         this.handleHP = this.handleHP.bind(this); 
         this.handleHelp = this.handleHelp.bind(this); 
         this.handleComps = this.handleComps.bind(this);
+        this.handleUpdateComps = this.handleUpdateComps.bind(this); 
             //enemy
         this.attackPlayer = this.attackPlayer.bind(this);
         this.attackPlayer2 = this.attackPlayer2.bind(this); 
         this.handleEAP = this.handleEAP.bind(this); 
 
-        ///////////////WIN/GAMEOVER/TIMESUP//////////////
+        ///////////////WIN/GAMEOVER/TIMESUP/RUNAWAY//////////////
         this.handleWin = this.handleWin.bind(this);
         this.handleLose = this.handleLose.bind(this);
         this.handleTimeUp = this.handleTimeUp.bind(this);
         this.quitGame = this.quitGame.bind(this); 
+        this.handleRunAway = this.handleRunAway.bind(this);
+        this.playAgain = this.playAgain.bind(this);
 	}
 	
 	componentDidMount() {
@@ -166,7 +191,16 @@ class Game extends Component{
             })
         }, 4000)
     }
-    
+
+    componentWillMount(charProps){
+		//Getting character name
+		if(localToken && localName){
+			this.setState({
+				charName:localChar
+			})
+		}
+	}
+
     ////////////////////////////////////////////////////////////////////
     ////////////////// HANDLING THE TIMER //////////////////////////////
     ////////////////////////////////////////////////////////////////////
@@ -180,7 +214,6 @@ class Game extends Component{
         if(this.state.isRunning === true) {
             CurrentTime += TimeGap;
             if( CurrentTime >= EndTime ) {
-                
                 this.setState({
                     textColor: 'red' 
                 })
@@ -224,8 +257,30 @@ class Game extends Component{
 		})
 		
     }
+
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////////// TIME SUBMIT/START/QUIT/PLAYAGAIN //////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+    handleTimeSubmit(e){
+        e.preventDefault();
+        console.log("USER SUBMITTED THEIR TIME!!")
+     
+        var timeData = {
+            character: e.target[0].value,
+            level: e.target[1].value,
+            experience: e.target[2].value,
+            time: e.target[3].value,
+        }
+
+        this.props.submitStats(timeData);
+        console.log("TIME DATA IN GAME!!!")
+        console.log(timeData);
+    }
 	
 	startGame(){
+        this.handleComps(); 
 		this.setState({
 			showContainer: 'block',
             showFightScreen: 'none', 
@@ -243,9 +298,6 @@ class Game extends Component{
 		setTimeout(() =>{
 			this.theCountDown();
         }, 1500)
-
-        this.handleComps(); 
-	
     }
     
     quitGame(){
@@ -255,47 +307,84 @@ class Game extends Component{
         history.go('/'); 
     }
 
-    ////////////////////////////////////////////////////////////////////
-    ////////////////////////ROLLING THE DIE/////////////////////////////
-    ////////////////////////////////////////////////////////////////////
+    playAgain(){
+        window.location.reload()
+    }
 
-    handleRoll(){
-        //getting a random number to roll random dice
-        var randomDie1 = Math.ceil(Math.random() * 6);
-        var randomDie2 = Math.ceil(Math.random() * 6);
-        
-        this.setState({
-            die1: "assets/dice/d" + randomDie1 + ".png",
-            die2: "assets/dice/d" + randomDie2 + ".png",
-        })
 
-        if((randomDie1 + randomDie2 >= 7) && (randomDie1 + randomDie2 < 12)){
+    ///////////////////////////////////////////////////////////////
+    ////////////////HANDLING WIN/LOSE/TIME ///////////////////////
+    //////////////////////////////////////////////////////////////
+
+    handleWin(){
+        if(e_Health_val <= 0){
+            exp_val += hits_val;
+            level_val += 1;
+            p_HealthTotal_val += 200;
+            playerTime_val = this.state.timer;
+    
+            console.log("WINNER UPDATE STATS START"); 
+            console.log(exp_val);
+            console.log(level_val);
+            console.log(playerTime_val); 
+            console.log(p_HealthTotal_val)
+            console.log("WINNER UPDATE STATS END"); 
+
             this.setState({
-                attackdetail: "", 
-                hideBattleBtns: false,
-                hideDeckBtns: false,
-                message: "Shuffle, draw, attack or draw then attack!",
-                showRoll: false,
-                image : "assets/aliens/alien1.jpg"
+                showContainer: 'none',
+                showWinScreen: 'block',
+                exp: exp_val,
+                level: level_val,
+                p_HealthTotal: p_HealthTotal_val,
+                playerTime: playerTime_val
             })
-        }else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
-            this.handleEAP(); 
-            this.props.e_shuffleCards();  
-            this.attackPlayer(); 
-            this.handleEDraw();
-        }else if(randomDie1 + randomDie2 === 12){
-            this.attackEnemy2();
-        }else if(randomDie1 + randomDie2 === 2){
-            this.attackPlayer2();
-        } 
+        }
+    }
+
+    handleLose(){
+        if(p_Health_val <= 0){
+            this.setState({
+                showContainer: 'none',
+                showLoseScreen: 'block'
+            })
+        }
+    }
+
+    handleTimeUp(){
+        if(this.state.timer === 'TIME 00:00'){
+            this.setState({
+                showContainer: 'none',
+                showTimeScreen: 'block'
+            })
+        }
+    }
+
+    handleRunAway(){
+        this.setState({
+            showContainer: 'none',
+            showLoseScreen: 'block'
+        })
     }
 
 
     ////////////////////////////////////////////////////////////////////
     ////////////////////// SHOWING THE PLAYER'S CARDS///////////////////
     ////////////////////////////////////////////////////////////////////
+
+    handleHand(){
+        var { playersHand } = this.props.playersHand;
+
+        if(playersHand.length === 0){
+            this.setState({
+                showContainer: 'none',
+                showLoseScreen: 'block'
+            })
+        }
+    }
    
     getCard1(){
+        this.handleHand();
+
         var { playersHand } = this.props.playersHand;
 
         const showFightCards = {
@@ -319,7 +408,7 @@ class Game extends Component{
         // console.log(this.props.playersHand.playersHand);
 
         return playersHand.map((player,index) => {
-            if( player === playersHand[0] && playersHand.length < 23){
+            if( player === playersHand[0] && playersHand.length > 0){
                 return(
                     <div key = {index} >
                         <div className = "front">
@@ -331,12 +420,6 @@ class Game extends Component{
                                 </CardFooter>
                             </Card>
                         </div>
-
-                         <div className = "back card-back-1">
-                            <Card className = "player-deck-card deck-item" style = {deckStyle}>
-                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
-                            </Card>
-                        </div>
                     </div>
                 )
             }
@@ -344,6 +427,8 @@ class Game extends Component{
     }
 
     getCard2(){
+        this.handleHand();
+
         var { playersHand } = this.props.playersHand;
         
         const showFightCards = {
@@ -358,7 +443,7 @@ class Game extends Component{
         }
     
         return playersHand.map((player2, index) => {
-            if(player2 === playersHand[1] && playersHand.length < 23){
+            if(player2 === playersHand[1] && playersHand.length >= 2){
                 return(
             
                     <Card key = {index} className = "player-deck-card deal card1" style = {!this.state.showCards ? hideFightCards : showFightCards} >
@@ -391,7 +476,7 @@ class Game extends Component{
         }
 
         return data.map((elem, index) => {
-            if(data.length < 20){
+            if(data.length > 0){
                 return(
                     <div key = {index}>
                         <div className="front">
@@ -416,11 +501,16 @@ class Game extends Component{
     }
 
     /////////////////////////////////////////////////////////////////////////
-    ///////////////////////// DRAWING & DEALING THE PLAYERS CARDS ///////////
+    ///////////////////////// SHUFFLING/ DRAWING / DEALING THE PLAYERS CARDS ///////////
     ////////////////////////////////////////////////////////////////////////
+    
+    shufflePCards(){
+        var { data } = this.props.shuffled;
+        this.props.shuffleCards(data); 
+    }
 
     handleDraw(){
-        this.handleDeal();
+        var { data } = this.props.shuffled;
 
         this.setState({
             showCards: true,
@@ -435,34 +525,33 @@ class Game extends Component{
         }, 1500);
 
         count++; 
-        console.log(" LINE 391 NUMBER " + count); 
+        console.log("LINE 411 NUMBER " + count); 
 
-        this.props.drawCard();
-    }
-
-
-    handleDeal(){
-        var { data } = this.props.shuffled;
-
-        if(data.length < 1){
-            data.push(newPlayerDeck); 
-            console.log("PLAYER DECK DATA OLD");
-            console.log(data); 
-            this.setState({
-                showDeal: true
-            })
+        if(data.length >= 0){
+            this.props.drawCard();
         }else{
-            console.log("Player deck ok.");
+            console.log("player loses"); 
         }
     }
-
 
 
     ////////////////////////////////////////////////////////////////////
     ////////////////////// SHOWING THE ENEMY'S CARDS///////////////////
     ////////////////////////////////////////////////////////////////////
+    handleEHand(){
+        var { enemysHand } = this.props.enemysHand;
+
+        if(enemysHand.length === 0){
+            this.setState({
+                showContainer: 'none',
+                showWinScreen: 'block'
+            })
+        }
+    }
    
     getECard1(){
+        this.handleEHand(); 
+
         var { enemysHand } = this.props.enemysHand;
 
         const e_showFightCards = {
@@ -486,7 +575,7 @@ class Game extends Component{
         // console.log(this.props.enemysHand.enemysHand);
 
         return enemysHand.map((enemy,index) => {
-            if( enemy === enemysHand[0] && enemysHand.length < 23){
+            if( enemy === enemysHand[0] && enemysHand.length > 1){
                 return(
                     <div key = {index}>
                         <div className = "front">
@@ -511,6 +600,8 @@ class Game extends Component{
     }
 
     getECard2(){
+        this.handleEHand(); 
+
         var { enemysHand } = this.props.enemysHand;
         
         const e_showFightCards = {
@@ -525,9 +616,8 @@ class Game extends Component{
         }
     
         return enemysHand.map((enemy2, index) => {
-            if(enemy2 === enemysHand[1] && enemysHand.length < 23){
+            if(enemy2 === enemysHand[1] && enemysHand.length >= 2){
                 return(
-            
                     <Card key = {index} className = "enemy-deck-card" style = {!this.state.e_showCards ? e_hideFightCards : e_showFightCards} >
                         <CardHeader className = "text-center">{enemy2.name}</CardHeader>
                         <CardImg src = {enemy2.image} />
@@ -548,17 +638,14 @@ class Game extends Component{
     getEDeck(){
         var { data } = this.props.e_shuffled; 
 
-        // console.log("SHUFFLED IN GAME LINE 277")
-        // console.log(data); 
-
         const e_deckStyle = {
             left:'1rem',
             opacity: this.state.e_deckopacity,
             transition: '2s'
         }
-    
+
         return data.map((elem, index) => {
-            if(data.length < 20){
+            if(data.length > 1){
                 return(
                     <div key = {index}>
                         <div className="front">
@@ -589,7 +676,10 @@ class Game extends Component{
     ////////////////////////////////////////////////////////////////////////
 
     handleEDraw(){
-        this.handleEDeal();
+        // this.handleEDeal();
+        var { data } = this.props.e_shuffled;
+        var { enemysHand } = this.props.enemysHand;
+
 
         this.setState({
             e_showCards: true,
@@ -605,62 +695,48 @@ class Game extends Component{
         }, 1500);
 
         count++; 
-        console.log("ENEMY LINE 540 NUMBER " + count); 
-
-        this.props.drawECard();       
-    }
-
-
-    handleEDeal(){
-        var { data } = this.props.e_shuffled; 
-
-        debugger 
-
-        console.log(data); 
-
-        if(data.length < 2){
-            data.push(newEnemyDeck);
-            console.log("OLD ENEMY DECK DATA") 
-            console.log(data);
+        console.log("ENEMY LINE 540 NUMBER " + count);
+        
+        if(data.length > 0){
+            this.props.drawECard(); 
         }else{
-            console.log("Enemy deck ok");
-        }
+            console.log("enemy loses");
+        }        
     }
+
 
     ////////////////////////////////////////////////////////////////////
     ///////////////////////// ATTACKING ENEMY //////////////////////////
     ////////////////////////////////////////////////////////////////////
 
     attackEnemy(){
+        var { playersHand } = this.props.playersHand;
+        var weaponAttack = playersHand[0].damage;
+        var weaponImage = playersHand[0].image; 
+        var weaponName = playersHand[0].name; 
+
         this.handleWin();
         this.handleLose();
         this.handleTimeUp();
 
-        var { playersHand } = this.props.playersHand;
-
         //managing deck / cards 
         if(p_AP_val >= 5){
-            if(playersHand.length < 23 && playersHand.length > 1){
-                newPlayerDeck.push(playersHand.shift());
-                console.log("NEW PLAYER DECK");  
-                console.log(newPlayerDeck);  
-            
-                var weaponAttack = playersHand[0].damage;
-                var weaponImage = playersHand[0].image; 
-                var weaponName = playersHand[0].name; 
-                
+            if(playersHand.length > 1){
+                playersHand.shift()
                 // attacking enemy 
                 e_Health_val -= weaponAttack;
                 p_AP_val -= 5;
+                hits_val += weaponAttack; 
 
                 this.setState({
                     e_Health: e_Health_val,
                     p_AP: p_AP_val,
-                    attackdetail:`${weaponName} dealt ${playersHand[0].damage} damage!`,  
+                    attackdetail:`${weaponName} deals ${weaponAttack} damage!`,  
                     message: 'Keep giving \'em hell!',
                     image: weaponImage,
                     hideBattleBtns: true, 
                     hideDeckBtns: true,
+                    hitPoints: hits_val,
                     showRoll: true
                 })
 
@@ -685,22 +761,22 @@ class Game extends Component{
     } 
 
     attackEnemy2(){
+        var { playersHand } = this.props.playersHand;
+        var weaponAttack = playersHand[0].damage;
+        var weaponImage = playersHand[0].image; 
+        var weaponName = playersHand[0].name; 
+
         this.handleWin();
         this.handleLose();
         this.handleTimeUp();
-        var { playersHand } = this.props.playersHand;
-
+        
         if(playersHand.length > 1){
-            var weaponAttack = playersHand[0].damage;
-            var weaponImage = playersHand[0].image; 
-            var weaponName = playersHand[0].name; 
-
             var attack = 2 * weaponAttack;
             e_Health_val -= attack;
             p_AP_val += 15;
 
             this.setState({
-                attackdetail: `${weaponName} dealt ${attack} damage! Gained 15 AP!`,
+                attackdetail: `${weaponName} deals ${attack} damage! Gained 15 AP!`,
                 e_Health: e_Health_val,  
                 image: weaponImage,
                 message: "You rolled a 12! Excellent!",
@@ -714,24 +790,24 @@ class Game extends Component{
     ////////////////////////////////////////////////////////////////////
 
     attackPlayer(){
+        var { enemysHand } = this.props.enemysHand;
+        var enemyAttack = enemysHand[0].damage;
+        var enemyImage = enemysHand[0].image;
+        var enemyName = enemysHand[0].name;
+
         this.handleWin();
         this.handleLose();
         this.handleTimeUp();
-
-        var { enemysHand } = this.props.enemysHand;
-
+    
         //managing deck/cards
-        if(enemysHand.length < 23 && enemysHand.length > 1){
-            newEnemyDeck.push(enemysHand.shift());
-            console.log("ENEMY CARD SHIFTED!");
-            console.log(enemysHand);
-            console.log("NEW ENEMY DECK");  
-            console.log(newEnemyDeck)
-        
-            var enemyAttack = enemysHand[0].damage;
-            var enemyImage = enemysHand[0].image;
-            var enemyName = enemysHand[0].name;
-            
+        if(enemysHand.length < 42 && enemysHand.length > 1){
+            e_count += 1;
+            if(e_count === 10){
+                e_Health_val += 300
+            }
+
+            enemysHand.shift()
+
             //attacking player 
             p_Health_val -= enemyAttack; 
             e_AP_val -= 5;
@@ -739,6 +815,7 @@ class Game extends Component{
             this.setState({
                 attackdetail: `${enemyName}! You lost ${enemyAttack} health points!`,
                 e_AP: e_AP_val, 
+                e_Health: e_Health_val,
                 hideBattleBtns: true,  
                 hideDeckBtns: true,
                 image : enemyImage,
@@ -748,20 +825,19 @@ class Game extends Component{
             })
 
         }else{
-            console.log("deal new deck"); 
-            this.handleEDeal(); 
+            console.log("enemy loses"); 
         }
     }
 
     attackPlayer2(){
-        this.handleWin();
-        this.handleLose();
-        this.handleTimeUp();
-
         var { enemysHand } = this.props.enemysHand;
         var enemyAttack = enemysHand[0].damage;
         var enemyImage = enemysHand[0].image;
         var enemyName = enemysHand[0].name;
+
+        this.handleWin();
+        this.handleLose();
+        this.handleTimeUp();
 
         if(enemysHand.length > 1){
             var e_attack = 2 * enemyAttack;
@@ -777,8 +853,7 @@ class Game extends Component{
             })
         
         }else{
-            console.log("deal new deck");
-            this.handleEDeal(); 
+            console.log("enemy loses");
         } 
     }
 
@@ -788,8 +863,6 @@ class Game extends Component{
             this.setState({
                 e_AP: e_AP_val
             })
-        }else{
-            console.log("Enemy has enough AP.")
         }
     }
 
@@ -800,12 +873,13 @@ class Game extends Component{
     ////////////////////////// HP/AP UP //////////////////////////
     /////////////////////////////////////////////////////////////
 
+    ///health 
     handleHP(){
-        if(p_Health_val <= 350){
+        if(p_Health_val <= 850){
             p_Health_val += 150;  
-            message = "You gained 150 health points!";
+            message = "You gain 150 health points!";
             image = "assets/gamescreen/health.png";
-        }else if(p_Health_val === 500){
+        }else if(p_Health_val >= 900){
             message = "You have enough Health!";
             image = "assets/gamescreen/full.jpg"
         }else{
@@ -824,18 +898,16 @@ class Game extends Component{
         })
     }
 
-
-
-
+    ///AP
     handleAP(){
-        if(p_AP_val < 20){
+        if(p_AP_val < 25){
             if(p_AP_val > 50){
                 this.setState({
                     p_AP: 50 
                 })
             }else{
                 p_AP_val  += 30;
-                message = "You gained 30 action points!";
+                message = "You gain 30 action points!";
                 image = "assets/gamescreen/scifi-crate.jpg"
             }
         }else if(p_AP_val === 50){
@@ -862,71 +934,53 @@ class Game extends Component{
     ///////////////////////////////////////////////////////////////
     ////////////////////////// ALLY HELP //////////////////////////
     //////////////////////////////////////////////////////////////
-
     handleComps(){
         var { companions } = this.props; 
 
-        var comp0 = companions[0].image;
-        var comp1 = companions[1].image;
-        var comp2 = companions[2].image;
-        var comp3 = companions[3].image;
-        var picVal = localPic;
-        
-        console.log(picVal); 
+        return companions.map((companion)=>{
+            if(localPic !== companion.image){
+                aidArr.push(companion);
+            }
+        })  
+    }
 
-        switch(picVal){
-            case comp0:
-                player.unshift(companions.shift(companions[0]));
-                break;
-            case comp1:
-                companions[1] = companions[0];
-                player.unshift(companions.shift(companions[0]));
-                break;
-            case comp2:
-                companions[2] = companions[0];
-                player.unshift(companions.shift(companions[0]));
-                break;
-            case comp3:
-                companions[3] = companions[0];
-                player.unshift(companions.shift(companions[0])); 
-                break;
-            default:
-                console.log("Not found");
-        }   
-        console.log(player);
-        console.log(companions); 
-        
+    handleUpdateComps(){
+        var { companions } = this.props; 
+
+        companions.map((companion)=>{
+            if(companions.length > 0){
+                if(current[0].name === companion.name){
+                    companion.name = "Gone";
+                    companion.image = "assets/players/redx.png";
+                }
+            }else{
+                console.log("No more companions!")
+            }
+        })  
     }
 
     handleHelp(){
-        var { companions } = this.props; 
-
-        if(p_AP_val >= 25){
-            e_Health_val -= 200;
-            p_AP_val  -= 25;
-            var current = [];
-            current.unshift(companions.shift())
+        var { companions } = this.props;
+    
+        if(p_AP_val >= 25 && aidArr.length > 0){
+            current.unshift(aidArr.shift())
             message = current[0].message;
             image = current[0].image; 
-            var name = current[0].name; 
-            attackdetail = ` ${name} dealt 200 damage!`;
-            console.log("CURRENT");
-            console.log(current);
-            console.log(image);
-            console.log(message); 
-        } else if(p_AP_val <= 25){
-            attackdetail = "Enemy attacked you for 50 health points!"
+            var name = current[0].name;
+            var damage = current[0].damage; 
+            e_Health_val -= damage;
+            p_AP_val  -= 25;
+            attackdetail = ` ${name} deals ${damage} damage!`;
+        } else if(p_AP_val <= 25 && aidArr.length > 0){
+            attackdetail = "Enemy attacks you for 50 health points!"
             image = "assets/gamescreen/fallen.jpg"
             message = "You don't have enough AP!";
             p_Health_val -= 50;
-            image = "assets/aliens/alien1.jpg"
-        }
-    
-        if(companions.length < 1){
+        }else if(aidArr.length === 0){
+            attackdetail = ""
             message = "You can't request aid anymore!"
-            image = "assets/aliens/alien1.jpg"
+            image = "assets/gamescreen/fallen.jpg"
         }
-
         this.setState({
             e_Health: e_Health_val,
             p_Health: p_Health_val,
@@ -938,43 +992,48 @@ class Game extends Component{
             hideDeckBtns: true,
             showRoll: true  
         })
+        this.handleUpdateComps();
     }
 
-    ///////////////////////////////////////////////////////////////
-    ////////////////HANDLING WIN/LOSE/TIME ///////////////////////
-    //////////////////////////////////////////////////////////////
 
-    handleWin(){
-        if(e_Health_val <= 0){
-            this.setState({
-                showContainer: 'none',
-                showWinScreen: 'block'
-            })
-        }else{
-            console.log("Game is in progress.")
-        }
-    }
+    ////////////////////////////////////////////////////////////////////
+    ////////////////////////ROLLING THE DIE/////////////////////////////
+    ////////////////////////////////////////////////////////////////////
 
-    handleLose(){
-        if(p_Health_val <= 0){
-            this.setState({
-                showContainer: 'none',
-                showLoseScreen: 'block'
-            })
-        }else{
-            console.log("Game is in progress.")
-        }
-    }
+    handleRoll(){
+        var { data } = this.props.e_shuffled;
+        //getting a random number to roll random dice
+        var randomDie1 = Math.ceil(Math.random() * 6);
+        var randomDie2 = Math.ceil(Math.random() * 6);
+        
+        this.setState({
+            die1: "assets/dice/d" + randomDie1 + ".png",
+            die2: "assets/dice/d" + randomDie2 + ".png",
+        })
 
-    handleTimeUp(){
-        if(this.state.timer === 'TIME 00:00'){
+        this.handleWin();
+        this.handleLose();
+        this.handleTimeUp();
+    
+        if((randomDie1 + randomDie2 >= 7) && (randomDie1 + randomDie2 < 12)){
             this.setState({
-                showContainer: 'none',
-                showTimeScreen: 'block'
+                attackdetail: "", 
+                hideBattleBtns: false,
+                hideDeckBtns: false,
+                message: "Shuffle, draw, attack or draw then attack!",
+                showRoll: false,
+                image : "assets/aliens/alien1.jpg"
             })
-        }else{
-            console.log("Game is in progress.")
-        }
+        }else if((randomDie1 + randomDie2 <= 6) && (randomDie1 + randomDie2 > 2)){
+            this.handleEAP(); 
+            this.props.e_shuffleCards(data);  
+            this.attackPlayer(); 
+            this.handleEDraw();
+        }else if(randomDie1 + randomDie2 === 12){
+            this.attackEnemy2();
+        }else if(randomDie1 + randomDie2 === 2){
+            this.attackPlayer2();
+        } 
     }
 
 
@@ -1038,6 +1097,11 @@ class Game extends Component{
 		const hideScreen = {
 			visibility: this.state.loggedIn
         }
+
+        const imgLose = {
+            width: "50%",
+            margin: "auto"
+        }
 		
         return(
             <div>
@@ -1059,33 +1123,54 @@ class Game extends Component{
 					</div>
 
 					<div style = {fightScreen} className = "fightscreen">
-						<div className = "display4 fight-text">
+						<div className = "display-1 fight-text">
 							Are you ready to <br/> 
-							<div className = "display1 fight-text">battle?</div>
+							<div className = "display-1 fight-text">battle?</div>
 						</div> 
 						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">FIGHT</Button>
 					</div> 
 
                     <div style = {winScreen} className = "fightscreen">
-						<div className = "display4 fight-text">
-							Victory! Enemy deafted!
-						</div> 
-						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">CONTINUE</Button>
+                        <Form onSubmit = {this.handleTimeSubmit}>
+                            <div className = "d-flex flex-column">
+                                <div className = "display-4 fight-text d-flex flex-column">
+                                    <div className = "display-2">Enemy defeated!</div>
+                                    <div>{this.state.playerTime}</div>
+                                    <div>Hit Points: {this.state.hitPoints}</div>
+                                    <div>Experience: {this.state.exp}</div> 
+                                    <div>Level: {this.state.level}</div>
+                                </div> 
+                                <img style = {imgLose} src = "assets/gamescreen/rejoice.jpg" />
+                            </div>
+                            <Input type ="hidden" value = {this.state.charName}/>
+                            <Input type ="hidden" value = {this.state.level}/>
+                            <Input type ="hidden" value = {this.state.exp}/>
+                            <Input type ="hidden" value = {this.state.playerTime}/>
+                           
+                            <Button type ="submit" color="danger" className = "start-btn">CONTINUE</Button>
+                        </Form>
 					</div> 
+                   
 
                     <div style = {loseScreen} className = "fightscreen">
-						<div className = "display4 fight-text">
-							Game Over <br/> 
-						</div> 
-						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">PLAY AGAIN</Button>
-                        <Button onClick = {()=> this.props.logoutUser()} color="danger" className = "start-btn">QUIT GAME</Button>
+                        <div className = "d-flex flex-column">
+                            <div className = "display-2 fight-text">
+                                Game Over <br/> 
+                            </div> 
+                            <img style = {imgLose} src = "assets/gamescreen/fallen.jpg" />
+                        </div>
+						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
+                        <Button onClick = {()=> this.props.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
 					</div> 
 
                     <div style = {timeScreen} className = "fightscreen">
-						<div className = "display4 fight-text">
-							Time's Up <br/> 
-						</div> 
-						<Button onClick = {()=> this.startGame()} color="danger" className = "start-btn">PLAY AGAIN</Button>
+                        <div className = "d-flex flex-column">
+                            <div className = "display-2 fight-text">
+                                Time's Up <br/> 
+                            </div> 
+                            <img style = {imgLose} src = "assets/gamescreen/fallen.jpg" />
+                        </div>
+						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
                         <Button onClick = {()=> this.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
 					</div> 
 
@@ -1100,7 +1185,8 @@ class Game extends Component{
 									timer = {this.state.timer} 
 									textColor = {this.state.textColor}
 									pauseCountDown = {this.pauseCountDown}
-									isRunning = {this.state.isRunning}
+                                    isRunning = {this.state.isRunning}
+                                    runAway = {this.handleRunAway}
 								/>
                             </Col>
                         </Row>
@@ -1114,6 +1200,7 @@ class Game extends Component{
                                 <EnemyProgress
                                     health = {this.state.e_Health}
                                     ap = {this.state.e_AP}
+                                    total = {this.state.e_HealthTotal}
                                 />
                               
                             </Col>
@@ -1129,6 +1216,7 @@ class Game extends Component{
                                 <PlayerProgress
                                     health = {this.state.p_Health}
                                     ap = {this.state.p_AP}
+                                    total = {this.state.p_HealthTotal}
                                 />
                             </Col>
                         </Row>
@@ -1189,7 +1277,7 @@ class Game extends Component{
                                     hpBoost = {this.handleHP}  
                                     roll = {this.handleRoll}
                                     drawC= {this.handleDraw}
-                                    shuffle = {this.props.shuffleCards}
+                                    shuffle = {this.shufflePCards}
                                     showroll = {this.state.showRoll}
                                     showdeal = {this.state.showDeal}
                                 />

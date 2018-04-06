@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom'; 
 
 
 class Countdown extends Component{
@@ -7,6 +8,7 @@ class Countdown extends Component{
         super(props);
         
         this.pauseButton = this.pauseButton.bind(this); 
+        this.giveUp = this.giveUp.bind(this);
 
     }
     
@@ -14,16 +16,22 @@ class Countdown extends Component{
         this.props.pauseCountDown(); 
     }
 
+    giveUp(){
+        this.props.runAway(); 
+    }
+
     render(){
         const textStyle = {
             color: this.props.textColor,
-            marginTop: '-5.5rem'
         }
 
         return(
-            <div>
+            <div className = "d-flex flex-row">
                 <div>
                     <Button color="danger" className = "start-btn" onClick = { ()=> this.pauseButton()}>{this.props.isRunning ? 'PAUSE | |' : 'PLAY  ▶︎'}</Button>
+                </div>
+                <div>
+                    <Button color = "danger" className = "start-btn" onClick = { ()=> this.giveUp()}>Run Away</Button>
                 </div>
                 <div style = {textStyle} className = "countdown">
                     {this.props.timer}

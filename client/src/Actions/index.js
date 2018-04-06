@@ -1,26 +1,25 @@
 import {
-  REGISTER,
-  LOGIN,
-  LOGOUT,
-  CHOOSE,
-  NEXT,
   BACK,
+  BOARD,
+  CHOOSE,
   DRAW,
   DEAL,
   E_SHUFFLE,
   E_DRAW, 
+  LOGIN,
+  LOGOUT,
+  NEXT,
+  REGISTER,
   SHUFFLE,
-  ATTACK,
-  MUSICOFF,
-  MUSICON
+  STATS
 } from './types';
 import axios from 'axios';
-import weapons from '../Reducers/JSON/WeaponsList.json'; 
-import attacks from '../Reducers/JSON/Enemy1Deck.json'; 
-
 const ROOT_URL = 'http://localhost:5000'; 
 
-//REGISTER THE PLAYER
+
+/////////////////////////////////////////////////////////////
+///////////////////////REGISTER PLAYER///////////////////////
+/////////////////////////////////////////////////////////////
 export const registerUser = (playerData) =>{
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
@@ -36,7 +35,10 @@ export const registerUser = (playerData) =>{
   }
 }
 
-//LOGIN IN PLAYER
+
+/////////////////////////////////////////////////////////////
+///////////////////////LOGIN PLAYER//////////////////////////
+/////////////////////////////////////////////////////////////
 export const loginUser = (playerData) => {
   console.log("THE PLAYER DATA IS BELOW...")
   console.log(playerData);
@@ -55,7 +57,10 @@ export const loginUser = (playerData) => {
   }
 }
 
-// LOGOUT PLAYER 
+
+/////////////////////////////////////////////////////////////
+///////////////////////LOGOUT PLAYER////////////////////////
+/////////////////////////////////////////////////////////////
 export const logoutUser = () =>{
   localStorage.removeItem('token'); 
   localStorage.removeItem('name'); 
@@ -69,8 +74,9 @@ export const logoutUser = () =>{
 }
 
 
-//CHOOSE CHARACTERS
-
+/////////////////////////////////////////////////////////////
+///////////////////////CHOOSE CHARACTERS/////////////////////
+/////////////////////////////////////////////////////////////
 export const choosePic = (charPicData) =>{
   console.log(charPicData)
 
@@ -89,7 +95,47 @@ export const choosePic = (charPicData) =>{
   }
 }
 
-//SCENE ACTIONS/////
+/////////////////////////////////////////////////////////////
+///////////////////////SUBMIT BOARD STATS////////////////////
+/////////////////////////////////////////////////////////////
+export const submitStats = (timeData) =>{
+  console.log(timeData)
+
+  return function (dispatch){
+    axios.post(`${ROOT_URL}/stats`, timeData)
+    .then(response => {
+      dispatch ({type: STATS, data:response}); 
+      console.log("**********STATS RESPONSE********")
+      console.log(response);
+      console.log("******************")
+      localStorage.setItem('exp', response.data.exp);
+      localStorage.setItem('level', response.data.level); 
+    })
+    .catch(error => {console.log(error)}); 
+  }
+}
+
+
+//////////////////////////////////////////////////
+///////////////GET BOARD STATS////////////////////
+/////////////////////////////////////////////////
+export const getBoard = () =>{
+  return function (dispatch){
+    axios.get(`${ROOT_URL}/board`)
+    .then(response => {
+      dispatch ({type: BOARD, getboard:response}); 
+      console.log("**********STATS RESPONSE********")
+      console.log(response);
+      console.log("******************")
+    })
+    .catch(error => {console.log(error)}); 
+  }
+}
+
+///////////////////////////////////////////////////
+////////////////////SCENE ACTIONS//////////////////
+//////////////////////////////////////////////////
+
 export const nextCount = () =>{
   return{
       type: NEXT
@@ -103,19 +149,21 @@ export const backCount = () =>{
 }
 
 
-//BATTLE ACTIONS /////
+////////////////////////////////////////////////////
+/////////////////// PLAYER BATTLE ACTIONS //////////////////
+///////////////////////////////////////////////////
 
-export const shuffleCards = () =>{
+export const shuffleCards = (cards) =>{
   for(var i = 0; i < 1400; i++){
-    var random1 = Math.floor(Math.random() * weapons.length);
-    var random2 = Math.floor(Math.random() * weapons.length);
+    var random1 = Math.floor(Math.random() * cards.length);
+    var random2 = Math.floor(Math.random() * cards.length);
     // Store in temp, the value at index random1, in array theDeck (for later)
-    var temp = weapons[random1];
+    var temp = cards[random1];
     // Overwrite what's at index random1 with what's at index random2
-    weapons[random1] = weapons[random2];
+    cards[random1] = cards[random2];
     // Overwrite what's at index random2 with what's in temp
-    weapons[random2] = temp;
-    var shuffled = weapons;
+    cards[random2] = temp;
+    var shuffled = cards;
     console.log("SHUFFLED THE DECK!"); 
     console.log(shuffled); 
     return{
@@ -131,28 +179,21 @@ export const drawCard = () =>{
   }
 }
 
+///////////////////////////////////////////
+///////////// ENEMY ACTIONS ///////////////
+///////////////////////////////////////////
 
-export const dealNewDeck = () =>{
-  return{
-      type: DEAL
-  };
-}
-
-
-/// ENEMY ATTACKS ////
-
-
-export const e_shuffleCards = () =>{
+export const e_shuffleCards = (cards) =>{
   for(var i = 0; i < 1400; i++){
-    var random1 = Math.floor(Math.random() * attacks.length);
-    var random2 = Math.floor(Math.random() * attacks.length);
+    var random1 = Math.floor(Math.random() * cards.length);
+    var random2 = Math.floor(Math.random() * cards.length);
     // Store in temp, the value at index random1, in array theDeck (for later)
-    var temp = attacks[random1];
+    var temp = cards[random1];
     // Overwrite what's at index random1 with what's at index random2
-    attacks[random1] = attacks[random2];
+    cards[random1] = cards[random2];
     // Overwrite what's at index random2 with what's in temp
-    attacks[random2] = temp;
-    var e_shuffled = attacks;
+    cards[random2] = temp;
+    var e_shuffled = cards;
 
     console.log("SHUFFLED THE ENEMY DECK!"); 
     console.log(e_shuffled);
@@ -171,56 +212,15 @@ export const drawECard = () =>{
 }
 
 
-
-
-
-// export const attackEnemy = () =>{
+//for later 
+// export const drawECard = (hand,deck) =>{
+//   hand.push(deck.shift()); 
+//   console.log(hand);
+//   console.log(deck); 
 //   return{
-//       type: ATTACK
-//   };
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //MUSIC
-// export const musicOn = () =>{
-//   console.log("MUSIC TURNED ON");
-//   return{
-//     type: MUSICON
+//     type: E_DRAW, 
+//     enemysHand: hand
 //   }
 // }
-
-// export const musicOff = () =>{
-//   console.log("MUSIC TURNED OFF");
-//   return{
-//     type: MUSICOFF
-//   }
-// }
-
-
-
-
-
-
-
 
 

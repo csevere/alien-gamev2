@@ -9,14 +9,14 @@ var INITIAL_STATE ={
         "id": 0,
         "name":"Rocket Launcher",
         "image": "assets/deck/weapons/rocketlauncher.jpg",
-        "damage": 35
+        "damage": 45
     },
 
     {
-      "id": 2,
-      "name":"The Thermal Gun",
+      "id": 1,
+      "name":"High Thermal Gun",
       "image": "assets/deck/weapons/thermalgun.jpg",
-      "damage": 35
+      "damage": 40
     }
   ],
 }
@@ -32,5 +32,5 @@ export default (state = INITIAL_STATE, action) => {
       }
     default:
       return state
-  } return state 
+  }
 }

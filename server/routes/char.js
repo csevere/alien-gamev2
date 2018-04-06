@@ -8,7 +8,7 @@ module.exports = function(router){
     const charData = req.body; 
 
     //check the char
-    var checkCharName = "SELECT * FROM `characters` WHERE `character` = ?;";
+    var checkCharName = "SELECT * FROM characters WHERE `character` = ?;";
     connection.query(checkCharName, [charData.character], (error, results)=>{
       console.log('**********CHECKING CHAR RESULTS*********') 
       console.log(results); 
@@ -29,13 +29,22 @@ module.exports = function(router){
           level,
           msg: 'picInserted'
         })
-        const updateCharQuery = "UPDATE `characters` SET picture = ? WHERE `character` = ?;"; 
+        const updateCharQuery = "UPDATE characters SET picture = ? WHERE `character` = ?;"; 
         connection.query(updateCharQuery, [charData.picture, charData.character, charData.experience, charData.level], (error, results)=>{
           if(error){
             console.log(error)
             throw error; 
           }
+          console.log(results); 
           console.log("pic updated success!")
+        }); 
+        const checkCharName2 = "SELECT * FROM characters WHERE `character` = ?;";
+        connection.query(checkCharName2, [charData.character], (error, results)=>{
+          if(error){
+            console.log(error)
+            throw error; 
+          }
+          console.log(results); 
         }); 
       }
     });

@@ -7,9 +7,9 @@ class Buttons extends Component{
     constructor(props){
         super(props);
         this.state = {
-            apNum: 5,
-            hpNum: 5,
-            shuffleNum : 5,
+            apNum: 8,
+            hpNum: 8,
+            shuffleNum : 10,
             displayShuff: 'block',
             displayAP: 'block',
             displayHP: 'block'
@@ -17,7 +17,6 @@ class Buttons extends Component{
 
         this.boostAP = this.boostAP.bind(this);
         this.attackEn = this.attackEn.bind(this);
-        this.dealCards = this.dealCards.bind(this);
         this.drawCards = this.drawCards.bind(this); 
         this.boostHP = this.boostHP.bind(this); 
         this.rollDie = this.rollDie.bind(this); 
@@ -43,10 +42,6 @@ class Buttons extends Component{
         }
     }
 
-    dealCards(){
-        this.props.deal();
-    }
-
     drawCards(){
         this.props.drawC(); 
     }
@@ -70,6 +65,7 @@ class Buttons extends Component{
     }
 
     shuffleCards(){
+        
         this.props.shuffle(); 
        
         if(this.state.shuffleNum < 2){
@@ -106,9 +102,7 @@ class Buttons extends Component{
         const hideRoll = {
             visibility: 'hidden'
         } 
-        const hideDeal ={
-            visibility: 'hidden'
-        }
+    
         const hideShuff = {
             display: hideShuffle
         }
@@ -128,7 +122,6 @@ class Buttons extends Component{
                     <Button color="danger" className = "start-btn" onClick = {()=> this.rollDie()} style = {showRoll ? null: hideRoll}>Roll</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.drawCards()} style = {hideDeck ? hideDeckBtns : null}>Draw</Button>
                     <Button color="danger" className = "start-btn" onClick = {()=> this.shuffleCards()} style = {hideDeck ? hideDeckBtns : hideShuff }>Shuffle | {this.state.shuffleNum}X</Button>
-                    <Button color="danger" className = "start-btn" onClick = {()=> this.dealCards()} style = {hideDeck ? hideDeckBtns: null}>Deal</Button>
                 </div>
     
                 <div className = "d-flex flex-row">

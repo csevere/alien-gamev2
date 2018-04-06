@@ -8,7 +8,6 @@ export default function (state = [], action){
       console.log(action); 
       return { response:action.data, ...state }
     default:
-      return state 
+      return state; 
   }
-  return state; 
 }

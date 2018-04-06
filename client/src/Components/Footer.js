@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Link } from 'react-router-dom';  
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
-import { Row, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Label } from 'reactstrap';
+import { Row, Button, Dropdown} from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
@@ -13,8 +13,7 @@ class Footer extends Component {
         super(props); 
 
         this.state = {
-            dropdownOpen: false,
-            off: true
+            dropdownOpen: false
         };
 
         this.quitGame = this.quitGame.bind(this); 
@@ -34,21 +33,6 @@ class Footer extends Component {
           dropdownOpen: !this.state.dropdownOpen,
         });
     }
-
-    // handleChange(){
-	// 	this.setState({
-    //         off: !this.state.off
-    //     })
-    //     console.log("CHANGE OF Off"); 
-    //     console.log(this.state.off);
-
-    //     if(this.state.off){
-    //         this.props.musicOff();
-    //     }else{
-    //         this.props.musicOn(); 
-    //     }
-    // }
-    
 
     render(){
 
@@ -76,9 +60,6 @@ class Footer extends Component {
             menuClass.push('show')
         }
 
-        console.log("DEFAULT Off"); 
-        console.log(this.state.off);
-
         return(
             <footer className = "main-footer pl-3">
                 <Row className="no-gutters d-flex flex-row">
@@ -88,7 +69,7 @@ class Footer extends Component {
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Soundtrack</div></Link>
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Donate</div></Link>
                        <div className = "p-2 nav">
-                            <div className="btn-group dropup" isOpen={this.state.dropdownOpen} onClick={this.toggle}>
+                            <div className="btn-group dropup" onClick={this.toggle}>
                                 <Button type="button" className="dropdown-toggle nav-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded={this.state.dropdownOpen} >
                                     Navigate
                                 </Button>
@@ -99,6 +80,7 @@ class Footer extends Component {
                                     <Link className = "dropdown-item"  to = "/convo"><div>Conversations</div></Link>
                                     <Link className = "dropdown-item"  to = "/map"><div>BattleCraft Map</div></Link>
                                     <Link className = "dropdown-item" to = "/game"><div>Battle</div></Link>
+                                    <Link className = "dropdown-item" to = "/board"><div>ScoreBoard</div></Link>
                                 </div>
                             </div>
                         </div>
@@ -111,17 +93,3 @@ class Footer extends Component {
 }
 
 export default connect(null,actions)(Footer);
-
-/* <div className = "p-2 nav">
-    Music &nbsp;
-    <div className="slideThree"> 
-        <Input 
-            type="checkbox" 
-            value={this.state.off}
-            id="slideThree" 
-            name="check" 
-            onChange = {this.handleChange}  
-        />
-        <Label for="slideThree"></Label>
-    </div>
-</div> */

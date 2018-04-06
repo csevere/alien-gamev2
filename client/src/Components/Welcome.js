@@ -19,7 +19,7 @@ class Welcome extends Component{
         }
 	}
 	
-    componentDidMount() {
+    componentWillMount() {
         setTimeout(() =>{
             this.setState({
                 showLogNav: 'block',

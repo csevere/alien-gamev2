@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
-import { Container, Collapse, Col, Row, Button, CardText, Card, CardImg } from 'reactstrap';
+import { Collapse, Button, CardText, Card, CardImg } from 'reactstrap';
 
 class FooterPage extends Component {
 	constructor(props) {
