@@ -103,7 +103,7 @@ class Game extends Component{
             showTimeScreen: 'none',
             showRow: 'none',
             showRoll: true,
-			timer: 'TIME 00:01',
+			timer: 'TIME 05:00',
             textColor: '#74f9fc',
             transition:'transition',
             transition2: 'transition',
@@ -1160,7 +1160,7 @@ class Game extends Component{
                             <img style = {imgLose} src = "assets/gamescreen/fallen.jpg" />
                         </div>
 						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
-                        <Button onClick = {()=> this.props.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
+                        <Button onClick = {()=> this.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
 					</div> 
 
                     <div style = {timeScreen} className = "fightscreen">

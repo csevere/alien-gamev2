@@ -55,27 +55,41 @@ class ScoreBoard extends Component{
                 opacity: 1
             })
 		}, 5000)
+	}
 
+	componentWillMount(){
 		this.props.getBoard(); 
 
 		setTimeout(()=>{
 			this.getStats(); 
 		}, 5000)
+
 	}
-	
 
 	getStats(){
 		const { results } = this.props.board.response.data
-		playerArr.push(results); 
+		playerArr.push(results);
+		console.log(playerArr[0])
+		playerArr = playerArr[0];
+		console.log(playerArr);  
 	}
 
 	renderStats(){
-		return (
-			<div>Will complete soon | Handle with promise </div>
-		)
+		console.log(playerArr); 
+		return playerArr.map((player, index)=>{
+			if(playerArr.length > 0){
+				console.log(player.character)
+				return (
+					<tr key = {index}>
+						<th scope="row">{player.character}</th>
+						<td>{player.level}</td>
+						<td>{player.experience}</td>
+						<td>{player.time}</td>
+					</tr>
+				)
+			}
+		})	
 	}
-
-
 
     render(){
 		
@@ -96,6 +110,10 @@ class ScoreBoard extends Component{
 
 		const hideScreen = {
 			visibility: this.state.loggedIn
+		}
+
+		const resultsStyle = {
+			color: '#ec5a4fba'
 		}
 
         return(
@@ -127,11 +145,12 @@ class ScoreBoard extends Component{
 								<tr>
 									<th>Name</th>
 									<th>Level</th>
-									<th>Experience Points</th>
+									<th>Exp</th>
 									<th>Time Remaining</th>
 								</tr>
 								</thead>
-								<tbody>
+								<tbody style = {resultsStyle}>
+									{this.renderStats()}
 								</tbody>
 							</Table>
 						</div>
