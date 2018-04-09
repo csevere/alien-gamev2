@@ -8,7 +8,7 @@ module.exports = function(router){
     const charData = req.body; 
 
     //check the char
-    var selectCharStats = "SELECT * FROM characters ORDER BY experience DESC;";
+    var selectCharStats = "SELECT * FROM characters ORDER BY experience DESC LIMIT 10;";
 
     connection.query(selectCharStats, (error, results)=>{
       if(error) throw error;

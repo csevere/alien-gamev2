@@ -26,8 +26,6 @@ import {
     Row,
 } from 'reactstrap';
 
-
-
 // Length ms 
 var TimeOut = 10000;
 // Interval ms
@@ -47,8 +45,8 @@ var p_Health_val = 1000;
 var p_HealthTotal_val = 1000;
 var p_AP_val = 50;
 
-var e_Health_val = 1450;
-var e_HealthTotal_val = 1450; 
+var e_Health_val = 1150;
+var e_HealthTotal_val = 1150; 
 var e_AP_val = 50; 
 var attackdetail = ""; 
 var message = ""; 
@@ -62,6 +60,7 @@ var aidArr = [];
 var current = [];
 var playerTime_val = ""; 
 
+const history = createHistory();
 
 class Game extends Component{
     constructor(props){
@@ -111,14 +110,13 @@ class Game extends Component{
             e_AP: 50,
             e_deckopacity: 1,
             e_draw: false,
-            e_Health: 1450,
-            e_HealthTotal: 1450,
+            e_Health: 1150,
+            e_HealthTotal: 1150,
             e_opacity: 0,
             e_transition: "transition",
             e_showCards: false
         }
         
-
 		this.startGame = this.startGame.bind(this);
         this.handleRoll = this.handleRoll.bind(this);
         this.handleTimeSubmit = this.handleTimeSubmit.bind(this); 
@@ -261,7 +259,8 @@ class Game extends Component{
 
     ////////////////////////////////////////////////////////////////////
     ////////////////// TIME SUBMIT/START/QUIT/PLAYAGAIN //////////////////////////////
-    ////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+
 
     handleTimeSubmit(e){
         e.preventDefault();
@@ -277,6 +276,8 @@ class Game extends Component{
         this.props.submitStats(timeData);
         console.log("TIME DATA IN GAME!!!")
         console.log(timeData);
+        history.push('/board'); 
+        history.go('/board'); 
     }
 	
 	startGame(){
@@ -1290,6 +1291,8 @@ class Game extends Component{
                             src="assets/music/quarkstar.mp3" 
                             preload = "auto" 
                             loop="true"
+                            width="10"
+                            height="10"
                         controls/>	
                     </div>
                 </div>

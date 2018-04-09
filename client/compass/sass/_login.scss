@@ -13,10 +13,12 @@
         letter-spacing: 1px; 
         margin-bottom: -6px;
         text-align: center;
+        .formErrors{
+            color: red
+        }
         .formErrors, .panel-message{
             display: flex; 
             p{
-                color:red;  
                 padding-left: 1em; 
             }
         }  

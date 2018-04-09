@@ -42,6 +42,7 @@ class FooterPage extends Component {
 								<CardText className = "p-3">
 									<h2 className = "mb-5">BATTLE SCREEN</h2>
 									<CardImg className = "mb-5" src = "assets/info/battle.png"/>
+									<div className = "mb-5"></div>
 									<CardImg className = "mb-5" src = "assets/info/battle2.png"/>
 									<ul>
 										<li className = "mb-5"><div className = "text-danger">Roll:</div> Hit the roll button to roll the dice and get the battle started. If you roll higher than 7, you'll get to attack your enemy.</li>

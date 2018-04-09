@@ -65,6 +65,7 @@ class Footer extends Component {
                 <Row className="no-gutters d-flex flex-row">
                     <div className = "d-flex flex-row text-white">
                        <div className = "p-2"><p>Alien BattleCraft &copy; 2018 Carla Severe</p></div>
+                       <Link to = "/"><div className = "p-2 ml-2">Home</div></Link>
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;How to Play</div></Link>
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Soundtrack</div></Link>
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Donate</div></Link>
@@ -74,7 +75,6 @@ class Footer extends Component {
                                     Navigate
                                 </Button>
                                 <div className={menuClass.join(' ')}>
-                                    <Link className = "dropdown-item" to = "/"><div>Home</div></Link>
                                     <Link className = "dropdown-item"  to = "/choose"><div>Choose Character</div></Link>
                                     <Link className = "dropdown-item"  to = "/scene"><div>Story Scenes</div></Link>
                                     <Link className = "dropdown-item"  to = "/convo"><div>Conversations</div></Link>
