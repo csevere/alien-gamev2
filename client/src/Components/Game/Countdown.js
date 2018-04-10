@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom'; 
-
 
 class Countdown extends Component{
     constructor(props){
         super(props);
-        
+
         this.pauseButton = this.pauseButton.bind(this); 
         this.giveUp = this.giveUp.bind(this);
-
     }
     
     pauseButton(){
@@ -39,7 +36,6 @@ class Countdown extends Component{
             </div>
         )
     }
-
 }
 
 export default Countdown;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as actions from '../../Actions';
 import { connect } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
@@ -416,15 +416,6 @@ class Game extends Component{
             visibility: 'hidden'    
         }
 
-           const deckStyle = {
-            left:'1rem',
-            opacity: this.state.deckopacity,
-            transition: '2s'
-        }
-    
-        // console.log("PLAYER HAND IN GAME")
-        // console.log(this.props.playersHand.playersHand);
-
         return playersHand.map((player,index) => {
             if( player === playersHand[0] && playersHand.length > 0){
                 return(
@@ -484,9 +475,6 @@ class Game extends Component{
     getDeck(){
         var { data } = this.props.shuffled;
 
-        // console.log("SHUFFLED IN GAME LINE 277")
-        // console.log(data); 
-
         const deckStyle = {
             left:'1rem',
             opacity: this.state.deckopacity,
@@ -509,7 +497,7 @@ class Game extends Component{
 
                         <div className = "back">
                             <Card className = "player-deck-card deck-item" style = {deckStyle}>
-                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                                <CardImg height="100%" src = "assets/bg/scifi-texture.jpg" />
                             </Card>
                         </div>
                     </div>
@@ -612,7 +600,7 @@ class Game extends Component{
 
                         <div className = "back">
                             <Card className = "enemy-deck-card" style = {e_deckStyle}>
-                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                                <CardImg height="100%" src = "assets/bg/scifi-texture.jpg" />
                             </Card>
                         </div>
                     </div>
@@ -656,7 +644,6 @@ class Game extends Component{
     ////////////////////// SHOWING THE ENEMY'S DECK////////////////////
     ////////////////////////////////////////////////////////////////////
    
-
     getEDeck(){
         var { data } = this.props.e_shuffled; 
 
@@ -665,7 +652,6 @@ class Game extends Component{
             opacity: this.state.e_deckopacity,
             transition: '2s'
         }
-
 
         return data.map((elem, index) => {
             if(data.length > 1){
@@ -683,7 +669,7 @@ class Game extends Component{
 
                         <div className = "back">
                             <Card className = "enemy-deck-card deck-item" style = {e_deckStyle}>
-                                <CardImg height="100%" src = "assets/deck/scifi-texture.jpg" />
+                                <CardImg height="100%" src = "assets/bg/scifi-texture.jpg" />
                             </Card>
                         </div>
                     </div>
@@ -692,24 +678,18 @@ class Game extends Component{
         }).reverse(); 
     }
 
-
-
     /////////////////////////////////////////////////////////////////////////
     ///////////////////////// DRAWING & DEALING THE ENEMY'S CARDS ///////////
     ////////////////////////////////////////////////////////////////////////
 
     handleEDraw(){
-        // this.handleEDeal();
         var { data } = this.props.e_shuffled;
-        var { enemysHand } = this.props.enemysHand;
 
         this.animateEDeck() 
-
 
         this.setState({
             e_showCards: true,
             e_draw: true,
-            // e_addClass: !this.state.addClass,
             e_deckopacity: '0'
         });
 
@@ -722,8 +702,6 @@ class Game extends Component{
         count++; 
         console.log("ENEMY LINE 540 NUMBER " + count);
 
-        this.animateEDeck() 
-        
         if(data.length > 0){
             this.props.drawECard(); 
         }else{
@@ -986,9 +964,6 @@ class Game extends Component{
         }
     }
 
-
-
-
     ///////////////////////////////////////////////////////////////
     ////////////////////////// HP/AP UP //////////////////////////
     /////////////////////////////////////////////////////////////
@@ -1050,7 +1025,6 @@ class Game extends Component{
         })
       }
 
-
     ///////////////////////////////////////////////////////////////
     ////////////////////////// ALLY HELP //////////////////////////
     //////////////////////////////////////////////////////////////
@@ -1080,8 +1054,6 @@ class Game extends Component{
     }
 
     handleHelp(){
-        var { companions } = this.props;
-    
         if(p_AP_val >= 25 && aidArr.length > 0){
             current.unshift(aidArr.shift())
             message = current[0].message;
@@ -1116,7 +1088,6 @@ class Game extends Component{
         })
         this.handleUpdateComps();
     }
-
 
     ////////////////////////////////////////////////////////////////////
     ////////////////////////ROLLING THE DIE/////////////////////////////
@@ -1157,7 +1128,6 @@ class Game extends Component{
             this.attackPlayer2();
         } 
     }
-
 
     ///////////////////////////////////////////////////////////////
     ////////////////END OF EVENT HANDLING EVENT //////////////////
@@ -1205,7 +1175,6 @@ class Game extends Component{
             opacity: this.state.opacity
         }
         
-
 		const showContainer = {
             display: this.state.showContainer,
             transition: this.state.transition2,
@@ -1225,8 +1194,6 @@ class Game extends Component{
             margin: "auto"
         }
 
-        
-		
         return(
             <div>
                   <Row>
@@ -1264,7 +1231,7 @@ class Game extends Component{
                                     <div>Experience: {this.state.exp}</div> 
                                     <div>Level: {this.state.level}</div>
                                 </div> 
-                                <img style = {imgLose} src = "assets/gamescreen/rejoice.jpg" />
+                                <img style = {imgLose} alt = "" src = "assets/gamescreen/rejoice.jpg" />
                             </div>
                             <Input type ="hidden" value = {this.state.charName}/>
                             <Input type ="hidden" value = {this.state.level}/>
@@ -1275,13 +1242,12 @@ class Game extends Component{
                         </Form>
 					</div> 
                    
-
                     <div style = {loseScreen} className = "fightscreen">
                         <div className = "d-flex flex-column">
                             <div className = "display-2 fight-text">
                                 Game Over <br/> 
                             </div> 
-                            <img style = {imgLose} src = "assets/gamescreen/fallen.jpg" />
+                            <img style = {imgLose} alt = "" src = "assets/gamescreen/fallen.jpg" />
                         </div>
 						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
                         <Button onClick = {()=> this.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
@@ -1292,7 +1258,7 @@ class Game extends Component{
                             <div className = "display-2 fight-text">
                                 Time's Up <br/> 
                             </div> 
-                            <img style = {imgLose} src = "assets/gamescreen/fallen.jpg" />
+                            <img style = {imgLose} alt = "" src = "assets/gamescreen/fallen.jpg" />
                         </div>
 						<Button color="danger" className = "start-btn" onClick = {()=> this.playAgain()}>PLAY AGAIN</Button>
                         <Button onClick = {()=> this.quitGame()} color="danger" className = "start-btn">QUIT GAME</Button>
@@ -1441,7 +1407,6 @@ const mapStateToProps = (state)=>{
         shuffled: state.cardShuffle, 
         companions: state.companions
     }
-
 }
 
 export default connect(mapStateToProps,actions)(Game); 

@@ -1,18 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
 import { connect } from 'react-redux';
-import { 
-    Button,  
-    Card, 
-    CardHeader, 
-    CardImg,
-    CardFooter, 
-    Container, 
-    Col,
-    Form,
-    Row,
-    Input
-} from 'reactstrap';
+import { Button, Card, CardHeader, CardImg, CardFooter } from 'reactstrap';
 
 const localPic = localStorage.getItem('pic'); 
 
@@ -58,16 +46,12 @@ class Companions extends Component{
         })
     }
 
-    
     render(){
-
         const state = this.props.active; 
         const hideFight = this.props.hide; 
-
         const hideButtons = {
             display: 'none'
         }
-
         const hideFghtBtns = {
             display: 'none'
         } 

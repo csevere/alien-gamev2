@@ -1,7 +1,5 @@
 import React, {Component} from 'react'; 
-import {
-    Button
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class Buttons extends Component{
     constructor(props){
@@ -20,8 +18,7 @@ class Buttons extends Component{
         this.drawCards = this.drawCards.bind(this); 
         this.boostHP = this.boostHP.bind(this); 
         this.rollDie = this.rollDie.bind(this); 
-        this.shuffleCards = this.shuffleCards.bind(this)
-        
+        this.shuffleCards = this.shuffleCards.bind(this) 
     }
 
     attackEn(){
@@ -88,7 +85,6 @@ class Buttons extends Component{
         const hideAP = this.state.displayAP; 
         const hideHP = this.state.displayHP; 
         const showRoll = this.props.showroll; 
-        const showDeal = this.props.showdeal 
 
         const hideButtons = {
             display: 'none'

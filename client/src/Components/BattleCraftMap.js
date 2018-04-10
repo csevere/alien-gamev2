@@ -220,7 +220,7 @@ class BattleCraftMap extends Component{
                                 <div className ="p-1 col-md-1 cell">C7</div>
                                 <div className ="p-1 col-md-1 cell">D7</div>
                                 <div className ="p-1 col-md-1 cell">E7</div>
-                                <div className ="p-1 col-md-1 cell">
+                                <div className ="p-1 col-md-1 cell active">
                                 
                                      <div>F7</div>
 

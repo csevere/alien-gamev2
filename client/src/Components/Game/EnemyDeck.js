@@ -2,14 +2,9 @@ import React from 'react';
 import { Card, CardImg } from 'reactstrap';
 
 const EnemyDeck = (props) =>{
-
     const draw = props.drawCond; 
     
     const cardStyle1 = {
-        listStyle: 'none'
-    }
-
-    const cardStyle2 = {
         listStyle: 'none'
     }
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Button, Card, CardGroup, CardHeader, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
+import { Container, Row, Col, Button, Card, CardGroup, CardHeader, CardBlock, CardText, CardImg } from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 
