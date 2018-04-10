@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import createHistory from 'history/createBrowserHistory'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions';
-import { Link } from 'react-router-dom';
 import { FormErrors } from './FormErrors';
 import { 
     Card, 
@@ -10,8 +9,6 @@ import {
     Container, 
     Button, 
     Form, 
-    FormGroup, 
-    FormControl,
     Label, 
     Input
 } from 'reactstrap';

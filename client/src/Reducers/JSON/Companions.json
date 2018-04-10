@@ -2,25 +2,33 @@
     {
         "id": 0,
         "name":"Meliz",
-        "image": "assets/players/char1.jpg"
+        "image": "assets/players/char1.jpg",
+        "message": "I can't always be there for you.",
+        "damage": 250
     },
 
     {
         "id": 1,
         "name":"Ryker",
-        "image": "assets/players/char2.png" 
+        "image": "assets/players/char2.png",
+        "message": "Gotta save your ass again?!",
+        "damage": 200
     },
 
     {
         "id": 2,
         "name":"Faust",
-        "image": "assets/players/char3.png"
+        "image": "assets/players/char3.png",
+        "message": "I'm here to help!",
+        "damage": 225
     },
 
     {
         "id": 3,
         "name":"Zackaria",
-        "image": "assets/players/char4.jpg"
+        "image": "assets/players/char4.jpg",
+        "message": "Not surprised you called!",
+        "damage": 275
     }
 
 ]

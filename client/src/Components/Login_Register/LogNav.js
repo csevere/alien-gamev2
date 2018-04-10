@@ -7,7 +7,6 @@ import {
     Nav, 
     NavItem, 
     NavLink,
-    Container, 
     Row, 
     Col} 
 from 'reactstrap';
@@ -75,7 +74,7 @@ export class LogNav extends Component{
                                     className={classnames({ active: this.state.activeTab === '2' })}
                                     onClick={() => { this.toggle('2'); }}
                                 >
-                                    JOIN
+                                    REGISTER
                                 </NavLink>
                             </NavItem>
                         </Nav>

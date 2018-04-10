@@ -8,11 +8,9 @@ import {
     Container, 
     Button, 
     Form, 
-    FormGroup, 
-    FormControl,
+    FormGroup,
     Label, 
     Input, 
-    FormText
 } from 'reactstrap';
 
 class Register extends Component{
@@ -31,6 +29,7 @@ class Register extends Component{
             characterValid: false, 
             formValid: false,
             registerMessage: '',
+            success: false
         }
         this.toggle = this.toggle.bind(this); 
         this.handleUserInput = this.handleUserInput.bind(null);
@@ -61,7 +60,8 @@ class Register extends Component{
         
         if(errorMessage  === 'playerInserted'){
             this.setState({
-                registerMessage: 'Player registration successful. Please log in to play.'
+                registerMessage: 'Player registration successful. Please log in to play.',
+                success: true
             })
         }else if(errorMessage  === 'emailAlreadyExists'){
             console.log("EMAIL TAKEN")
@@ -158,6 +158,13 @@ class Register extends Component{
     }
 
 	render(){
+        const successStyle = {
+            color:'lightgreen'
+        }
+
+        const warningStyle={
+            color:'red' 
+        }
 		return(
             <div>
                 <Container className = "login-wrapper">
@@ -165,8 +172,8 @@ class Register extends Component{
                         <CardBlock>
                             <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
-                                    <FormErrors formErrors={this.state.formErrors} />
-                                    <div className = "panel-message"><p>{this.state.registerMessage}</p></div>
+                                    <FormErrors style = {warningStyle} formErrors={this.state.formErrors} />
+                                    <div style = {this.state.success ? successStyle : warningStyle} className = "panel-message"><p>{this.state.registerMessage}</p></div>
                                 </div>
                                 <div className = "d-flex flex-row">
                                     <FormGroup className = "p-2">

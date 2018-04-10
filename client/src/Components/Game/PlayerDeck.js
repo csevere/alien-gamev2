@@ -1,22 +1,9 @@
-import React, {Component} from 'react';
-import { connect} from 'react-redux';
-import { Container, 
-    Row, 
-    Col,
-    Button, 
-    Card, 
-    CardHeader,
-    CardFooter,
-    CardText, 
-    CardImg, 
-    CardImgOverlay 
-} from 'reactstrap';
+import React from 'react';
+import { Card, CardHeader, CardFooter, CardImg } from 'reactstrap';
 
 const PlayerDeck = (props)=>{
  
     const draw = props.drawCond; 
-    
-    const showCards = props.showCards
     
     const cardStyle1 = {
         listStyle: 'none'
@@ -31,13 +18,20 @@ const PlayerDeck = (props)=>{
         left: '-2em'  
     }
 
+    const isAnimatingP = props.isAnimatingP;
+
+    var pulseClass = ["player-deck d-flex flex-row"];
+    if(isAnimatingP){
+        pulseClass.push('hvr-pulse-grow pulse')
+    }
+
     return(
         <div style = {deckStyle}>
-            <div className = "player-deck d-flex flex-row">
-
-                <ul className = "d-flex justify-content-start deck-card m-2" style = {cardStyle1}>
+            <div className = {pulseClass}>
+\
+                <ul className = "d-flex deck-card m-2 card1" style = {cardStyle1}>
                     <li className = "deck-card-item faux">
-                        <Card className = "player-deck-card">
+                        <Card className = "player-deck-card"> 
                             <CardHeader className = "text-center">STAND IN</CardHeader>
                             <CardImg src = 'assets/deck/scifi-texture.jpg' />
                             <CardFooter>

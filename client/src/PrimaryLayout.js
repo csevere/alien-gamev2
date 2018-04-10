@@ -7,12 +7,8 @@ import Footer from './Components/Footer';
 import FooterPage from './Components/FooterPage'; 
 import Game from './Components/Game/Game'; 
 import SceneBoard from './Components/SceneBoard';  
+import ScoreBoard from './Components/ScoreBoard';  
 import Welcome from './Components/Welcome';
-
-
-
-
-
 
 
 
@@ -25,8 +21,8 @@ const PrimaryLayout = () => (
         <Route path ="/convo" component = {ConversationBoard}/>
         <Route path="/map" component={BattleCraftMap} />
         <Route path="/game" component={Game} />
+        <Route path ="/board" component = {ScoreBoard}/>
         <Route path="/links" component={FooterPage} />
-        
         <Footer/>
       </main>
     </div>

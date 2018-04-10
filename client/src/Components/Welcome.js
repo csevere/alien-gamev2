@@ -1,12 +1,6 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
+import React, { Component } from 'react';
 import LogNav from './Login_Register/LogNav';
-import { 
-    Container, 
-    Row, 
-    Col, 
-    Button 
-} from 'reactstrap';
+import { Col } from 'reactstrap';
 
 class Welcome extends Component{
     constructor(props){
@@ -19,7 +13,7 @@ class Welcome extends Component{
         }
 	}
 	
-    componentDidMount() {
+    componentWillMount() {
         setTimeout(() =>{
             this.setState({
                 showLogNav: 'block',
@@ -69,7 +63,7 @@ class Welcome extends Component{
                             width="10"
                             height="10"
                             loop="true"
-                        controls/>	
+                        controls/>		
                     </div>
                 </div> 
             </div>  

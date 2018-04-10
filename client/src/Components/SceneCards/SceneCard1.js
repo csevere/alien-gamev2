@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
+import { Container, Row, Col, Button, Card, CardText, CardImg, CardImgOverlay} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions';
-import ReactRevealText from 'react-reveal-text'; 
 
 class SceneCard1 extends Component{
     constructor(props){
@@ -117,8 +116,6 @@ class SceneCard1 extends Component{
 
     componentWillReceiveProps(nextProps) {
         const { count } = this.props.selected; 
-        const { storyscene } = this.props; 
-        console.log(count)
 
         if(count < 5){
             setTimeout(() => {
@@ -189,7 +186,7 @@ class SceneCard1 extends Component{
             if(count <= storyscene.id && storyscene.id <= 6){
                 return(
                     <Row style = {CardStyle} key = {storyscene.id}>
-                        <Card style = {storyscene.id == count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
+                        <Card style = {storyscene.id === count ? TransitionEffects : null} className = "scene-card position-absolute" inverse>
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place text-white">{storyscene.place}</div> 
@@ -281,5 +278,4 @@ const mapStateToProps = (state)=>{
 
 export default connect(mapStateToProps, actions)(SceneCard1); 
 
-//create a reread button that refreshes the page and lets readers read from beginning 
 

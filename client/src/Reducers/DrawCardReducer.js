@@ -1,4 +1,5 @@
 import data from './JSON/WeaponsList.json';
+import { DRAW } from '../Actions/types';
 
 var INITIAL_STATE ={
   data,
@@ -8,30 +9,28 @@ var INITIAL_STATE ={
         "id": 0,
         "name":"Rocket Launcher",
         "image": "assets/deck/weapons/rocketlauncher.jpg",
-        "damage": 35
+        "damage": 45
     },
 
     {
-      "id": 2,
-      "name":"The Thermal Gun",
+      "id": 1,
+      "name":"High Thermal Gun",
       "image": "assets/deck/weapons/thermalgun.jpg",
-      "damage": 35
+      "damage": 40
     }
   ],
 }
 
 export default (state = INITIAL_STATE, action) => { 
-  if(action.type === "draw"){
-    console.log("PLAYERS HAND IN REDUCER"); 
-    console.log(state.playersHand);
-
-    if(state.data.length < 20 && state.data.length > 0){
+  switch(action.type){
+    case DRAW:
+      console.log("PLAYERS HAND IN REDUCER"); 
+      console.log(state.playersHand);
       return {
         ...state,
         playersHand: [...state.playersHand,state.data.shift()]
       }
-    } else return state; 
-  } else return state; 
+    default:
+      return state
+  }
 }
-
-

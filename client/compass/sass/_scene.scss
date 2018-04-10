@@ -1,17 +1,18 @@
 @import 'variables';
+$min-height-c: 76rem; 
 
 .scene-wrapper1{
-    background: url('/assets/images/scene_texture.jpg'); 
+    background: url('/assets/bg/scene_texture.jpg'); 
     background-size: cover; 
     background-position: center;  
     height:100%;
-    min-height: 72em; 
+    min-height: $min-height-c; 
     margin-top: -9em; 
     font-family: "Orbitron", sans-serif !important;
     z-index: 0;
 
     @media(min-width:$xlg){
-        min-height: $min-height; 
+        min-height: $min-height-c; 
         margin-top: 0em;    
     }
 
@@ -89,7 +90,7 @@
     a{
         text-decoration: none;
         .continue {
-            background: url('/assets/images/sci_fi_texture.png');
+            background: url('/assets/bg/sci_fi_texture.png');
             color: $light-gray;
             font-family: 'Anton', sans-serif;
             font-size: 3em;

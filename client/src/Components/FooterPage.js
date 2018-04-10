@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
-import { Container, Collapse, Col, Row, Button, CardText, Card, CardImg } from 'reactstrap';
+import { Collapse, Button, CardText, Card, CardImg } from 'reactstrap';
 
 class FooterPage extends Component {
 	constructor(props) {
@@ -42,11 +42,12 @@ class FooterPage extends Component {
 								<CardText className = "p-3">
 									<h2 className = "mb-5">BATTLE SCREEN</h2>
 									<CardImg className = "mb-5" src = "assets/info/battle.png"/>
+									<div className = "mb-5"></div>
 									<CardImg className = "mb-5" src = "assets/info/battle2.png"/>
 									<ul>
 										<li className = "mb-5"><div className = "text-danger">Roll:</div> Hit the roll button to roll the dice and get the battle started. If you roll higher than 7, you'll get to attack your enemy.</li>
-										<li className = "mb-5"><div className = "text-danger">Draw:</div> Draw your weapons cards first before hitting the attack button to see the weapons at your disposal.</li>
-										<li className = "mb-5"><div className = "text-danger">Shuffle:</div> You have five chances to shuffle your deck. You can choose to shuffle and attack or attack without shuffling.</li>
+										<li className = "mb-5"><div className = "text-danger">Draw:</div> ALWAYS draw a weapon card from your deck first before attacking. If you see zero cards on your screen, that's your cue to draw a card.</li>
+										<li className = "mb-5"><div className = "text-danger">Shuffle:</div> You have five chances to shuffle your deck. You can choose to shuffle and draw or draw without shuffling.</li>
 										<li className = "mb-5"><div className = "text-danger">Attack:</div> Attack your enemy. After you attack, you will have to roll the dice again to get another chance to attack. Good luck!</li>
 										<li className = "mb-5"><div className = "text-danger">Help:</div> Call your allies for help when things get bad. You can only call them once, however.</li>
 										<li className = "mb-5"><div className = "text-danger">HP Up:</div> Running low on health? You have five items to replenish your health points.</li>
