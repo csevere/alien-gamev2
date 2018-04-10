@@ -8,11 +8,9 @@ import {
     Container, 
     Button, 
     Form, 
-    FormGroup, 
-    FormControl,
+    FormGroup,
     Label, 
     Input, 
-    FormText
 } from 'reactstrap';
 
 class Register extends Component{

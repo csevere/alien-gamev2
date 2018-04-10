@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import createHistory from 'history/createBrowserHistory'; 
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
@@ -7,10 +7,7 @@ import { Button, Col, Container, Row, Table } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
-// const localChar = localStorage.getItem('charName'); 
-// const localExp = localStorage.getItem('exp'); 
-// const localLevel = localStorage.getItem('level');
-const history = createHistory();
+// const history = createHistory();
 
 var playerArr = []; 
 

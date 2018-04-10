@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Link } from 'react-router-dom';  
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
-import { Row, Button, Dropdown} from 'reactstrap';
+import { Row, Button } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 

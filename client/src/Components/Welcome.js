@@ -1,12 +1,6 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
+import React, { Component } from 'react';
 import LogNav from './Login_Register/LogNav';
-import { 
-    Container, 
-    Row, 
-    Col, 
-    Button 
-} from 'reactstrap';
+import { Col } from 'reactstrap';
 
 class Welcome extends Component{
     constructor(props){

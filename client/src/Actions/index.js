@@ -3,7 +3,6 @@ import {
   BOARD,
   CHOOSE,
   DRAW,
-  DEAL,
   E_SHUFFLE,
   E_DRAW, 
   LOGIN,

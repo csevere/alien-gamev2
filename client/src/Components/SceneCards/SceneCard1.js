@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Row, Col, Button, Card, CardBlock, CardText, CardImg, CardImgOverlay} from 'reactstrap';
+import { Container, Row, Col, Button, Card, CardText, CardImg, CardImgOverlay} from 'reactstrap';
 import {Link} from 'react-router-dom'; 
 import { connect} from 'react-redux';
 import * as actions from '../../Actions';
-import ReactRevealText from 'react-reveal-text'; 
 
 class SceneCard1 extends Component{
     constructor(props){
@@ -117,8 +116,6 @@ class SceneCard1 extends Component{
 
     componentWillReceiveProps(nextProps) {
         const { count } = this.props.selected; 
-        const { storyscene } = this.props; 
-        console.log(count)
 
         if(count < 5){
             setTimeout(() => {
@@ -281,5 +278,4 @@ const mapStateToProps = (state)=>{
 
 export default connect(mapStateToProps, actions)(SceneCard1); 
 
-//create a reread button that refreshes the page and lets readers read from beginning 
 

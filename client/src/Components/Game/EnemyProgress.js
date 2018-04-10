@@ -1,33 +1,21 @@
-import React, {Component} from 'react';
-import { Progress} from 'reactstrap';
+import React  from 'react';
+import { Progress } from 'reactstrap';
 
-
-class EnemyProgress extends Component{
-    constructor(props){
-        super(props);
+const EnemyProgress = (props) =>{
+    const isFlashingE = props.isFlashingE; 
+    var flashClass = ["e_Health text-white"];
+    if(isFlashingE){
+        flashClass.push('flashing')
     }
 
-    // <div className={menuClass.join(' ')}>
-
-    render(){
-        const isFlashingE = this.props.isFlashingE; 
-
-        var flashClass = ["e_Health text-white"];
-        if(isFlashingE){
-            flashClass.push('flashing')
-        }
-
-
-        return(
-			<div className = "enemyProgress d-flex flex-column">
-				Health
-				<Progress className = {flashClass} value = {this.props.health} max = {this.props.total}> {this.props.health}  / {this.props.total}</Progress>
-				AP
-				<Progress className = "e_AP" value = {this.props.ap} max = "50"> {this.props.ap}  / 50</Progress>
-			</div> 
-        )
-    }
-              
+    return(
+        <div className = "enemyProgress d-flex flex-column">
+            Health
+            <Progress className = {flashClass} value = {props.health} max = {props.total}> {props.health}  / {props.total}</Progress>
+            AP
+            <Progress className = "e_AP" value = {props.ap} max = "50"> {props.ap}  / 50</Progress>
+        </div> 
+    )           
 }
 
 export default EnemyProgress; 

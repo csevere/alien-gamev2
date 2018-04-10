@@ -75,13 +75,12 @@ $speed2:6s;
             inset 0 120px 7px -70px rgba(255,255,240,0.2)
         ;
         // z-index:50;
-        z-index:0;
-        cursor: pointer; 
-         
+        z-index:0;  
     }
+
     .orbs{
         -webkit-filter:blur(1px) contrast(20) blur(15px);
-        cursor: pointer; 
+        cursor: disabled; 
         display:block;
         position:absolute;
         left:50%;top:50%;
@@ -95,71 +94,77 @@ $speed2:6s;
         box-shadow: 0 0 50px -20px $color3;
         z-index:40;
     }
-    .orbs:before{
-        -webkit-filter:blur(8px);
-        content:'';
-        display:block;
-        position:relative;
-        left:50%;top:50%;
-        opacity:0.8;
-        border-radius:100%;
-        transform:translate(-50%,-50%);
-        width:200px;height:200px;
-        animation: spin2 $speed2 infinite linear;
-        background-color:$color3;
-        background-image:
-            linear-gradient(
-                transparent 29.29%,
-                $color1 29.29%,
-                $color2 70.71%,
-                transparent 70.71%
-            ),
-            linear-gradient(90deg,
-                transparent 29.29%,
-                $color1 29.29%,
-                $color2 70.71%,
-                transparent 70.71%
-            )
-        ;
-        z-index:10;
-        box-shadow: 0 0 50px -20px $color3;
-    }
-    .orbs:after{
-        -webkit-filter:blur(5px);
-        content:'';
-        display:block;
-        position:absolute;
-        opacity:0.5;
-        left:50%;top:50%;
-        border-radius:100%;
-        transform:translate(-50%,-50%) rotate(45deg);
-        width:200px;height:200px;
-        animation: spin1 $speed infinite linear;
-        background:
-            linear-gradient(
-                transparent 29.29%,
-                $color1 29.29%,
-                $color2 70.71%,
-                transparent 70.71%
-            ),
-            linear-gradient(90deg,
-                transparent 29.29%,
-                $color1 29.29%,
-                $color2 70.71%,
-                transparent 70.71%
-            )
-        ;
-        z-index:10;
-        box-shadow: 0 0 50px -20px $color3;
-    }
-    @keyframes spin1{
-        0%{transform:translate(-50%,-50%) rotate(45deg);}
-        100%{transform:translate(-50%,-50%) rotate(405deg);}
-    }
-    @keyframes spin2{
-        0%{transform:translate(-50%,-50%) rotate(360deg);}
-        100%{transform:translate(-50%,-50%) rotate(0deg);}
-    }
 
+    .active{
+        .orbs:before{
+            cursor: pointer; 
+            -webkit-filter:blur(8px);
+            content:'';
+            display:block;
+            position:relative;
+            left:50%;top:50%;
+            opacity:0.8;
+            border-radius:100%;
+            transform:translate(-50%,-50%);
+            width:200px;height:200px;
+            animation: spin2 $speed2 infinite linear;
+            background-color:$color3;
+            background-image:
+                linear-gradient(
+                    transparent 29.29%,
+                    $color1 29.29%,
+                    $color2 70.71%,
+                    transparent 70.71%
+                ),
+                linear-gradient(90deg,
+                    transparent 29.29%,
+                    $color1 29.29%,
+                    $color2 70.71%,
+                    transparent 70.71%
+                )
+            ;
+            z-index:10;
+            box-shadow: 0 0 50px -20px $color3;
+        }
+        .orbs:after{
+            cursor: pointer; 
+            -webkit-filter:blur(5px);
+            content:'';
+            display:block;
+            position:absolute;
+            opacity:0.5;
+            left:50%;top:50%;
+            border-radius:100%;
+            transform:translate(-50%,-50%) rotate(45deg);
+            width:200px;height:200px;
+            animation: spin1 $speed infinite linear;
+            background:
+                linear-gradient(
+                    transparent 29.29%,
+                    $color1 29.29%,
+                    $color2 70.71%,
+                    transparent 70.71%
+                ),
+                linear-gradient(90deg,
+                    transparent 29.29%,
+                    $color1 29.29%,
+                    $color2 70.71%,
+                    transparent 70.71%
+                )
+            ;
+            z-index:10;
+            box-shadow: 0 0 50px -20px $color3;
+        }
+        @keyframes spin1{
+            0%{transform:translate(-50%,-50%) rotate(45deg);}
+            100%{transform:translate(-50%,-50%) rotate(405deg);}
+        }
+        @keyframes spin2{
+            0%{transform:translate(-50%,-50%) rotate(360deg);}
+            100%{transform:translate(-50%,-50%) rotate(0deg);}
+        }
+
+    }
+    
 }
 
