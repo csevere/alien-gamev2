@@ -18,9 +18,17 @@ const EnemyDeck = (props) =>{
         left: '-2em'  
     }
 
+    const isAnimatingE = props.isAnimatingE;
+
+    var pulseClass = ["enemy-deck d-flex flex-row"];
+
+    if(isAnimatingE){
+        pulseClass.push('hvr-pulse-grow pulse')
+    }
+
     return(
         <div>
-            <div className = "enemy-deck d-flex flex-row">
+            <div className = {pulseClass}>
                 <ul className = "deck">
                     <div>
                         <li>

@@ -18,10 +18,17 @@ const PlayerDeck = (props)=>{
         left: '-2em'  
     }
 
+    const isAnimatingP = props.isAnimatingP;
+
+    var pulseClass = ["player-deck d-flex flex-row"];
+    if(isAnimatingP){
+        pulseClass.push('hvr-pulse-grow pulse')
+    }
+
     return(
         <div style = {deckStyle}>
-            <div className = "player-deck d-flex flex-row">
-
+            <div className = {pulseClass}>
+\
                 <ul className = "d-flex deck-card m-2 card1" style = {cardStyle1}>
                     <li className = "deck-card-item faux">
                         <Card className = "player-deck-card"> 
