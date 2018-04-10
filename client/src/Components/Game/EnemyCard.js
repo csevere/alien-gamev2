@@ -17,8 +17,14 @@ class EnemyCard extends Component{
     }
 
     render(){
+        const isBuzzingE = this.props.isBuzzingE; 
+
+        var buzzClass = [""];
+        if(isBuzzingE){
+            buzzClass.push('hvr-buzz buzz')
+        }
         return(
-            <Card>
+            <Card className = {buzzClass} >
                 <CardHeader className = "text-center enemy">Krizeot</CardHeader>
                 <CardImg width="100%" src = "assets/aliens/alien1.jpg" />
                 <CardFooter className="text-center d-flex flex-column">

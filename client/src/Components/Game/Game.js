@@ -79,6 +79,12 @@ class Game extends Component{
             hideBattleBtns: true, 
             hideDeckBtns: true, 
             hitPoints:0,
+            isBuzzingE: false,
+            isBuzzingP: false,  
+            isFlashingE: false,
+            isFlashingP: false,
+            isAnimatingE: false,
+            isAnimatingP: false,
             isRunning: false,
             image: 'assets/aliens/alien1.jpg',
             level: 0,
@@ -138,6 +144,15 @@ class Game extends Component{
         this.getEDeck = this.getEDeck.bind(this); 
         this.handleEHand = this.handleEHand.bind(this);
 
+        //animaitons
+        this.animateEDeck = this.animateEDeck.bind(this); 
+        this.animatePDeck = this.animatePDeck.bind(this); 
+        this.buzzECard = this.buzzECard.bind(this); 
+        this.buzzPCard = this.buzzPCard.bind(this); 
+        this.flashEHealth = this.flashEHealth.bind(this); 
+        this.flashPHealth = this.flashPHealth.bind(this); 
+       
+        
         //////////////THE COUNTDOWN/////////////////
 		this.theCountDown = this.theCountDown.bind(this);
 		this.pauseCountDown = this.pauseCountDown.bind(this); 
@@ -152,10 +167,12 @@ class Game extends Component{
         this.handleHelp = this.handleHelp.bind(this); 
         this.handleComps = this.handleComps.bind(this);
         this.handleUpdateComps = this.handleUpdateComps.bind(this); 
+     
             //enemy
         this.attackPlayer = this.attackPlayer.bind(this);
         this.attackPlayer2 = this.attackPlayer2.bind(this); 
         this.handleEAP = this.handleEAP.bind(this); 
+       
 
         ///////////////WIN/GAMEOVER/TIMESUP/RUNAWAY//////////////
         this.handleWin = this.handleWin.bind(this);
@@ -508,6 +525,8 @@ class Game extends Component{
     shufflePCards(){
         var { data } = this.props.shuffled;
         this.props.shuffleCards(data); 
+
+        this.animatePDeck() 
     }
 
     handleDraw(){
@@ -527,6 +546,8 @@ class Game extends Component{
 
         count++; 
         console.log("LINE 411 NUMBER " + count); 
+
+        this.animatePDeck() 
 
         if(data.length >= 0){
             this.props.drawCard();
@@ -645,6 +666,7 @@ class Game extends Component{
             transition: '2s'
         }
 
+
         return data.map((elem, index) => {
             if(data.length > 1){
                 return(
@@ -681,6 +703,8 @@ class Game extends Component{
         var { data } = this.props.e_shuffled;
         var { enemysHand } = this.props.enemysHand;
 
+        this.animateEDeck() 
+
 
         this.setState({
             e_showCards: true,
@@ -697,12 +721,99 @@ class Game extends Component{
 
         count++; 
         console.log("ENEMY LINE 540 NUMBER " + count);
+
+        this.animateEDeck() 
         
         if(data.length > 0){
             this.props.drawECard(); 
         }else{
             console.log("enemy loses");
         }        
+    }
+
+
+
+    ////////////////////////////////////////////////////////////////////
+    ///////////////////////// CSS BATTLE ANIMATION //////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+    flashEHealth(){
+        this.setState({
+            isFlashingE: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isFlashingE: false
+            })
+        }, 1000)
+    }
+
+    buzzECard(){
+        this.setState({
+            isBuzzingE: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isBuzzingE: false
+            })
+        }, 1000)
+
+    } 
+
+    animateEDeck(){
+        this.setState({
+            isAnimatingE: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isAnimatingE: false
+            })
+        }, 1000)
+
+    }
+
+       ////////////////////////////////////////////////////////////////////
+
+    flashPHealth(){
+        this.setState({
+            isFlashingP: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isFlashingP: false
+            })
+        }, 1000)
+    }
+
+
+    buzzPCard(){
+        this.setState({
+            isBuzzingP: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isBuzzingP: false
+            })
+        }, 1000)
+
+    } 
+
+    animatePDeck(){
+        this.setState({
+            isAnimatingP: true
+        })
+
+        setTimeout(()=>{
+            this.setState({
+                isAnimatingP: false
+            })
+        }, 1000)
+
     }
 
 
@@ -728,6 +839,8 @@ class Game extends Component{
                 e_Health_val -= weaponAttack;
                 p_AP_val -= 5;
                 hits_val += weaponAttack; 
+                this.flashEHealth();
+                this.buzzECard();  
 
                 this.setState({
                     e_Health: e_Health_val,
@@ -775,6 +888,8 @@ class Game extends Component{
             var attack = 2 * weaponAttack;
             e_Health_val -= attack;
             p_AP_val += 15;
+            this.flashEHealth(); 
+            this.buzzECard();  
 
             this.setState({
                 attackdetail: `${weaponName} deals ${attack} damage! Gained 15 AP!`,
@@ -812,6 +927,8 @@ class Game extends Component{
             //attacking player 
             p_Health_val -= enemyAttack; 
             e_AP_val -= 5;
+            this.flashPHealth(); 
+            this.buzzPCard();
             
             this.setState({
                 attackdetail: `${enemyName}! You lost ${enemyAttack} health points!`,
@@ -844,6 +961,8 @@ class Game extends Component{
             var e_attack = 2 * enemyAttack;
             p_Health_val -= e_attack;
             p_AP_val -= 15;
+            this.flashPHealth(); 
+            this.buzzPCard();
 
             this.setState({
                 p_Health: p_Health_val,  
@@ -971,6 +1090,8 @@ class Game extends Component{
             var damage = current[0].damage; 
             e_Health_val -= damage;
             p_AP_val  -= 25;
+            this.flashEHealth(); 
+            this.buzzECard();  
             attackdetail = ` ${name} deals ${damage} damage!`;
         } else if(p_AP_val <= 25 && aidArr.length > 0){
             attackdetail = "Enemy attacks you for 50 health points!"
@@ -1103,6 +1224,8 @@ class Game extends Component{
             width: "50%",
             margin: "auto"
         }
+
+        
 		
         return(
             <div>
@@ -1195,13 +1318,14 @@ class Game extends Component{
                         <Row className = "row2 d-flex flex-row">
                             <Col md = "4">
                                 <div className = "enemy-card mx-auto">
-                                    <EnemyCard /> 
+                                    <EnemyCard isBuzzingE = {this.state.isBuzzingE} /> 
                                 </div>
 							
                                 <EnemyProgress
                                     health = {this.state.e_Health}
                                     ap = {this.state.e_AP}
                                     total = {this.state.e_HealthTotal}
+                                    isFlashingE = {this.state.isFlashingE}
                                 />
                               
                             </Col>
@@ -1212,12 +1336,13 @@ class Game extends Component{
 
                             <Col md = "4">
                                 <div className = "player-card mx-auto">
-                                    <PlayerCard />
+                                    <PlayerCard isBuzzingP = {this.state.isBuzzingP}/>
                                 </div>
                                 <PlayerProgress
                                     health = {this.state.p_Health}
                                     ap = {this.state.p_AP}
                                     total = {this.state.p_HealthTotal}
+                                    isFlashingP = {this.state.isFlashingP}
                                 />
                             </Col>
                         </Row>
@@ -1231,6 +1356,7 @@ class Game extends Component{
                                         getECard2 = {this.getECard2}
                                         showCards = {this.state.e_showCards}
                                         getEDeck = {this.getEDeck}
+                                        isAnimatingE = {this.state.isAnimatingE}
                                     />
                                 </div>
                             </Col>
@@ -1253,6 +1379,7 @@ class Game extends Component{
                                         getCard2 = {this.getCard2}
                                         showCards = {this.state.showCards}
                                         getDeck = {this.getDeck}
+                                        isAnimatingP = {this.state.isAnimatingP}
                                     />
                                 </div> 
                             </Col>

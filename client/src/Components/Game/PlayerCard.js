@@ -22,8 +22,15 @@ class PlayerCard extends Component{
     }
 
     render(){
+        const isBuzzingP = this.props.isBuzzingP; 
+
+        var buzzClass = [""];
+        if(isBuzzingP){
+            buzzClass.push('hvr-buzz buzz')
+        }
+
         return(
-            <Card>
+            <Card className = {buzzClass}>
                 <CardHeader className = "text-center enemy">{localChar}</CardHeader>
                 <CardImg width="100%" src = {localPic} />
                 <CardFooter className="text-center d-flex flex-column">
