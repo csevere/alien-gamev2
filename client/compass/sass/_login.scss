@@ -6,6 +6,12 @@
         margin: auto;
         color: black; 
     }
+
+    .mobile-btn{
+        background-color: #74f9fc; 
+        font-family: $welcome-font; 
+        letter-spacing: 2px; 
+    }
     .panel-default {
         border-color: transparent; 
         background-color: transparent;
@@ -59,7 +65,7 @@
 
                 //MEDIA QUERIES///
                 @media(min-height:$mobile1){
-                    font-size: 1em;  
+                    font-size: $mobile-text;  
                 }
             }
 
@@ -72,7 +78,6 @@
                 @media(min-height:$mobile1){
                     height: 3em;
                 }
-
             }
         }
 
@@ -85,7 +90,6 @@
         }
         
         .button {
-           
             margin-top: 3em; 
             margin-left: 0em;
             display: block;
@@ -101,7 +105,6 @@
                     text-decoration: none; 
                 } 
             } 
-    
         }
 
         .register{
@@ -112,10 +115,3 @@
         }
     }
 }
-
-// button{
-//     &:hover {
-//         background-color: $dark-gray;
-//         text-decoration: none !important; 
-//     }
-// }

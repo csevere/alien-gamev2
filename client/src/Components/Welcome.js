@@ -43,8 +43,8 @@ class Welcome extends Component{
 
         return(
             <div>
+                <div className = "text-white mobile-message">Please turn your phone! Thank you!</div> 
                 <div className = "main-wrapper">
-
                     <div style = {showLoader} className ="preload">
                         <div className="preload-status">
                             <div className="preload-status-bar"></div>

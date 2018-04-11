@@ -8,6 +8,8 @@
     ///MEDIA QUERIES ////
     @media(min-height:$mobile1){
         margin: 0;   
+        position: relative;
+        top: -2em;
     }
  
     .row-nav{
@@ -40,14 +42,14 @@
         height: 6.2em;
          ///MEDIA QUERIES ////
          @media(min-height:$mobile1){
-            height: 5.2em;    
+            height: 4.2em;    
         }
        
         .nav-tabs{
             border: none !important; 
             .nav-link.active{
                 color: #fff;
-                background-color: #040404;
+                background-color: #74f9fca3;
                 
             }
             .nav-link.active, .nav-link{
@@ -55,7 +57,8 @@
 
                 ///MEDIA QUERIES//////
                 @media(min-height:$mobile1){
-                    font-size: 11px;  
+                    font-size: 11px; 
+                    background-color: transparent; 
                 }
                 &:hover{
                     color: $gray;
@@ -75,13 +78,17 @@
     .lognav-content{
         height: 33em;
         margin-top: -1em;
+          ///MEDIA QUERIES ////
+        @media(min-height:$mobile1){
+            height: 23em;
+            margin-top: -12em; 
+        }
         .register-tab{
             height: 25em; 
         }
     } 
     
     .loggedIn{
-       
         margin-top: 15rem;
         margin-left: 10rem;
         width: 80%;
@@ -109,6 +116,6 @@
                 margin-top: -2rem; 
                 text-align: center;
             }
-          }
+        }
     }
 }

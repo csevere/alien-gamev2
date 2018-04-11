@@ -194,7 +194,7 @@ class Register extends Component{
                                             required
                                             type="username" 
                                             name="username" 
-                                            placeholder="create a username"
+                                            placeholder="create username"
                                             value = {this.state.username}  
                                             onChange = {this.handleUserInput}  
                                         />
@@ -208,7 +208,7 @@ class Register extends Component{
                                             required
                                             type="password" 
                                             name="password" 
-                                            placeholder="create a password" 
+                                            placeholder="create password" 
                                             value = {this.state.password}  
                                             onChange = {this.handleUserInput} 
                                         />
@@ -219,7 +219,7 @@ class Register extends Component{
                                         <Input 
                                             type="character" 
                                             name="character" 
-                                            placeholder="name your character" 
+                                            placeholder="name character" 
                                             value = {this.state.character}  
                                             onChange = {this.handleUserInput} 
                                         
@@ -227,17 +227,19 @@ class Register extends Component{
                                     </FormGroup>
                                 </div>
                                
-                                <div disabled ={!this.state.formValid} className = "button hvr-bob">
-                                    <div className = "line-container">
-                                        <Button disabled ={!this.state.formValid} type ="submit"><span className = "text">JOIN</span></Button>
-                                        <div className="line line--top-left line--thick thick-line--short"></div>
-                                        <div className="line line--top-right line--thick thick-line--short"></div>
-                                        <div className="line line--bottom-left line--thick thick-line--long"></div>
-                                        <div className="line line--bottom-right line--thick thick-line--long"></div>
-                                        <div className="line line--top line--thin"></div>
-                                        <div className="line line--bottom line--thin"></div>
+                                <div disabled ={!this.state.formValid} className = "button hvr-bob d-none d-md-block">
+                                    <div className = "line-container d-none d-md-block">
+                                        <Button disabled ={!this.state.formValid} type ="submit"><span className = "text d-none d-md-block">JOIN</span></Button>
+                                        <div className="line line--top-left line--thick thick-line--short d-none d-md-block"></div>
+                                        <div className="line line--top-right line--thick thick-line--short d-none d-md-block"></div>
+                                        <div className="line line--bottom-left line--thick thick-line--long d-none d-md-block"></div>
+                                        <div className="line line--bottom-right line--thick thick-line--long d-none d-md-block"></div>
+                                        <div className="line line--top line--thin d-none d-md-block"></div>
+                                        <div className="line line--bottom line--thin d-none d-md-block"></div>
                                     </div>
                                 </div>
+
+                                <Button color = "primary" size="sm" disabled ={!this.state.formValid} type = "submit" className = "mobile-btn d-md-none" block>JOIN</Button>
                             </Form>
                         </CardBlock>
                     </Card>

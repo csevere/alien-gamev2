@@ -16,7 +16,15 @@ $darkenColor: darken($activeColor, 20%);
         min-height: 0em; 
         margin-top: 0em; 
         height: 13vh;  
-        font-size: 10px;   
+        font-size: $mobile-text;   
+    }
+
+    @media(min-height: $mobile1-h){
+        display: none;
+    }
+
+    @media(min-height: $mobile2-h){
+        display: none;
     }
 
     .p-2{
@@ -25,7 +33,7 @@ $darkenColor: darken($activeColor, 20%);
         }
         p{
             @media(min-height:$mobile1){ 
-                font-size: 10px;   
+                font-size: $mobile-text;   
             }
         }
     }
@@ -43,7 +51,7 @@ $darkenColor: darken($activeColor, 20%);
             margin-left: 1rem;
             margin-top: -1rem;
             @media(min-height:$mobile1){ 
-                font-size: 10px;
+                font-size: $mobile-text;
                 border: transparent;    
             }
         }
@@ -57,7 +65,7 @@ $darkenColor: darken($activeColor, 20%);
             text-decoration: none; 
         }
         @media(min-height:$mobile1){ 
-            font-size: 10px;   
+            font-size:$mobile-text;   
         }
         .p-2{
             color: #d9edf7; 

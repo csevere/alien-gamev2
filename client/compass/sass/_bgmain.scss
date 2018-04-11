@@ -1,5 +1,28 @@
 @import 'variables'; 
 
+$mobile1: 20em; //320px
+$mobile1-h: 40em; //640px 
+
+.mobile-message{
+    display: none;
+    font-family: 'Anton', sans-serif;
+    font-size: 3em;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    top: 24rem;
+    width: 80%;
+
+    @media(min-height: $mobile2-h){
+        display: block;
+    }
+
+    @media(min-height: $tablets-bg){
+        display: none;
+    }
+   
+}
+
 .main-wrapper{
     background: url('/assets/gifs/main-bg.gif');
     background-size: cover; 
@@ -10,24 +33,32 @@
     z-index: 0;
     overflow-y: hidden; 
 
+    @media(min-height: $tablets-bg){
+        display: block;
+    }
+
+
+    @media(max-width: $mobile2-h){
+        display: none;
+    }
+
+    
+   
     .preload{
         position: relative;
         top: 35rem; 
     }
 
-   
-    @media(min-width:$mobile1){
+    @media(min-height:$mobile1){
         min-height: 0em; 
         margin-top: 0em; 
-        height: 87vh;     
+        height: 87vh;    
     }
-
 
     @media(min-width:$xlg){
         min-height: $min-height; 
         margin-top: 0em;     
     }
-
 
     @media(min-width:$xxlg){
         min-height: 82em;    
@@ -50,5 +81,4 @@
         border: 5px solid $button-border;
         border-style: ridge;
     }  
-
 }

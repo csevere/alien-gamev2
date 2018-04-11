@@ -164,17 +164,18 @@ export class Login extends Component{
                                     />
                                 </div>
 
-                                <div disabled ={!this.state.formValid} className = "button hvr-bob">
-                                    <div className = "line-container">
-                                        <Button disabled ={!this.state.formValid} type = "submit"><span className = "text">PLAY</span></Button>
-                                        <div className="line line--top-left line--thick thick-line--short"></div>
-                                        <div className="line line--top-right line--thick thick-line--short"></div>
-                                        <div className="line line--bottom-left line--thick thick-line--long"></div>
-                                        <div className="line line--bottom-right line--thick thick-line--long"></div>
-                                        <div className="line line--top line--thin"></div>
-                                        <div className="line line--bottom line--thin"></div>
+                                <div disabled ={!this.state.formValid} className = "button hvr-bob d-none d-md-block">
+                                    <div className = "line-container d-none d-md-block">
+                                        <Button disabled ={!this.state.formValid} type = "submit"><span className = "text d-none d-md-block">PLAY</span></Button>
+                                        <div className="line line--top-left line--thick thick-line--short d-none d-md-block"></div>
+                                        <div className="line line--top-right line--thick thick-line--short d-none d-md-block"></div>
+                                        <div className="line line--bottom-left line--thick thick-line--long d-none d-md-block"></div>
+                                        <div className="line line--bottom-right line--thick thick-line--long d-none d-md-block"></div>
+                                        <div className="line line--top line--thin d-none d-md-block"></div>
+                                        <div className="line line--bottom line--thin d-none d-md-block"></div>
                                     </div>
                                 </div>
+                                <Button color = "primary" size="sm" disabled ={!this.state.formValid} type = "submit" className = "mobile-btn d-md-none" block>PLAY</Button>
                             </Form>
                         </CardBlock>
                     </Card>

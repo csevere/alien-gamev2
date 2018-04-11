@@ -120,11 +120,18 @@ $x4lg: 1800px;
 // 1em === 16px. Multiply pixels by 1em/16px to get ems. For example, 320px === 20em.
 
 $mobile1: 20em; //320px
+$mobile1-h: 40em; //640px 
+
+$mobile2-h:35em; //568px 
+
 $mobile2: 30em; //480px;
-$tablets-por: 37.7em; //600px;
-$tablets-lan: 50em; //801px;
-$tablets-bg: 64em; //1025;
+$tablets-por: 46em; //600px;
+// $tablets-lan: 50em; //801px;
+$tablets-bg: 60em; //1025;
 $laptop: 80em; //1281px;
+
+$mobile-text:11px; 
+
 
 
 

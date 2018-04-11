@@ -12,7 +12,31 @@
   /* optional: just make scrollbar invisible */
 }
 
-/* line 3, ../../compass/sass/_bgmain.scss */
+/* line 6, ../../compass/sass/_bgmain.scss */
+.mobile-message {
+  display: none;
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  margin: auto;
+  position: relative;
+  text-align: center;
+  top: 24rem;
+  width: 80%;
+}
+@media (min-height: 35em) {
+  /* line 6, ../../compass/sass/_bgmain.scss */
+  .mobile-message {
+    display: block;
+  }
+}
+@media (min-height: 60em) {
+  /* line 6, ../../compass/sass/_bgmain.scss */
+  .mobile-message {
+    display: none;
+  }
+}
+
+/* line 26, ../../compass/sass/_bgmain.scss */
 .main-wrapper {
   background: url("/assets/gifs/main-bg.gif");
   background-size: cover;
@@ -23,13 +47,25 @@
   z-index: 0;
   overflow-y: hidden;
 }
-/* line 13, ../../compass/sass/_bgmain.scss */
+@media (min-height: 60em) {
+  /* line 26, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    display: block;
+  }
+}
+@media (max-width: 35em) {
+  /* line 26, ../../compass/sass/_bgmain.scss */
+  .main-wrapper {
+    display: none;
+  }
+}
+/* line 47, ../../compass/sass/_bgmain.scss */
 .main-wrapper .preload {
   position: relative;
   top: 35rem;
 }
-@media (min-width: 20em) {
-  /* line 3, ../../compass/sass/_bgmain.scss */
+@media (min-height: 20em) {
+  /* line 26, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
     min-height: 0em;
     margin-top: 0em;
@@ -37,31 +73,31 @@
   }
 }
 @media (min-width: 1440px) {
-  /* line 3, ../../compass/sass/_bgmain.scss */
+  /* line 26, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
     min-height: 76em;
     margin-top: 0em;
   }
 }
 @media (min-width: 1600px) {
-  /* line 3, ../../compass/sass/_bgmain.scss */
+  /* line 26, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
     min-height: 82em;
   }
 }
 @media (min-width: 1700px) {
-  /* line 3, ../../compass/sass/_bgmain.scss */
+  /* line 26, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
     min-height: 87em;
   }
 }
 @media (min-width: 1800px) {
-  /* line 3, ../../compass/sass/_bgmain.scss */
+  /* line 26, ../../compass/sass/_bgmain.scss */
   .main-wrapper {
     min-height: 91em;
   }
 }
-/* line 44, ../../compass/sass/_bgmain.scss */
+/* line 75, ../../compass/sass/_bgmain.scss */
 .main-wrapper .btn-dark {
   background: url("/assets/bg/sci_fi_texture.png");
   color: #ddd;
@@ -209,27 +245,39 @@ p {
     min-height: 0em;
     margin-top: 0em;
     height: 13vh;
-    font-size: 10px;
+    font-size: 11px;
+  }
+}
+@media (min-height: 40em) {
+  /* line 5, ../../compass/sass/_footer.scss */
+  .main-footer {
+    display: none;
+  }
+}
+@media (min-height: 35em) {
+  /* line 5, ../../compass/sass/_footer.scss */
+  .main-footer {
+    display: none;
   }
 }
 @media (min-height: 20em) {
-  /* line 22, ../../compass/sass/_footer.scss */
+  /* line 30, ../../compass/sass/_footer.scss */
   .main-footer .p-2 {
     padding: 0 !important;
   }
 }
 @media (min-height: 20em) {
-  /* line 26, ../../compass/sass/_footer.scss */
+  /* line 34, ../../compass/sass/_footer.scss */
   .main-footer .p-2 p {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
-/* line 33, ../../compass/sass/_footer.scss */
+/* line 41, ../../compass/sass/_footer.scss */
 .main-footer .nav {
   color: #d9edf7;
   text-decoration: none !important;
 }
-/* line 37, ../../compass/sass/_footer.scss */
+/* line 45, ../../compass/sass/_footer.scss */
 .main-footer .nav button {
   color: #d9edf7;
   font-size: 15px;
@@ -240,42 +288,42 @@ p {
   margin-top: -1rem;
 }
 @media (min-height: 20em) {
-  /* line 37, ../../compass/sass/_footer.scss */
+  /* line 45, ../../compass/sass/_footer.scss */
   .main-footer .nav button {
-    font-size: 10px;
+    font-size: 11px;
     border: transparent;
   }
 }
-/* line 53, ../../compass/sass/_footer.scss */
+/* line 61, ../../compass/sass/_footer.scss */
 .main-footer a:hover {
   text-decoration: none;
 }
-/* line 56, ../../compass/sass/_footer.scss */
+/* line 64, ../../compass/sass/_footer.scss */
 .main-footer a:visited {
   text-decoration: none;
 }
 @media (min-height: 20em) {
-  /* line 52, ../../compass/sass/_footer.scss */
+  /* line 60, ../../compass/sass/_footer.scss */
   .main-footer a {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
-/* line 62, ../../compass/sass/_footer.scss */
+/* line 70, ../../compass/sass/_footer.scss */
 .main-footer a .p-2 {
   color: #d9edf7;
   text-decoration: none !important;
 }
-/* line 65, ../../compass/sass/_footer.scss */
+/* line 73, ../../compass/sass/_footer.scss */
 .main-footer a .p-2:hover {
   color: #74f9fc;
 }
 @media (min-height: 20em) {
-  /* line 62, ../../compass/sass/_footer.scss */
+  /* line 70, ../../compass/sass/_footer.scss */
   .main-footer a .p-2 {
     padding: 0 !important;
   }
 }
-/* line 75, ../../compass/sass/_footer.scss */
+/* line 83, ../../compass/sass/_footer.scss */
 .main-footer .slideThree {
   width: 80px;
   height: 26px;
@@ -284,7 +332,7 @@ p {
   border-radius: 50px;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
-/* line 82, ../../compass/sass/_footer.scss */
+/* line 90, ../../compass/sass/_footer.scss */
 .main-footer .slideThree:after {
   content: 'ON';
   color: #27ae60;
@@ -294,7 +342,7 @@ p {
   font: 12px/26px Arial, sans-serif;
   font-weight: bold;
 }
-/* line 93, ../../compass/sass/_footer.scss */
+/* line 101, ../../compass/sass/_footer.scss */
 .main-footer .slideThree:before {
   content: 'OFF';
   color: #000;
@@ -305,7 +353,7 @@ p {
   font-weight: bold;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
 }
-/* line 103, ../../compass/sass/_footer.scss */
+/* line 111, ../../compass/sass/_footer.scss */
 .main-footer .slideThree label {
   display: block;
   width: 34px;
@@ -321,20 +369,20 @@ p {
   transition: all 0.4s ease;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
-/* line 118, ../../compass/sass/_footer.scss */
+/* line 126, ../../compass/sass/_footer.scss */
 .main-footer .slideThree input[type=checkbox] {
   visibility: hidden;
 }
-/* line 120, ../../compass/sass/_footer.scss */
+/* line 128, ../../compass/sass/_footer.scss */
 .main-footer .slideThree input[type=checkbox]:checked + label {
   left: 2px;
 }
-/* line 128, ../../compass/sass/_footer.scss */
+/* line 136, ../../compass/sass/_footer.scss */
 .main-footer .player-status {
   margin-top: -1rem;
   margin-left: 10rem;
 }
-/* line 132, ../../compass/sass/_footer.scss */
+/* line 140, ../../compass/sass/_footer.scss */
 .main-footer .player-status .player-status-btn {
   float: right;
   font-family: "Orbitron", sans-serif !important;
@@ -343,16 +391,16 @@ p {
   margin-top: 0rem;
   padding: 1rem 1.75rem;
 }
-/* line 141, ../../compass/sass/_footer.scss */
+/* line 149, ../../compass/sass/_footer.scss */
 .main-footer .player-status .btn-1 {
   background: rgba(76, 175, 80, 0.47);
 }
-/* line 145, ../../compass/sass/_footer.scss */
+/* line 153, ../../compass/sass/_footer.scss */
 .main-footer .player-status .btn-2 {
   background: rgba(244, 67, 54, 0.54);
 }
 
-/* line 154, ../../compass/sass/_footer.scss */
+/* line 162, ../../compass/sass/_footer.scss */
 .footer-page {
   background: url("/assets/bg/scifi-texture.jpg");
   height: 100%;
@@ -362,7 +410,7 @@ p {
   overflow-y: hidden;
   font-family: 'Anton', sans-serif;
 }
-/* line 162, ../../compass/sass/_footer.scss */
+/* line 170, ../../compass/sass/_footer.scss */
 .footer-page button {
   background: rgba(9, 12, 39, 0.7);
   border: 4px solid #d9edf7;
@@ -372,11 +420,11 @@ p {
   margin-top: 11rem;
   width: 60%;
 }
-/* line 170, ../../compass/sass/_footer.scss */
+/* line 178, ../../compass/sass/_footer.scss */
 .footer-page button:hover {
   color: #74f9fc;
 }
-/* line 176, ../../compass/sass/_footer.scss */
+/* line 184, ../../compass/sass/_footer.scss */
 .footer-page .collapse {
   letter-spacing: 1px;
   margin-left: 30rem;
@@ -384,12 +432,12 @@ p {
   border: 4px solid #d9edf7;
   border-style: ridge;
 }
-/* line 185, ../../compass/sass/_footer.scss */
+/* line 193, ../../compass/sass/_footer.scss */
 .footer-page .instructions .instructions-dropdown {
   background: rgba(9, 12, 39, 0.7);
   color: #d9edf7;
 }
-/* line 188, ../../compass/sass/_footer.scss */
+/* line 196, ../../compass/sass/_footer.scss */
 .footer-page .instructions .instructions-dropdown button {
   border: none;
   border-style: none;
@@ -398,47 +446,47 @@ p {
   margin-left: 18rem;
   margin-top: 3rem;
 }
-/* line 197, ../../compass/sass/_footer.scss */
+/* line 205, ../../compass/sass/_footer.scss */
 .footer-page .instructions .instructions-dropdown li {
   font-size: 1.7rem;
 }
-/* line 204, ../../compass/sass/_footer.scss */
+/* line 212, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown {
   background: rgba(9, 12, 39, 0.7);
   color: #d9edf7;
 }
-/* line 207, ../../compass/sass/_footer.scss */
+/* line 215, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown a {
   color: #74f9fc;
 }
-/* line 209, ../../compass/sass/_footer.scss */
+/* line 217, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown a:hover {
   text-decoration: underline;
   color: lightgreen;
 }
-/* line 213, ../../compass/sass/_footer.scss */
+/* line 221, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown a:visited {
   text-decoration: none;
 }
-/* line 216, ../../compass/sass/_footer.scss */
+/* line 224, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown a .attribution-block {
   color: #d9edf7;
   text-decoration: none !important;
 }
-/* line 219, ../../compass/sass/_footer.scss */
+/* line 227, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown a .attribution-block:hover {
   color: #74f9fc;
 }
-/* line 224, ../../compass/sass/_footer.scss */
+/* line 232, ../../compass/sass/_footer.scss */
 .footer-page .sountrack .soundtrack-dropdown ul {
   list-style: none;
 }
-/* line 233, ../../compass/sass/_footer.scss */
+/* line 241, ../../compass/sass/_footer.scss */
 .footer-page .donate .donate-dropdown {
   background: rgba(9, 12, 39, 0.7);
   color: #d9edf7;
 }
-/* line 236, ../../compass/sass/_footer.scss */
+/* line 244, ../../compass/sass/_footer.scss */
 .footer-page .donate .donate-dropdown button {
   border: none;
   border-style: none;
@@ -447,7 +495,7 @@ p {
   margin-left: 18rem;
   margin-top: 3rem;
 }
-/* line 244, ../../compass/sass/_footer.scss */
+/* line 252, ../../compass/sass/_footer.scss */
 .footer-page .donate .donate-dropdown .card-text {
   font-size: 1.6rem;
   letter-spacing: 1px;
@@ -623,17 +671,17 @@ p {
   margin-top: 10em;
   background: transparent;
 }
-/* line 41, ../../compass/sass/_convo.scss */
+/* line 39, ../../compass/sass/_convo.scss */
 .convo-wrapper .header {
   font-family: 'Orbitron', sans-serif !important;
   letter-spacing: 1px;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
 }
-/* line 47, ../../compass/sass/_convo.scss */
+/* line 45, ../../compass/sass/_convo.scss */
 .convo-wrapper .header-2 {
   margin-left: 38.8em;
 }
-/* line 51, ../../compass/sass/_convo.scss */
+/* line 49, ../../compass/sass/_convo.scss */
 .convo-wrapper .convo-side {
   margin-top: 0em;
   top: 23em !important;
@@ -643,19 +691,19 @@ p {
   border-style: ridge;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
-/* line 62, ../../compass/sass/_convo.scss */
+/* line 60, ../../compass/sass/_convo.scss */
 .convo-wrapper .convo-text {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
 }
-/* line 68, ../../compass/sass/_convo.scss */
+/* line 66, ../../compass/sass/_convo.scss */
 .convo-wrapper .btn-secondary {
   background-color: transparent;
   border-color: #868e96;
   width: 100%;
 }
-/* line 72, ../../compass/sass/_convo.scss */
+/* line 70, ../../compass/sass/_convo.scss */
 .convo-wrapper .btn-secondary:hover {
   background-color: #464a4e;
 }
@@ -670,14 +718,16 @@ p {
   /* line 3, ../../compass/sass/_loginnav.scss */
   .lognav-wrapper {
     margin: 0;
+    position: relative;
+    top: -2em;
   }
 }
-/* line 13, ../../compass/sass/_loginnav.scss */
+/* line 15, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .row-nav {
   height: 41em;
   background: transparent;
 }
-/* line 18, ../../compass/sass/_loginnav.scss */
+/* line 20, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs, .lognav-wrapper .lognav-content {
   background: rgba(9, 12, 39, 0.7);
   background-size: cover;
@@ -686,91 +736,99 @@ p {
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
 @media (min-height: 20em) {
-  /* line 18, ../../compass/sass/_loginnav.scss */
+  /* line 20, ../../compass/sass/_loginnav.scss */
   .lognav-wrapper .logtabs, .lognav-wrapper .lognav-content {
     margin: 0;
     max-width: 53%;
     height: 5.2em;
   }
 }
-/* line 39, ../../compass/sass/_loginnav.scss */
+/* line 41, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs {
   height: 6.2em;
 }
 @media (min-height: 20em) {
-  /* line 39, ../../compass/sass/_loginnav.scss */
+  /* line 41, ../../compass/sass/_loginnav.scss */
   .lognav-wrapper .logtabs {
-    height: 5.2em;
+    height: 4.2em;
   }
 }
-/* line 46, ../../compass/sass/_loginnav.scss */
+/* line 48, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs .nav-tabs {
   border: none !important;
 }
-/* line 48, ../../compass/sass/_loginnav.scss */
+/* line 50, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs .nav-tabs .nav-link.active {
   color: #fff;
-  background-color: #040404;
+  background-color: #74f9fca3;
 }
-/* line 53, ../../compass/sass/_loginnav.scss */
+/* line 55, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs .nav-tabs .nav-link.active, .lognav-wrapper .logtabs .nav-tabs .nav-link {
   border-color: transparent;
 }
 @media (min-height: 20em) {
-  /* line 53, ../../compass/sass/_loginnav.scss */
+  /* line 55, ../../compass/sass/_loginnav.scss */
   .lognav-wrapper .logtabs .nav-tabs .nav-link.active, .lognav-wrapper .logtabs .nav-tabs .nav-link {
     font-size: 11px;
+    background-color: transparent;
   }
 }
-/* line 60, ../../compass/sass/_loginnav.scss */
+/* line 63, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs .nav-tabs .nav-link.active:hover, .lognav-wrapper .logtabs .nav-tabs .nav-link:hover {
   color: #969494;
   background-color: transparent;
   cursor: pointer;
 }
-/* line 68, ../../compass/sass/_loginnav.scss */
+/* line 71, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .logtabs .nav-item {
   color: #74f9fc !important;
   font-size: 20px;
   font-family: "Orbitron", sans-serif !important;
 }
-/* line 75, ../../compass/sass/_loginnav.scss */
+/* line 78, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .lognav-content {
   height: 33em;
   margin-top: -1em;
 }
-/* line 78, ../../compass/sass/_loginnav.scss */
+@media (min-height: 20em) {
+  /* line 78, ../../compass/sass/_loginnav.scss */
+  .lognav-wrapper .lognav-content {
+    height: 23em;
+    margin-top: -12em;
+  }
+}
+/* line 86, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .lognav-content .register-tab {
   height: 25em;
 }
-/* line 83, ../../compass/sass/_loginnav.scss */
+/* line 91, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn {
   margin-top: 15rem;
   margin-left: 10rem;
   width: 80%;
   letter-spacing: 4px;
 }
-/* line 89, ../../compass/sass/_loginnav.scss */
+/* line 96, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn .btn-secondary.disabled, .lognav-wrapper .loggedIn .btn-secondary:disabled {
   background-color: transparent !important;
   border-color: transparent;
 }
-/* line 92, ../../compass/sass/_loginnav.scss */
+/* line 99, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn .btn-secondary.disabled:hover, .lognav-wrapper .loggedIn .btn-secondary:disabled:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 98, ../../compass/sass/_loginnav.scss */
+/* line 105, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn .btn-secondary {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 101, ../../compass/sass/_loginnav.scss */
+/* line 108, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn .btn-secondary:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 105, ../../compass/sass/_loginnav.scss */
+/* line 112, ../../compass/sass/_loginnav.scss */
 .lognav-wrapper .loggedIn .btn-secondary .text {
   font-size: 1.5em;
   letter-spacing: 5px;
@@ -785,7 +843,13 @@ p {
   margin: auto;
   color: black;
 }
-/* line 9, ../../compass/sass/_login.scss */
+/* line 10, ../../compass/sass/_login.scss */
+.login-wrapper .mobile-btn {
+  background-color: #74f9fc;
+  font-family: "Abel", sans-serif;
+  letter-spacing: 2px;
+}
+/* line 15, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default {
   border-color: transparent;
   background-color: transparent;
@@ -794,48 +858,48 @@ p {
   margin-bottom: -6px;
   text-align: center;
 }
-/* line 16, ../../compass/sass/_login.scss */
+/* line 22, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default .formErrors {
   color: red;
 }
-/* line 19, ../../compass/sass/_login.scss */
+/* line 25, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default .formErrors, .login-wrapper .panel-default .panel-message {
   display: flex;
 }
-/* line 21, ../../compass/sass/_login.scss */
+/* line 27, ../../compass/sass/_login.scss */
 .login-wrapper .panel-default .formErrors p, .login-wrapper .panel-default .panel-message p {
   padding-left: 1em;
 }
-/* line 28, ../../compass/sass/_login.scss */
+/* line 34, ../../compass/sass/_login.scss */
 .login-wrapper button, .login-wrapper html [type="button"], .login-wrapper [type="reset"], .login-wrapper [type="submit"] {
   -webkit-appearance: none;
 }
-/* line 32, ../../compass/sass/_login.scss */
+/* line 38, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary.disabled, .login-wrapper .btn-secondary:disabled {
   background-color: transparent !important;
   border-color: transparent;
 }
-/* line 35, ../../compass/sass/_login.scss */
+/* line 41, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary.disabled:hover, .login-wrapper .btn-secondary:disabled:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 41, ../../compass/sass/_login.scss */
+/* line 47, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 44, ../../compass/sass/_login.scss */
+/* line 50, ../../compass/sass/_login.scss */
 .login-wrapper .btn-secondary:hover {
   background-color: transparent;
   border-color: transparent;
 }
-/* line 50, ../../compass/sass/_login.scss */
+/* line 56, ../../compass/sass/_login.scss */
 .login-wrapper .login-card {
   height: 18em;
   background: transparent !important;
 }
-/* line 54, ../../compass/sass/_login.scss */
+/* line 60, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content label, .login-wrapper .login-card .login-content input {
   color: #74f9fc;
   font-size: 2.5rem;
@@ -843,32 +907,32 @@ p {
   letter-spacing: 1px;
 }
 @media (min-height: 20em) {
-  /* line 54, ../../compass/sass/_login.scss */
+  /* line 60, ../../compass/sass/_login.scss */
   .login-wrapper .login-card .login-content label, .login-wrapper .login-card .login-content input {
-    font-size: 1em;
+    font-size: 11px;
   }
 }
-/* line 66, ../../compass/sass/_login.scss */
+/* line 72, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .login-content input {
   background: black;
   color: white;
 }
 @media (min-height: 20em) {
-  /* line 66, ../../compass/sass/_login.scss */
+  /* line 72, ../../compass/sass/_login.scss */
   .login-wrapper .login-card .login-content input {
     height: 3em;
   }
 }
-/* line 79, ../../compass/sass/_login.scss */
+/* line 84, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button[disabled] {
   cursor: not-allowed;
   opacity: .65;
 }
-/* line 82, ../../compass/sass/_login.scss */
+/* line 87, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button[disabled] a {
   pointer-events: none;
 }
-/* line 87, ../../compass/sass/_login.scss */
+/* line 92, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button {
   margin-top: 3em;
   margin-left: 0em;
@@ -880,15 +944,15 @@ p {
   border-image-slice: 1;
   cursor: pointer;
 }
-/* line 98, ../../compass/sass/_login.scss */
+/* line 102, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button .text {
   letter-spacing: 10px;
 }
-/* line 100, ../../compass/sass/_login.scss */
+/* line 104, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .button .text a {
   text-decoration: none;
 }
-/* line 108, ../../compass/sass/_login.scss */
+/* line 111, ../../compass/sass/_login.scss */
 .login-wrapper .login-card .register .button {
   margin-top: 2em;
 }
@@ -913,7 +977,7 @@ p {
   letter-spacing: 3px;
 }
 
-/* line 23, ../../compass/sass/_gamebuttons.scss */
+/* line 22, ../../compass/sass/_gamebuttons.scss */
 .start-btn:active {
   box-shadow: none;
   position: relative;
@@ -978,34 +1042,34 @@ p {
 .game-wrapper .fightscreen .fight-text {
   font-family: "Orbitron", sans-serif !important;
 }
-/* line 56, ../../compass/sass/_game.scss */
+/* line 55, ../../compass/sass/_game.scss */
 .game-wrapper .pause {
   z-index: 100;
 }
-/* line 58, ../../compass/sass/_game.scss */
+/* line 57, ../../compass/sass/_game.scss */
 .game-wrapper .pause .pause-text {
   font-family: "Orbitron", sans-serif !important;
   text-align: center;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
-/* line 66, ../../compass/sass/_game.scss */
+/* line 65, ../../compass/sass/_game.scss */
 .game-wrapper .game-container {
   background: rgba(9, 12, 39, 0.7);
   max-width: 141rem;
   margin-top: 0em;
   max-height: 75em;
 }
-/* line 73, ../../compass/sass/_game.scss */
+/* line 72, ../../compass/sass/_game.scss */
 .game-wrapper .row1 {
   height: 6em;
   margin: 0.5em;
 }
-/* line 79, ../../compass/sass/_game.scss */
+/* line 78, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .instructions {
   height: 5em;
 }
-/* line 83, ../../compass/sass/_game.scss */
+/* line 82, ../../compass/sass/_game.scss */
 .game-wrapper .row1 .countdown {
   float: right;
   font-size: 3rem;
@@ -1015,61 +1079,61 @@ p {
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
-/* line 95, ../../compass/sass/_game.scss */
+/* line 94, ../../compass/sass/_game.scss */
 .game-wrapper .row2 {
   height: 33em;
   padding-top: 1rem;
 }
-/* line 101, ../../compass/sass/_game.scss */
+/* line 100, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card, .game-wrapper .row2 .player-card {
   height: 23em;
   width: 20em;
   color: white !important;
 }
-/* line 105, ../../compass/sass/_game.scss */
+/* line 104, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card, .game-wrapper .row2 .player-card .card {
   border-style: ridge;
   text-transform: uppercase;
 }
-/* line 108, ../../compass/sass/_game.scss */
+/* line 107, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .enemy-card .card .card-footer, .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   font-family: 'Exo 2', sans-serif;
 }
-/* line 111, ../../compass/sass/_game.scss */
+/* line 110, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card .card-header, .game-wrapper .row2 .player-card .card .card-header {
   font-size: 1.5rem;
 }
-/* line 117, ../../compass/sass/_game.scss */
+/* line 115, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card img, .game-wrapper .row2 .player-card img {
   height: 15em;
   margin-top: -0.4em;
 }
-/* line 126, ../../compass/sass/_game.scss */
+/* line 124, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .player-card .card {
   border: 4px solid #0c4fab !important;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
   text-transform: uppercase;
 }
-/* line 130, ../../compass/sass/_game.scss */
+/* line 128, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .player-card .card .card-header, .game-wrapper .row2 .player-card .card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
 }
-/* line 141, ../../compass/sass/_game.scss */
+/* line 136, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card {
   border: 4px solid #a94442 !important;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #dc3545, 0px 0px 0px #dc3545, 0 0 7px #dc3545, 0 0 0px #ededf7;
 }
-/* line 145, ../../compass/sass/_game.scss */
+/* line 140, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .enemy-card .card-header, .game-wrapper .row2 .enemy-card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #732930 0%, #0a0909 98%, #ef0d23 100%) !important;
 }
-/* line 151, ../../compass/sass/_game.scss */
+/* line 146, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .dice {
   height: 7em;
   text-align: center;
   margin-top: 40em;
 }
-/* line 156, ../../compass/sass/_game.scss */
+/* line 151, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress, .game-wrapper .row2 .enemyProgress {
   color: white;
   font-family: 'Exo 2', sans-serif;
@@ -1077,27 +1141,27 @@ p {
   margin: auto;
   text-transform: uppercase;
 }
-/* line 163, ../../compass/sass/_game.scss */
+/* line 158, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .progress, .game-wrapper .row2 .enemyProgress .progress {
   display: block;
   background-color: transparent;
 }
-/* line 168, ../../compass/sass/_game.scss */
+/* line 163, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .progress-bar, .game-wrapper .row2 .enemyProgress .progress-bar {
   height: 1rem;
   overflow: hidden;
   font-size: .75rem;
   border-radius: .25rem;
 }
-/* line 176, ../../compass/sass/_game.scss */
+/* line 171, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .p_Health .progress-bar, .game-wrapper .row2 .playerProgress .e_Health .progress-bar, .game-wrapper .row2 .enemyProgress .p_Health .progress-bar, .game-wrapper .row2 .enemyProgress .e_Health .progress-bar {
   background-color: #FF4136;
 }
-/* line 181, ../../compass/sass/_game.scss */
+/* line 176, ../../compass/sass/_game.scss */
 .game-wrapper .row2 .playerProgress .p_AP .progress-bar, .game-wrapper .row2 .playerProgress .e_AP .progress-bar, .game-wrapper .row2 .enemyProgress .p_AP .progress-bar, .game-wrapper .row2 .enemyProgress .e_AP .progress-bar {
   background-color: #03a9f4;
 }
-/* line 189, ../../compass/sass/_game.scss */
+/* line 184, ../../compass/sass/_game.scss */
 .game-wrapper .row3 {
   height: 20em;
 }
@@ -1140,15 +1204,15 @@ p {
 .game-wrapper .row3 .player-deck .deck-card .faux {
   opacity: 0;
 }
-/* line 44, ../../compass/sass/_deck.scss */
+/* line 43, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .card {
   width: 100%;
 }
-/* line 49, ../../compass/sass/_deck.scss */
+/* line 48, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .deal img {
   height: 9.2rem;
 }
-/* line 54, ../../compass/sass/_deck.scss */
+/* line 53, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card {
   border: 4px solid #0c4fab;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
@@ -1156,46 +1220,46 @@ p {
   height: 19rem;
   text-transform: uppercase;
 }
-/* line 61, ../../compass/sass/_deck.scss */
+/* line 60, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header, .game-wrapper .row3 .player-deck .player-deck-card .card-footer {
   background: -webkit-radial-gradient(center, ellipse cover, #3171ca 0%, #080618 91%, #080618 100%) !important;
   font-family: 'Exo 2', sans-serif;
 }
-/* line 67, ../../compass/sass/_deck.scss */
+/* line 66, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .player-deck-card .card-header {
   font-size: 1.5rem;
 }
-/* line 72, ../../compass/sass/_deck.scss */
+/* line 71, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .card-back-1 {
   margin-top: -19rem;
   position: relative;
   right: 1rem;
 }
-/* line 79, ../../compass/sass/_deck.scss */
+/* line 78, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .player-deck .back .player-deck-card {
   box-shadow: 0px 1px 0px #ededed, 0 0 1px white, 0 0 0px #74f9fc, 0px 0px 0px #0c4fab, 0 0 7px #0c4fab, 0 0 0px #ededf7;
 }
-/* line 96, ../../compass/sass/_deck.scss */
+/* line 95, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck {
   margin-left: 2rem;
 }
-/* line 101, ../../compass/sass/_deck.scss */
+/* line 100, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .back .enemy-deck-card img {
   height: 18.2rem;
 }
-/* line 107, ../../compass/sass/_deck.scss */
+/* line 106, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck {
   margin-left: -4rem;
   position: relative;
   width: 90%;
 }
-/* line 112, ../../compass/sass/_deck.scss */
+/* line 111, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck .deck-item {
   right: -6%;
   margin-top: -1em;
   position: absolute;
 }
-/* line 119, ../../compass/sass/_deck.scss */
+/* line 118, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card {
   position: relative;
   width: 100%;
@@ -1203,34 +1267,34 @@ p {
   margin-right: 3rem;
   margin-top: 0.5rem;
 }
-/* line 126, ../../compass/sass/_deck.scss */
+/* line 125, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card li {
   list-style: none;
 }
-/* line 130, ../../compass/sass/_deck.scss */
+/* line 129, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card .deck-card-item {
   opacity: 1;
   position: absolute;
   width: 100%;
 }
-/* line 136, ../../compass/sass/_deck.scss */
+/* line 135, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deck-card .faux {
   opacity: 0;
 }
-/* line 141, ../../compass/sass/_deck.scss */
+/* line 140, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .card {
   width: 100%;
 }
-/* line 153, ../../compass/sass/_deck.scss */
+/* line 152, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .card1 .deck-card-item .back {
   margin-top: -19rem;
   margin-left: -1rem;
 }
-/* line 161, ../../compass/sass/_deck.scss */
+/* line 160, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .deal img {
   height: 9.2rem;
 }
-/* line 166, ../../compass/sass/_deck.scss */
+/* line 165, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card {
   border: 4px solid #a94442;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #dc3545, 0px 0px 0px #dc3545, 0 0 7px #dc3545, 0 0 0px #ededf7;
@@ -1238,44 +1302,44 @@ p {
   height: 19rem;
   text-transform: uppercase;
 }
-/* line 173, ../../compass/sass/_deck.scss */
+/* line 172, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card img {
   height: 11.8rem;
 }
-/* line 177, ../../compass/sass/_deck.scss */
+/* line 176, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-header, .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-footer {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #732930 0%, #0a0909 98%, #ef0d23 100%) !important;
 }
-/* line 182, ../../compass/sass/_deck.scss */
+/* line 181, ../../compass/sass/_deck.scss */
 .game-wrapper .row3 .enemy-deck .enemy-deck-card .card-header {
   font-size: 1.17rem;
 }
-/* line 201, ../../compass/sass/_game.scss */
+/* line 196, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen {
   margin-top: -34em;
   margin-left: 1em;
   width: 40em;
 }
-/* line 206, ../../compass/sass/_game.scss */
+/* line 201, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail, .game-wrapper .row3 .attack-screen .attack-image, .game-wrapper .row3 .attack-screen .message {
   background-color: rgba(27, 28, 29, 0.7);
   border: 2px solid gray;
   border-style: ridge;
 }
-/* line 212, ../../compass/sass/_game.scss */
+/* line 207, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-detail {
   height: 5rem;
 }
-/* line 215, ../../compass/sass/_game.scss */
+/* line 210, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image {
   height: 27rem;
 }
-/* line 217, ../../compass/sass/_game.scss */
+/* line 212, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .attack-image img {
   height: 26.2rem;
 }
-/* line 221, ../../compass/sass/_game.scss */
+/* line 216, ../../compass/sass/_game.scss */
 .game-wrapper .row3 .attack-screen .message, .game-wrapper .row3 .attack-screen .attack-detail {
   font-family: "Orbitron", sans-serif !important;
   font-size: 1.6rem;
@@ -1283,27 +1347,27 @@ p {
   height: 3em;
   text-align: center;
 }
-/* line 236, ../../compass/sass/_game.scss */
+/* line 226, ../../compass/sass/_game.scss */
 .game-wrapper .row4 {
   height: 20em;
 }
-/* line 238, ../../compass/sass/_game.scss */
+/* line 228, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .card {
   width: 23% !important;
 }
-/* line 244, ../../compass/sass/_game.scss */
+/* line 234, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions {
   margin: auto;
   position: relative;
 }
-/* line 248, ../../compass/sass/_game.scss */
+/* line 238, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards {
   width: 38%;
   margin-left: -8rem;
   margin-top: 1rem;
   list-style: none;
 }
-/* line 254, ../../compass/sass/_game.scss */
+/* line 244, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item {
   border: 4px solid #127d2a;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #3c763d, 0px 0px 0px #28a745, 0 0 20px #5cca5e, 0 0 0px #ededf7;
@@ -1313,35 +1377,35 @@ p {
   position: absolute;
   text-transform: uppercase;
 }
-/* line 262, ../../compass/sass/_game.scss */
+/* line 252, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item img {
   height: 71%;
 }
-/* line 265, ../../compass/sass/_game.scss */
+/* line 255, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-header {
   font-family: 'Exo 2', sans-serif;
   background: -webkit-radial-gradient(center, ellipse cover, #28a745 0%, #0a0909 98%, #0def48 100%) !important;
 }
-/* line 269, ../../compass/sass/_game.scss */
+/* line 259, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-footer {
   margin: auto;
   position: relative;
   top: -6rem;
   background: transparent;
 }
-/* line 275, ../../compass/sass/_game.scss */
+/* line 265, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .companions-cards-item .card-header {
   font-size: 1.5rem;
 }
-/* line 279, ../../compass/sass/_game.scss */
+/* line 269, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .companions-cards .fake {
   opacity: 0;
 }
-/* line 285, ../../compass/sass/_game.scss */
+/* line 274, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .companions .start-btn {
   padding: 6px !important;
 }
-/* line 290, ../../compass/sass/_game.scss */
+/* line 279, ../../compass/sass/_game.scss */
 .game-wrapper .row4 .buttons {
   margin-top: 2rem;
 }
@@ -1540,7 +1604,7 @@ p {
     transform: translateY(-8px);
   }
 }
-/* line 44, ../../compass/sass/_hover.scss */
+/* line 43, ../../compass/sass/_hover.scss */
 .hvr-bob {
   display: inline-block;
   vertical-align: middle;
@@ -1549,7 +1613,7 @@ p {
   box-shadow: 0 0 1px transparent;
 }
 
-/* line 51, ../../compass/sass/_hover.scss */
+/* line 50, ../../compass/sass/_hover.scss */
 .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
@@ -1567,7 +1631,7 @@ p {
   animation-direction: normal, alternate;
 }
 
-/* line 10, ../../compass/sass/_map.scss */
+/* line 9, ../../compass/sass/_map.scss */
 .map-wrapper {
   background: url("/assets/bg/scifi-texture.jpg");
   background-size: contain;
@@ -1578,23 +1642,23 @@ p {
   z-index: 0;
 }
 @media (min-width: 1440px) {
-  /* line 10, ../../compass/sass/_map.scss */
+  /* line 9, ../../compass/sass/_map.scss */
   .map-wrapper {
     min-height: 76em;
     margin-top: 0em;
   }
 }
-/* line 25, ../../compass/sass/_map.scss */
+/* line 23, ../../compass/sass/_map.scss */
 .map-wrapper .button {
   cursor: pointer;
 }
-/* line 27, ../../compass/sass/_map.scss */
+/* line 25, ../../compass/sass/_map.scss */
 .map-wrapper .button .text {
   letter-spacing: 5px;
   font-size: 1.3rem;
   padding-bottom: 10px;
 }
-/* line 35, ../../compass/sass/_map.scss */
+/* line 32, ../../compass/sass/_map.scss */
 .map-wrapper .grid {
   margin-top: 6em;
   border: 5px solid rgba(119, 75, 12, 0.8);
@@ -1605,23 +1669,23 @@ p {
   border-style: ridge;
   box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px #74f9fc, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
 }
-/* line 44, ../../compass/sass/_map.scss */
+/* line 41, ../../compass/sass/_map.scss */
 .map-wrapper .grid .row {
   border: gray;
 }
-/* line 46, ../../compass/sass/_map.scss */
+/* line 43, ../../compass/sass/_map.scss */
 .map-wrapper .grid .row .cell {
   border: 1px dotted #cccccc85;
   background: transparent;
   height: 8em;
 }
 @media (min-width: 1360px) {
-  /* line 46, ../../compass/sass/_map.scss */
+  /* line 43, ../../compass/sass/_map.scss */
   .map-wrapper .grid .row .cell {
     height: 7em;
   }
 }
-/* line 60, ../../compass/sass/_map.scss */
+/* line 56, ../../compass/sass/_map.scss */
 .map-wrapper .orb {
   display: block;
   position: absolute;
@@ -1634,7 +1698,7 @@ p {
   box-shadow: 1px 10px 50px -20px, inset -1px 30px 50px -10px #fff, inset -1px -30px 50px -10px #210, inset 0 120px 7px -70px rgba(255, 255, 240, 0.2);
   z-index: 0;
 }
-/* line 81, ../../compass/sass/_map.scss */
+/* line 77, ../../compass/sass/_map.scss */
 .map-wrapper .orbs {
   -webkit-filter: blur(1px) contrast(20) blur(15px);
   cursor: disabled;
@@ -1650,7 +1714,7 @@ p {
   box-shadow: 0 0 50px -20px #7cc2fb;
   z-index: 40;
 }
-/* line 99, ../../compass/sass/_map.scss */
+/* line 95, ../../compass/sass/_map.scss */
 .map-wrapper .active .orbs:before {
   cursor: pointer;
   -webkit-filter: blur(8px);
@@ -1670,7 +1734,7 @@ p {
   z-index: 10;
   box-shadow: 0 0 50px -20px #7cc2fb;
 }
-/* line 129, ../../compass/sass/_map.scss */
+/* line 125, ../../compass/sass/_map.scss */
 .map-wrapper .active .orbs:after {
   cursor: pointer;
   -webkit-filter: blur(5px);
@@ -1716,20 +1780,20 @@ html, body {
   background: #202020;
 }
 
-/* line 14, ../../compass/sass/_loader.scss */
+/* line 13, ../../compass/sass/_loader.scss */
 .preload {
   background: black;
   margin: auto;
   width: 28em;
 }
-/* line 19, ../../compass/sass/_loader.scss */
+/* line 18, ../../compass/sass/_loader.scss */
 .preload .preload-status {
   overflow: hidden;
   height: 50px;
   border-left: 2px solid #3d3d3d;
   border-right: 2px solid #3d3d3d;
 }
-/* line 26, ../../compass/sass/_loader.scss */
+/* line 25, ../../compass/sass/_loader.scss */
 .preload .preload-status-bar {
   position: relative;
   margin-top: 10px;
@@ -1741,7 +1805,7 @@ html, body {
   left: -200px;
   animation: preload-status-animate 1.5s infinite cubic-bezier(0.75, 0, 0.25, 1);
 }
-/* line 38, ../../compass/sass/_loader.scss */
+/* line 37, ../../compass/sass/_loader.scss */
 .preload .preload-status-info {
   opacity: 1;
   margin-top: -22px;
@@ -1900,11 +1964,11 @@ html, body {
   color: #39CCCC !important;
 }
 
-/* line 33, ../../compass/sass/styles.scss */
+/* line 32, ../../compass/sass/styles.scss */
 .logged-out-col {
   margin: auto;
 }
-/* line 35, ../../compass/sass/styles.scss */
+/* line 34, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out {
   background: rgba(9, 12, 39, 0.7);
   border: 4px solid #d9edf7;
@@ -1912,7 +1976,7 @@ html, body {
   height: 25rem;
   margin-top: 30rem;
 }
-/* line 41, ../../compass/sass/styles.scss */
+/* line 40, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out .logged-out-text {
   color: red;
   font-family: "Orbitron", sans-serif !important;
@@ -1922,23 +1986,23 @@ html, body {
   text-align: center;
   text-shadow: -1px 1px 0 #ccc, 0 3px 0 #bbb, -8px -5px 1px rgba(0, 0, 0, 0.1), 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 0px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), -1px -2px 0px rgba(0, 0, 0, 0.15);
 }
-/* line 50, ../../compass/sass/styles.scss */
+/* line 49, ../../compass/sass/styles.scss */
 .logged-out-col .logged-out .start-btn {
   width: 98.6%;
   margin-top: 4rem;
 }
 
-/* line 60, ../../compass/sass/styles.scss */
+/* line 59, ../../compass/sass/styles.scss */
 .audio {
   display: none;
 }
 
-/* line 65, ../../compass/sass/styles.scss */
+/* line 64, ../../compass/sass/styles.scss */
 .scoreboard {
   font-size: 2.5rem;
 }
 
-/* line 74, ../../compass/sass/styles.scss */
+/* line 72, ../../compass/sass/styles.scss */
 .flashing {
   -webkit-animation: glowing 200ms infinite;
   -moz-animation: glowing 200ms infinite;
@@ -2023,7 +2087,7 @@ html, body {
     transform: translateX(-3px) rotate(-2deg);
   }
 }
-/* line 126, ../../compass/sass/styles.scss */
+/* line 124, ../../compass/sass/styles.scss */
 .hvr-buzz {
   display: inline-block;
   vertical-align: middle;
@@ -2032,7 +2096,7 @@ html, body {
   box-shadow: 0 0 1px transparent;
 }
 
-/* line 133, ../../compass/sass/styles.scss */
+/* line 131, ../../compass/sass/styles.scss */
 .hvr-buzz:hover, .hvr-buzz:focus, .hvr-buzz:active, .buzz {
   -webkit-animation-name: hvr-buzz;
   animation-name: hvr-buzz;
@@ -2057,7 +2121,7 @@ html, body {
     transform: scale(1.1);
   }
 }
-/* line 159, ../../compass/sass/styles.scss */
+/* line 156, ../../compass/sass/styles.scss */
 .hvr-pulse-grow {
   display: inline-block;
   vertical-align: middle;
@@ -2066,7 +2130,7 @@ html, body {
   box-shadow: 0 0 1px transparent;
 }
 
-/* line 166, ../../compass/sass/styles.scss */
+/* line 163, ../../compass/sass/styles.scss */
 .hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active, .pulse {
   -webkit-animation-name: hvr-pulse-grow;
   animation-name: hvr-pulse-grow;

@@ -3,7 +3,6 @@
 $color1:$scene-bg;
 $color2:$scene-text;
 $color3:$scene-button; 
-
 $speed:10s; 
 $speed2:6s;
 
@@ -21,7 +20,6 @@ $speed2:6s;
         margin-top: 0em;     
     }
 
-
     .button{
         cursor: pointer;
         .text{
@@ -31,7 +29,6 @@ $speed2:6s;
         }
     }
 
-   
     .grid{
         margin-top: 6em; 
         border: 5px solid $button-border;
@@ -56,7 +53,6 @@ $speed2:6s;
     }
 
     /////////////// THE ORBS ///////////////////////////////
-
     .orb{
         display:block;
         position:absolute;
@@ -163,8 +159,6 @@ $speed2:6s;
             0%{transform:translate(-50%,-50%) rotate(360deg);}
             100%{transform:translate(-50%,-50%) rotate(0deg);}
         }
-
     }
-    
 }
 
