@@ -193,7 +193,7 @@ p {
   letter-spacing: 2px;
   line-height: -1em;
   padding-top: 1em;
-  font-size: 15px !important;
+  font-size: 15px;
 }
 /* line 15, ../../compass/sass/_footer.scss */
 .main-footer .nav {
