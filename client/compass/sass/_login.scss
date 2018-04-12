@@ -26,6 +26,9 @@
             display: flex; 
             p{
                 padding-left: 1em; 
+                @media(min-height:$mobile1){
+                    font-size: $mobile-text;  
+                }
             }
         }  
     }

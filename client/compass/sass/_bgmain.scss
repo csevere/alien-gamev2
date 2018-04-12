@@ -13,7 +13,8 @@ $mobile1-h: 40em; //640px
     top: 24rem;
     width: 80%;
 
-    @media(min-height: $mobile2-h){
+
+    @media(max-width: $mobile2-h){
         display: block;
     }
 
@@ -37,13 +38,11 @@ $mobile1-h: 40em; //640px
         display: block;
     }
 
-
     @media(max-width: $mobile2-h){
         display: none;
     }
 
     
-   
     .preload{
         position: relative;
         top: 35rem; 
