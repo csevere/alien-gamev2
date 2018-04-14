@@ -21,12 +21,14 @@ class SceneCard1 extends Component{
                 transition4: 'transition4',
                 transition5: 'transition5',
                 transition6: 'transition6',
+                transition7: 'transition7',
                 opacity: 1, 
                 opacity2: 0,
                 opacity3: 0,
                 opacity4: 0,
                 opacity5: 0,
-                opacity6: 0  
+                opacity6: 0,
+                opacity7: 0   
             }
         this.showAgain = this.showAgain.bind(this);
     }
@@ -74,6 +76,13 @@ class SceneCard1 extends Component{
                 opacity6: 1
             })
         }, 8000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition7: 'width 1s',
+                opacity7: 1
+            })
+        }, 9000)
     }
 
     showAgain(){
@@ -81,7 +90,8 @@ class SceneCard1 extends Component{
             opacity3: 0,
             opacity4: 0,
             opacity5: 0,
-            opacity6: 0  
+            opacity6: 0,
+            opacity7: 0    
         })
 
         setTimeout(() =>{
@@ -111,6 +121,13 @@ class SceneCard1 extends Component{
                 opacity6: 1
             })
         }, 5000)
+
+        setTimeout(() =>{
+            this.setState({
+                transition7: 'width 1s',
+                opacity7: 1
+            })
+        }, 6000)
 
     }
 
@@ -178,6 +195,11 @@ class SceneCard1 extends Component{
             opacity: this.state.opacity6 
         }
 
+        const TransitionEffects6 = {
+            transition: this.state.transition7,
+            opacity: this.state.opacity7 
+        }
+
         const CardStyle = {
             display: this.state.showCard
         }
@@ -190,11 +212,12 @@ class SceneCard1 extends Component{
                             <CardImg className = "img-fluid" top width="100%" src={storyscene.image} alt="Card image cap" />
                             <CardImgOverlay className = "scene-bottom">
                                 <div className = "float-right place text-white">{storyscene.place}</div> 
-                                    <CardText className = "scene-text">
-                                        <div className = "s_text" style = {TransitionEffects2}>{storyscene.text1}</div>  
-                                        <div className = "s_text" style = {TransitionEffects3}>{storyscene.text2}</div>
-                                        <div className = "s_text" style = {TransitionEffects4}>{storyscene.text3}</div>
-                                        <div className = "s_text" style = {TransitionEffects5}>{storyscene.text4}</div>
+                                    <CardText className = "scene-text p-4">
+                                        <Row><div className = "s_text mt-1" style = {TransitionEffects2}>{storyscene.text1}</div></Row>  
+                                        <Row><div className = "s_text mt-1" style = {TransitionEffects3}>{storyscene.text2}</div></Row>
+                                        <Row><div className = "s_text mt-1" style = {TransitionEffects4}>{storyscene.text3}</div></Row>
+                                        <Row><div className = "s_text mt-1" style = {TransitionEffects5}>{storyscene.text4}</div></Row>
+                                        <Row><div className = "s_text mt-1" style = {TransitionEffects6}>{storyscene.text5}</div></Row>
                                     </CardText> 
                             </CardImgOverlay>
                         </Card> 

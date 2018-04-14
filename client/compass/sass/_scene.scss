@@ -6,55 +6,45 @@ $min-height-c: 76rem;
     background-size: cover; 
     background-position: center;  
     height:100%;
-    min-height: $min-height-c; 
-    margin-top: -9em; 
+    // min-height: $min-height-c; 
+    // margin-top: -9em; 
     font-family: "Orbitron", sans-serif !important;
     z-index: 0;
 
-    @media(min-width:$xlg){
-        min-height: $min-height-c; 
-        margin-top: 0em;    
-    }
-
-    @media(min-width:$xxlg){
-        min-height: 82em;    
-    }
-
-    @media(min-width:$xxxlg){
-        min-height: 87em;    
-    }
-
-    @media(min-width:$x4lg){
-        min-height: 91em;    
-    }
-
-    @media(max-width:736px){
-        min-height: 600px;    
+    @media(min-height:$mobile1){ 
+        margin-top: 0em; 
+        min-height: $mobile1-ht; 
     }
 
     .scene{
         top: -10rem; 
+        @media(min-height:$mobile1){ 
+            top: -15rem; 
+        }
     }
 
     .scene-card{
-        margin-top: 13em;
+        // margin-top: 13em;
         border: 5px solid $button-border;
         border-style: ridge;
         .scene-bottom{
-            height: 16em;
-            margin-top: 10em;
-            top: 23em !important; 
+            // height: 16em;
+            // margin-top: 10em;
+            // top: 23em !important; 
             background: $scene-bg;
             background-size: cover;
             border: 4px solid #d9edf7;
             border-style: ridge;
             box-shadow: 0px 1px 0px #ededed, 0 0 4px white, 0 0 0px $scene-text, 0px 0px 0px #00ffff, 0 0 20px #f7eaf5, 0 0 20px #2753c4, 0 0 0px #ededf7;
+            //MEDIA QUERIES
             @media(max-width:736px){
-                margin-top:1em !important;   
+                margin-top: 6em !important;
+                height: 70%;
+                top: 7em;
             }
             .place{
                 font-size: $sml;
-                margin-top:-19em;  
+                // margin-top:-19em;  
             }
         } 
         .scene-text{
@@ -62,23 +52,33 @@ $min-height-c: 76rem;
                 color: $scene-text !important;
                 font-size: $med;
                 font-family: $scene-font;
+               
                 @media(max-width:1199px){
                     font-size: $sml;    
                 }
                 @media(max-width:736px){
                     font-size: $xsml;    
                 }
+                @media(min-height:$mobile1){ 
+                    font-size: $mobile-text;    
+                }
             }
         }
     } 
     .scene-button{
-        margin-top: 64em; 
-        @media(max-width:1199px){
-            margin-top: 71em;    
+        // margin-top: 64em; 
+        // @media(max-width:1199px){
+        //     margin-top: 71em;    
+        // }
+        // @media(max-width:736px){
+        //     margin-top: 89em;    
+        // }
+
+        @media(min-height:$mobile1){ 
+            margin-top: 14em !important;
+            height: 65%;   
         }
-        @media(max-width:736px){
-            margin-top: 89em;    
-        }
+
         .btn{
             background: $scene-bg; 
         }
@@ -98,8 +98,8 @@ $min-height-c: 76rem;
             border: 5px solid $button-border;
             border-style: ridge;
             position: relative;
-            top: 12em;
-            left: 12em;
+            // top: 12em;
+            // left: 12em;
             &:hover {
                 color: $gray;
             }
@@ -108,5 +108,26 @@ $min-height-c: 76rem;
 
 }
 
+
+// @media(min-width:$xlg){
+    //     min-height: $min-height-c; 
+    //     margin-top: 0em;    
+    // }
+
+    // @media(min-width:$xxlg){
+    //     min-height: 82em;    
+    // }
+
+    // @media(min-width:$xxxlg){
+    //     min-height: 87em;    
+    // }
+
+    // @media(min-width:$x4lg){
+    //     min-height: 91em;    
+    // }
+
+    // @media(max-width:736px){
+    //     min-height: 600px;    
+    // }
 
 

@@ -4,8 +4,8 @@ $darkenColor: darken($activeColor, 20%);
 
 .main-footer{
     background: $black; 
-    border: 4px solid #d9edf7;
-    border-style: ridge;
+    border-top: 4px solid #d9edf7;
+    border-top-style: ridge;
     font-family: 'Anton', sans-serif;
     letter-spacing: 2px;
     line-height: -1em;
@@ -13,19 +13,17 @@ $darkenColor: darken($activeColor, 20%);
     font-size: 15px; 
 
     @media(min-height:$mobile1){
-        min-height: 0em; 
-        margin-top: -4em;
-        height: 25vh; 
-        font-size: $mobile-text;   
+        font-size: $mobile-text; 
+        margin-top: 0em;   
     }
 
-    @media(min-height: $mobile1-h){
-        display: none;
-    }
+    // @media(min-height: $mobile1-h){
+    //     display: none;
+    // }
 
-    @media(min-height: $mobile2-h){
-        display: none;
-    }
+    // @media(min-height: $mobile2-h){
+    //     display: none;
+    // }
 
     .p-2{
         @media(min-height:$mobile1){ 
@@ -136,6 +134,10 @@ $darkenColor: darken($activeColor, 20%);
     .player-status{
         margin-top: -1rem;
         margin-left: 10rem;
+        @media(min-height:$mobile1){
+            margin-top: 0rem; 
+            margin-left: 16rem; 
+        }
 
         .player-status-btn{
             float:right; 
@@ -145,13 +147,16 @@ $darkenColor: darken($activeColor, 20%);
             margin-top: 0rem;
             padding: 1rem 1.75rem;
             @media(min-height:$mobile1){
-                font-size: $mobile-text;   
+                font-size: $mobile-text;  
+                padding: 0.5rem 1.75rem; 
             }
         }
 
         .btn-success{
             .p-2{
-                
+                @media(min-height:$mobile1){
+                    padding:0.5em !important;  
+                }
             }
         }
 

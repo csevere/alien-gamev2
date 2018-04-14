@@ -13,7 +13,6 @@ $mobile1-h: 40em; //640px
     top: 24rem;
     width: 80%;
 
-
     @media(max-width: $mobile2-h){
         display: block;
     }
@@ -21,19 +20,21 @@ $mobile1-h: 40em; //640px
     @media(min-height: $tablets-bg){
         display: none;
     }
-   
 }
 
 .main-wrapper{
     background: url('/assets/gifs/main-bg.gif');
     background-size: cover; 
     background-position: center;  
-    height:100%;
-    min-height: 75em; 
-    margin-top: -9em; 
-    z-index: 0;
-    overflow-y: hidden; 
 
+    @media(min-width:$xlg){
+        min-height: $min-height; 
+        margin-top: 0em; 
+        height:100%; 
+        z-index: 0;
+        overflow-y: hidden;      
+    }
+ 
     @media(min-height: $tablets-bg){
         display: block;
     }
@@ -45,13 +46,17 @@ $mobile1-h: 40em; //640px
     
     .preload{
         position: relative;
-        top: 35rem; 
+        top: 35rem;
+        @media(min-height:$mobile1){
+            top: 15em; 
+        } 
     }
 
+    //MEDIA QUERIES FOR SMALL PHONE
     @media(min-height:$mobile1){
         min-height: 0em; 
         margin-top: 0em; 
-        height: 87vh;    
+        height: $mobile1-ht;    
     }
 
     @media(min-width:$xlg){

@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 import { 
     Card, 
-    CardBlock, 
+    CardBlock,
+    Col, 
     Container, 
     Button, 
     Form, 
     FormGroup,
     Label, 
-    Input, 
+    Input,
+    Row 
 } from 'reactstrap';
 
 class Register extends Component{
@@ -175,67 +177,73 @@ class Register extends Component{
                                     <FormErrors style = {warningStyle} formErrors={this.state.formErrors} />
                                     <div style = {this.state.success ? successStyle : warningStyle} className = "panel-message"><p>{this.state.registerMessage}</p></div>
                                 </div>
-                                <div className = "d-flex flex-row">
-                                    <FormGroup className = "p-2">
-                                        <Label for="email">Email</Label>
-                                        <Input 
-                                            required 
-                                            type="email" 
-                                            name="email" 
-                                            placeholder="enter your email"
-                                            value = {this.state.email}  
-                                            onChange = {this.handleUserInput} 
-                                        />
-                                    </FormGroup>
+                                <Row className = "d-flex flex-row">
+                                    <Col md= "6">
+                                        <FormGroup className = "p-2">
+                                            <Label for="email">Email</Label>
+                                            <Input 
+                                                required 
+                                                type="email" 
+                                                name="email" 
+                                                placeholder="enter your email"
+                                                value = {this.state.email}  
+                                                onChange = {this.handleUserInput} 
+                                            />
+                                        </FormGroup>
+                                    </Col>
+                                    <Col md= "6">
+                                        <FormGroup className = "p-2">
+                                            <Label for="username">Username</Label>
+                                            <Input 
+                                                required
+                                                type="username" 
+                                                name="username" 
+                                                placeholder="create username"
+                                                value = {this.state.username}  
+                                                onChange = {this.handleUserInput}  
+                                            />
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
 
-                                    <FormGroup className = "p-2">
-                                        <Label for="username">Username</Label>
-                                        <Input 
-                                            required
-                                            type="username" 
-                                            name="username" 
-                                            placeholder="create username"
-                                            value = {this.state.username}  
-                                            onChange = {this.handleUserInput}  
-                                        />
-                                    </FormGroup>
-                                </div>
-
-                                <div className = "d-flex flex-row">
-                                    <FormGroup className = "p-2">
-                                        <Label for="password">Password</Label>
-                                        <Input 
-                                            required
-                                            type="password" 
-                                            name="password" 
-                                            placeholder="create password" 
-                                            value = {this.state.password}  
-                                            onChange = {this.handleUserInput} 
-                                        />
-                                    </FormGroup>
-
-                                    <FormGroup className = "p-2">
-                                        <Label for="character">Character's Name</Label>
-                                        <Input 
-                                            type="character" 
-                                            name="character" 
-                                            placeholder="name character" 
-                                            value = {this.state.character}  
-                                            onChange = {this.handleUserInput} 
-                                        
-                                        />
-                                    </FormGroup>
-                                </div>
+                                <Row className = "d-flex flex-row">
+                                    <Col md= "6">
+                                        <FormGroup className = "p-2">
+                                            <Label for="password">Password</Label>
+                                            <Input 
+                                                required
+                                                type="password" 
+                                                name="password" 
+                                                placeholder="create password" 
+                                                value = {this.state.password}  
+                                                onChange = {this.handleUserInput} 
+                                            />
+                                        </FormGroup>
+                                    </Col>
+                                    <Col md= "6">
+                                        <FormGroup className = "p-2">
+                                            <Label for="character">Character's Name</Label>
+                                            <Input 
+                                                type="character" 
+                                                name="character" 
+                                                placeholder="name character" 
+                                                value = {this.state.character}  
+                                                onChange = {this.handleUserInput} 
+                                            
+                                            />
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
                                
                                 <div disabled ={!this.state.formValid} className = "button hvr-bob d-none d-md-block">
-                                    <div className = "line-container d-none d-md-block">
-                                        <Button disabled ={!this.state.formValid} type ="submit"><span className = "text d-none d-md-block">JOIN</span></Button>
-                                        <div className="line line--top-left line--thick thick-line--short d-none d-md-block"></div>
-                                        <div className="line line--top-right line--thick thick-line--short d-none d-md-block"></div>
-                                        <div className="line line--bottom-left line--thick thick-line--long d-none d-md-block"></div>
-                                        <div className="line line--bottom-right line--thick thick-line--long d-none d-md-block"></div>
-                                        <div className="line line--top line--thin d-none d-md-block"></div>
-                                        <div className="line line--bottom line--thin d-none d-md-block"></div>
+                                    <div className = "line-container">
+                                        <Button disabled ={!this.state.formValid} type ="submit"><span className = "text">JOIN</span></Button>
+                                        <div className="line line--top-left line--thick thick-line--short"></div>
+                                        <div className="line line--top-right line--thick thick-line--short"></div>
+                                        <div className="line line--bottom-left line--thick thick-line--long"></div>
+                                        <div className="line line--bottom-right line--thick thick-line--long"></div>
+                                        <div className="line line--top line--thin"></div>
+                                        <div className="line line--bottom line--thin"></div>
                                     </div>
                                 </div>
 

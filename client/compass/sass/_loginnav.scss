@@ -15,6 +15,9 @@
     .row-nav{
         height: 41em; 
         background: transparent; 
+        @media(min-height:$mobile1){
+            height: 25em !important;
+        }
     }
 
     .logtabs, .lognav-content{
@@ -33,15 +36,15 @@
         ///MEDIA QUERIES ////
         @media(min-height:$mobile1){
             margin: 0;
-            max-width: 53%;
-            height: 5.2em;    
+            // max-width: 60%;
+            // height: 5.2em;    
         }
     }
 
     .logtabs{
         height: 6.2em;
          ///MEDIA QUERIES ////
-         @media(min-height:$mobile1){
+        @media(min-height:$mobile1){
             height: 4.2em;    
         }
        
@@ -57,7 +60,7 @@
 
                 ///MEDIA QUERIES//////
                 @media(min-height:$mobile1){
-                    font-size: 11px; 
+                    font-size: $mobile-text; 
                     background-color: transparent; 
                 }
                 &:hover{
@@ -80,11 +83,14 @@
         margin-top: -1em;
           ///MEDIA QUERIES ////
         @media(min-height:$mobile1){
-            height: 23em;
-            margin-top: -12em; 
+            height: 85%;
+            margin-top: -2em;
         }
         .register-tab{
             height: 25em; 
+            @media(min-height:$mobile1){
+                height: 18em; 
+            }
         }
     } 
     
@@ -93,6 +99,10 @@
         margin-left: 10rem;
         width: 80%;
         letter-spacing: 4px; 
+        @media(min-height:$mobile1){
+            margin-top: 19rem;
+            margin-left: 7rem; 
+        }
         .btn-secondary.disabled, .btn-secondary:disabled{
             background-color: transparent !important;
             border-color: transparent; 
@@ -115,6 +125,10 @@
                 margin-left: 4rem;
                 margin-top: -2rem; 
                 text-align: center;
+                @media(min-height:$mobile1){
+                    font-size: 22px;
+                    margin-left: 5rem;
+                }
             }
         }
     }

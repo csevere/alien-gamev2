@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Link } from 'react-router-dom';  
 import { connect } from 'react-redux';
 import * as actions from '../Actions';
-import { Row, Button } from 'reactstrap';
+import {  Button, Col, Row } from 'reactstrap';
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
@@ -66,9 +66,9 @@ class Footer extends Component {
                     <div className = "d-flex flex-row text-white">
                        <div className = "p-2"><p>Alien BattleCraft &copy; 2018 Carla Severe</p></div>
                        <Link to = "/"><div className = "p-2 ml-3">Home</div></Link>
-                       <div className = "p-2 nav">
+                       <div className = "ml-2 p-2 nav">
                             <div className="btn-group dropup" onClick={this.toggle}>
-                                <Button type="button" className="dropdown-toggle nav-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded={this.state.dropdownOpen}>
+                                <Button type="button" className="dropdown-toggle nav-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded={this.state.dropdownOpen} >
                                     Menu
                                 </Button>
                                 <div className={menuClass.join(' ')}>
@@ -85,7 +85,11 @@ class Footer extends Component {
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Soundtrack</div></Link>
                        <Link to ="/links"><div className = "p-2">&nbsp; &nbsp;Donate</div></Link>
                     </div>
-                    {rightPlayerStatus}
+                </Row>
+                <Row>
+                    <Col sm = "3">
+                        {rightPlayerStatus}
+                    </Col>
                 </Row>
             </footer>
         )

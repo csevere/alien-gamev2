@@ -10,7 +10,10 @@
     .mobile-btn{
         background-color: #74f9fc; 
         font-family: $welcome-font; 
+        font-size: $mobile-text; 
         letter-spacing: 2px; 
+        margin-top: 0; 
+
     }
     .panel-default {
         border-color: transparent; 
@@ -19,6 +22,9 @@
         letter-spacing: 1px; 
         margin-bottom: -6px;
         text-align: center;
+        @media(min-height:$mobile1){
+            margin-bottom: -22px;
+        }
         .formErrors{
             color: red
         }
@@ -58,6 +64,11 @@
 
     .login-card{
         height: 18em; 
+        // padding: 4rem; 
+        @media(min-height:$mobile1){
+            height: 0em;
+            margin: auto;
+        }
         background: transparent !important;
         .login-content{
             label, input {
@@ -65,7 +76,7 @@
                 font-size: 2.5rem;
                 font-family: $welcome-font;  
                 letter-spacing: 1px; 
-
+               
                 //MEDIA QUERIES///
                 @media(min-height:$mobile1){
                     font-size: $mobile-text;  
@@ -79,7 +90,7 @@
 
                  //MEDIA QUERIES///
                 @media(min-height:$mobile1){
-                    height: 3em;
+                    height: 2em;
                 }
             }
         }
@@ -114,7 +125,6 @@
             .button {
                 margin-top: 2em; 
             }
-        
         }
     }
 }

@@ -6,11 +6,14 @@ import { FormErrors } from './FormErrors';
 import { 
     Card, 
     CardBlock, 
-    Container, 
+    Container,
+    Col, 
     Button, 
-    Form, 
+    Form,
+    FormGroup, 
     Label, 
-    Input
+    Input,
+    Row
 } from 'reactstrap';
 
 export class Login extends Component{
@@ -133,36 +136,44 @@ export class Login extends Component{
 		return(
             <div>
                 <Container className = "login-wrapper">
-                    <Card className = "p-3 login-card">
+                    <Card className = "login-card">
                         <CardBlock>
                             <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors}/>
                                     <div className = "panel-message"><p>{this.state.registerMessage}</p></div>
                                 </div>
-                                <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
-                                    <Label for="username">Username</Label>
-                                    <Input
-                                        required
-                                        type="text" 
-                                        name="username" 
-                                        placeholder="enter username" 
-                                        value = {this.state.username}  
-                                        onChange = {this.handleUserInput}
-                                    />
-                                </div>
-
-                                <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-                                    <Label for="password">Password</Label>
-                                    <Input
-                                        required 
-                                        type="password" 
-                                        name="password"  
-                                        placeholder="enter password" 
-                                        value = {this.state.password}  
-                                        onChange={this.handleUserInput}
-                                    />
-                                </div>
+                                <Row> 
+                                    <Col md= "8" className={`p-3 m-auto ${this.errorClass(this.state.formErrors.username)}`}>
+                                        <FormGroup>
+                                            <Label for="username">Username</Label>
+                                            <Input
+                                                required
+                                                type="text" 
+                                                name="username" 
+                                                placeholder="enter username" 
+                                                value = {this.state.username}  
+                                                onChange = {this.handleUserInput}
+                                            />
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+                                
+                                <Row>
+                                    <Col md = "8" className={`m-auto p-3 ${this.errorClass(this.state.formErrors.password)}`}>
+                                        <FormGroup>
+                                            <Label for="password">Password</Label>
+                                            <Input
+                                                required 
+                                                type="password" 
+                                                name="password"  
+                                                placeholder="enter password" 
+                                                value = {this.state.password}  
+                                                onChange={this.handleUserInput}
+                                            />
+                                        </FormGroup> 
+                                    </Col>
+                                </Row>
 
                                 <div disabled ={!this.state.formValid} className = "button hvr-bob d-none d-md-block">
                                     <div className = "line-container d-none d-md-block">
