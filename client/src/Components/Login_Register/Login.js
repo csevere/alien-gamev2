@@ -67,8 +67,6 @@ export class Login extends Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log("USER LOGGED IN!!")
-        
         var loginData = {
             username: e.target[0].value,
             password: e.target[1].value,
@@ -138,7 +136,7 @@ export class Login extends Component{
                             <Form className = "login-content" onSubmit = {this.handleSubmit}>
                                 <div className = "panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors}/>
-                                    <div className = "panel-message"><p>{this.state.registerMessage}</p></div>
+                                    <div className = "panel-message text-danger"><p>{this.state.registerMessage}</p></div>
                                 </div>
                                 <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
                                     <Label for="username">Username</Label>

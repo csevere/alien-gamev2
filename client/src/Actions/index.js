@@ -47,10 +47,13 @@ export const loginUser = (playerData) => {
       .then(response => {
         dispatch({ type: LOGIN, data:response, playerData});
         //save the randToken to local storage
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('charName', response.data.charName); 
-        localStorage.setItem('name', playerData.username); 
-        console.log(playerData.username); 
+        if(response.data.msg === 'loginSuccess'){
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('charName', response.data.charName); 
+          localStorage.setItem('name', playerData.username); 
+          console.log(playerData.username); 
+          console.log(response.data.msg); 
+        }
       })
       .catch(error => { console.log(error)});
   }
