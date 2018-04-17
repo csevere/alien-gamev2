@@ -12,6 +12,10 @@ $darkenColor: darken($activeColor, 20%);
     padding-top: 1em; 
     font-size: 15px; 
 
+    @media(max-width: 1199px){
+        display: none;
+    }
+
     .nav{
         color: #d9edf7; 
         text-decoration: none !important;

@@ -9,7 +9,6 @@
 }
 
 @import 'bgmain';
-@import 'play'; 
 @import 'footer'; 
 @import 'scene'; 
 @import 'convo';  
@@ -22,6 +21,25 @@
 @import 'map'; 
 @import 'loader'; 
 @import 'character'; 
+
+.mobile-message{
+  display: none; 
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  margin: auto;
+  position: relative;
+  text-align: center;
+  top: 24rem;
+  width: 80%;
+
+  @media(max-width: 1199px){
+      display: block;
+  }
+
+  @media(min-height: 1200px){
+      display: none;
+  }
+}
 
 
 .efaGep {

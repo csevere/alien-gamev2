@@ -32,6 +32,7 @@ class FooterPage extends Component {
   render() {
     return (
 		<div>
+			<div className = "text-white mobile-message">Please play on a screen with a width 1200 or greater! Thank you!</div> 
 			<div className = "main-wrapper footer-page">
 				<div className = "d-flex flex-column">
 

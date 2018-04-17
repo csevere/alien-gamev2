@@ -100,6 +100,7 @@ module.exports = function(router){
         res.json({
           msg:'badUserName'
         })
+        console.log("ERROR!")
       }else{
         results = JSON.stringify(results);
         var resJSON = JSON.parse(results);

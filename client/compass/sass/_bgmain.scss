@@ -15,6 +15,11 @@
         top: 35rem; 
     }
 
+    @media(max-width: 1199px){
+        display: none;
+    }
+
+
     @media(min-width:$xlg){
         min-height: $min-height; 
         margin-top: 0em;     

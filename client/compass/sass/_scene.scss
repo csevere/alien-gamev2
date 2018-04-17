@@ -11,6 +11,10 @@ $min-height-c: 76rem;
     font-family: "Orbitron", sans-serif !important;
     z-index: 0;
 
+    @media(max-width: 1199px){
+        display: none;
+    }
+
     @media(min-width:$xlg){
         min-height: $min-height-c; 
         margin-top: 0em;    

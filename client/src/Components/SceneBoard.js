@@ -37,6 +37,7 @@ class SceneBoard extends Component{
 
         return(
             <div>
+				<div className = "text-white mobile-message">Please play on a screen with a width 1200 or greater! Thank you!</div> 
                 <Row>
 					<Col md= '6' className = "logged-out-col">
 						<div className = "logged-out" style = {showRegMsg}>
