@@ -4,6 +4,7 @@ $mobile1: 20em; //320px
 $mobile1-h: 40em; //640px 
 
 .mobile-message{
+
     display: none;
     font-family: 'Anton', sans-serif;
     font-size: 3em;
@@ -20,19 +21,22 @@ $mobile1-h: 40em; //640px
     @media(min-height: $tablets-bg){
         display: none;
     }
+
+    @media(min-height: $xlg){
+        display: none;
+    }
 }
 
 .main-wrapper{
     background: url('/assets/gifs/main-bg.gif');
     background-size: cover; 
     background-position: center;  
+    margin-top: 0em; 
+    z-index: 0; 
 
     @media(min-width:$xlg){
-        min-height: $min-height; 
-        margin-top: 0em; 
+        min-height: $min-height;
         height:100%; 
-        z-index: 0;
-        overflow-y: hidden;      
     }
  
     @media(min-height: $tablets-bg){

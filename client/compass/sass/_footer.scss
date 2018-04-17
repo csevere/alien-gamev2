@@ -8,15 +8,19 @@ $darkenColor: darken($activeColor, 20%);
     border-top-style: ridge;
     font-family: 'Anton', sans-serif;
     letter-spacing: 2px;
-    line-height: -1em;
-    padding-top: 1em; 
-    font-size: 15px; 
 
-    @media(min-height:$mobile1){
-        font-size: $mobile-text; 
-        margin-top: 0em;   
+    @media(min-width:$xlg){
+        line-height: -1em;
+        padding-top: 1em; 
+        font-size: 15px; 
     }
+    
+    // @media(min-height:$mobile1){
+    //     font-size: $mobile-text; 
+    //     margin-top: 0em;   
+    // }
 
+    
     // @media(min-height: $mobile1-h){
     //     display: none;
     // }
@@ -25,16 +29,16 @@ $darkenColor: darken($activeColor, 20%);
     //     display: none;
     // }
 
-    .p-2{
-        @media(min-height:$mobile1){ 
-            padding: 0 !important; 
-        }
-        p{
-            @media(min-height:$mobile1){ 
-                font-size: $mobile-text;   
-            }
-        }
-    }
+    // .p-2{
+    //     @media(min-height:$mobile1){ 
+    //         padding: 0 !important; 
+    //     }
+    //     p{
+    //         @media(min-height:$mobile1){ 
+    //             font-size: $mobile-text;   
+    //         }
+    //     }
+    // }
        
     .nav{
         color: #d9edf7; 
@@ -42,12 +46,16 @@ $darkenColor: darken($activeColor, 20%);
 
         button{
             color: #d9edf7; 
-            font-size: 15px; 
             letter-spacing: 2px;
             line-height: -1em;
             background: transparent;
             margin-left: 1rem;
             margin-top: -1rem;
+
+            @media(min-width:$xlg){
+                font-size: 15px;   
+            }
+
             @media(min-height:$mobile1){ 
                 font-size: $mobile-text;
                 border: transparent;    
@@ -61,6 +69,9 @@ $darkenColor: darken($activeColor, 20%);
         }
         &:visited{
             text-decoration: none; 
+        }
+        @media(min-width:$xlg){
+            font-size: 15px;   
         }
         @media(min-height:$mobile1){ 
             font-size:$mobile-text;   
