@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
 import SceneCard1 from './SceneCards/SceneCard1';
-import { Button, Col, Row } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap'; 
 
 const localToken = localStorage.getItem('token'); 
 const localName = localStorage.getItem('name'); 
