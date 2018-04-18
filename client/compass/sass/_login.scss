@@ -24,7 +24,6 @@
         }  
     }
         
-
     button, html [type="button"], [type="reset"], [type="submit"] {
         -webkit-appearance: none;
     }
@@ -75,7 +74,6 @@
         }
         
         .button {
-           
             margin-top: 3em; 
             margin-left: 0em;
             display: block;
@@ -87,11 +85,11 @@
             cursor: pointer;
             .text {
                 letter-spacing: 10px;
+                font-size: 3em; 
                 a{
                     text-decoration: none; 
                 } 
             } 
-    
         }
 
         

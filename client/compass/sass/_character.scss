@@ -12,8 +12,13 @@ $darkenColor: darken($activeColor, 20%);
   z-index: 0;
 
   @media(max-width: 1199px){
-    display: none;
-}
+        display: none;
+    }
+
+    @media(min-width:$small){
+        min-height: 83; 
+        margin-top: 0em;     
+    }
 
   .char-container{
     color: red; 

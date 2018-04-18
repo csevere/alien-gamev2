@@ -3,6 +3,10 @@
     // background-color: rgba(0,255,0,0.1); 
 }
 
+body{
+  overflow-x: hidden; 
+}
+
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */

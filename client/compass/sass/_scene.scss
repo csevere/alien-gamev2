@@ -15,6 +15,11 @@ $min-height-c: 76rem;
         display: none;
     }
 
+    @media(min-width:$small){
+        min-height: 83; 
+        margin-top: 0em;     
+    }
+
     @media(min-width:$xlg){
         min-height: $min-height-c; 
         margin-top: 0em;    
@@ -85,6 +90,7 @@ $min-height-c: 76rem;
         }
         .btn{
             background: $scene-bg; 
+            font-size: 2rem; 
         }
         .btn:focus{
             color: lightgray !important;

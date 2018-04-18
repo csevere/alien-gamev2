@@ -3,7 +3,7 @@
       "id": 1,
       "name":"Ryker",
       "image": "assets/players/char2.png",
-      "text": "'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut'"
+      "text": "'I can't believe the captain's dead. This wasn't supposed to happen. All right, we should go on ahead and see if the others are close by.'"
     },
     {
       "id": 2,
@@ -11,7 +11,7 @@
       "image": "assets/players/p1.jpg",
       "choice1": "1. 'I agree. We should scout the area and find the other team.'",
       "choice2": "2. '... I don't really care what we do.'",
-      "choice3": "3. 'And who the hell made you the leader?'"
+      "choice3": "3. 'Ok, but don't you go dying in there.'"
     },
     {
       "id": 3,

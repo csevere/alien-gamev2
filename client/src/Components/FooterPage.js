@@ -42,18 +42,17 @@ class FooterPage extends Component {
 							<Card className = "instructions-dropdown">
 								<CardText className = "p-3">
 									<h2 className = "mb-5">BATTLE SCREEN</h2>
-									<CardImg className = "mb-5" src = "assets/info/battle.png"/>
-									<div className = "mb-5"></div>
-									<CardImg className = "mb-5" src = "assets/info/battle2.png"/>
+								
 									<ul>
-										<li className = "mb-5"><div className = "text-danger">Roll:</div> Hit the roll button to roll the dice and get the battle started. If you roll higher than 7, you'll get to attack your enemy.</li>
-										<li className = "mb-5"><div className = "text-danger">Draw:</div> ALWAYS draw a weapon card from your deck first before attacking. If you see zero cards on your screen, that's your cue to draw a card.</li>
-										<li className = "mb-5"><div className = "text-danger">Shuffle:</div> You have five chances to shuffle your deck. You can choose to shuffle and draw or draw without shuffling.</li>
+										<li className = "mb-5"><div className = "text-danger">Roll:</div> Hit the roll button to roll the dice and get the battle started. If you roll higher than 7, can attack your enemy. Roll below a 7 and your enemy attacks you.</li>
+										<CardImg className = "mb-5" src = "assets/info/battle.png"/>
+										<li className = "mb-5"><div className = "text-danger">Draw:</div> ALWAYS draw a weapon card from your deck first before attacking. If you see 0 or 1 card(s) on your screen, that's your cue to draw a card.</li>
+										<CardImg className = "mb-5" src = "assets/info/battle2.png"/>
+										<li className = "mb-5"><div className = "text-danger">Shuffle:</div> You have 10 chances to shuffle your deck. You can choose to shuffle and draw or draw without shuffling. But shuffle a lot for the chance to draw a high-powered weapon sooner than later.</li>
 										<li className = "mb-5"><div className = "text-danger">Attack:</div> Attack your enemy. After you attack, you will have to roll the dice again to get another chance to attack. Good luck!</li>
-										<li className = "mb-5"><div className = "text-danger">Help:</div> Call your allies for help when things get bad. You can only call them once, however.</li>
-										<li className = "mb-5"><div className = "text-danger">HP Up:</div> Running low on health? You have five items to replenish your health points.</li>
-										<li className = "mb-5"><div className = "text-danger">AP Up:</div> You need action points to attack. If you have none, you can't attack so hit this button to replenish them here.</li>
-										<li className = "mb-5"><div className = "text-danger">Deal:</div> If you run out of cards, hit this button to deal a new weapons deck.</li>
+										<li className = "mb-5"><div className = "text-danger">Help:</div> Call your allies for help when things get bad. You can only call them 3x, however.</li>
+										<li className = "mb-5"><div className = "text-danger">HP Up:</div> Running low on health? You have 8 chances to replenish your health points.</li>
+										<li className = "mb-5"><div className = "text-danger">AP Up:</div> You need action points to attack. If you have none, you can't attack so hit this button to replenish them here. Be careful, you only have 8.</li>
 										<li className = "mb-5"><div className = "text-danger">Health Bars:</div> Pay attention to your health status. Once it's at zero, you're dead.</li>
 										<li className = "mb-5"><div className = "text-danger">Action Points Bars:</div> You AP bar lets you know how much action points you have left.</li>
 										<li className = "mb-5"><div className = "text-danger">Pause:</div> You can pause/resume the game by pressing this button, but you won't be allowed to attack, of course.</li>

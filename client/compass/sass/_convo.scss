@@ -1,7 +1,5 @@
 @import 'variables';
 
-$min-height-c: 74em; 
-
 .convo-wrapper{
     background: url('/assets/bg/scene_texture.jpg'); 
     background-size: cover; 
@@ -11,9 +9,14 @@ $min-height-c: 74em;
     margin-top: -9em; 
     z-index: 0;
     overflow-y: hidden; 
+
+    @media(min-width:$small){
+        min-height: 83; 
+        margin-top: 0em;     
+    }
     
     @media(min-width:$xlg){
-        min-height: $min-height-c;
+        min-height: 76rem; 
         margin-top: 0em;     
     }
     

@@ -20,6 +20,11 @@
     }
 
 
+    @media(min-width:$small){
+        min-height: 83; 
+        margin-top: 0em;     
+    }
+
     @media(min-width:$xlg){
         min-height: $min-height; 
         margin-top: 0em;     
