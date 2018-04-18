@@ -1,0 +1,7 @@
+
+# dependencies
+/node_modules
+
+#ignore doc files
+config.js
+package-lock.json
