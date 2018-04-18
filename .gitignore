@@ -1,12 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-
-#ignore doc files
-.sass-cache
-config.js
-package-lock.json
+server/node_modules/
+client/node_modules/
 
 # testing
 /coverage
