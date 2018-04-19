@@ -13,24 +13,26 @@ import {
   STATS
 } from './types';
 import axios from 'axios';
-const ROOT_URL = 'http://localhost:5000'; 
+
+const PROXY_URL  = 'https://cors-anywhere.herokuapp.com/'
+const ROOT_URL = 'https://thawing-depths-15905.herokuapp.com';
+// const ROOT_URL = 'http://localhost:7070';
+
 
 
 /////////////////////////////////////////////////////////////
 ///////////////////////REGISTER PLAYER///////////////////////
 /////////////////////////////////////////////////////////////
 export const registerUser = (playerData) =>{
-  console.log("THE PLAYER DATA IS BELOW...")
-  console.log(playerData);
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/register`, playerData)
+    axios.post(`${PROXY_URL + ROOT_URL}/register`, playerData)
       .then(response => {
         dispatch({ type: REGISTER, data:response});
         //save the randToken to local storage
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('charName', response.data.token);
       })
-      .catch(error => { console.log(error)});
+      .catch(error => { console.log("Can't access " + ROOT_URL + " .Response blocked.")});
   }
 }
 
@@ -39,11 +41,8 @@ export const registerUser = (playerData) =>{
 ///////////////////////LOGIN PLAYER//////////////////////////
 /////////////////////////////////////////////////////////////
 export const loginUser = (playerData) => {
-  console.log("THE PLAYER DATA IS BELOW...")
-  console.log(playerData);
-
   return function (dispatch) {
-    axios.post(`${ROOT_URL}/login`, playerData)
+    axios.post(`${PROXY_URL + ROOT_URL}/login`, playerData)
       .then(response => {
         dispatch({ type: LOGIN, data:response, playerData});
         //save the randToken to local storage
@@ -55,7 +54,7 @@ export const loginUser = (playerData) => {
           console.log(response.data.msg); 
         }
       })
-      .catch(error => { console.log(error)});
+      .catch(error => { console.log("Can't access " + ROOT_URL + " response Blocked.")});
   }
 }
 
@@ -80,10 +79,8 @@ export const logoutUser = () =>{
 ///////////////////////CHOOSE CHARACTERS/////////////////////
 /////////////////////////////////////////////////////////////
 export const choosePic = (charPicData) =>{
-  console.log(charPicData)
-
   return function (dispatch){
-    axios.post(`${ROOT_URL}/char`, charPicData)
+    axios.post(`${PROXY_URL + ROOT_URL}/char`, charPicData)
     .then(response => {
       dispatch ({type: CHOOSE, data:response}); 
       console.log("**********EXP RESPONSE********")
@@ -101,10 +98,8 @@ export const choosePic = (charPicData) =>{
 ///////////////////////SUBMIT BOARD STATS////////////////////
 /////////////////////////////////////////////////////////////
 export const submitStats = (timeData) =>{
-  console.log(timeData)
-
   return function (dispatch){
-    axios.post(`${ROOT_URL}/stats`, timeData)
+    axios.post(`${PROXY_URL + ROOT_URL}/stats`, timeData)
     .then(response => {
       dispatch ({type: STATS, data:response}); 
       console.log("**********STATS RESPONSE********")
@@ -117,13 +112,12 @@ export const submitStats = (timeData) =>{
   }
 }
 
-
 //////////////////////////////////////////////////
 ///////////////GET BOARD STATS////////////////////
 /////////////////////////////////////////////////
 export const getBoard = () =>{
   return function (dispatch){
-    axios.get(`${ROOT_URL}/board`)
+    axios.post(`${PROXY_URL + ROOT_URL}/board`)
     .then(response => {
       dispatch ({type: BOARD, getboard:response}); 
       console.log("**********STATS RESPONSE********")
@@ -133,6 +127,14 @@ export const getBoard = () =>{
     .catch(error => {console.log(error)}); 
   }
 }
+
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////
 ////////////////////SCENE ACTIONS//////////////////
