@@ -1,35 +1,34 @@
 module.exports = function(router){
-  const mysql = require('mysql'); 
-  var config = require ('../config/config');
-  var connection = mysql.createConnection(config); 
-  connection.connect(); 
+  var connection = require('./database');  
 
   router.post('/stats', (req,res, next)=>{
-    const charData = req.body; 
-
+    console.log(req.body); 
+    const db_picture = req.body.picture;
+    const db_character = req.body.character; 
+    const db_experience = req.body.experience;
+    const db_level = req.body.level; 
     //check the char
-    var selectCharName = "SELECT * FROM `characters` WHERE `character` = ?;";
-    connection.query(selectCharName, [charData.character], (error, results)=>{
-      console.log('**********CHECKING CHAR RESULTS*********') 
-      console.log(results); 
-      if(error) throw error;
+    const selectCharName = "SELECT * FROM `characters` WHERE `character` = ?;";
+    connection.query(selectCharName, [db_character], (error, results)=>{
+      if(error) throw new Error(err);  
       if(results.length > 0){
+        console.log('**********CHECKING CHAR RESULTS*********') 
+        console.log(results); 
         const updateStatsQuery = "UPDATE `characters` SET level = ?, experience = ?, time = ?  WHERE `character` = ?;"; 
-        connection.query(updateStatsQuery, [charData.level, charData.experience, charData.time, charData.character], (error, results)=>{
+        connection.query(updateStatsQuery, [db_level, db_experience, db_time, db_character], (error, results)=>{
           if(error){
-            console.log(error)
-            throw error; 
+            throw new Error(err); 
+            res.json({msg: 'error'}) 
           }
           console.log(results); 
-          
-          console.log("stats updated success!")
+          console.log("*************************");
+          console.log("stats updated successfull!");
+          console.log("*************************");
         }); 
+
         const checkCharName2 = "SELECT * FROM `characters` WHERE `character` = ?;";
-        connection.query(checkCharName2, [charData.character], (error, results)=>{
-          if(error){
-            console.log(error)
-            throw error; 
-          }
+        connection.query(checkCharName2, [db_character], (error, results)=>{
+          if(error) throw new Error(err); 
           results = JSON.stringify(results);
           var resJSON = JSON.parse(results);
           var character = resJSON[0].character;
@@ -48,6 +47,9 @@ module.exports = function(router){
             msg: 'updatedStats'
           })
           console.log(results); 
+          console.log("*************************");
+          console.log("Successfully got db stats!"); 
+          console.log("*************************");
         }); 
       }
     });

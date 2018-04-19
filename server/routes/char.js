@@ -1,27 +1,25 @@
 module.exports = function(router){
-  const mysql = require('mysql'); 
-  var config = require ('../config/config');
-  var connection = mysql.createConnection(config); 
-  connection.connect(); 
+  var connection = require('./database');  
 
   router.post('/char', (req,res, next)=>{
-    const charData = req.body; 
-
+    console.log(req.body);
+    const db_picture = req.body.picture;
+    const db_character = req.body.character; 
+    const db_experience = req.body.experience;
+    const db_level = req.body.level; 
     //check the char
-    var checkCharName = "SELECT * FROM characters WHERE `character` = ?;";
-    connection.query(checkCharName, [charData.character], (error, results)=>{
-      console.log('**********CHECKING CHAR RESULTS*********') 
-      console.log(results); 
-      if(error) throw error;
+    const checkCharName = "SELECT * FROM characters WHERE `character` = ?;";
+    connection.query(checkCharName, [db_character], (error, results)=>{
+      if(error) throw new Error(err);  
       if(results.length > 0){
+        console.log('**********CHECKING CHAR RESULTS*********') 
         results = JSON.stringify(results);
         var resJSON = JSON.parse(results);
+        console.log(resJSON); 
         var character = resJSON[0].character;
         var picture = resJSON[0].picture;
         var experience = resJSON[0].experience;
         var level = resJSON[0].level;
-        console.log(experience);
-        console.log(level);
         res.json({
           character,
           picture,
@@ -30,13 +28,12 @@ module.exports = function(router){
           msg: 'picInserted'
         })
         const updateCharQuery = "UPDATE characters SET picture = ? WHERE `character` = ?;"; 
-        connection.query(updateCharQuery, [charData.picture, charData.character, charData.experience, charData.level], (error, results)=>{
-          if(error){
-            console.log(error)
-            throw error; 
-          }
+        connection.query(updateCharQuery, [db_picture, db_character, db_experience, db_level], (error, results)=>{
+          if(error) throw new Error(err); 
           console.log(results); 
-          console.log("pic updated success!")
+          console.log("*************************");
+          console.log("pic update successful!"); 
+          console.log("*************************");
         }); 
       }
     });

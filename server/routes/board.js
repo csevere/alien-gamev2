@@ -1,17 +1,16 @@
 module.exports = function(router){
-  const mysql = require('mysql'); 
-  var config = require ('../config/config');
-  var connection = mysql.createConnection(config); 
-  connection.connect(); 
+  var connection = require('./database');  
 
-  router.get('/board', (req,res, next)=>{
-    const charData = req.body; 
-
+  router.post('/board', (req,res,next)=>{
+    console.log(req.body);
+    const db_picture = req.body.picture;
+    const db_character = req.body.character; 
+    const db_experience = req.body.experience;
+    const db_level = req.body.level; 
     //check the char
-    var selectCharStats = "SELECT * FROM characters ORDER BY experience DESC LIMIT 10;";
-
-    connection.query(selectCharStats, (error, results)=>{
-      if(error) throw error;
+    const selectCharStats = "SELECT * FROM characters ORDER BY experience DESC LIMIT 10;";
+    connection.query(selectCharStats, [db_picture, db_character, db_experience, db_level], (error, results)=>{
+      if(error) throw new Error(err);     
       if(results.length > 0){
         results = JSON.stringify(results); 
         var resJSON = JSON.parse(results);
@@ -21,7 +20,9 @@ module.exports = function(router){
           results: resJSON,
           msg: 'showStats'
         })
-        console.log("Stats taken from db!"); 
+        console.log("*************************");
+        console.log("Stats successfully taken from db!"); 
+        console.log("*************************");
       }
     });
   });
