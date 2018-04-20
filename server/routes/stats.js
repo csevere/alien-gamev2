@@ -7,6 +7,7 @@ module.exports = function(router){
     const db_character = req.body.character; 
     const db_experience = req.body.experience;
     const db_level = req.body.level; 
+    cond db_time = req.body.time; 
     //check the char
     const selectCharName = "SELECT * FROM `characters` WHERE `character` = ?;";
     connection.query(selectCharName, [db_character], (error, results)=>{
