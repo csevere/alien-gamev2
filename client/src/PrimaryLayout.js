@@ -1,14 +1,42 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import BattleCraftMap from './Components/BattleCraftMap';
-import ChooseCharacter from './Components/ChooseCharacter'; 
-import ConversationBoard from './Components/ConversationBoard';
-import Footer from './Components/Footer';
-import FooterPage from './Components/FooterPage'; 
-import Game from './Components/Game/Game'; 
-import SceneBoard from './Components/SceneBoard';  
-import ScoreBoard from './Components/ScoreBoard';  
-import Welcome from './Components/Welcome';
+import asyncComponent from './AsyncComponent';
+
+const BattleCraftMap = asyncComponent(()=> 
+  import ('./Components/BattleCraftMap').then(module => module.default)
+)
+
+const ChooseCharacter  = asyncComponent(()=> 
+  import ('./Components/ChooseCharacter').then(module => module.default)
+)
+
+const ConversationBoard  = asyncComponent(()=> 
+  import ('./Components/ConversationBoard').then(module => module.default)
+)
+
+const Footer = asyncComponent(()=> 
+  import ('./Components/Footer').then(module => module.default)
+)
+
+const FooterPage  = asyncComponent(()=> 
+  import ('./Components/FooterPage').then(module => module.default)
+)
+
+const Game  = asyncComponent(()=> 
+  import ('./Components/Game/Game').then(module => module.default)
+)
+
+const ScoreBoard  = asyncComponent(()=> 
+  import ('./Components/ScoreBoard').then(module => module.default)
+)
+
+const SceneBoard  = asyncComponent(()=> 
+  import ('./Components/SceneBoard').then(module => module.default)
+)
+
+const Welcome  = asyncComponent(()=> 
+  import ('./Components/Welcome').then(module => module.default)
+)
 
 
 
