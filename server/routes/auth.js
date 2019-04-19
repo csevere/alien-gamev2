@@ -4,6 +4,7 @@ module.exports = function(router){
   var randToken = require('rand-token'); 
 
   ////////////REGISTER THE USER//////////////////
+  //use promises
 
   router.post('/register', (req, res, next)=>{
     console.log("*********** REGISTER INPUT RESULTS************"); 
